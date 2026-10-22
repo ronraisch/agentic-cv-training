@@ -1,0 +1,3 @@
+name,type,owner,trigger,inputs,outputs,permissions,offline_fallback,evaluation_case,status
+research-data-review,skill,training,connector or schema change,task and diff,review evidence,read only,local fixtures,duplicate IDs,example
+research-training-catalog,mcp,training,inspect catalog,split and limit,synthetic records,read only,CSV,invalid limit,example

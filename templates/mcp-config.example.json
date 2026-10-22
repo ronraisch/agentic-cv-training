@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "research-training-catalog": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--project",
+        "/ABSOLUTE/PATH/TO/REPO",
+        "--extra",
+        "mcp",
+        "python",
+        "/ABSOLUTE/PATH/TO/REPO/tools/mcp_server.py"
+      ]
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "items": [
+    {
+      "sample_id": "s1",
+      "scene_id": "scene-a"
+    }
+  ],
+  "next_cursor": "page-2"
+}

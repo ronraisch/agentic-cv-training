@@ -1,0 +1,25 @@
+name: course-ci
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --extra dev --extra mcp --locked
+      - run: uv run ruff check .
+      - run: uv run pytest
+      - run: COURSE_IMPL=reference uv run pytest instructor/test_contracts.py
+      - run: uv run python tools/check_skills.py
+      - run: uv run python tools/check_mcp.py
+      - run: uv run python -m build
+  torch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --extra dev --locked
+      - run: uv pip install torch --index-url https://download.pytorch.org/whl/cpu
+      - run: COURSE_IMPL=reference uv run --no-sync python -m pytest instructor/test_torch_contract.py

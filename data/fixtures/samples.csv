@@ -1,0 +1,5 @@
+sample_id,scene_id,split,label
+s1,scene-a,train,vehicle
+s2,scene-a,test,vehicle
+s3,scene-b,train,building
+s4,scene-c,test,vehicle
