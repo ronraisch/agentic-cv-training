@@ -1,35 +1,41 @@
-# Start here: your team inherited ResearchLab
+# מתחילים כאן — חפיפת חוקר בשישה שבועות
 
-Another research team consumes your retrieval report. Its keys are `sample_id`, `scene_id`,
-`split`. Results must remain explainable six months later. A demo works, but the team has reports
-of missing records, strange metrics, and unstable inference. Your job is to investigate small,
-reviewable changes, using AI while owning every accepted line.
+פתח את הריפו בצד אחד ואת האייג׳נט המאושר בצד שני. בחוץ התוכן מתוחזק ב־GitHub;
+בפנים עובדים בעותק GitLab ברשת סגורה, עם כל הסטאק והמשאבים הפנימיים.
+כל קריאת החובה היא בקבצי הריפו. סרטונים הם אפשרות עם חלופת טקסט מקומית.
 
-1. Install Python 3.11+ and uv using your approved environment. Run the README setup commands.
-2. Create a branch `learner/<name>/lab-00`; capture environment and initial command outputs.
-3. Read [the curriculum](CURRICULUM.md), then `labs/00-foundations.md`.
-4. Create an evidence directory under `artifacts/<your-name>/` in your working copy.
-   It is ignored by default: explicitly `git add -f` sanitized evidence when submitting a PR.
-5. Submit one bounded PR per lab, using the PR template. A peer reviews before the mentor gate.
+1. קרא את [התוכנית ותקציב 240 השעות](CURRICULUM.md).
+2. בצע עם החונך את [Getting Started הפנימי](GETTING_STARTED_INTERNAL.md): לכל שלב
+   פקודות/קליקים, פלט צפוי, סימן הצלחה ועזרה בכשל. החלק נלמד במודרך ולא נבחן כ־DevOps.
+3. קרא את [מפת המערכת והסטטוס](SYSTEM_MAP.md). ResearchLab הקיים הוא תרגול פיתוח;
+   החונך מכין את מערכת ה־CV וממפה נתיבים אמיתיים לפני המטלות החדשות.
+4. התחל את [מטלת שבוע 1](../labs/research/01-getting-started.md) ואת הפרק המקומי שמקושר ממנה.
+5. לכל שינוי פתח MR פנימי קטן וצרף ראיות. הגש דוח שבועי עם זמן בפועל וחסימות.
 
-Use AI for most development. Before accepting a change, explain the contract and the failure it
-prevents. For the short individual checks, close the agent and use the debugger and docs. These
-checks measure comprehension, not syntax recall. You may use Python/NumPy reference docs.
+## סביבת הפיתוח הקיימת מחוץ לרשת
 
-## Existing system
+בסביבה שבה המשאבים הציבוריים זמינים:
 
-`cli` -> `sources` -> Pandas metadata/embedding join -> NumPy ranking -> JSON report.
-`HTTPClient` is the transport boundary. `torch_model` is an optional independent embedding path.
-`tools/mcp_server.py` exposes a bounded synthetic catalog to a coding-agent client.
-Data is synthetic and tiny; `tools/generate_data.py` generates larger local metadata.
+```bash
+uv sync --extra dev --extra mcp --locked
+uv run researchlab
+uv run pytest
+uv run python tools/check_mcp.py
+```
 
-Do not load instructor solutions into the agent. In an assessment copy they are absent.
-If you are stuck, bring a hypothesis, a minimal failing input, and the last observed output.
-A full rewrite is not an acceptable substitute for locating the cause.
+בפנים משתמשים ב־index, CA ו־lock שהחונך אימת. אין הנחה שהפקודה הציבורית מספיקה
+או שצריך לצאת לאינטרנט. אל תגדיר --offline כדי "לתקן" גישה ל־Artifactory: הוא מבטל
+גם הורדת חבילות פנימיות שעדיין לא נמצאות ב־cache.
 
-## Minimum entry knowledge
+## מסלול וראיות
 
-Read functions, list/dict comprehensions, imports, exceptions, context managers and basic classes;
-run shell commands; branch, commit and inspect Git diffs. Lab 00 routes gaps to practice.
-Scientific checks include NumPy axis semantics, array shape/dtype, Pandas joins and missing values.
-You are not expected to know design-pattern names before starting.
+Getting Started→כלי נקודה בתיוג→סגמנטציה ו־CV קלאסי→metrics/XGBoost על tracks→PyTorch
+→גלאי לימודי עם BiFPN→YOLO11→RF-DETR ומחברת inference להגנה מפורטת.
+
+סמן טענות נצפו/מוסקות/טרם אומתו/חסומות. קובץ שנקרא אינו הוכחה שהשירות קורא לו.
+שמור ב־MR ראיות מסוננות, יומן ניסוי ו־ADR לפי הצורך. `artifacts/` מוחרג כברירת מחדל:
+בחר במפורש רק פלטים קטנים ומסוננים להוספה ל־Git. אל תשלח קבצי נתונים או סודות לאייג׳נט.
+
+אין לקרוא `instructor/` במצב חניך. אם נתקעים במחקר: הבא השערה, קלט מינימלי, פלט
+ובדיקה שתפריך אותה. אם נתקעים בתשתיות: עיין בתוצאה הצפויה ופנה לחונך להשלמה מודרכת.
+המסלול המקורי ב־labs/00–11 הוא בנק תרגילים שמשולב בתקציב; אינו קורס נוסף במקביל.

@@ -49,6 +49,7 @@ current shared client needs a documented limitation (Retry-After support, total 
 than designing a generic networking framework. Reward that judgment when justified.
 
 ## Schedule
-Days 1–2: labs 00–01 and first G0; days 3–6: 02–05; day 7: budget and skills;
-day 8: MCP and review; days 9–10: release, capstone, peer transfer and defense.
-Allow extra time for entry-level Python remediation and access delays.
+
+The six-week researcher route in docs/CURRICULUM.md supersedes the original ten-day schedule.
+Use instructor/RESEARCH_GUIDE.md for mentor preparation and notebook defense. Labs 00–11 are
+embedded exercises, not an additional 46-hour course. Internal setup is guided teaching.

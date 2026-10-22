@@ -1,13 +1,35 @@
-# Research Engineering with AI
+# חפיפת חוקר — Research Engineering with AI
 
-**Inherit a research system. Understand it. Change it. Prove it. Hand it over.**
+**שישה שבועות, ריפו אחד, פיתוח עם אייג׳נט והוכחות להבנה.**
 
-A Python onboarding repository for research teams using coding agents. ResearchLab is an
-existing, deliberately imperfect dataset retrieval and embedding pipeline. NumPy, Pandas,
-SQLite, mocked HTTP, optional CPU PyTorch, real local MCP, and reusable agent skills.
-No cloud account, GPU, model download, or API key is required. Use your approved coding agent.
+[מתחילים כאן](docs/START_HERE.md) · [תוכנית שש־שבועית ותקציב שעות](docs/CURRICULUM.md)
+· [Getting Started ברשת הסגורה](docs/GETTING_STARTED_INTERNAL.md)
+· [פרקי לימוד מקומיים](docs/lessons/README.md) · [מפת המערכת](docs/SYSTEM_MAP.md)
 
-**Start with [the learner guide](docs/START_HERE.md).** עברית: [מדריך לחונך ולחניך](docs/README_HE.md).
+| שבוע | תוצר עיקרי |
+|---|---|
+| 1 | סביבה עובדת, GitLab בסיסי ושינוי קטן בתיוג |
+| 2 | תיוג בנקודה דרך שירות ושינוי preprocessing קלאסי |
+| 3 | evaluation ו־XGBoost לסיווג tracks של YOLO |
+| 4 | אימון ודיבוג PyTorch עם הוכחת gradients ו־save/reload |
+| 5 | גלאי לימודי בסגנון EfficientDet עם BiFPN ומחברת ראשונה |
+| 6 | החלפת YOLO11 ב־RF-DETR, מחברת inference מבצעי והגנה לעומק |
+
+240 שעות: 35 קריאה/ניתוח קוד, 5 וידאו או חלופת טקסט, 144 תרגול ותיעוד, 16 חניכה
+ובחינה ו־40 התארגנות/רשת/תקלות. הזמנים אומדנים; אין קורס מלא נוסף מחוץ לתקציב.
+
+התוכן מתוחזק בחוץ ב־GitHub ומיועד גם ל־GitLab פנימי ללא אינטרנט. Python מנוהל ב־uv;
+בפנים משתמשים ב־Artifactory ובסטאק הקיים של הצוות: VS Code, Jupyter, Docker ו־OpenShift.
+Getting Started מלמד מה להריץ, מה לצפות לראות ואיך לטפל בכשל יחד עם החונך.
+GitLab CI/CD מקבל היכרות קצרה בלבד: MR, pipeline ו־job log.
+
+## מה כבר קיים ומה דורש הכנת חונך
+
+קיים קוד ResearchLab סינתטי: retrieval/embedding, NumPy/Pandas/SQLite/HTTP, Torch בסיסי,
+MCP ו־skills. הוא מכיל פגמים מכוונים. מעבדות הפיתוח המקוריות נשמרו ומשולבות בתוכנית.
+מערכת ה־CV (תיוג, YOLO, tracks, train/eval/serve) היא **מפרט למערכת חפיפה**, לא מימוש
+שכבר נבדק כאן. החונך מספק שלד עובד או ממפה מערכת צוות באותו ריפו לפני המחזור.
+[רשימת הכנה ומגבלות](docs/SYSTEM_MAP.md) · [סטטוס אימות](docs/VALIDATION.md).
 
 ```bash
 uv sync --extra dev --extra mcp --locked
@@ -16,44 +38,12 @@ uv run pytest
 uv run python tools/check_mcp.py
 ```
 
-Optional PyTorch CPU track (Linux):
-```bash
-uv pip install torch --index-url https://download.pytorch.org/whl/cpu
-uv run --no-sync python -m pytest instructor/test_torch_contract.py
-```
-The final command deliberately exposes inherited Torch defects. See the learner lab first;
-instructor tests are an answer-bearing resource. On Mac use the platform's normal Torch wheel.
-For dependency-managed installs use `uv sync --extra dev --extra torch --locked`;
-the default PyPI Linux Torch distribution can download large accelerator dependencies.
+הפקודות מתייחסות למסלול הסינתטי הקיים ול־lock החיצוני. בתוך הרשת עובדים לפי מדריך
+הסביבה הפנימי. החבילות למערכת ה־CV אינן מותקנות על ידי הפקודה הזו.
 
-## Route
+[מלכודות](docs/PITFALLS.md) · [עבודה עם אייג׳נט](docs/AGENT_WORK.md)
+· [מקורות רשות](docs/SOURCES.md) · [מדריך חונך](instructor/RESEARCH_GUIDE.md)
+· [תבנית מחברת](templates/notebooks/operational-inference.ipynb)
 
-| Lab | Work | Hours |
-|---|---|---:|
-| 00 | Environment, Python diagnostic, first run, Git | 2 |
-| 01 | Inherit a repo and verify an architecture map | 3 |
-| 02 | NumPy contracts, views, nonfinite values, ranking | 4 |
-| 03 | Data contracts, joins, provenance, scene leakage | 4 |
-| 04 | CSV/SQLite/HTTP adapters, pagination, resilience | 5 |
-| 05 | CPU Torch inference, determinism, memory | 4 |
-| 06 | Bounded agent work, context and local-model budgets | 3 |
-| 07 | Use, improve, and evaluate skills; team tools | 4 |
-| 08 | Connect and extend MCP; trust boundaries | 4 |
-| 09 | Review a misleading patch; test the tests | 3 |
-| 10 | Distribution, compatibility, handover, maintenance | 4 |
-| 11 | Capstone, peer maintenance, individual defense | 6 |
-
-Approximately 46 active hours, plus selected readings and mentor reviews; schedule across
-2–3 weeks or spread over a month. Times are planning estimates, not measured completion times.
-[Curriculum and gates](docs/CURRICULUM.md) · [Concept lessons](docs/ENGINEERING.md) ·
-[Agent practice](docs/AGENT_WORK.md) · [Team tools](docs/TEAM_INTEGRATION.md) ·
-[Mentor guide](instructor/GUIDE.md) · [Sources](docs/SOURCES.md)
-
-The core suite is intentionally incomplete and initially green. Green is a baseline, not a
-certificate of correctness. Instructor contract tests should fail on the starter and pass on
-the reference implementation. Instructor content is visible in this repo; create a learner-only
-copy with `python tools/export_learner.py /tmp/researchlab-learner` before assessment.
-
-This is an original curriculum inspired by public Penn, Stanford and Carpentries materials;
-not affiliated with or endorsed by those institutions, and not a claim to reproduce every class.
-Original code and text: MIT. See [LICENSE](LICENSE) and source mapping for upstream licenses.
+הגרסה הקודמת נשמרת בענפים `v1.0.0` ו־`archive/v1-development-only`.
+קוד וטקסט מקוריים: MIT. אין העתקת קורסים או טענה לתמיכה מטעם מוסדות המקור.

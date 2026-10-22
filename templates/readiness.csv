@@ -1,0 +1,9 @@
+component,owner,status,requested_at,next_check,version_or_commit,checksum,smoke_evidence,fallback
+teaching_system,mentor,NOT_PREPARED,,,,,,existing_researchlab_diagnostics
+python_uv_lock,mentor,UNVERIFIED,,,,,,code_reading
+frontend_lock,mentor,NOT_PREPARED,,,,,,api_contract_work
+model_weights_and_caches,mentor,NOT_PREPARED,,,,,,synthetic_or_classical_provider
+internal_agent_skills_mcp,mentor,UNVERIFIED,,,,,,local_examples
+artifactory_openshift,mentor,UNVERIFIED,,,,,,local_container_only
+nfs_pvc,mentor,UNVERIFIED,,,,,,local_persistence_only
+original_course_mapping,mentor,NOT_LOCATED,,,,,,local_lessons

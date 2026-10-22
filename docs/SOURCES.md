@@ -20,3 +20,23 @@ https://github.com/carpentries-incubator/python-intermediate-development/ . We l
 redistribute their lessons. Penn/Stanford pages being publicly readable does not imply unrestricted
 reuse of all course content. Check original licenses before importing materials. This curriculum
 covers selected ideas, not every lesson taught in either university course. No endorsement implied.
+
+## Six-week researcher route: optional primary references
+
+All required explanations and assignments are local in `docs/lessons/` and `labs/research/`.
+These links are optional provenance/reference links, not required network access from inside.
+The exact CV course previously sent by the user was not recovered; its module/video mapping
+remains open. No invented course coverage or video runtimes are claimed.
+
+| Primary source | Relevant local material |
+|---|---|
+| [EfficientDet paper](https://arxiv.org/abs/1911.09070) | Lesson 05: BiFPN; reduced teaching architecture explicitly differs from full reproduction |
+| [Meta SAM 2 image predictor source](https://github.com/facebookresearch/sam2/blob/main/sam2/sam2_image_predictor.py) | Lesson 02: point-prompt backend; verify the internal pinned version |
+| [RF-DETR source and docs](https://github.com/roboflow/rf-detr) | Lesson 06: backend integration; exact API depends on installed revision |
+| [GitLab job logs](https://docs.gitlab.com/ci/jobs/job_logs/) | Guided pipeline→job→log navigation; internal UI labels may differ |
+| [uv command reference](https://docs.astral.sh/uv/reference/cli/) | Internal Getting Started: network isolation vs cached offline execution |
+| [uv certificates](https://docs.astral.sh/uv/concepts/authentication/certificates/) | Internal Getting Started: approved organizational CA trust |
+
+Local lessons are original explanations. They do not redistribute upstream course content,
+weights or third-party packages. Technical backend examples are contracts, not verified internal
+installations. A mentor records exact internal versions and optional media in the internal copy.

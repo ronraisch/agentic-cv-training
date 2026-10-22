@@ -1,33 +1,84 @@
-# Curriculum and assessment
+# חפיפת חוקר — שישה שבועות מקצה לקצה
 
-Read the assigned lab, its concept material, and selected upstream references. All labs require
-an agent-session evidence sheet and a bounded PR. Maintain a decision log, not a transcript dump.
-Lab order is dependency order; 06 can run alongside 02–05; 07–08 follow a first reviewed patch.
+גרסת תכנון 2, 22.10.2026. הנחה: 30 ימי עבודה × 8 שעות = **240 שעות**.
+בתוכן: **200 שעות**; להתארגנות, העברות לרשת, תקלות והרצות חוזרות: **40 שעות**.
+אלה אומדני תכנון שטרם נוסו על מחזור. יום עבודה קצר יותר מחייב התאמת היקף, לא שעות בית נסתרות.
 
-The detailed worksheets are in labs/. Each has outcomes, reading, constraints, deliverables,
-acceptance evidence, mentor questions and a time estimate. These are active coding hours.
+GitLab בפנים (GitHub בחוץ) פתוח לצד האייג׳נט: קוראים את הפרק המקומי, מנבאים תוצאה, עובדים עם האייג׳נט,
+בודקים בעצמנו, ומגישים שינוי קטן עם ראיות. לא דוחים את הלמידה לאחרי הפיתוח.
 
-## Gates
-- G0, labs 00–01: explain and run existing code; no code-generation-only pass.
-- G1, labs 02–05: reproduce numerical/data/service/model failures and prevent regression.
-- G2, labs 06–08: bound agent tasks, measure budget honestly, demonstrate skills and MCP calls.
-- G3, labs 09–11: reject a bad patch, distribute a package and maintain a peer's change.
+## תקציב זמן מחייב
 
-## Scoring (100)
-Correctness and scientific validity 30; architecture/compatibility 20; evidence and testing 20;
-agent/tool judgment 15; maintainability and handover 15. Pass: >=75 AND all gates met.
-A reproducible wrong scientific result, inability to explain own changes, or bypassing a required
-review/test gate requires remediation regardless of total. The mentor records concrete examples,
-not impressions of how fluent the learner sounds.
+| שבוע | מוקד | קריאה וניתוח קוד | וידאו או חלופת טקסט | תרגול עם אייג׳נט, ניסויים ותיעוד | חניכה ובחינה | התארגנות ובאפר | סך הכול |
+|---|---|---:|---:|---:|---:|---:|---:|
+| 1 | Getting Started ושינוי ראשון בתיוג | 5 | 1 | 14 | 2 | 18 | 40 |
+| 2 | תיוג בנקודה ושינוי preprocessing קלאסי | 7 | 1 | 22 | 2 | 8 | 40 |
+| 3 | evaluation ו־XGBoost על tracks | 6 | 1 | 27 | 2 | 4 | 40 |
+| 4 | PyTorch, אימון ואיתור תקלות | 8 | 1 | 24 | 3 | 4 | 40 |
+| 5 | גלאי בסגנון EfficientDet ו־BiFPN | 6 | 1 | 27 | 3 | 3 | 40 |
+| 6 | YOLO11→RF-DETR, מחברת ובחינת סיום | 3 | 0 | 30 | 4 | 3 | 40 |
+| **סך הכול** | | **35** | **5** | **144** | **16** | **40** | **240** |
 
-## Individual defense, 20–30 minutes
-Without an agent: trace one result to its source, predict a small array operation, explain a tool
-boundary, diagnose one new failure with a debugger, and make a small justified edit. Documentation
-is allowed. Then discuss one rejected agent suggestion and its consequences. This is not a speed
-or memorization test. Retake after focused practice using a new input.
+35 שעות הקריאה כוללות קריאת קוד קיים, שחזור דוגמאות, חישוב ידני והסבר לחונך; אינן
+טענה שקריאת כמה עמודי Markdown לבדה לוקחת שבוע. חמש שעות מדיה הן חלונות לימוד:
+עד 40 דקות וידאו במהירות רגילה ועוד 20 דקות עצירה/סיכום, או שעה של חלופת הטקסט המקומית.
+אין כרגע רשימת סרטונים מאומתת מהקורס המקורי; לכן ברירת המחדל הניתנת לביצוע היא הטקסט.
+אין דרישה לצפות בקורסים מלאים בנוסף לטבלה.
 
-## Python remediation (before G0)
-If lab 00 exposes gaps, spend 2–4 extra hours tracing mutable defaults, list versus iterator,
-exception propagation, with-statements and imports. For NumPy, use shape/axis/views exercises;
-for Pandas, reason about duplicate keys and nulls. Link a small worked example to each repaired gap.
-Torch may be scheduled later for a non-ML role, but it is a required gate for ML researchers.
+כל דיבוג רגיל, כתיבת בדיקות, ריצות אימון קטנות, סיכום ניסוי וסקירת פלט אייג׳נט כלולים
+בתרגול. באפר מיועד לתקלות גישה/סביבה/תורים, לא להחביא עבודה שוטפת. המתנה לאימון יכולה
+לחפוף לקריאה; אותן דקות נספרות פעם אחת. צפייה וקריאה פעילות אינן מתבצעות במקביל לקידוד פעיל.
+
+## רצף העבודה ושערי המעבר
+
+| שבוע | תוצר שחייב להישאר בריפו | תנאי מעבר | מטלה |
+|---|---|---|---|
+| 1 | רשומת סביבה, מפת מסלול ו־MR קטן: בחירת כלי נקודה ושמירת prompt | החניך משחזר בקשה מהדפדפן ל־API ומזהה מה נבדק מקומית בלבד | [01](../labs/research/01-getting-started.md) |
+| 2 | חיבור ספק סגמנטציה, ADR לחלופה, ניסוי preprocessing | קואורדינטות, שמירה וביטול נכונים; ablation עם ובלי השינוי | [02](../labs/research/02-labeling-cv.md) |
+| 3 | דוח מדדים ו־XGBoost למסלולי YOLO | פיצול ללא זליגה, baseline, artifact נטען והסבר טעויות | [03](../labs/research/03-evaluation-tracks.md) |
+| 4 | לולאת אימון PyTorch ויומן דיבוג | overfit קטן, gradients, save/reload ו־inference מוסברים | [04](../labs/research/04-torch.md) |
+| 5 | גלאי לימודי ממומש ומחברת inference ראשונה | BiFPN, assignment, losses ו־decode נבדקו בנפרד וביחד | [05](../labs/research/05-detector.md) |
+| 6 | החלפת גלאי, מחברת inference מבצעי, ADR והגנה | שרשרת artifact→שירות מוכחת בהיקף שנבדק; שינוי בלתי צפוי מוסבר | [06](../labs/research/06-capstone.md) |
+
+בשבוע 1 מתחילים קטן: מצב נקודה, preview ו־undo; אין דרישה להעלות SAM 2 ביום הראשון.
+בשבוע 2 משלימים click→service→mask→annotation. אפשר ספק קלאסי פשוט יותר עם ADR;
+SAM 2 אמיתי הוא בחירה מותנית בזמינות פנימית, לא תנאי שחוסם את כל החפיפה.
+
+הגלאי בשבוע 5 הוא מימוש PyTorch לימודי בסגנון EfficientDet: backbone קטן, שלוש רמות,
+BiFPN, heads, matching, loss ו־decode. לא מתחייבים לשחזר EfficientNet ואת כל משפחת D0–D7
+מאפס או להגיע למדדי המאמר. החניך מממש את רכיבי הגלאי; ספריית detector מוכנה אינה פותרת
+את התרגיל. backbone זמין או קטן שנכתב בשבוע 4 מותר. ההפחתה הזו הכרחית כדי להשאיר מקום
+לפרויקט האינטגרציה בשבוע 6. קיצוץ אופציונלי אינו מבטל matching, loss או בדיקת overfit.
+
+פרויקט הסיום משלב שתי מיומנויות: הבנת הגלאי שנכתב, והחלפת backend במערכת קיימת.
+מחברת שבוע 5 מתחילה על הגלאי הלימודי; בשבוע 6 מרחיבים אותה למסלול המשותף ומדגימים גם
+RF-DETR וגם שחזור YOLO11. אין צורך לאמן שלושה מודלים מאפס בתקציב הזה.
+
+## חלוקה בתוך שבוע וקצב טיפול בחסימות
+
+יום 1 בכל שבוע: קריאה ממוקדת, baseline ותחזית; ימים 2–3: שני שינויים תחומים;
+יום 4: ניסוי וראיות; יום 5: ביקורת, הסבר והשלמות. אין חלוקת שעות יומית קשיחה כשגישה חסומה.
+בשבוע 6 מתוך 30 שעות התרגול: 4 מיפוי ו־baseline, 8 adapter ואימון קצר, 6 evaluation
+והשוואת שירות, 8 מחברת וראיות, 4 תיקונים. ארבע שעות הבחינה נפרדות.
+
+בודקים חיבור והרשאות למשאבים הקיימים ביום הראשון ומגישים בקשות העברה רק לפריטים חסרים, ומקדימים את חבילות שבועות 4–6. אחרי חצי יום
+חסימה מעדכנים בעלים וחלופה; בסוף כל שבוע רושמים planned/actual/remaining.
+אם נוצלו יותר מ־40 שעות באפר, החונך מצמצם היקף מותר (מספר ניסויים, SAM 2 אמיתי,
+גודל גלאי/דאטה), ומציין שערים חסומים. לא מסמנים פריסה אמיתית כהצלחה בעקבות mock.
+אם אין גישה עד שבוע 6, אפשר להשלים את ההערכה המקומית אך ההסמכה מקצה לקצה נשארת BLOCKED.
+
+## הערכה
+
+נכונות מחקרית 30; הבנת קוד ומחברת 25; ראיות ויכולת שחזור 20; אינטגרציה ותחזוקה 15;
+שיקול דעת בעבודה עם אייג׳נט 10. מעבר: 75 ומעלה וכל ששת השערים עברו בהיקף המוצהר.
+זליגת מידע, תוצאה שאי אפשר לשחזר או אי־יכולת להסביר קוד קריטי מחייבות תיקון גם בציון גבוה.
+הבחינה המפורטת נמצאת ב[מדריך החונך](../instructor/RESEARCH_GUIDE.md).
+
+## קשר למסלול הקודם
+
+הגרסה המקורית שמורה בענפים `v1.0.0` ו־`archive/v1-development-only`.
+מעבדות `labs/00`–`11` נשארות בנק תרגילים ממוקד, ואינן עוד 46 שעות שמוסיפים למסלול:
+00–01 משולבות בשבוע 1; 02–04 בשבועות 2–3; 05 בשבוע 4; 06–09 לאורך כל שינוי;
+10 בשבועות 1 ו־6. capstone 11 הישן הוא תרגיל חלופי, לא פרויקט סיום נוסף.
+לכל מטלה יש [פרק לימוד מקומי](lessons/README.md), [מפת מערכת](SYSTEM_MAP.md),
+[רשימת מלכודות](PITFALLS.md) ו[רשימת הכנה לרשת](NETWORK_SETUP.md).

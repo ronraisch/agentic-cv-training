@@ -1,6 +1,12 @@
 # ResearchLab contributor contract
 This is a teaching repository with intentionally defective application code.
-Read docs/START_HERE.md and the assigned lab before changing behavior. Fix only the assigned issue;
+Read docs/START_HERE.md and the assigned lab before changing behavior.
+The current researcher route is docs/CURRICULUM.md and labs/research/. The CV system paths
+in docs/SYSTEM_MAP.md are proposed until a mentor maps real code; do not claim they exist.
+Support public GitHub and closed-network GitLab. Required learning must work from local text;
+internal resources are available but require guided connection checks. Setup is teaching, not
+a DevOps assessment. Use MR terminology internally; only basic CI log navigation is required.
+Label material claims observed, inferred, unverified or blocked with scope-specific evidence. Fix only the assigned issue;
 do not repair the entire curriculum or weaken tests to get green. Do not read instructor/ unless
 explicitly acting as an instructor. That directory is a pedagogical boundary, not access control.
 

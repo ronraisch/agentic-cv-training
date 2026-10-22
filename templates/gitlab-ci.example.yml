@@ -1,0 +1,15 @@
+# Mentor template, NOT an active or validated internal pipeline.
+# Copy/adapt to .gitlab-ci.yml inside GitLab after preflight.
+# Set INTERNAL_ONBOARDING_IMAGE to an internal image pinned by digest, containing
+# Python, uv, the locked core/dev/MCP environment and this project's dependencies.
+# No dependency installation or public image pull occurs in the jobs below.
+image: "$INTERNAL_ONBOARDING_IMAGE"
+stages: [check]
+smoke:
+  stage: check
+  script:
+    - uv run --no-sync researchlab
+    - uv run --no-sync pytest
+    - uv run --no-sync ruff check .
+# A runner and its installed dependencies must already be configured by the mentor.
+# This is minimal branch CI, not a claim that merge-request pipelines are enabled.
