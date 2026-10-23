@@ -1,36 +1,28 @@
-# חלק 3 — הערכה ומודלים קלאסיים
+# Part 3 Evaluation and classical models
 
-חומר חובה: [evaluation ו־ML](../../docs/lessons/03-metrics-ml.md).
+Required learning: [Evaluation and ML](../../docs/lessons/03-metrics-ml.md).
 
-## א. האם יישור הלוחית עזר?
+## Did LPR rectification help
 
-חזור למימוש LPR מחלק 2 ובנה evaluation שמאפשר להחליט אם להשתמש בו.
-השווה baseline ו־Hough rectification עם אותו detector ואותו recognizer, על אותן דוגמאות.
-קבע מדדים, פיצולים וספי החלטה לפני test; הצג גם שגיאות, מקרי כשל וזמן עיבוד.
-אין לזרוק מהמדידה את הדוגמאות שהיישור נכשל בהן.
+Evaluate the part-2 change against the original path using the same detector, recognizer and examples.
+Predefine splits, metrics and thresholds. Include failed rectification, fallback, regressions and
+processing time. Do not report only successful crops.
 
-## ב. תנועות ב־tracklets
+## Tracklet motion classification
 
-לצוות יש tracklets מווידאו ותיוג של סוגי תנועה. אפיין עם החופף מה מסווגים,
-באיזה רגע צריך לקבל החלטה ומה המידע שזמין אז. אמן מודל קלאסי קטן, למשל XGBoost,
-מול baseline פשוט. נדרש evaluation ושמירת המודל ודרך חישוב המאפיינים.
-אין חובה לשנות tracker או לאמן detector מחדש.
+Given tracklets and independent motion labels, clarify the target, decision time and available
+information. Train a small classical model such as XGBoost against a simple baseline. Evaluate it,
+store feature computation and reload the selected artifact. Do not retrain the detector/tracker.
 
-## ג. ציון שימושי יותר לאיתורים בפענוח
+## Detection rescoring
 
-קבל תוצרים של detector קפוא, תיוגי אמת ומטא־דאטה של האיתור ותמונת הלוויין.
-אמן מודל קטן שמחזיר ציון חדש בעזרת הציון המקורי והמאפיינים שתבחר. לדוגמה, ייתכן
-שמידות האיתור ביחס ל־GSD או זווית הצילום עוזרות לזהות מקרים שבהם הציון המקורי מטעה.
-אלה השערות לבדיקה: אל תכניס חוק פיזיקלי או כלל זווית שלא נבדק כתחליף לתוויות.
+Given a frozen detector's predictions, independent GT and detection/satellite-image metadata,
+learn a new score from the old score and useful metadata. Physical size relative to GSD and viewing
+angle are hypotheses, not universal rules. Compare raw score, a simple baseline and the model;
+ablate metadata. State whether the aim is ranking, an operating threshold or probability calibration.
+Use a small prepared dataset and limited configurations, not a new detector project.
 
-השווה לציון המקורי ול־baseline פשוט, ובדוק אילו מאפיינים באמת מוסיפים ערך.
-בדוק האם המטרה היא דירוג, סף עבודה או הסתברות מכוילת; אלה אינן אותה דרישה.
-נדרש evaluation גם כאן. היקף בסיסי: detector קפוא, מעט מאפיינים וניסוי קטן,
-בלי חיפוש מודלים גדול. קבל מהחופף דאטה ותוצרים מוכנים.
-
-## הגשה וסשן
-
-לכל אחת משלוש המשימות: הגדרת target, data/split provenance, baseline, ניסוי,
-מדדים ומגבלות. למודלים: artifact, schema של מאפיינים וטעינה חוזרת במסלול ההפעלה.
-בסשן תסביר פיצולים, זליגה, בחירת פרמטרים, משמעות המדדים ודוגמה חדשה.
-כיוון שלא שיפר אינו כישלון אם המימוש והניסוי תקפים והמסקנה מדויקת.
+For all three deliver target definition, grouped data/split provenance, baseline, experiment, metrics
+and limitations. For learned models include feature schema, artifact and fresh-load inference.
+Use an agent to challenge leakage and confounders; verify its argument with a source or small example.
+A valid non-improvement is acceptable. The individual teach-back is separate from the MR review.

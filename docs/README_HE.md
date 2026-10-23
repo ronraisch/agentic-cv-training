@@ -1,12 +1,5 @@
-# מדריך לתוכנית החפיפה
+# Language note
 
-המסלול הנוכחי הוא צוות פענוח: וידאו וחישה מרחוק במונורפו.
-
-- [תוכנית שישה שבועות](CURRICULUM.md)
-- [חומר חובה וסשנים אישיים](READING_AND_SESSIONS.md)
-- [Getting Started פנימי](GETTING_STARTED_INTERNAL.md)
-- [פרקי לימוד](lessons/README.md)
-- [מצב המערכת](SYSTEM_MAP.md)
-
-החופף מלווה התקנות וגישה ומוסר משימות כפרודקט. עבודה אג׳נטית ומימוש אינם תחליף
-לידיעת חומר הקריאה; את הבנתו בודקים בנפרד בסשנים אישיים.
+The active curriculum is now in English because mixed Hebrew/English Markdown rendered unreliably
+across GitHub, GitLab and notebook viewers. Use [START_HERE](START_HERE.md).
+The original Hebrew versions remain in Git history; original Drive documents remain unchanged.

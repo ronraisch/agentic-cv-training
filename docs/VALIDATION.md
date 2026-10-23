@@ -1,88 +1,45 @@
-# אימות עדכון צוות פענוח — 23.10.2026
+# Validation record 23 October 2026
 
-## נבדק בעדכון הנוכחי
+This update changes curriculum, mentor operations, language and publication materials. It does not
+implement the Peanuach application or claim new model-training results.
 
-- קישורי Markdown מקומיים בכל הריפו: תקינים.
-- תקציב שבועי: 6×40=240; חלוקה 35 קריאה + 5 מדיה/טקסט + 144 מימוש + 16 חניכה + 40 באפר.
-- תקציבי המשימות המפורטים מסתכמים ב־144 שעות ותואמים לחלוקה השבועית.
-- תבנית notebook: JSON ו־cell IDs תקינים; נשארה תבנית לא ממומשת ולא מורצת.
-- tools/export_learner.py: ניתוח syntax של Python ו־הרצה על יעד חדש מחוץ לריפו עברו.
-- תוכן ההפצה נבדק בפועל: אין instructor/, MAINTAINERS.md או Git history; אין handouts
-  של דרישות וידאו מאוחרות. מפת הפתרון לפוליגונים נשארת אצל החופף; בקשת החניך קצרה.
-- חומר הקריאה/מפת הסשנים וקישורים בהפצת החניך קיימים. אין dangling links לחומר חופף.
-- git diff --check: עבר.
+## Checks for this update
 
-הבדיקות בוצעו מקומית עם Python standard library, ללא התקנת תלויות או ניסיון לעקוף
-את חסימת ההתקנה שתועדה בעבר. לא שונה קוד המחקר/runtime או lock התלויות המקורי.
-לא הורצו מחדש pytest/ruff/MCP runtime; אין כאן טענת pass חדשה שלהם.
+The publication checks verify English active content, local Markdown links, the 240-hour trainee
+budget, the 144-hour project allocation and the 12-hour mentor budget. The learner export is checked
+for absence of mentor answers, later video releases and Git history. Notebook JSON stays an
+unexecuted scaffold. Drive publications are verified after creation. See the final recorded results.
 
-## גבולות הראיות
+The source folder and active learner/mentor/developer documents were read. Old 2021-2024 and
+Archive were not read. Original Drive items were not edited or deleted. Creating a child folder in
+the source collection returned 403 insufficient parent permission; a separate My Drive workspace
+was created instead. No permission modification or bypass was attempted.
 
-זה עדכון תיעוד, מטלות, handouts ותבניות. אין מערכת פענוח ממומשת, training results,
-מודלים חדשים או inference שהורץ. החופף עדיין צריך לספק שלד מערכת/דאטה לפני מחזור.
-אין גישה ל־GitLab, Confluence, OpenShift או Artifactory של הצוות; ה־Getting Started
-הוא מדריך לאימות שם, לא connectivity test שכבר עבר. הזמנים הם אומדנים ללא pilot.
+## Limits
 
-המסמך לחופף בדרייב והקישור לקורס הקודם לא אותרו/נקראו. מפת הסשנים היא מתכונת
-מוצעת על סמך ההנחיות הגלויות, ואינה מוצגת כתוכן שאומת מול המסמך המקורי.
-התיעוד הטכני של Hough/homography וכיול נבדק מול מקורות ראשוניים בקישורי SOURCES;
-אין טענה שסקר עננים מלא או השוואת מודלי וידאו כבר נעשו — אלה משימות החניך.
+No internal GitLab/Artifactory/OpenShift/Confluence/client is accessible here. Approved skill
+installation and real client activation are not verified; the curriculum specifies their stage-0
+checks. A complete Peanuach baseline must still be supplied by the mentor. Timing is a planning
+budget without a cohort pilot. Videos were not watched and precise time savings are not measured.
+The skill references were read; the complete upstream packages were not installed or executed here.
 
-## רשומות עבר — אינן בדיקות שבוצעו מחדש היום
+Application code and its dependency lock were not changed. No dependency download or attempt to
+bypass the prior rejected public-PyPI installation was made. Core pytest/ruff/MCP runtime checks
+were not rerun for this documentation change. Older validation results remain in Git history and
+must not be represented as fresh test results.
 
-# אימות עדכון מסלול החוקר — 22.10.2026
+## Recorded results
 
-## נבדק בעדכון הנוכחי
+PASS: active Markdown/CSV/notebook content contains no Hebrew characters; relative Markdown links
+resolve; each weekly row totals 40 hours and all six total 240. Category totals are 28 core study,
+4 media/substitute, 144 project, 12 research-with-agent, 12 mentor reserve and 40 buffer hours.
+Project allocations independently sum to 144; six 120-minute mentor budgets sum to 12 hours.
+Notebook cells remain unexecuted with no outputs. Git whitespace checks passed.
 
-- קישורי Markdown מקומיים: כל היעדים קיימים.
-- סכומי שעות: כל שבוע 40; 35 קריאה + 5 מדיה/טקסט + 144 תרגול + 16 חניכה + 40 באפר = 240.
-- תבנית מחברת: JSON תקין, cell IDs ייחודיים, ללא outputs או execution counts.
-  זו תבנית לא ממומשת; inference ו־Restart & Run All שלה אינם נבדקים כהצלחה.
-- תבנית GitLab CI: YAML parsed בהצלחה; אינה pipeline פעיל ולא הורצה ב־GitLab.
-- validator של skills קיימים: עבר לשתי הדוגמאות. לא נטענה מכך הפעלה באייג׳נט פנימי.
-- git diff --check: עבר.
-- בדיקת learner export: מסירה של תבנית המחברת והחומרים המקומיים, ללא instructor או Git history.
+PASS: fresh learner export omits instructor files, maintainer notes and Git history. The polygon
+brief does not reveal migration, schema or crop/training acceptance requirements.
 
-## לא אומת כעת
-
-התקנת `uv sync` לתלויות הציבוריות לא הושלמה: automatic approval review דחה אותה
-בשל פנייה ל־PyPI במסגרת workflow המיועד גם לרשת סגורה. לא נעשה ניסיון לעקוף.
-ניסיון CLI ללא התקנות, באמצעות ספריות runtime הקיימות, נעצר ב־ModuleNotFoundError
-עבור httpx. לא הורצו מחדש pytest/ruff/MCP runtime ואין לייחס להם pass בעדכון הזה.
-השינוי הנוכחי הוא תיעוד, מטלות ותבניות; קוד היישום והתלויות המקוריים לא השתנו.
-
-אין גישה לרשת הצוות. GitLab פנימי, Artifactory, OpenShift, CA, NFS/PVC, VS Code,
-Jupyter פנימי, SAM 2/RF-DETR/YOLO ו־pipeline אימון אמיתי לא נבדקו כאן.
-מפת מערכת ה־CV היא מפרט לחונך עם נתיבים מוצעים, לא קוד שנמצא או מערכת שמומשה.
-המשתמש מסר שהסטאק זמין ברשת; זו עובדה מדווחת, לא תוצאת בדיקת connectivity שלנו.
-הזמנים וההיתכנות של הגלאי הלימודי דורשים pilot; אין אומדן מדוד ממחזור אמיתי.
-קישור הקורס המקורי לא אותר; הפרקים המקומיים נכתבו ללא טענה למיפוי מאומת לקורס ההוא.
-
-## רשומת אימות קודמת, שנשמרה מהגרסה המקורית
-
-הטקסט להלן הוא דיווח קודם של הריפו, **לא ריצות שבוצעו מחדש בעדכון זה**.
-
-### Previous validation record — 2026-10-22
-
-Validated on Linux, CPython 3.12.14, NumPy 2.5.4, Pandas 3.0.6, MCP 2.3.0,
-and optional Torch 2.14.1+cpu. Other supported Python/OS combinations were not run here.
-
-- Locked core+dev+MCP installation: passed.
-- Starter smoke/infrastructure suite: 5 passed.
-- Reference contract suite: 10 core + 2 Torch tests passed.
-- Starter advanced core contracts: 9 failures, 1 pass, as intended.
-- Starter Torch contract suite: 2 failures, as intended.
-- Real stdio MCP initialization, tool discovery, invocation and invalid-limit error: passed.
-  The invalid-limit call deliberately produces an error log on stderr.
-- Ruff static checks: passed.
-- Python sdist and wheel build: passed.
-- Wheel installed in a separate fresh environment outside checkout; downstream report: passed.
-- CLI fixture report and deterministic 10,000-row CSV/SQLite generation: passed.
-- Bad-review patch: git apply --check passed.
-- Learner export strips instructor directory and Git history; removes instructor CI steps.
-- Skill metadata and referenced files: checked; real learner/harness behavior not user-tested.
-
-The core runtime is verified. Curriculum timing, learning outcomes and internal team tool onboarding
-still require a first cohort/mentor pilot. This is not a completed student solution. Concurrency,
-additional source integration, the MCP extension and final handover are intentionally assignments.
-GitHub Actions configuration is included but has not run on GitHub before repository publication.
+PASS: three DOCX publication sources were title-sanitized, rendered and visually inspected.
+All three were imported as native Google Docs in the new workspace and their content read back.
+The public syllabus and mentor-only document links are recorded in README and MAINTAINERS.
+These checks validate the published plan, not learner time estimates or internal runtime access.

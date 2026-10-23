@@ -28,3 +28,7 @@ activation rather than assuming a directory is auto-loaded. A skill cannot grant
 Before completion: reproduce, patch, run relevant tests, inspect diff, report limitations honestly.
 Core commands: uv run pytest; uv run ruff check .; uv run researchlab.
 Do not claim skipped optional checks passed. Keep commits bounded and explain decisions.
+
+Active curriculum documentation uses English. Research assistance includes learning concepts,
+challenging hypotheses and designing falsifying experiments, not just producing code. Follow
+docs/RESEARCH_WITH_AGENTS.md and keep the trainee able to explain the result independently.

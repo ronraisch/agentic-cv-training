@@ -1,26 +1,26 @@
-# מתחילים כאן — צוות פענוח
+# Start here
 
-פתח את הריפו בצד אחד ואת האייג׳נט המאושר בצד שני. התוכן המקומי הוא מקור הקריאה;
-החופף הוא גם איש הקשר וגם הפרודקט שמוסר לך משימות במונורפו.
+Open the repository alongside the approved agent. Start from the syllabus and the required-learning
+map; reading/video resources may live in Drive, while tasks and reproducible evidence live here.
 
-1. קרא את [התוכנית](CURRICULUM.md) ואת [רשימת חומר החובה והסשנים](READING_AND_SESSIONS.md).
-2. בצע עם החופף את [חלק 0](../labs/research/00-installations.md) ו־Getting Started פנימי:
-   VS Code, OpenShift, GitLab, Artifactory, Confluence ו־Jupyter. לכל שלב תוצאה צפויה.
-3. קרא את [מפת התרחיש ומצב המימוש](SYSTEM_MAP.md), וקבל מהחופף ריפו לימודי עובד ומפת קוד.
-4. קרא את חומר חלק 1 וקבל את [בקשת הפרודקט](../labs/research/01-polygons.md).
-5. המשך לפי החופף אל [CV](../labs/research/02-classical-cv.md), [ML](../labs/research/03-evaluation-ml.md),
-   [עננים](../labs/research/04-clouds.md), [וידאו](../labs/research/05-video.md) ו־[סיום](../labs/research/06-handover.md).
+1. Read CURRICULUM.md and READING_AND_SESSIONS.md.
+2. Complete [stage 0](../labs/research/00-installations.md) with the mentor, including visualization
+   skills, VS Code, GitLab, Artifactory, OpenShift, Confluence and Jupyter.
+3. Obtain the working teaching baseline and real paths from the mentor. SYSTEM_MAP.md records what
+   is specified versus implemented; a filename in a plan is not evidence of working code.
+4. Receive the [labeling product request](../labs/research/01-polygons.md).
+5. Continue with [CV](../labs/research/02-classical-cv.md), [ML](../labs/research/03-evaluation-ml.md),
+   [clouds](../labs/research/04-clouds.md), [video](../labs/research/05-video.md) and
+   [handover](../labs/research/06-handover.md) as released by the mentor.
 
-עבוד עם האייג׳נט על שינויים תחומים וקרא כל diff. שמור ב־MR ראיות, hypothesis ו־limitations,
-והשתמש ב־templates/claim-evidence.md ובדוח השבועי. שאל שאלות על צורך ותוצאה מול הפרודקט;
-אל תמלא פער במפרט בהנחה שקטה. בסשנים האישיים סוגרים את האייג׳נט ומסבירים בעצמנו.
+Use an agent for research learning as well as coding. Follow RESEARCH_WITH_AGENTS.md; bring a
+small hypothesis and evidence packet to the scheduled mentor window. Queue product questions
+instead of assuming the mentor is available every day. Do not guess requirements silently.
 
-אין לקרוא חומר חופף בזמן המשימה או להזין אותו לאייג׳נט. היכן שהריפו מכיל אזור חופף,
-זו הפרדה פדגוגית ולא הרשאת גישה. עותק החניך מופץ בלי החומר הזה ובלי היסטוריית מקור.
+Do not read mentor materials or supply them to a learner agent. The distribution tool removes
+mentor files, later product releases and Git history; the original public repository itself is
+not access-controlled. Submit a bounded MR, inspect its diff and show scope-specific evidence.
 
-טענות מהותיות מסומנות נצפה/מוסק/טרם אומת/חסום עם היקף הראיה. כשל שירות אינו תוצאה
-שלילית, וקריאת פונקציה אינה הוכחה שהשירות מפעיל אותה. חסימות תשתית פותרים יחד.
-`artifacts/` מוחרג כברירת מחדל: מוסיפים במפורש רק evidence קטן ומסונן, בלי סודות או נתונים פרטיים.
-
-המסלול הקודם נשמר בהיסטוריה. אין חובה ל־SAM 2/EfficientDet/RF-DETR בנוסף למשימות הנוכחיות.
-מעבדות הפיתוח הישנות הן בנק תרגילים במידת הצורך, במסגרת הזמן ולא מעליו.
+Label claims observed, inferred, unverified or blocked. A swallowed exception is not a negative
+result, a read function is not a verified live path, and a local test is not an internal deployment.
+Only add small sanitized evidence from artifacts/. Never send internal data to an unapproved model.

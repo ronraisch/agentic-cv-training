@@ -1,16 +1,17 @@
-# סיום — להסביר ולהעביר מערכת פענוח
+# Handover Explain and transfer the system
 
-סגור את המשימות שנמסרו לך עם החופף ואת רשימת הסשנים האישיים. אין משימת detector
-נוספת שמתווספת בסוף למסלול הזה.
+Close the released tasks and concept checks with the mentor. There is no additional detector
+implementation at the end of this syllabus.
 
-בנה מחברת שמריצה את מסלול ה־inference של פרויקט הווידאו הנוכחי, באותו קוד ובאותה
-גרסת artifact של השירות. עליה להראות קלט וזמנים, דגימת פריימים/קטעים, transforms,
-ייצוג, מודל/שאלות ותשובות, טיפול בחוסר מידע ופלט השירות. פתח גם helpers כדי להסבירם.
-הצג דוגמה חדשה ו־Restart & Run All ללא hidden state או הורדות runtime.
+Create a notebook running the current video inference path with the service's actual code/artifact
+revision. Show input/time, sampling, transforms, representation, decisions, unknown/error behavior
+and service output. Explain every critical line, including imported helpers. Demonstrate a new input
+and Restart and Run All without hidden state or runtime downloads.
 
-צרף ADR של הבחירה, הערכת איכות ועלות בתנאים שהוגדרו, פערים שטרם אומתו ודרך שחזור
-במונורפו. עמית צריך להפעיל על סמך הריפו בלי הסבר בעל־פה. פריסה נעשית בסביבת לימוד
-עם החופף; container מקומי אינו הוכחה שהשירות הפנימי נבדק.
+Include the ADR, quality/cost evidence, unresolved assumptions and exact replay commands. A peer
+must be able to reproduce without oral context. Internal deployment uses a teaching environment
+with the mentor; a local container is not proof of an internally verified endpoint.
 
-בסשן הסיום: הסבר שורות במחברת, נבא תוצאה, בדוק תקלה חדשה והעבר ידע לעמית.
-מתכונת הסשן נמצאת במפת חומר החובה. אין צורך בשינון syntax או בהקמת CI/CD.
+The final teach-back uses two separate 40-minute windows, not an unplanned multi-hour meeting.
+Explain lines, predict a new result, investigate a bounded failure and transfer knowledge.
+Syntax memorization and building CI/CD are not assessment goals.

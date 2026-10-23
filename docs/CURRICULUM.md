@@ -1,98 +1,97 @@
-# חפיפת חוקר בצוות ״פענוח״ — שישה שבועות
+# Six-week researcher syllabus
 
-עדכון 23.10.2026. תרחיש לימודי: צוות שעוסק בווידאו ובחישה מרחוק מלוויינים וסנסורים
-מוטסים, ועובד במונורפו. פרטי התרחיש אינם טענה על מערכת הצוות האמיתית.
+The teaching scenario is a team working with satellite imagery, airborne sensors and video.
+Required concepts are assessed through short individual teach-back sessions. Practical delivery
+is assessed separately. Agent-assisted research learning is expected, not just code generation.
 
-יש שני מסלולים משלימים: **חומר חובה שכל נחפף לומד ונבחן עליו בסשנים אישיים**,
-ו**משימות מימוש עם אייג׳נט במונורפו**. הצלחה במימוש אינה פוטרת מידיעת החומר;
-מבחן ידע אינו תחליף למימוש עובד. [מפת הקריאה והסשנים](READING_AND_SESSIONS.md)
-מפרידה בין שתי הדרישות. כל קריאת החובה מקומית בריפו, למעט סרטון שנבחר עם חלופת טקסט.
+## Scope and priorities
 
-## חלקי החפיפה
+Keep Python/array/data contracts, evidence discipline, image geometry, evaluation, classical ML,
+training/inference fundamentals, representation learning, video/time and customer-facing decisions.
+Choose one learning route per concept. Do not watch both Stanford 2025 and Michigan 2019, read
+several introductory blogs and then repeat the same explanation in a mentor session.
+See [the reading plan](READING_AND_SESSIONS.md) for exact local sections and substitutions.
 
-| חלק | תוכן חובה | משימה במונורפו |
-|---|---|---|
-| 0 — התקנות | סביבת עבודה ומשאבים פנימיים | VS Code; גישה ל־OpenShift, GitLab, Artifactory ו־Confluence; Jupyter והסטאק הקיים |
-| 1 — פיתוח וסטאק | Python/TS, ארכיטקטורה, Git/MR, אייג׳נט, שירותים וחוזים | ״צריך רק להוסיף תמיכה בפוליגונים באתר תיוגים״ |
-| 2 — CV קלאסי | קצוות, Hough, טרנספורמציות, התאמת תמונות וגאומטריה | יישור לוחית ל־LPR; חיבור שתי תמונות מסנסור מוטס |
-| 3 — evaluation ו־ML | תכנון ניסוי, מדדים, פיצולים, מודלים קלאסיים | evaluation ל־LPR; סיווג תנועות tracklets; מודל ניקוד לאיתורים |
-| 4 — DL ומחקר לצרכן | embeddings, אימון, segmentation, וידאו, בחירת מודל ו־serving | הצעת מחקר לסגמנטציית עננים; אב־טיפוס לסיווג קטעי וידאו בני 10 שניות |
+| Part | Practical assignment |
+|---|---|
+| 0 | Guided internal setup and visualization-skill installation/teach-back |
+| 1 | Product request in the labeling application |
+| 2 | Hough-based LPR preprocessing; stitch two airborne images |
+| 3 | Evaluate the LPR change; classify tracklet motion; learn a detection rescorer |
+| 4 | Short cloud-segmentation proposal; video classification with staged customer requests |
+| Handover | Reproducible operational video notebook and peer transfer |
 
-חיבור **שתי תמונות הוא חובה**. יותר משתיים הוא בונוס שמתחיל רק באישור החופף,
-בתוך זמן שהתפנה או במקום הרחבה אחרת. לא מציגים בונוס כדרישת מעבר.
-סקר העננים הוא הצעה מנומקת; אימון מערכת עננים מלאה אינו חלק מדרישות המימוש.
-מודל הניקוד הוא תרגיל קטן על detector קפוא ותוצרים מוכנים, ולא פרויקט לאימון detector חדש.
+Two-image stitching is required. More images require mentor approval and replace another optional
+extension. Cloud work is an eight-hour proposal, not another full training project. Rescoring uses
+a frozen detector and prepared data. The previous SAM/EfficientDet/RF-DETR assignments do not
+remain additional requirements.
 
-## תקציב 240 שעות: חמישה שבועות תוכן ושבוע באפר מצטבר
+## Trainee time budget
 
-הנחה: 30 ימי עבודה × 8 שעות; בלי שעות בית נוספות. הזמן טרם נמדד במחזור אמיתי.
+Assume 30 working days at eight hours: 240 hours. These are planning caps, not measured cohort times.
 
-| שבוע | מוקד | קריאה וניתוח קוד | וידאו או חלופת טקסט | מימוש, ניסויים ותיעוד | סשנים וחניכה | באפר | סך הכול |
-|---|---|---:|---:|---:|---:|---:|---:|
-| 1 | התקנות, חומר פיתוח ותחילת משימת התיוג | 5 | 1 | 14 | 2 | 18 | 40 |
-| 2 | השלמת התיוג ותחילת CV קלאסי | 7 | 1 | 22 | 2 | 8 | 40 |
-| 3 | LPR, חיבור שתי תמונות והערכת LPR | 6 | 1 | 27 | 2 | 4 | 40 |
-| 4 | tracklets, ניקוד איתורים ו־evaluation | 8 | 1 | 24 | 3 | 4 | 40 |
-| 5 | הצעת עננים ואב־טיפוס וידאו | 6 | 1 | 27 | 3 | 3 | 40 |
-| 6 | המשך משימת וידאו, אינטגרציה, מחברת והעברת ידע | 3 | 0 | 30 | 4 | 3 | 40 |
-| **סך הכול** | | **35** | **5** | **144** | **16** | **40** | **240** |
+| Week | Focus | Core study | Video or substitute | Project work | Research with agent | Mentor contact/prep budget | Buffer | Total |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| 1 | Setup, skills and development | 5 | 1 | 12 | 2 | 2 | 18 | 40 |
+| 2 | Labeling feature and geometry | 6 | 1 | 21 | 2 | 2 | 8 | 40 |
+| 3 | LPR, stitching and LPR evaluation | 5 | 1 | 26 | 2 | 2 | 4 | 40 |
+| 4 | Tracklets, rescoring and evaluation | 5 | 0 | 27 | 2 | 2 | 4 | 40 |
+| 5 | Cloud proposal and video baseline | 5 | 1 | 27 | 2 | 2 | 3 | 40 |
+| 6 | Video requirements and handover | 2 | 0 | 31 | 2 | 2 | 3 | 40 |
+| **Total** | | **28** | **4** | **144** | **12** | **12** | **40** | **240** |
 
-35 שעות הקריאה כוללות גם קריאת קוד, חישוב ידני והכנת שאלות, ולא רק דפדוף בפרקים.
-חמש שעות מדיה: בכל אחד משבועות 1–5 עד 40 דקות צפייה ב־1× ועוד 20 דקות עצירה/סיכום,
-או שעה לתרגיל ההסבר המקומי. בלי סרטונים חובה נוספים או קורס מלא מחוץ לתקציב.
-למידה ופיתוח מתקיימים באותו שבוע; אין ספירה כפולה של דקות שבהן קוראים בזמן אימון.
-הבאפר נועד לגישה, העברות, תורים ותקלות התחלה, ולא לדיבוג רגיל שכבר נכלל במימוש.
+The mentor column reserves capacity conservatively: preparation/review time does not require
+trainee attendance, but those hours are not double-booked with a separate trainee task. Contact
+may be shorter. Use any released trainee time for remediation or reflection, not more requirements.
 
-### איך 144 שעות המימוש מתחלקות
+Study includes targeted code reading and self-checks. Four media windows each allow up to
+40 minutes of video and 20 minutes of pauses/reflection, or one hour of the local text exercise.
+There is no requirement to watch a full external lecture. Time spent discussing research with an
+agent is explicitly funded: two hours weekly, additional to implementation time. Waiting for a
+training job while reading counts once. Ordinary debugging belongs to project work; the buffer
+covers access, transfer, queues and unusual setup failures.
 
-| משימה | שעות |
+### Project allocations
+
+| Work | Hours |
 |---|---:|
-| בדיקות סביבת עבודה מודרכות | 6 |
-| שינוי באתר התיוג | 24 |
-| יישור LPR בעזרת Hough | 13 |
-| חיבור שתי תמונות | 12 |
-| evaluation ל־LPR | 7 |
-| סיווג תנועות tracklets | 14 |
-| מודל ניקוד קטן לאיתורים והערכתו | 10 |
-| סקר עננים והצעת ניסוי | 8 |
-| אב־טיפוס וידאו והמשך המשימה מול החופף | 34 |
-| מחברת, אינטגרציה והעברת ידע | 16 |
-| **סך הכול** | **144** |
+| Guided setup, including skills | 6 |
+| Labeling request | 24 |
+| Hough-based LPR rectification | 13 |
+| Stitch two images | 12 |
+| LPR evaluation | 7 |
+| Tracklet motion classifier | 14 |
+| Detection rescoring and evaluation | 10 |
+| Cloud literature review and proposal | 8 |
+| Video baseline and subsequent customer requests | 34 |
+| Notebook, integration and transfer | 16 |
+| **Total** | **144** |
 
-התקציבים כוללים דיבוג, ריצות קטנות, MR וראיות. חלוקת שבועות מעשית:
-שבוע 1: 6 סביבה + 8 תיוג; שבוע 2: 16 תיוג + 6 LPR; שבוע 3: 7 LPR + 12 חיבור + 7
-הערכת LPR + שעה הכנת ML; שבוע 4: 13 tracklets + 10 ניקוד + שעה מחברת;
-שבוע 5: 8 עננים + 19 וידאו; שבוע 6: 15 וידאו + 15 אינטגרציה ומחברת.
+These include implementation, tests, experiments and evidence. Their placement within a week may
+move to follow readiness and mentor windows. No full CS231n assignments, Kaggle leaderboard target,
+shape-rendering project or duplicate Python exercise bank is added on top.
 
-## תוצרים ומעברים
+## Mentor availability
 
-- 0: רשומת מוכנות ופלט צפוי/נצפה. החופף עוזר עד להצלחה; אין בחינת DevOps.
-- 1: MR והדגמת שינוי התיוג מול החופף בתפקיד פרודקט, וסשן ידע בפיתוח.
-- 2: יישור LPR ושתי תמונות מחוברות עם הסבר גאומטרי. בשלב זה לא דורשים מסקנת
-  שיפור סטטיסטית; evaluation פורמלי מגיע בחלק 3.
-- 3: דוח LPR על אותה מערכת, מודל tracklets ומודל ניקוד, עם פיצולים והערכת שגיאות.
-- 4: הצעת עננים וקוד וידאו עובד, ADR, ראיות והבנת tradeoffs. המשך המשימה נמסר מהחופף.
-- סיום: מחברת שמריצה את מסלול הווידאו הקיים, דוגמה חדשה, artifact/config trace,
-  הדגמת שירות והעברת ידע. החניך צריך להסביר גם helpers מיובאים ואת כל השורות הקריטיות.
+Plan two windows a week: typically 45 minutes of teach-back and 35 minutes of product/review,
+plus 40 minutes of preparation/asynchronous review. This is two hours weekly and 12 total.
+Week 1 uses a 45-minute first session: 10 minutes of basic understanding, 30 minutes of skill
+teach-back and 5 minutes of next steps, plus a separate 35-minute setup/product window.
+Week 6 uses two separate 40-minute handover/defense windows and 40 minutes of prep/review.
+Never assume a daily meeting; leave product questions in a concise queue and record decisions.
+The existing weekly 15-minute team-lead check-in is folded into a review window if required,
+not scheduled as an extra meeting. One person holding both roles still has the same total budget.
 
-אין חובה לשיפור: כיוון שלא שיפר עם ניסוי תקף הוא מסקנה טובה. אין להציג mock כשירות פנימי
-שנבדק. לכל טענה: נצפה / מוסק / טרם אומת / חסום והראיה המתאימה.
+The trainee teaches the concept; the mentor asks discriminating questions. Do not replay slides.
+Unresolved topics become a bounded independent-learning task followed by one new check.
 
-## סשני חובה והיקף
+## Completion and fallback
 
-לכל חלק 1–4 סשן אישי, בנוסף לסשן סיום. כל סעיף בחומר החובה ניתן לבחינה גם אם
-לא מומש בפרויקט. איחור בתשתיות אינו כישלון ידע; מימוש באמצעות אייג׳נט אינו הוכחת ידע.
-נוהל הסשנים ממסמך החופף בדרייב טרם נקרא כי המקור לא אותר בחיבור הנוכחי. מתכונת
-הסשנים המקומית מסומנת הצעת עבודה ומיושרת לדרישות שנמסרו כאן, לא ציטוט מהמסמך.
+Each part records concept readiness and implementation readiness separately. Infrastructure is
+guided learning, not a DevOps examination. No average score excuses leakage, inability to explain
+a critical line, or an unverified operational claim.
 
-בסוף שבוע ממלאים planned/actual/remaining. אם הבאפר נגמר, מצמצמים בונוס, מספר
-ניסויים או גודל הדאטה; לא מורידים קריאת חובה או שער ידע בשקט. חופף יכול להקטין
-את היקף מודל הניקוד ולהשאיר baseline+ניסוי אחד. חסימה מהותית נרשמת בגלוי.
-
-## היחס לגרסאות קודמות
-
-משימות הפוליגונים, LPR, מיזוג, tracklets, ניקוד, עננים ווידאו מחליפות את מטלות
-SAM 2/EfficientDet/RF-DETR כחובות במסלול הנוכחי. אין מעמיסים אותן בנוסף.
-המסלול הקודם נשמר בהיסטוריה ב־commit `838302a`; גרסת הפיתוח המקורית ב־`v1.0.0`.
-הדרישה להבין מחברת inference לעומק נשמרת ומיושמת על פרויקט הווידאו הנוכחי.
-מעבדות 00–11 הישנות הן בנק תרגילים נקודתי ולא קורס נוסף של 46 שעות.
+If the 40-hour buffer is exhausted, drop optional breadth, reduce experiments/data size and use
+a prepared encoder/detector. Do not silently cut core knowledge. Record blocked access honestly;
+a local container is not an internally deployed service. If the teaching baseline is absent,
+report the blocked assignment rather than requiring a novice to build the whole team stack.

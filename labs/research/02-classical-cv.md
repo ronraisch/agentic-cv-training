@@ -1,29 +1,23 @@
-# חלק 2 — שתי משימות CV קלאסי
+# Part 2 Classical CV tasks
 
-חומר חובה: [CV קלאסי](../../docs/lessons/02-classical-cv.md).
+Required learning: [Classical CV](../../docs/lessons/02-classical-cv.md).
 
-## א. לוחית רישוי לפני LPR
+## Plate rectification before LPR
 
-לצוות יש detector שמחזיר מלבן מיושר לתמונה סביב לוחית. הלוחית עצמה עשויה להיות
-נטויה או בפרספקטיבה, וה־LPR מקבל היום crop שאינו מלבן ישר של הלוחית.
-הוסף תהליך מקדים שמשתמש ב־Hough lines לאיתור גבולות הלוחית וליישורה למלבן לפני הזיהוי.
-עבוד מול החופף כדי להבין את ממשק המערכת, הדאטה ומצבי הכשל.
+The detector returns an axis-aligned plate box, while the actual plate may be tilted or projectively
+distorted. Add preprocessing that uses Hough lines to estimate plate boundaries and rectifies the
+plate to a rectangle before recognition. Clarify the system contract and failure behavior with product.
 
-הדגם קלט, קווים/גבולות שנמצאו, פינות, טרנספורמציה ותוצאה. שמור גם דוגמאות שלא הצליחו
-והסבר מה האלגוריתם הניח. תוצאה חדה או ישרה לעין אינה הוכחה לשיפור בזיהוי.
-בשלב הזה דורשים מימוש, בדיקות גאומטריה והסבר. evaluation שיטתי של השיפור ייעשה בחלק 3
-על אותו קוד; שמור baseline ורשומת הגדרות שיאפשרו לחזור אליו.
+Show input, candidate lines, chosen boundaries/corners, transform and output. Retain failures and
+explain assumptions. Looking straighter does not prove improved recognition. Here we require working
+geometry and sanity checks; formal evaluation comes in part 3. Preserve baseline/configuration.
 
-## ב. שתי תמונות מאותה גיחה
+## Two images from one airborne flight
 
-קיבלת שתי תמונות עוקבות עם חפיפה מסנסור מוטס. חבר אותן לתמונה גדולה אחת,
-והסבר את מסלול התאמת התמונות ואת הנחות הגאומטריה. הראה גם מקרה שאינו ניתן לחיבור
-אמין; אין להכריח תמונות להתחבר רק כדי להפיק output.
+Stitch two sequential overlapping images into a larger image. Explain matching and geometry, and
+show a case where reliable stitching is impossible. Do not force a plausible-looking output.
+Two images are required. More images are a bonus requiring explicit mentor approval.
+A full orthomosaic product or unmeasured geospatial accuracy is not required.
 
-חיבור **שתי תמונות הוא חובה**. ריבוי תמונות הוא בונוס שמתחילים רק באישור החופף.
-אין צורך לבנות מוצר orthomosaic מלא או להבטיח דיוק מיפוי שלא נבדק.
-
-## הגשה
-
-שני MRs תחומים, notebooks/סקריפטים לשחזור, דוגמאות עם provenance והסבר ההחלטות.
-בסשן האישי תצטרך להסביר Hough, transforms, matching והיכן כל אחת מההנחות נכשלת.
+Submit bounded MRs, reproducible examples and evidence. Use the funded research-agent slot to learn
+one missing geometric concept, then explain it independently in the individual session.

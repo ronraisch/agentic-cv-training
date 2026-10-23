@@ -1,11 +1,14 @@
-# חלק 0 — להיכנס לסביבת העבודה
+# Stage 0 Guided setup
 
-עובדים עם החופף לפי [Getting Started](../../docs/GETTING_STARTED_INTERNAL.md).
+Follow [internal setup](../../docs/GETTING_STARTED_INTERNAL.md) with the mentor.
+Obtain VS Code, OpenShift, GitLab, Artifactory, Confluence and Jupyter access using the existing stack.
+For each check record the expected output, actual output, evidence scope and owner if blocked.
 
-בסיום יש VS Code עובד וגישה ל־OpenShift, GitLab, Artifactory ו־Confluence של הצוות.
-יש גם Jupyter/סביבת Python של הפרויקט. הסטאק כבר קיים ברשת; אין משימה להקים אותו.
-לכל בדיקה: פקודה או קליקים, פלט צפוי, מה ראית בפועל וכתובת פנייה אם חסום.
+Complete [the visualization-skill lab](../../docs/SKILLS_STAGE0.md): install the approved Matplotlib
+and Scientific Visualization skill bundle, read their entry instructions and explain their roles.
+Use a successful activation trace and a case that should not trigger them. Installing a Python
+package is not the same as installing a skill. The 30-minute teach-back is inside week 1's budget.
 
-הראה לחופף: פתיחת הריפו, interpreter נכון, notebook ששורד restart, בקשת fixture
-לשירות לימודי, דף ידע פנימי ב־Confluence ו־MR עם job log ב־GitLab.
-השלים איתך בהדרכה כל מה שחסר. אין ניקוד על DevOps או על פתרון עצמאי של בעיות גישה.
+Show a correct interpreter, notebook restart, internal fixture request, Confluence page and safe
+GitLab job log. Infrastructure is guided learning, not a DevOps assessment. Do not reinstall the
+team's entire stack or fetch public packages from the closed network.

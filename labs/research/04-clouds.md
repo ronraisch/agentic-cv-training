@@ -1,16 +1,15 @@
-# חלק 4א — הצעת מחקר לסגמנטציית עננים
+# Part 4A Cloud segmentation proposal
 
-הצרכנים מריצים זיהוי אובייקטים באזורים מכוסי עננים, ומבזבזים חישוב על אזורים
-שאין בהם תצפית שימושית. הצע איך להוסיף סגמנטציית עננים שתעזור להחליט היכן להריץ את הגלאי.
+Consumers waste object-detector work on cloudy regions with little useful observation. Propose
+cloud segmentation to support a decision about where to run the detector.
 
-עשה סקר ספרות קצר וממוקד, והגש הצעה שמכילה ארכיטקטורה, דאטה, דרך אימון ושיטות evaluation.
-התייחס לסנסורים ולערוצים שבאמת זמינים ב־inference, לא רק לדאטה שנוח להוריד במחקר.
-השווה לפחות baseline פשוט ושתי חלופות מחקריות, עם מקורות ראשוניים ותאריך/גרסה.
-אין צורך לדרג עשרות מודלים או לטעון שמצאת את ה־SOTA.
+Do a short focused literature review and propose architecture, data, training and evaluation.
+Consider the sensors and channels actually available at inference. Compare a simple baseline and
+two plausible research alternatives with primary sources and dated revisions. Do not rank dozens
+of models or claim a winning architecture without evidence.
 
-תוצר: הצעה קצרה בריפו, טבלת ראיות ומגבלות, ותכנון ניסוי מינימלי שניתן לבצע ברשת הפנימית.
-זה פרויקט תכנון בהיקף כ־8 שעות עבודה, נוסף לקריאת החובה המשותפת.
-מימוש ואימון מערכת עננים מלאה הם הרחבה בלבד באישור החופף, לא תנאי מעבר.
-
-חומר חובה: [עננים](../../docs/lessons/05-clouds.md) ו־[PyTorch](../../docs/lessons/04-torch.md).
-בסשן החופף יבקש להגן על הבחירה, להצביע על הנחות ולתכנן ניסוי שמסוגל להפריך אותה.
+Deliver a concise proposal, evidence table, limitations and a minimal falsifying experiment that
+could run internally. This is eight hours of proposal work in addition to shared core study.
+Full cloud-model training is optional only with mentor approval.
+Required learning: [clouds](../../docs/lessons/05-clouds.md) and [training](../../docs/lessons/04-torch.md).
+Use the approved agent to decompose the research problem and critique candidate experiments.

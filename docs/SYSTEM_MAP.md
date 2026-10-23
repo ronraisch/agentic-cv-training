@@ -1,34 +1,23 @@
-# צוות פענוח — מפת התרחיש ומצב המימוש
+# Teaching system and evidence scope
 
-## מה באמת קיים
+Peanuach is a fictional team working on video, satellite and airborne imagery in one monorepo.
+The existing runtime is a small synthetic ResearchLab retrieval/embedding pipeline with numerical,
+data, HTTP and optional Torch examples. A complete labeling/training/serving system is not
+implemented here. A mentor must prepare a working baseline or map actual team code before teaching.
 
-הקוד ב־src/researchlab הוא pipeline לימודי סינתטי לאחזור/embedding, עם NumPy/Pandas,
-SQLite/HTTP, דוגמת Torch ו־MCP. אין כרגע בריפו מערכת תיוג או pipeline פענוח מלא.
-המסלול החדש הוא **תרחיש לימודי ומשימות**, לא הודעת השלמה של מערכת כזו.
-מוכנות מערכת לימודית נבדקת לפני המחזור; הנחפף אינו צריך לבנות שלד צוות מאפס.
-
-## הסביבה המדומה
-
-הצוות עובד במונורפו ובונה שירותים לצרכני וידאו, לוויין וסנסורים מוטסים.
-יש אתר תיוג, שירותי תמונה/וידאו, קוד מחקר ואימון, רכיבי הפעלה, ADRs ויומני ניסויים.
-החופף מספק את מפת הנתיבים האמיתיים בעותק הרשת. אין לנחש נתיב מימוש מתוך שמות כאן.
-
-| תחום | מה צריך להכיר |
+| Area | What the trainee should understand |
 |---|---|
-| פיתוח | React/TypeScript, API Python, Git/MR ואייג׳נט |
-| תמונה ווידאו | נתוני קלט, timestamps, קואורדינטות, מטא־דאטה ומשמעות הפלט |
-| מחקר | תיוגים, manifests, experiments, models ו־evaluation |
-| הפעלה | Docker, Artifactory, OpenShift ו־storage |
-| ידע | טקסטי החפיפה בריפו; Confluence פנימי לקריאת נהלי עבודה ומציאת בעלים |
+| Development | React/TypeScript, Python API, data contracts, MR review and agent boundaries |
+| Imagery/video | Coordinates, timestamps, metadata, input/output meaning and failure states |
+| Research | Labels, splits/manifests, model artifacts, experiments and evaluation |
+| Operations | Docker, Artifactory, OpenShift, storage and the actual loaded model |
+| Knowledge | Repository tasks, linked Drive learning, internal Confluence context |
 
-בפנים עובדים ב־GitLab ללא אינטרנט עם המשאבים הקיימים. בחוץ הריפו מתוחזק ב־GitHub.
-קריאת החובה נשמרת מקומית; דפי Confluence משלימים מידע סביבתי ואינם תחליף לפרקים
-נגישים בריפו. מה שצריך לקרוא מתוך Confluence מועתק/מסוכם כדין בעותק הפנימי כשאפשר,
-בלי לייצא תוכן צוות לריפו הציבורי.
+Inside the network use GitLab and approved internal resources. Outside, maintain the public
+curriculum in GitHub. Internal Confluence content does not belong in the public repository.
+Required Drive resources need an approved internal copy or a local-text substitute.
 
-## מידת ודאות
-
-כל טענה מהותית: נצפה / מוסק / טרם אומת / חסום, עם קובץ+commit או ריצה+input+פלט.
-קוד שקראתי לא מוכיח שהוא מחובר למסלול שרץ. training log לא מוכיח שה־artifact הנבחר
-נטען בשירות. הוכחה מקצה לקצה עוקבת אחרי data/split, config, בחירה, שמירה, hash,
-image digest, loaded model ובקשת צרכן. מציינים בנפרד מה חסום ולא משדרגים הכול ל־PASS.
+For each claim mark observed, inferred, unverified or blocked with commit/file or input/command/
+output evidence. Reading code proves what is written, not which code executes. Trace training
+configuration and selection through the saved artifact, image digest, loaded model and request.
+Do not describe an incomplete chain as verified production behavior.

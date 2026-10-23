@@ -1,17 +1,15 @@
-# תוכן חובה מקומי
+# Local learning route
 
-הרשימה המחייבת של הקריאה והסשנים נמצאת ב־[READING_AND_SESSIONS](../READING_AND_SESSIONS.md).
-פרקים אלה הם טקסט מקומי מקורי; אין חובה לגלוש כדי להשלים מטלה.
+Use [READING_AND_SESSIONS](../READING_AND_SESSIONS.md) for required concepts, source substitutions
+and time caps. These original local chapters provide an offline route; Drive may hold selected
+readings/videos. Do not consume both routes as cumulative requirements.
 
-| חלק | פרקים | תרגיל מקומי במקום חלון וידאו |
-|---|---|---|
-| 0 | Getting Started פנימי | בדיקה מודרכת של פלט צפוי/נצפה |
-| 1 | [פיתוח](01-development.md), ENGINEERING, AGENT_WORK, TEAM_INTEGRATION | trace ו־diff, או חישוב NumPy/join |
-| 2 | [CV קלאסי](02-classical-cv.md) | קווים, פינות והומוגרפיה ביד |
-| 3 | [מדדים ו־ML](03-metrics-ml.md) | חישוב OCR/PR ופיצול קבוצות |
-| 4 | [PyTorch](04-torch.md), [עננים](05-clouds.md), [וידאו](06-video.md) | trace של gradient והגנה על בחירת ייצוג |
+| Block | Local chapters |
+|---|---|
+| Development | 01-development; ENGINEERING; AGENT_WORK; TEAM_INTEGRATION |
+| Classical CV | 02-classical-cv |
+| Evaluation and ML | 03-metrics-ml |
+| DL and representation | 04-torch; 05-clouds; 06-video |
 
-כל תרגילי ההסבר בחלונות המדיה נספרים רק בחמש השעות שיועדו לכך, ולא שוב בקריאה
-או במימוש. חלון שבוע 1 לפיתוח; 2 ל־CV; 3 ל־evaluation; 4 ל־ML/PyTorch; 5 ל־DL/וידאו.
-הקורס המקורי ומסמך החופף לא אותרו בחיבור הנוכחי; התאמת נושאים/סרטונים אליהם פתוחה.
-אין לטעון שחומר שלא נקרא מוזג לתוכנית.
+Stage 0 additionally uses SKILLS_STAGE0. Research conversations use RESEARCH_WITH_AGENTS.
+A chapter is a concise core, not a claim to reproduce a university course in a few pages.

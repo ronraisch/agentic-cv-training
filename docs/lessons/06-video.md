@@ -1,60 +1,32 @@
-# 4ב — וידאו: ייצוג, זמן וצרכן
+# Video representations and consumer questions
 
-## מה אומרת השאלה
+A ten-second clip has timestamps and frame order, not merely N images. Define window, sampling,
+stride, resolution and short/corrupt-input behavior. A still frame can support road presence but
+not establish that a vehicle passed. Indoor/outdoor may refer to the camera location or visible
+content. Sky-only and useful-information labels depend on the consumer's definitions.
 
-קטע של 10 שניות מכיל frames וזמנים, לא רק N תמונות. fps קבוע בקובץ אינו מבטיח
-שכל stream דוגם באותו אופן. קבע window, stride, sampling, resolution ו־timestamp policy.
-פריים בודד יכול לתמוך ב"יש כביש", אבל אינו מוכיח אירוע של מעבר רכב.
-"פנים/חוץ" יכול להתייחס למיקום המצלמה או למה שרואים; חלון ונסיעה ברכב מחדדים את ההבדל.
-"רק שמיים" ו"אין מידע שימושי" תלויים בהגדרת הצרכן ולא רק ב־object classes.
+Several questions need not be mutually exclusive. Use independent targets where appropriate;
+a single softmax can introduce false competition. Missing labels are not automatically negatives.
+Define unknown, insufficient evidence and error separately. Annotate a small diverse set using a
+clear protocol and inspect ambiguous cases before expanding labels.
 
-תיוגי כמה שאלות אינם בהכרח mutually exclusive. multi-label משתמש ביעדים נפרדים;
-softmax יחיד על שאלות בלתי תלויות מכריח תחרות לא מוצדקת. צריך גם מדיניות unknown,
-קטע חסר/פגום ואי־יכולת לענות; לא כל תווית חסרה היא negative. תייג מעט קליפים
-מגוונים עם protocol ברור ובדוק הסכמה על מקרים עמומים.
+A frozen video embedding plus a small head is a possible baseline. Record exactly what the encoder
+sees, its temporal/spatial sampling, pooling and revision. Frame pooling may work for presence and
+fail on ordered events. Not every video embedding is text-aligned. Keep overlapping clips from one
+source out of opposite splits. Evaluate per question and check camera/source shortcuts.
 
-## baseline קטן
+A shared text/video space needs learned semantic alignment, not just equal vector dimensions.
+Similarity to text is not a calibrated probability. Check negation, near-synonyms and temporal claims
+on this domain. A VLM needs structured answers, parsing, uncertainty and independent evaluation;
+fluent output is not evidence. Sampling a few frames with an image VLM is not automatically temporal
+video reasoning. No larger model is universally the right next step.
 
-אפשר להפיק embedding מווידאו באמצעות encoder קפוא וללמוד head קטן. הגדר מה encoder
-רואה: חלון, מספר frames, סדר, transform ו־pooling. representation שאינו משמר מספיק
-מידע בזמן לא יפתור כל שאלה של אירוע. pooling של פריימים עשוי להספיק לשאלת נוכחות
-אך דורש בדיקה נפרדת כשחשוב סדר האירועים. אין להניח שכל video embedder aligned לטקסט.
+Compare annotation cost, time to add capability, latency, memory, internal availability and maintenance.
+A benchmark with a fixed ontology does not settle a consumer's evolving definitions or service
+contract. New model/encoder revisions may invalidate features, heads and caches. Preserve existing
+answers during changes and record what was tested versus inferred.
 
-הפרד מקור/scene/camera בפיצול כך שקטעים חופפים מאותו סרטון לא יופיעו בצדדים שונים.
-השתמש במעט hyperparameters ו־baseline פשוט, בדוק כל שאלה בנפרד וגם כשלי חוסר מידע.
-שמור encoder revision, transforms, label definitions ו־feature-cache key; ראש שנלמד
-מעל embedding ישן אינו בהכרח תקף אחרי החלפת encoder.
-
-## בחירת פתרון תחת מגבלות
-
-מנגנון מסווג, ייצוג משותף, video-text model ו־VLM הם חלופות, לא סולם שבו הגדולה
-בהכרח טובה. text alignment יכול לאפשר ציון התאמה לשאלה/תיאור, אך דורש בדיקת prompt,
-negation, אירוע מול נוכחות ו־domain. VLM יכול לענות במלל אבל צריך חוזה תשובות,
-parse/validation, versioning, uncertainty ו־evaluation עצמאי; מלל שוטף אינו הוכחה.
-שימוש ב־frame VLM בכמה תמונות אינו בהכרח שקול למודל temporal.
-
-מחיר ללקוח כולל annotation, זמן הוספת יכולת, זמן inference, זיכרון, latency,
-כשלי רשת, זמינות פנימית ותחזוקה. benchmark באקדמיה בוחן בדרך כלל ontology, דאטה
-ופרוטוקול מוגדרים; מערכת צריכה גם שאלה ברורה, יציבות בין גרסאות והתנהגות כשאין מידע.
-אין פתרון יחיד לכל תקציב ואין דרישה לבחור VLM רק כי הוא קיים.
-
-## מה פירוש aligned לטקסט
-
-בייצוג משותף טקסט ווידאו ממופים למרחב שבו similarity משמש להשוואה, למשל מול תיאורים
-שהלקוח הגדיר. אין די בכך שלשני הווקטורים אותו ממד; האימון צריך לחבר את המשמעויות.
-zero-shot score אינו הסתברות מאומתת, ויכולת על משפט כללי אינה הוכחה לזיהוי אירוע
-נדיר. בדוק positive/negative phrasing, זמן, classes דומים וספים על validation מתאים.
-VLM מייצר תשובה מותנית בקלט ובשאלה; שמירת פרוטוקול תשובה וגרסת prompt היא חלק
-מגרסת המודל המעשית. שתי הגישות דורשות ראיות על השאלות והדאטה של הצרכן.
-
-## אימון ושירות
-
-כאשר מאמנים head, בדוק target/missing-label mask, loss, gradient update, tiny-overfit
-ו־save/reload. embedding cache אינו מאפשר להסיק דברים שלא נשמרו בייצוג. אם מקפיאים
-encoder אין צורך להעמיד פנים שאומנה רשת וידאו מלאה. מדווחים בדיוק מה אומן.
-
-שירות מחזיר clip ID וטווח זמן, גרסת model/question set, תשובות, מצב unknown/error
-והגדרות שהכרחיות לפרשנות. מחברת inference משתמשת באותם מודולים ומשקלים ומראה כל
-שלב: decode→sampling→transform→representation→decision→serialization.
-מקרה לא נצפה אינו false ואינו שירות שנכשל. בסשן החופף יפתח תא או helper ויבקש
-לנבא כיצד input אחר משנה את התוצאה.
+The inference path includes decode, sampling, transforms, representation, decision and serialization.
+The notebook must call the same modules and artifacts as the service, explain intermediate shapes,
+handle unknown/error and survive a clean restart. Use an approved agent to learn unfamiliar concepts;
+explain every critical line and imported helper yourself during the teach-back.

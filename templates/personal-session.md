@@ -1,14 +1,15 @@
-# רשומת סשן אישי — ידע בנפרד ממימוש
+# Individual session record
 
-- חלק/תאריך/חופף/נחפף:
-- חומר חובה שנקרא, גרסאות וסעיפים:
-- נושאים שנבדקו גם מחוץ לקוד שהוגש:
-- דוגמה חדשה ותחזית לפני הרצה:
-- טענה, ראיה, היקף ומידת ודאות:
-- מצב ידע: מוכן / דרוש חיזוק / חסום
-- מצב יישום: מוכן / דרוש חיזוק / חסום
-- פער ופעולת תיקון ממוקדת:
-- מועד ודוגמה אחרת לבדיקה חוזרת:
-- זמן בפועל מתוך 16 שעות החניכה:
+- Part, date, mentor and trainee:
+- Required learning completed or independently substituted:
+- First session only: rapid basic screen and visualization-skill teach-back:
+- Later sessions: selected deep question chains, assumptions and derivation:
+- New counterexample/prediction and independent evidence:
+- Claim, scope and uncertainty:
+- Concept readiness: ready / needs reinforcement / blocked
+- Implementation readiness: ready / needs reinforcement / blocked
+- Bounded remediation and a different retake example:
+- Actual contact plus preparation/review time against the 12-hour mentor cap:
 
-בסשן האישי האייג׳נט סגור; מסמכים ודיבאגר לפי ההנחיה. תשתיות נלמדות עם החופף.
+Close the agent for the individual explanation. Notes/debugger may be allowed. Do not replace
+advanced reasoning with repeated definition checks after the first session.

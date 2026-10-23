@@ -1,156 +1,123 @@
-# מדריך לחופף — צוות פענוח
+# Mentor handbook
 
-מיועד לחופף בלבד. `tools/export_learner.py` מסיר את כל `instructor/`, את MAINTAINERS
-ואת היסטוריית Git. זו הדרך למסור את התרגיל לחניך ולאייג׳נט בלי פתרונות ושחרורים מוקדמים.
-ב־GitHub המקורי התוכן גלוי; איסור קריאה ב־AGENTS אינו בקרת גישה. השתמש בריפו חניך
-חדש, ללא history/remote של ריפו החופף, אם רוצים לשמור על תהליך הגילוי.
+Keep this file out of the learner distribution. The original source collection has now been read;
+SOURCE_REVIEW.md records the current scope and prioritization. Original Drive files remain unchanged.
+The new syllabus preserves the source expectation that the trainee teaches the mentor precisely.
+It reduces repeated resources and topic breadth, not the depth of selected scientific questions.
 
-## מקור ההנחיות וסשנים
+## Twelve hours including preparation
 
-מסמך החופף בדרייב שאליו המשתמש הפנה לא אותר בחיבור הנוכחי (חיפושי חופף/חפיפות,
-כותרות חפיפ/נחפף וחיפוש הקשר). אין כאן טענה שנקרא או הוטמע. המתכונת המקומית
-נגזרת מהדרישות המפורשות: חומר קריאה לכולם, סשנים אישיים ועבודה אג׳נטית מעשית.
-לאחר קבלת המקור יש למפות אותו ל־READING_AND_SESSIONS בלי לשנות דרישות בחשאי.
+Schedule two windows a week, never more than one hour on one day. A typical week uses 45 minutes
+for a deep discussion, 35 for product/review and 40 for preparation/asynchronous review. Six weeks
+cost 12 hours. A required weekly 15-minute team-lead check-in is folded into product/review.
 
-שמור לכל חלק שני סטטוסים נפרדים: הבנת חומר ויישום. סשן אישי בודק את כל נושאי החובה,
-גם נושא שהחניך לא היה צריך במימוש שלו. אין מיזוג לציון שעוקף פער מדעי או חוסר הבנה.
-סשנים מוצעים: 60/75/75/90 דקות לחלקים 1–4, וסיום 120 דקות. 7 שעות יחד מתוך 16;
-9 נוספות להדרכת תשתיות, סקירת MRs, פרודקט ומשוב. פצל DL לפי הצורך, לא את הזמן הכולל.
+The first session alone includes a rapid ten-minute basic-understanding check. Use its remaining
+30 minutes for the stage-0 visualization-skill teach-back and five minutes for next steps. The other
+week-1 window is 35 minutes. After that, do not spend sessions repeatedly defining precision,
+convolution or embeddings. Use the original question banks for difficult follow-up reasoning.
+Week 6 splits notebook defense/transfer into two 40-minute windows plus 40 minutes of prep/review.
 
-## לפני המחזור — החופף מכין צוות מדומה עובד
+Before a deep session read the one-page trainee packet and select two question chains from
+DEEP_DISCUSSIONS.md. Each should take roughly 15-18 minutes, leaving time to challenge a claim
+and record a gap. Keep the complete original banks as extension/reference; do not pretend every
+question can be discussed within this schedule. A short independent derivation can precede the
+meeting. The meeting tests the argument on a new case rather than replaying its worked solution.
 
-העדכון הנוכחי הוא תוכנית ומטלות; מערכת פענוח עדיין אינה ממומשת בריפו.
-אל תטיל על החניך לבנות את שלד המערכת תחת משימה קטנה. נדרש עותק לימודי באותו מונורפו:
-אתר תיוגים שעובד עם rectangles; API ואחסון דוגמאות ישנות; מסלול קבלת תיוגים והפקת
-crops לאימון; plate detector/recognizer קפואים; תמונות משתי גיחות, עם pairs חופפים
-וגם failure pair; tracklets ותוויות תנועה; detections/GT ומטא־דאטה; clips בני 10 שניות;
-מודל embedding ומשקלים זמינים פנימית. פקודות ונתיבים אמיתיים נרשמים במיפוי לחופף.
+Product questions are queued asynchronously with a decision needed, inspected paths, options and
+recommended next step. Do not make a trainee wait for tomorrow merely to confirm an obvious safe
+experiment, but do not let the agent approve product requirements. Review bounded MRs, not entire
+repositories. If preparation starts exceeding 40 minutes weekly, narrow the session's scope.
 
-תוצרים מוכנים מצמצמים compute/הכנת data ואינם פתרון אלגוריתמי. הכנת הדאטה והשלד
-אינה מוחבאת ב־144 שעות המימוש של החניך. הוסף עלויות pilot והכנת מחזור בנפרד.
-אל תכלול fixtures שמדליפים את הבעיה באמצעות שם כמו migration_required.
-קבע contract של annotations ומאגר ישן עקבי לפני המחזור, ושמור בדיקות קבלה אצלך.
+## Prepare the teaching baseline before the cohort
 
-## 0 — מוכנות מודרכת
+The Peanuach system is still a specification, not working application code in this repository.
+Provide a rectangle-only labeling UI/API/store and training-crop consumer; plate detector and
+recognizer; overlapping/nonoverlapping airborne pairs; tracklets and motion labels; frozen
+satellite detections/GT/metadata; ten-second clips; approved encoder weights; safe deployment and
+storage. Map actual paths in PRODUCT_AND_PREPARATION.md. Prepared data is not a model solution.
+Preparing a missing baseline is mentor/course-development work, not a hidden learner assignment.
 
-VS Code, OpenShift, GitLab, Artifactory ו־Confluence; בנוסף interpreter ו־Jupyter.
-יש סטאק קיים לפי המשתמש, ולכן מלמדים להתחבר ולבדוק פלט ולא להקים תשתית.
-ב־Confluence נדרש דף שהחניך רשאי לקרוא; בודקים שאין redirect שקט ל־login ושיודעים
-למצוא עמוד עבודה/בעלים. רשות עריכה רק אם נדרשת בצוות. אין בחינת YAML או cluster.
-GitLab: 45 דקות ל־MR, pipeline ו־job log בטוח. שגיאת תשתית נפתרת יחד, ללא ניקוד.
+## Stage 0
 
-## 1 — הפוליגונים: בקשה קצרה, אחריות מקצה לקצה
+Guide VS Code, GitLab, Artifactory, OpenShift, Confluence and Jupyter readiness. Teach expected
+outputs and escalation owners. The stack already exists internally. Do not assess cluster setup,
+runner administration or YAML. GitLab needs a brief MR/pipeline/job-log walkthrough only.
+The 30-minute visualization-skill discussion is inside the first meeting; see SKILLS_STAGE0.
+Do not silently substitute Matt Pocock engineering skills for the requested plotting skills.
 
-כל מה שהחניך מקבל בתחילה: **״צריך רק להוסיף תמיכה בפוליגונים באתר תיוגים״**.
-אל תצרף לו רשימת שכבות או טסט שמכריז מראש על המשימות הסמויות. תן לו לבדוק את
-המונורפו ולשאול אותך בתפקיד פרודקט. ענה באופן עקבי ואמיתי; אל תשנה spec כדי להכשיל.
+## Polygon assignment with product discovery
 
-### מידע פרודקט שהחופף מחזיק ומוסר בתשובה לשאלות
+The learner receives only: "Just add polygon support to the labeling website."
+Do not expose the downstream checklist before discovery. Be a consistent product owner and answer
+real questions; do not mutate requirements to manufacture failure.
 
-- מתייגים קיימים ממשיכים לעבוד, יש annotations ישנים ושימוש בהם למחקר/אימון.
-- ״פוליגון״ בבסיס התרגיל הוא simple polygon אחד, ללא חורים/ריבוי רכיבים, אלא אם
-  סוכם אחרת. מגדירים עם החניך סגירה, שינוי vertices, undo, ביטול ו־self-intersection.
-- החלטת schema: geometry מפורשת עם version, יחידות ו־image revision; bbox ישן
-  ניתן להמיר לארבע פינות בלי לטעון שזה גבול מדויק של אובייקט. תעד מקור rectangle.
-- יש צרכן קיים שמפיק crop לאימון. שינוי שם/ייצוג לא יכול להישאר ב־UI בלבד.
-- מטרת crop צריכה להתברר: bounding envelope, mask של פוליגון, או rectification רק
-  אם זו צורה מתאימה. לא כל פוליגון הוא מרובע שאפשר ליישר ב־homography אחת.
-  ברירת מוצר לימודית סבירה: envelope crop עם mask ותיעוד offset, אם אין צורך אחר;
-  החניך צריך לגלות ולסכם זאת מול פרודקט ולא לנחש.
+Hold these decisions and disclose them when asked: a simple polygon without holes is sufficient
+unless another scope is agreed; existing annotations and researchers must keep working; geometry
+needs explicit coordinates/image revision/version; old boxes can become four-corner rectangles
+without claiming exact object outlines; a real downstream consumer prepares training crops.
+Clarify envelope crop versus masked crop versus special quadrilateral rectification. A general
+polygon cannot be flattened by one homography. A reasonable teaching default is an envelope plus
+mask/offset when that matches the actual consumer, not an unstated answer the agent should guess.
 
-### מה החניך אמור לגלות לבד
+The trainee should discover UI, API validation, persistence/edit/reload, old data/migration,
+export/loader and training-crop effects by reading code and asking product questions.
+Keep acceptance tests mentor-only: polygon editing/undo/zoom coordinates; storage roundtrip;
+versioned old/new data; a tested migration/compatibility plan with counts, provenance, idempotence
+and rollback; training-loader smoke; correct crop/mask/original-coordinate mapping; malformed or
+degenerate shapes; independent geometric fixtures. Do not require a large training run.
+A compatibility reader alone without a migration plan/test does not satisfy the requested change.
+If stuck, first ask "who consumes this output?" and record hints rather than immediately revealing
+the map. Assess discovery and evidence, not whether the learner guessed your preferred architecture.
 
-UI, צורת שמירה ו־validation, reload/edit, צרכני API, data ישן, migration ותאימות,
-export/loader לאימון ו־crop. הבחן בין שאלה לפרודקט ובין חיפוש טכני שהחניך יכול לעשות.
-תפקידך לעזור להבין צורך; אל תכתיב רשימת משימות מימוש בתשובה הראשונה.
+## Classical CV and evaluation sequence
 
-### קבלה — לא להעביר לחניך מראש
+Hough must actually contribute to plate-boundary estimation. Check character/frame confusion,
+corner order, ROI truncation, warp geometry and fallback. Part 2 needs sanity checks, not a
+statistically defensible improvement claim before evaluation has been taught. Return in part 3
+to paired baseline/variant evaluation with the same recognizer/detector, grouped splits, exact match,
+CER, latency and all failure/fallback cases included.
 
-1. ציור polygon, תיקון, ביטול ושמירה; zoom/pan ו־coordinates נכונים במקור.
-2. roundtrip דרך API/אחסון/reload, בלי לאבד vertices או להתחזות ל־bbox.
-3. annotations ישנים: migration או adapter migration מתוכנן ומורץ על fixture, עם
-   schema/version מתועדים, counts/provenance ובדיקת idempotence ו־rollback.
-   מסלול read-compatibility ללא תוכנית ובדיקת migration אינו מכסה את הדרישה.
-4. export לאימון ו־crop מעודכנים לפי החלטת הפרודקט; mapping לתמונה המקורית, mask,
-   clipping, degenerate polygons ו־old/new mixed data נבדקים. החניך מפעיל גם training
-   data-loader smoke, לא רק יוצר JSON חדש. אין צורך באימון גדול.
-5. הוכחה עצמאית עם תמונת גאומטריה ידועה; MR מסביר מה נצפה, מוסק או חסום.
+Two-image stitching is mandatory; more requires your approval. Check transform direction, inlier
+coverage, independent control points, canvas, parallax and no-overlap rejection. A blended seam is
+not a registration proof. Full georeferencing/orthomosaic construction is outside the core scope.
 
-הערכת discovery: אילו שאלות נשאלו, איזה caller נמצא, האם מבדילים צורך מפתרון,
-והאם הוכחה ההשפעה עד הצרכן. אל תעניש על מונח אחר לפתרון תקין. אם החניך תקוע,
-תן רמז כללי "מי עוד משתמש בתוצאה?" לפני חשיפת מפה. תעד רמת רמז, לא רק pass/fail.
+## Classical ML and rescoring
 
-## 2 — Hough ל־LPR וחיבור שתי תמונות
+Tracklets need motion labels, decision time, units, camera-motion/fragmentation reasoning and no
+future features. Prefer a small baseline plus classical model with held-out evaluation over broad
+hyperparameter search. Ask about a new video/sensor distribution rather than library syntax.
 
-Hough חובה כשלב אמידת גבולות; wrapper שמריץ Hough ואז מתעלם ממנו אינו פתרון.
-בדוק פינות, קווים של אותיות לעומת מסגרת, crop שמחסיר גבול, orientation, warp ו־fallback.
-החניך עדיין לא למד evaluation מסודר; דרוש sanity/debug ולא טענת שיפור מכלילה.
-שמור baseline והגדרות כדי לחזור אליהן בחלק 3. אל תדרוש חשיפה של test בתחילת הדרך.
+Rescoring freezes the detector and uses independent GT with a defined matching target. Check
+training/calibration/test independence, metadata ablations, missingness, physical-size assumptions
+and angle conventions. A more vertical angle is not universally worse. Better ranking is not
+probability calibration, and rescoring cannot recover absent proposals. Follow the chosen estimator
+through saved hash and loaded service model. The SVM-C mismatch is one useful deep discussion.
 
-לשתי תמונות: בדוק matching, homography direction, פיזור inliers, canvas שאינו חותך,
-פרלקסה, no-overlap והתנהגות כשל. מיזוג visually smooth אינו הוכחה ל־registration.
-שתי תמונות חובה; הרחבה ליותר רק לאחר אישורך, בתנאי שהליבה והזמנים מאפשרים.
-לא דורשים georeferencing/orthorectification מלאים.
+## Cloud proposal
 
-## 3 — evaluation ו־ML
+Budget eight hours: a simple baseline and two plausible sourced alternatives, architecture, data,
+training and evaluation. No full training project. Discuss spectral channels, sensor/GSD shift,
+cloud/shadow/no-data definitions and partial-tile policy. Pixel IoU alone does not establish net
+compute savings or object recall retained after gating. Unmeasured impact must remain unmeasured.
+Skipped coverage is not evidence of zero objects.
 
-LPR: paired baseline/variant על אותו recognizer ו־detector; exact match/CER עם
-נרמול מוגדר; failures ופגיעה בדוגמאות טובות; splits לפי vehicle/video/גיחה ככל שצריך.
-אל תאפשר למדוד רק דוגמאות שה־rectification הצליח בהן.
+## Staged video requirements
 
-Tracklets: ספק תוויות של תנועה, לא רק object class. online/offline, timestamps,
-camera motion, fragmentation ו־future leakage חייבים לעלות. אל תכפה XGBoost כשמודל
-פשוט יותר נותן אותו ערך; כן דרוש מימוש מודל קלאסי, baseline ו־held-out evaluation.
+Start only with the three questions in the learner brief. After a baseline demonstration, release
+releases/video-02.md. After initial handling release video-03.md. Do not expose the entire backlog
+in advance or insist that the only correct solution is a VLM.
 
-Rescoring: freeze detector; ספק תוצרים ו־GT. תווית correctness נשענת על matching,
-לא על score או על prediction class שמועתק כתווית אמת. מידות פיזיות מחייבות יחידות,
-GSD/גאומטריה/partial object; angle מחייב convention ולא אמירה "ניצב תמיד רע".
-השווה raw score, כלל קטן ומודל; בדוק ablation למטא־דאטה ופיצול scenes/sensor/acquisition.
-אם נטען כיול בדוק reliability; שיפור PR אינו הוכחת probability calibration.
-תעד missing metadata ו־distribution shift. הציון לא מחזיר proposals חסרים.
+Budget 19 hours for a small baseline and 15 for subsequent requests: roughly five for the first
+change, seven for a focused alternative probe and three for regression/decision. At least one added
+question must run. Twenty questions describe a scaling demand, not twenty fully trained heads.
+A heavy unavailable model can receive a proposal/small substitute probe with unverified status,
+not fabricated runtime results. Compare annotation cost, question-addition time, latency, semantics
+and preservation of existing answers. Fixed academic benchmarks and evolving product definitions
+exercise different constraints; both still need sound empirical validation.
 
-## 4א — הצעת עננים
+## Final two windows
 
-היקף 8 שעות מימוש/כתיבה, בנוסף לקריאה: baseline + שתי חלופות עם מקורות ראשוניים,
-ארכיטקטורה, data/channels/sensors, training plan ו־evaluation. אין דרישת training מלא.
-בחן pixel metrics וגם end-to-end: כמה compute נחסך ומה ההפסד באובייקטים עקב false-cloud.
-ענן/ענן דק/shadow/snow/no-data והחלטה על tile חלקי חייבים להיות מוגדרים.
-דילוג אינו "אין אובייקטים". כשהחניך לא יודע אם recall נפגע כי אין GT, זו מגבלה
-שצריך להצהיר עליה, לא להמציא מספר. ההצעה יכולה להיות "אין דאטה מתאים עדיין" עם ניסוי/איסוף ברור.
-
-## 4ב — וידאו וסבבי דרישות
-
-בשלב הראשון החניך מקבל רק labs/research/05-video.md: שלוש שאלות וגרסה קטנה.
-אל תציג מראש את כל ה־backlog או תחייב להחליף ל־VLM. לאחר baseline והדגמת evaluation,
-שחרר את [בקשה 2](releases/video-02.md). אחרי טיפול ראשוני, שחרר את [בקשה 3](releases/video-03.md).
-אלה handouts למסירה לפי סדר, ואין להכניסם ל־learner export מראש.
-
-מטרת ההסלמה: להראות ש־benchmark פתור ל־ontology קבוע אינו סוף של מוצר עם שאלות,
-עלויות תיוג, latency, גרסאות וצרכנים משתנים. פתרון embedding+heads עשוי להישאר טוב;
-ייצוג aligned לטקסט או VLM עשויים להתאים לחלק מהשאלות. דרוש השוואה קטנה באותם
-קליפים, לא סיסמה ולא בנייה של שלוש מערכות production מלאות.
-
-גודל מתוכנן: 19 שעות גרסה ראשונה; 15 שעות לסבבי הדרישות. לסבב הראשון כ־5 שעות;
-לשני כ־7, ו־3 להחלטה, regression והגשת ADR. אפשר לקבל architecture proposal או
-probe קטן לחלופה כבדה שאינה זמינה פנימית; אין לטעון שהיא אומתה. מסלול הבסיס וההוספה
-לפחות של שאלה אחת חייבים לרוץ. 20 שאלות הן דרישת scale לבחינת תכנון, לא 20 heads חובה.
-
-חפש הבחנה temporal event מול object presence, unknown מול false, label independence,
-clip/source leakage, encoder/cache versions ועלות לכל שאלה. retained old answers חשובים
-לא פחות מיכולת לענות לשאלה חדשה. בחן האם הלקוח משנה את הגדרת השאלה ולא רק מוסיף label.
-
-## סשני ידע ודוגמאות לחופף
-
-פיתוח: NumPy view, Pandas join, failure שנבלע, trace caller וכלי אייג׳נט שלא נטען.
-CV: rho/theta, בחירת קווים, ארבע פינות לא יציבות, כיוון transform ו־parallax.
-ML: CER מחושב, failure denominators, future feature, split מתואם, artifact default אחרי tuning.
-DL: gradient flow, eval/inference, sampling וייצוג זמן, masks/ignore labels, domain shift,
-והבדל בין score לשאלה לבין תשובה מאומתת. שאל גם מושג שלא היה נדרש בפרויקט הספציפי.
-כל תשובה צריכה להפריד מה נצפה מהשערה ומה חסר, גם כשהתוצאה "נראית נכונה".
-
-## סיום — 120 דקות בתוך התקציב
-
-20 דקות clean run; 40 הסבר שורות במחברת כולל helpers; 25 input/תקלה חדשה ללא אייג׳נט;
-20 peer handover; 15 משוב ו־remediation. המחברת היא מסלול הווידאו הפעיל, לא detector
-נוסף. פריסה מודרכת בסביבת בדיקה דורשת endpoint ו־artifact אמיתיים; אם חסומה מציינים זאת.
-אין צורך לבנות GitLab CI/CD. תיקון ידע נקודתי נבדק שוב בדוגמה חדשה, לא בחזרה על קורס שלם.
+First 40 minutes: 10 clean run and artifact trace, 25 explain difficult lines/helpers and a new
+input, 5 record uncertainty. Second 40: 15 bounded failure, 15 peer transfer, 10 feedback.
+Do not add another long grilling day outside the budget. Independent learning remains deep; the
+mentor samples high-value reasoning instead of examining every historical question.

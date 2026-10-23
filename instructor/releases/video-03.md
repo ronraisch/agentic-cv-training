@@ -1,10 +1,11 @@
-# למסירה אחרי בקשה 2 — בקשת לקוח 3
+# Customer request 3 Release after handling request 2
 
-יש עוד צרכנים, ולכל אחד שאלות נוספות. השבוע הגענו לכ־20 שאלות, ובהמשך צפויות עוד.
-אני לא רוצה שכל שאלה חדשה תדרוש פרויקט תיוג ואימון נפרד. חלקן מתארות מה רואים,
-חלקן אירוע בזמן, וחלקן משתמשות בניסוח דומה אבל מתכוונות למשהו אחר.
+More consumers have different questions. We now have about twenty and expect more. I do not want
+every new question to require a separate annotation/training project. Some describe visible content,
+some require temporal events, and similar wording can hide different meanings.
 
-הצע איך תומכים בזה, ובדוק שינוי קטן או חלופה קטנה מול מה שכבר בנית.
-השווה איכות, זמן הוספת שאלה, עלות תיוג ועלות הפעלה. שמור תשובות יציבות לצרכנים הקיימים,
-והסבר מה קורה כששאלה לא נתמכת או כשהקטע לא מאפשר לענות.
-אין צורך לממש 20 שאלות עד סוף החפיפה; נדרשת החלטה מנומקת עם בדיקה בפועל של היקף שהוגדר.
+Propose how to support this. Test a small change or alternative against what you already built.
+Compare quality, time to add a question, annotation and runtime cost. Preserve existing consumer
+answers and explain unsupported questions and clips with insufficient information.
+You do not need to implement all twenty questions during onboarding; justify a decision with a
+real bounded probe and explicit limitations.

@@ -1,65 +1,62 @@
-# 3 — למדוד שיפור, ללמוד תנועה ולנקד איתורים
+# Evaluation and classical ML
 
-## ניסוי תקף
+## One valid experiment
 
-מגדירים target, יחידת דגימה, split, baseline ומדד לפני tuning. דוגמאות מאותו מקור
-יכולות להיות מתואמות: פריימים, tracklets וקטעי וידאו מאותו סרטון; tiles מאותה תמונת
-לוויין; תמונות מאותה גיחה. מחלקים לפי קבוצה מתאימה, לא לפי rows בלבד.
-שומרים split/data hashes, גרסאות והחלטות. preprocessing נלמד רק על train;
-validation בוחר hyperparameters/thresholds; test משמש להערכת הבחירה הקפואה.
+Define the target, sampling unit, grouped splits, baseline and metric before tuning. Frames and
+tracklets from one video, overlapping satellite tiles and images from one flight can be dependent.
+Do not split only by rows. Fit preprocessing on training data; choose thresholds/hyperparameters
+on validation; evaluate the frozen decision on test. Preserve data/split hashes and model versions.
 
-confidence אינו בהכרח probability. precision=TP/(TP+FP), recall=TP/(TP+FN),
-ולא כל false positive עולה כמו false negative. class imbalance הופך accuracy לבדו
-למטעה. הצג confusion matrix, PR וספים; כשאין denominator הגדר מדיניות ולא מספר אקראי.
-ממוצע יכול להסתיר כשל בסנסור או class נדיר, לכן בודקים גם slices עם מספר הדוגמאות.
+Know linear/logistic regression, regularization, nearest-neighbor and SVM intuition, and tree/
+boosting behavior. These foundations are learned once, not repeated in ML and DL lectures.
+A linear model's coefficients are not generally causal feature importance. Scaling affects units,
+optimization and regularization; it need not change fitted predictions of equivalent unregularized
+least squares. Correlated features can make coefficients unstable without necessarily ruining
+predictions. PCA/clustering concepts are useful; full EM/spectral/visualization algorithm exercises
+are optional. High-dimensional separation on tiny data is not evidence of generalization.
 
-## evaluation ל־LPR
+Precision = TP/(TP+FP), recall = TP/(TP+FN). Accuracy alone can hide rare-class failure. Show PR,
+confusion, denominators and slices; define behavior for absent classes or zero denominators.
+Threshold selection and calibration are distinct from ranking. A confident score is not automatically
+a probability. A metric does not encode the consumer's costs until an operating decision is defined.
 
-השווה על אותן תמונות עם אותו detector ו־recognizer; רק שלב היישור משתנה.
-הקפא normalizing policy לטקסט (רווחים/סימנים, תווים מותרים), ואז מדוד exact plate
-match ו־CER: סכום edit distances חלקי סכום אורכי מחרוזות האמת, עם מדיניות ל־empty GT.
-הצג גם coverage של היישור, failures, latency ושינוי איכות לפי tilt, תאורה וגודל לוחית.
-אם יישור נכשל ומשתמשים ב־fallback, המדד מקצה לקצה כולל גם את המקרים האלה.
+## Paired LPR evaluation
 
-כדי להפריד גורמים, אפשר למדוד פעם על plate ROIs נתונים ופעם על כל השרשרת עם detector;
-אל תערבב את שני המכנים. השוואה מזווגת מציגה דוגמאות שתוקנו ודוגמאות שנפגעו.
-כשמחשבים uncertainty, דוגמים קבוצות בלתי תלויות כגון רכב/סרטון ולא פריימים בודדים.
-מעט קבוצות מגבילות כל מסקנה; אין חובה ל־p-value כדי להסביר ניסוי קטן באופן ישר.
+Hold the detector and recognizer fixed and compare identical examples with and without Hough
+rectification. Freeze text normalization. Report exact-plate match and CER: summed edit distances
+divided by summed ground-truth character counts, with an explicit empty-GT policy. Include failure,
+fallback, coverage and latency. Do not score only examples that rectified successfully.
 
-## tracklets וסוגי תנועה
+Separate evaluation on supplied plate ROIs from end-to-end evaluation including detector misses.
+Inspect helped and harmed examples by angle, size and lighting. If estimating uncertainty, resample
+independent vehicles/videos/flight groups rather than individual dependent frames. Few groups limit
+the conclusion; do not invent confidence. Preserve a locked final test set.
 
-שורה אחת יכולה לייצג tracklet עם תכונות כמו מהירות, שינוי כיוון, משך, עצירות ויציבות.
-הגדר יחידות ו־timestamps, missing frames, track fragmentation ו־camera motion.
-תנועה בפיקסלים יכולה להיות תנועת מצלמה, ולא תנועת האובייקט. מהירות במטרים דורשת
-calibration/גאומטריה; שינוי frame rate משנה מרחק בין דגימות ואינו שינוי במהירות פיזית.
+## Motion from tracklets
 
-אם מסווגים online אחרי שתי שניות, מאפיינים מכל אורך המסלול הם זליגת עתיד. offline
-מאפשרים להסתכל על כל הקטע רק אם זה באמת חוזה הצרכן. תיוג כיוון/תנועה צריך להפריד
-בין אירוע וקטגוריה עמומה, ולהתייחס למקרים של כמה תנועות או מידע חסר.
+A row may summarize speed, direction change, duration, stops and stability. Define timestamps,
+missing frames, fragmentation, camera motion and units. Pixel displacement may reflect camera
+motion; meters per second require geometry/calibration. For an online decision at two seconds,
+features from the completed track leak the future. Offline use is valid only if that is the contract.
 
-XGBoost מצרף עצים בהדרגה כדי לשפר objective. depth, מספר עצים ו־learning rate
-משפיעים על overfit. התחל majority/rule פשוט ומודל קטן; בחר מעט configs מראש.
-בדוק גם קליפים/סנסורים חדשים, שמור schema וסדר עמודות, וטען artifact חדש כדי לוודא
-שהמודל שנבחר הוא זה שרץ. לוג search מוצלח אינו הוכחה לשמירת best estimator.
+Start with a simple rule/majority and a small model such as XGBoost. Boosting adds learners
+sequentially; bootstrapping is resampling, not boosting. Limit configurations, inspect failure
+slices, save feature order/missingness rules and reload the selected artifact. A successful search
+log does not prove that best_estimator was what the service loaded.
 
-## מודל ניקוד לאיתורים
+## Detection rescoring
 
-הגדר מהי תווית: למשל איתור שתואם GT לפי class ו־IoU מוסכמים עם matching חד־חד־ערכי.
-תיוגי detector אינם אמת חיצונית. detector שנלמד על תמונות calibration יכול לתת ציונים
-אופטימיים; השתמש בתוצרים מקבוצות שלא שימשו לאימונו או ב־out-of-fold מתוכנן.
-שמור test בלתי תלוי לבחינת השילוב. מודל ניקוד לא יכול להחזיר אובייקטים שהגלאי כלל לא הציע.
+Freeze the detector and define correctness against independently annotated GT with a stated
+class/IoU one-to-one matching protocol. Do not use predicted classes/scores as truth. Use detections
+from groups held out from detector fitting or a planned out-of-fold procedure, and reserve an
+independent test for the combined decision. Rescoring cannot recover absent proposals.
 
-תכונות אפשריות: score המקורי, class, box geometry, GSD, סנסור, זווית צילום ומאפייני
-איכות. הגדר מה angle מודד: off-nadir או elevation, יחידות וכיוון. אין חוק גורף ש"אנכי
-יותר תמיד גרוע"; זו תלות אפשרית בדאטה ובגלאי שנבדקת בסלייסים.
-מידות בפיקסלים כפול GSD הן קירוב ל־footprint רק תחת הנחות גאומטריה מתאימות;
-axis-aligned box, perspective, clipping ו־partial object יכולים להטעות.
-טענת "אוטובוס ברוחב חצי מטר" יכולה להצביע על שגיאה, אך גם על metadata או crop בעייתיים.
+Candidate features include raw score, class, geometry, GSD, sensor, viewing angle and quality.
+Define angle convention, units and missing values. There is no universal rule that more vertical
+imagery is worse; test that hypothesis on this data. Pixels times GSD approximate a footprint only
+under suitable geometry. Axis-aligned boxes, clipping, partial objects and incorrect metadata can
+make physically implausible dimensions misleading.
 
-השווה raw score, baseline פשוט, ומודל עם/בלי metadata. שיפור דירוג/PR או precision
-בסף recall קבוע הוא יעד אחד; כיול הסתברות הוא יעד אחר, שנבדק גם ב־reliability plot
-ומדדים מתאימים. lower Brier לבדו אינו מוכיח כיול טוב יותר. אל תקרא לכל rescorer
-"calibrator". בדוק גם מקומות שאין בהם metadata ואל תחליף אותם באפס בלי החלטה.
-
-תרגיל הסבר: תכנן split לגיחה עם tiles חופפים, חשב CER בשתי לוחיות, והדגם תכונה
-שמנבאת יפה רק כי היא מקודדת sensor ID או מידע מהעתיד.
+Compare raw score, a simple rule and the learned model; ablate metadata and check new scenes/sensors.
+If claiming probability calibration, use reliability analysis and suitable scoring rules; better
+PR or lower Brier alone does not establish better calibration. Track source assumptions explicitly.

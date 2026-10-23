@@ -1,18 +1,19 @@
-# חלק 4ב — להבין קטע וידאו בן עשר שניות
+# Part 4B Describe ten seconds of video
 
-לקוח של פענוח רוצה לתאר מה רואים בקטע של 10 שניות. כרגע הוא מבקש שלוש תשובות:
+A Peanuach consumer currently needs three answers for a ten-second clip:
 
-- האם יש כביש?
-- האם הצילום מבפנים או מבחוץ?
-- האם רואים רק שמיים?
+- Is there a road?
+- Is the view indoors or outdoors?
+- Does the clip show only sky?
 
-אפיין עם החופף את משמעות השאלות ואת הקלט/פלט הדרושים. התחל בפתרון קטן שניתן לבדוק:
-למשל embedding וידאו זמין ברשת וכמה תיוגים ידניים, ומודל קטן מעל הייצוג.
-זו נקודת פתיחה אפשרית, לא בחירת מודל מחייבת; נמק חלופה אם היא מתאימה יותר.
+Clarify question meanings and input/output requirements with product. Start with a small testable
+solution, for example an available video embedding, a few manual labels and a small learned head.
+That is a possible starting point, not a mandatory architecture. Justify a better-fitting alternative.
 
-הגש baseline, evaluation וקוד שמקבל קטע חדש ומחזיר תשובות. הקפד על רגע הזמן,
-דגימת הווידאו, שמירת המודל והייצוג ומה ניתן או לא ניתן להסיק מהמדדים.
-החופף הוא הלקוח ומוסר את המשך המשימה אחרי הדגמת הגרסה הראשונה.
+Deliver a baseline, evaluation and runnable prediction on a new clip. Explain sampling/time,
+model and representation versions, missing information and what the metrics establish.
+The mentor supplies the next part of the request after the first demonstration.
 
-חומר חובה: [וידאו וייצוגים](../../docs/lessons/06-video.md), [ML](../../docs/lessons/03-metrics-ml.md)
-ו־[PyTorch](../../docs/lessons/04-torch.md). המימוש מתבצע עם האייג׳נט; בסשן ההסבר הוא סגור.
+Required learning: [video](../../docs/lessons/06-video.md), [ML](../../docs/lessons/03-metrics-ml.md)
+and [training](../../docs/lessons/04-torch.md). Use the agent for research explanation as well as
+implementation; close it for the individual explanation.

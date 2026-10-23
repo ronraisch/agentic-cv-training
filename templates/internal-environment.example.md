@@ -1,25 +1,21 @@
-# מיפוי סביבה פנימית — למילוי החונך בתוך הרשת
+# Internal environment map
 
-תבנית בלבד. לא נבדקה מול סביבת הצוות. אין להכניס credentials לקובץ.
+Mentor completes this only inside the approved network. This is a template, not verified connectivity.
+Do not store credentials here.
 
-| פריט | ערך פנימי וראיית preflight |
+| Item | Approved value and preflight evidence |
 |---|---|
-| GitLab project ו־clone URL | FILL_IN |
-| Confluence URL, Space ודף כניסה לצוות | FILL_IN |
-| branch/commit של החפיפה | FILL_IN |
-| Python/uv ו־index/CA configuration | FILL_IN |
-| lock פנימי מאומת וגרסאות | FILL_IN |
-| VS Code environment/remote והרחבות פנימיות | FILL_IN |
-| Jupyter URL ללא token, kernel path | FILL_IN |
-| image לימודי עם uv/deps/כלי smoke | FILL_IN |
-| registry path ו־digest | FILL_IN |
-| פקודת run והפלט ONBOARDING_OK | FILL_IN |
+| GitLab URL and chosen commit | FILL_IN |
+| Python/uv index, CA and internal lock | FILL_IN |
+| VS Code interpreter/remote/extensions | FILL_IN |
+| Jupyter URL without token and kernel path | FILL_IN |
+| Confluence space/team page and access owner | FILL_IN |
+| Complete visualization-skill snapshot and checksums | FILL_IN |
+| Internal teaching image, digest and safe run command | FILL_IN |
+| Expected ONBOARDING_OK output | FILL_IN |
 | OpenShift console/namespace/workload | FILL_IN |
-| service, route ו־health path | FILL_IN |
-| fixture request, model hash ופלט צפוי | FILL_IN |
-| NFS/PVC path ומקום probe | FILL_IN |
-| פקודות UI/API/train/eval/serve | FILL_IN |
-| GitLab pipeline/job לימודי בטוח | FILL_IN |
-| owner לתקלות הרשאה, רשת וחבילות | FILL_IN |
-
-הכנת החונך מתבצעת לפני המחזור; אין לצפות שהחניך ינחש כתובות או ישלים שלד מערכת.
+| Service/route/health and known prediction fixture | FILL_IN |
+| Persistent storage path and safe restart recipe | FILL_IN |
+| Actual UI/API/train/eval/serve commands | FILL_IN |
+| Safe GitLab job log example | FILL_IN |
+| Network/access/package support owners | FILL_IN |

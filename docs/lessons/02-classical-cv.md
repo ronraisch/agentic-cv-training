@@ -1,54 +1,52 @@
-# 2 — גאומטריה, Hough וחיבור תמונות
+# Classical CV for plates and airborne imagery
 
-## עיבוד תמונה
+## Filtering and coordinates
 
-תמונה היא מערך עם צבע, dtype וטווח, לא רק shape. ב־RGB/BGR ערוצים שונים; פעולות
-על uint8 עלולות לגלוש. convolution מסכם שכונה עם kernel: blur מפחית רעש אך יכול
-להעלים פרטים קטנים, ו־Sobel מודד שינוי מקומי. Canny מפיק מפת קצוות עם thresholds;
-קצה אינו בהכרח גבול האובייקט. אותיות, ברגים ורקע יכולים לייצר קצוות חזקים בלוחית.
+An image has channel order, dtype, range and spatial meaning. RGB and BGR are different; uint8
+arithmetic can overflow. Convolution aggregates a neighborhood with a kernel. Blur can suppress
+noise and erase small details. Sobel measures local changes; Canny produces edges, not guaranteed
+object boundaries. Letters and bolts may create stronger edges than a plate frame.
 
-במסכות בינאריות erosion מצמצם foreground ו־dilation מרחיב. opening הוא erosion
-ואחריו dilation; closing בסדר ההפוך. בחר kernel לפי scale האובייקט, והסבר מה יימחק
-או יתמזג. אינטרפולציה של class IDs צריכה לשמור את זהות התוויות. תעד כל transform
-כדי להחזיר coordinates למקור ולשמור correspondence לקלט.
+Explain correlation versus convolution, Gaussian scale, separable filtering and why smoothing
+before downsampling reduces aliasing. Use one small example rather than a full second signal course.
+Morphology changes binary shapes: erosion shrinks, dilation expands, opening erodes then dilates,
+and closing reverses the order. The kernel can remove true small objects or merge adjacent ones.
+Preserve class IDs when resizing label masks. Keep the coordinate/inverse-transform contract.
 
-## Hough וגבולות לוחית
+## Hough and plate rectification
 
-ייצוג קו נוח הוא rho=x*cos(theta)+y*sin(theta). נקודות קצה מצביעות במרחב הפרמטרים,
-וקבוצה עם תמיכה גבוהה יוצרת מועמד לקו. Hough רגיל מחזיר פרמטרי קווים;
-Probabilistic Hough יכול להחזיר מקטעים, ומאפשר בקרה על אורך מקטע ופערים.
-בחר קווים רלוונטיים ולא בהכרח את ארבעת החזקים. ספים ורזולוציית bins משפיעים על רעש
-ועל רגישות לגבולות קצרים. הצג overlay של המועמדים, ולא רק תוצאה אחרונה יפה.
+A useful line representation is rho = x*cos(theta) + y*sin(theta). Edge points vote in parameter
+space; compatible support forms candidate lines. Standard Hough produces line parameters;
+probabilistic Hough may produce segments. Bin size, support threshold, segment length and gaps
+control different tradeoffs. Select plausible plate boundaries, not blindly the four strongest lines.
+Show candidate overlays as well as the final crop.
 
-ארבע פינות עקביות עשויות להגדיר יישור projective למלבן. בדוק סדר פינות, convexity,
-שטח וטרנספורמציה לא מנוונת. affine יכול ליישר rotation/shear אבל אינו מתאר כל
-perspective warp. הומוגרפיה היא מטריצת 3×3 עד כדי scale, שפועלת בקואורדינטות
-הומוגניות; ארבע התאמות לא מנוונות מספיקות מתמטית, אך אינן הוכחה לאמידה יציבה.
+Four consistent nondegenerate correspondences can determine a planar projective mapping, but
+four points alone do not establish stable estimation. Check corner ordering, convexity, area,
+orientation and degeneracy. An affine map cannot represent every perspective distortion.
+Homogeneous coordinates allow translation and projection to be expressed with matrices.
 
-crop מיושר לצירי התמונה אינו בהכרח מכיל את כל הלוחית. מידע שנחתך מחוץ ל־ROI לא
-ניתן לשחזר באמצעות warp. יש להחליט עם החופף על margin וחזרה לתמונה המקורית.
-שמור conventions של x/y ו־width/height, resize, padding ו־inverse transform.
-לוחית בלי גבולות אמינים צריכה מצב כשל ומדיניות fallback מפורשת; לא warp אקראי.
+An axis-aligned detector ROI may truncate the true plate. A warp cannot recover pixels that were
+removed; clarify margins and use of the original image. Keep x/y, width/height, resize and padding
+conventions explicit. Missing reliable boundaries require a documented failure/fallback policy.
+Part 2 checks geometry and examples. Formal evidence of improved recognition comes in part 3.
 
-בחלק 2 אפשר להראות שהיישור פועל על fixtures ידועים ולהסביר כשל. רק בחלק 3 בוחנים
-אם הוא משפר LPR על דוגמאות שלא שימשו לכיוון פרמטרים. "נראה ישר" אינו מדד OCR.
+## Stitching exactly two images
 
-## שתי תמונות מסנסור מוטס
+Find features and descriptors, match with a suitable distance and reject ambiguous matches.
+RANSAC reduces the effect of outliers under its assumed model; repeated patterns, poor spatial
+coverage or the wrong geometry can still produce a bad transform. Inspect inlier distribution,
+not just count. Explain a corner detector/descriptor at a conceptual level; exhaustive Harris/SIFT
+and optical-flow derivations are optional follow-up.
 
-מצא keypoints ו־descriptors, בצע matching מתאים לתיאור שבחרת וסנן התאמות לא עקביות.
-RANSAC מחפש transform עם תמיכה עקבית ומפחית השפעת outliers; הוא אינו מבטיח נכונות
-כשיש מבנה חוזר, מעט חפיפה או מודל גאומטרי לא מתאים. בדוק פריסה מרחבית של inliers
-ולא רק את מספרם, והראה overlay של נקודות על שתי התמונות.
+State the direction of the homography. Transform image corners to compute a canvas and translation
+that preserve negative coordinates, then warp and blend the overlap. A smooth seam does not repair
+bad registration. Use independent check points, reprojection error and an explicit no-overlap case.
 
-הגדר כיוון H: מתמונה 2 ל־1 או להפך. העבר corners כדי לחשב canvas ו־translation
-ששומר pixels עם coordinates שליליים; לאחר מכן warp, overlap mask ו־blend.
-הסתרת seam בצבע אינה תיקון של טעות גאומטרית. הראה נקודות בקרה שלא רק שימשו
-לאמידה, reprojection error ומקרה ללא חפיפה. אפשר להשוות checkerboard/edges באזור חפיפה.
+An airborne sensor translates; buildings and terrain introduce parallax. A single homography is
+a planar approximation, not a general orthomosaic. Lens distortion, rolling shutter, scene motion
+and exposure changes may matter. Explain when to reject a stitch or choose another model; do not
+claim geospatial accuracy without reference-system checks and independent measurements.
 
-טיסה יוצרת translation ויכולה לכלול parallax ממבנים וגבהים. homography אחת מתאימה
-למישור או לקירוב שנבדק; היא לא הופכת כל גיחה לאורתופוטו. עיוות עדשה, rolling shutter,
-תנועה בסצנה ושינוי exposure עלולים לפגוע בחיבור. תעד מתי צריך מודל אחר ומתי מסרבים
-לחבר. אין לטעון לדיוק גאוגרפי בלי בדיקת מערכת ייחוס ומדידה חיצונית.
-
-תרגיל הסבר: מצא פינות מחיתוך קווים ידועים, העבר נקודה דרך H ובחזרה, והסבר למה
-קווי בניין משני גבהים אינם בהכרח מתיישרים באותה homography.
+Self-check: intersect known lines, map a point forward/backward and explain a parallax counterexample.
+Two-image stitching is required; extending to more images requires explicit mentor approval.

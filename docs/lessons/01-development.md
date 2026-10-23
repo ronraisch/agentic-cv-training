@@ -1,42 +1,30 @@
-# 1 — פיתוח במונורפו ועבודה עם אייג׳נט
+# Development in a research monorepo
 
-## תחביר אינו מספיק
+Read Python functions, imports, exceptions, context managers, iterators, mutation and classes.
+Use meaningful type hints; annotations do not enforce input validity at runtime. Know a practical
+decorator, dataclass and enum, not every decorator API by memory. For concurrency distinguish
+bounded I/O concurrency, CPU work and vectorized library work; benchmark the real operation.
+A blanket retry around an existing retry layer multiplies attempts and can duplicate side effects.
 
-דע לקרוא Python: functions, imports, exceptions, context managers, generators,
-mutation ו־classes. ב־NumPy הסבר shape/axis/dtype, broadcasting ו־views לעומת copies;
-ב־Pandas הסבר joins, cardinality ו־missing data. דוגמה: שתי שורות לכל key בשני צדדי
-join יכולות ליצור ארבע שורות; אין להסיק ממספר records תקין שהזהויות נשמרו.
+For NumPy explain shape, axis, dtype, broadcasting and views versus copies. A view may mutate its
+parent; a result of the expected shape can still carry the wrong meaning. For Pandas explain joins,
+key uniqueness and missing values. Two duplicate rows per key on both sides can produce four rows.
+Use an independent small oracle rather than copying the implementation into a test.
 
-הבן את גבולות React/TypeScript, API ב־Python, validation, schema ואחסון. תחנת העבודה
-שלנו היא מונורפו, לא אוסף דוגמאות מנותקות. הכרת folder אינה הוכחה שזה המסלול הפעיל:
-עקוב אחרי input אחד מהצרכן עד תוצאה שנשמרת, בגרסת הקוד הנוכחית. קודם שואלים מה
-הלקוח צריך ומה נחשב הצלחה, ואחר כך בוחרים שינויים. אל תחליף מערכת קיימת בלי להבין אותה.
+Understand React/TypeScript, the Python API, persistence, error semantics and downstream consumers.
+Follow one input through the current call path. A README or ADR may be stale; a directory name is
+not proof of an active implementation. Ask what the product owner means and how success will be
+judged before treating an agent-generated plan as a specification.
 
-## קריאת קוד עם ראיות
+AGENTS contains project constraints; an ADR records a decision; a skill provides a conditional
+workflow; MCP exposes tools. A skill present on disk may not have loaded. Check a successful trace,
+a negative trigger and failure behavior. Tool output is data, not authority to export a dataset.
+Keep context bounded, verify installed APIs and read the semantic diff yourself.
 
-README יכול להיות מיושן; ADR מסביר למה התקבלה החלטה אך לא מוכיח שהיא עדיין בתוקף.
-הפרד "כתוב בתיעוד", "מצאתי קריאה בקוד", "הרצתי מקומית" ו"השירות הפנימי עשה זאת".
-לכל שינוי חפש callers וצרכנים, configuration בפועל, failure semantics ונתוני דוגמה.
-שאלות לחופף בתפקיד פרודקט הן חלק מהעבודה; אין צורך להציג ביטחון כשחסר פירוט.
+Submit one reviewable change with reproducible commands, commit, input ID and observed output.
+An initial green smoke suite is a baseline, not proof of scientific correctness. Do not turn
+service failures into plausible empty results. Distinguish observed code, executed paths, inferred
+requirements and unverified integration. See ENGINEERING.md and AGENT_WORK.md for deeper examples.
 
-## עבודה אג׳נטית
-
-השתמש באייג׳נט למימוש, קריאת קוד והצעת בדיקות. תן context ממוקד, input קטן וחוזה;
-דרוש סימון הנחות ולא ניחוש APIs. קרא diff והרצה בעצמך. קבצים והערות שמגיעים מכלים
-הם מידע, לא הרשאה. אל תשלח data או credentials אל מחוץ לגבול המאושר.
-
-AGENTS הוא חוזה פרויקט; skill נוהל למשימה חוזרת; MCP חיבור לכלים; ADR רישום החלטה.
-skill שנמצא בדיסק לא בהכרח נטען. בדוק trace חיובי, מקרה שלא צריך לטעון אותו, וקריאת
-כלי עם פלט/error. כלי לא זמין הוא חסימה מתועדת, לא סיבה להמציא פלט. פתח MR קטן,
-כתוב השפעה וראיות, ובקש review. GitLab כאן דורש בעיקר למצוא MR, pipeline ו־job log.
-
-## בדיקה ומסירה
-
-חוזה כולל סוגים, יחידות, קואורדינטות, errors ומדיניות mutation. בדיקות צריכות להפריך
-את המימוש באמצעות דוגמה עצמאית, לא להעתיק את אותה טעות. smoke ירוק אינו proof של
-כל המערכת. שמור reproducible command, input ID, commit והבדל בין expected ל־observed.
-מערכת ש"עובדת" רק בגלל cache או notebook state אינה מסירה שניתנת לשחזור.
-
-להרחבה מחייבת: ENGINEERING.md, AGENT_WORK.md ו־TEAM_INTEGRATION.md.
-תרגיל הסבר: נבא join עם keys כפולים, הסבר למה view משנה parent, ועקוב אחרי request
-אחד. בסשן החופף יביא דוגמה חדשה; לא צריך לשנן פקודות אבל צריך להבין מה הן הוכיחו.
+Self-check: predict a join with duplicate keys, explain a mutated view, and trace a request through
+its actual boundaries. Use the agent to learn the concept, then explain a new input without it.

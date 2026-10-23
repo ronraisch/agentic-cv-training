@@ -1,9 +1,11 @@
-# חלק 1 — בקשת פרודקט
+# Part 1 Product request
 
-> צריך רק להוסיף תמיכה בפוליגונים באתר תיוגים.
+> Just add polygon support to the labeling website.
 
-אתה חוקר בצוות פענוח ועובד במונורפו הקיים עם האייג׳נט המאושר. החופף הוא הפרודקט
-שהביא את הבקשה: אפשר וצריך לשאול אותו שאלות כשלא ברור מה הצורך או מה נחשב גמור.
+You are a researcher in Peanuach working in the existing monorepo with the approved agent.
+The mentor is the product owner who brought the request. Ask questions when the intended behavior
+or completion criteria are unclear.
 
-הגש MR והדגמה שמראים שהבקשה הושלמה, והבחן בין מה שבדקת לבין הנחות שעוד לא אומתו.
-חומר החובה וסשן הידע בחלק 1 נפרדים מהבקשה הזו ומופיעים במפת הקריאה.
+Submit a reviewable MR and a demonstration that the request is complete. Distinguish verified
+behavior from untested assumptions. Required reading and the development teach-back are listed
+separately in the learning map.

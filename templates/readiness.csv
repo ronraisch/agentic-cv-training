@@ -7,5 +7,6 @@ internal_agent_skills_mcp,mentor,UNVERIFIED,,,,,,local_examples
 artifactory_openshift,mentor,UNVERIFIED,,,,,,local_container_only
 nfs_pvc,mentor,UNVERIFIED,,,,,,local_persistence_only
 confluence_access,mentor,UNVERIFIED,,,,,,mentor_guided_read
-mentor_drive_source,mentor,NOT_LOCATED,,,,,,explicit_provisional_sessions
-original_course_mapping,mentor,NOT_LOCATED,,,,,,local_lessons
+mentor_drive_source,mentor,READ_2026_10_23,,,,,,explicit_provisional_sessions
+original_course_mapping,mentor,REVIEWED_2025_SOURCE,,,,,,local_lessons
+visualization_skills,mentor,NOT_INSTALLED,,,,,,approved_complete_internal_bundle

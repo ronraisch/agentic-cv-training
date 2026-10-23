@@ -1,15 +1,12 @@
-# טענה וראיה
+# Claim and evidence
 
-- טענה:
-- סטטוס: נצפה / מוסק / טרם אומת / חסום
-- היקף: קוד / ריצה מקומית / container / שירות פנימי
-- קובץ ו־commit, פקודה, input ID ופלט:
-- מה הראיה אינה מוכיחה:
-- בדיקה שעשויה להפריך את הטענה:
-- owner ופעולה הבאה:
+- Claim:
+- Status: observed / inferred / unverified / blocked
+- Scope: code read / local execution / container / internal service
+- Commit/file, command, input ID and observed output:
+- What this evidence does not establish:
+- A check that could falsify the claim:
+- Owner and next action:
 
-## שרשרת artifact
-
-data/split hash → training config בפועל → run ID → בחירת checkpoint/estimator
-→ saved hash → image digest → loaded hash/config בשירות → request ID → prediction.
-כל חוליה לא נבדקת מסומנת בנפרד; אין לשדרג את כל השרשרת ל"נצפה".
+Artifact chain: data/split hash -> actual training configuration -> run/selection -> saved hash ->
+image digest -> loaded model/config -> consumer request -> prediction. Mark gaps independently.

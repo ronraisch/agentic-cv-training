@@ -1,43 +1,25 @@
-# 4א — סגמנטציית עננים כהחלטה תפעולית
+# Cloud segmentation as an operational decision
 
-## קודם השאלה והדאטה
+The consumer wants to avoid object-detector work where imagery is unusable. A cloud mask does not
+mean there are no objects. Define thick/thin clouds, shadows, haze, snow, no-data and partial cover,
+and whether output is a mask, probability map or tile decision. A skipped area is unobserved.
 
-הצרכן רוצה לחסוך הרצות detector על אזור שאינו נצפה. פיקסל מסומן "ענן" אינו אותה
-שאלה כמו "אין כאן אובייקטים". יש להחליט על ענן עבה, ענן דק, shadow, haze, snow,
-no-data והסתרה חלקית. קבע האם המערכת מחזירה mask, cloud probability או החלטת tile.
-אם משמיטים אזור, תעד שהוא **לא נבדק**; אסור להציג אותו כ־zero detections.
+Compare sensors, channels, GSD, acquisition geography and label protocols. A method needing bands
+absent from the RGB service is not a drop-in replacement. Split by scene/acquisition, not overlapping
+tiles. Consider domain shift explicitly. A short survey needs a baseline and two plausible research
+alternatives, not a ranking of dozens of papers.
 
-סקר קצר מתחיל בטבלת data channels, GSD, sensor, גאוגרפיה, label protocol וזמינות
-לשימוש פנימי. שיטה שמצריכה ערוצים ספקטרליים שאין בשירות RGB אינה drop-in.
-דאטה מתויג מסנסור אחד יכול להשתנות בטקסטורה וברזולוציה בסנסור אחר. הפרד scenes/
-acquisitions בפיצול; tiles שכנים חופפים אינם קבוצות test עצמאיות.
+A light segmentation head or encoder-decoder may be a reasonable proposal depending on data and
+compute. Explain freeze/fine-tune, sampling, augmentation, imbalance and loss. Keep target masks,
+ignore labels, resizing and reduction semantics explicit. A tiny-overfit/overlay check precedes a
+large training plan. Do not promise that a published architecture will transfer successfully.
 
-## חלופות ותכנון אימון
+Evaluate pixel metrics plus consumer impact: false cloud on clear areas, missed cloud, boundary
+behavior, new sensors, net detector work saved and object recall lost through gating. Include the
+segmentation overhead. Object annotations are needed to measure false-cloud harm; if absent,
+state that the operational effect is unmeasured rather than fabricate it.
 
-baseline פשוט ומגבלותיו מאפשרים להבין אם DL נחוץ. אפשר להשוות ראש segmentation
-קל מעל encoder, encoder-decoder קטן או התאמה של מודל זמין. הבחירה נשענת על
-רזולוציית הפלט, מידע זמין, דאטה, זיכרון וזמן ריצה, לא רק על תוצאת benchmark.
-הסבר freeze/fine-tune, augmentation, imbalance, patch sampling ו־loss.
-
-מודל segmentation מחזיר logits/probabilities במרחב התמונה; dtype, resize של מסכות,
-ignore labels ו־loss reduction חייבים להיות מפורשים. BCE/Dice או חלופה אחרת דורשים
-הבנת target ו־imbalance, לא בחירה אוטומטית. בדיקת tiny-overfit ו־overlay של כמה masks
-יכולות להפריד באג בנתונים מבחירת ארכיטקטורה גרועה לפני אימון גדול.
-
-## evaluation לפי מטרת הצרכן
-
-Pixel IoU/Dice לבדם אינם מוכיחים שהמנגנון כדאי. הגדירו false-cloud על שטח ברור,
-missed-cloud, התנהגות על גבולות ובסנסור חדש. בנוסף מדדו מה היה נחסך במספר tiles/
-latency כולל עלות סגמנטציה, ומה נפגע ב־recall של אובייקטים כשמדלגים על אזורים.
-צריך GT לאובייקטים גם באזורים שעלולים להיחסם, או תיעוד ברור שההשפעה אינה מדידה עדיין.
-
-קבע מדיניות tile שחלקו מעונן ותקציב לטעות: האם להרחיב mask, לדרוש שיעור cloud,
-לעבד אזור חשוד או לבקש fallback? אין threshold אוניברסלי. שומרים סיבת דילוג,
-גרסת mask/model וזמן צילום, כדי שהצרכן יבחין בין לא נצפה, אין זיהויים ושירות כושל.
-
-## איך לכתוב סקר קצר מועיל
-
-לכל מקור ראשוני: claim, data/channels, architecture, training/evaluation protocol,
-מה נבדק אצלם ומה טרם נבדק אצלנו. לפחות baseline ושתי חלופות מספיקים להצעה בת 8 שעות.
-לסיום: המלצה מותנית, ניסוי ראשון, קריטריון שיפריך אותה, סיכוני domain shift ודרישות
-משאבים/משקלים ברשת. לא מתחייבים להצלחת מודל רק כי הוצג במאמר.
+Define partial-tile behavior and the tradeoff between skipping, expanding a mask, processing uncertain
+areas or falling back. Save the reason for skipped coverage, model/mask revision and acquisition time.
+The proposal ends with a small falsifiable experiment, data/resource requirements and a conditional
+recommendation. Training a full cloud system is not a core assignment.

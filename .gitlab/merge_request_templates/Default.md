@@ -1,14 +1,14 @@
-## השינוי והסיבה
+## Change and reason
 
-## ראיות
+## Evidence
 
-- Commit ופקודות:
-- input ותוצאה צפויה/נצפית:
-- סטטוס: נצפה / מוסק / טרם אומת / חסום
-- היקף: מקומי / container / שירות פנימי
-- מגבלות ובדיקה הבאה:
+- Commit and commands:
+- Input, expected result and observed result:
+- Status: observed / inferred / unverified / blocked
+- Scope: local / container / internal service
+- Limitations and next check:
 
-## מחקר ותחזוקה
+## Research and maintenance
 
-- השפעה על data/splits/preprocess/class-map/metrics/artifact:
-- שחזור ו־rollback:
+- Effect on data, splits, preprocessing, class mapping, metrics or artifact identity:
+- Reproduction and rollback:

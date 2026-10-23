@@ -1,9 +1,9 @@
-# למסירה רק אחרי גרסת הווידאו הראשונה — בקשת לקוח 2
+# Customer request 2 Release after the first video baseline
 
-השלוש הראשונות שימושיות. צריך להוסיף עכשיו:
+The first three answers are useful. Add:
 
-- האם עבר רכב במהלך הקטע?
-- האם יש בקטע מידע שימושי, או שהמצלמה מכוונת לתקרה/קיר בלי מה שהצרכן מחפש?
+- Did a vehicle pass during the clip?
+- Does the clip contain useful information, rather than a ceiling/wall with none of what the consumer needs?
 
-אפיין איתי למה אני מתכוון והראה איך היית מוסיף יכולת אחת לפחות בגרסה שרצה,
-כולל evaluation ודוגמאות כשל. הצג מה המחיר של הוספת שאלה ומה נשאר עובד מהגרסה הקודמת.
+Clarify what I mean. Implement at least one added capability with evaluation and failure examples.
+Explain the cost of adding a question and show what still works from the previous version.

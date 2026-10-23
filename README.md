@@ -1,35 +1,34 @@
-# חפיפת חוקר בצוות פענוח
+# Peanuach Researcher Onboarding
 
-**שישה שבועות: חומר חובה, סשנים אישיים ועבודה עם אייג׳נט במונורפו.**
+Six weeks of research learning, individual teach-back sessions and agent-assisted work in one
+video and remote-sensing monorepo. Tasks and reproducible evidence live here; reading and viewing
+may also live in Drive. Active materials use English to avoid mixed-direction Markdown problems.
 
-[מתחילים כאן](docs/START_HERE.md) · [תוכנית ותקציב שעות](docs/CURRICULUM.md)
-· [חומר החובה והסשנים](docs/READING_AND_SESSIONS.md)
-· [Getting Started פנימי](docs/GETTING_STARTED_INTERNAL.md)
+[Start here](docs/START_HERE.md) · [Six-week syllabus](docs/CURRICULUM.md)
+· [Drive syllabus](https://docs.google.com/document/d/1shy8IhFa-Vri5SSCuN03x-ktt4gtwfal3Bp9Gnvwlvo/edit)
+· [Required learning](docs/READING_AND_SESSIONS.md) · [Internal setup](docs/GETTING_STARTED_INTERNAL.md)
+· [Original Drive collection](https://drive.google.com/drive/folders/1ZfbxunFLoea6JsUIbAiRbDgrkumhGDDA) · [New curated Drive workspace](https://drive.google.com/drive/folders/1MqJ6JWJ5ivd6voElujzTzPhmf7gZp_Jx)
 
-| חלק | משימות |
+| Part | Practical work |
 |---|---|
-| 0 — התקנות | VS Code וגישה ל־OpenShift, GitLab, Artifactory ו־Confluence; Jupyter |
-| 1 — פיתוח וסטאק | בקשת פרודקט באתר התיוג |
-| 2 — CV קלאסי | יישור לוחית רישוי בעזרת Hough ל־LPR; חיבור שתי תמונות מגיחה |
-| 3 — evaluation ו־ML | הערכת LPR; סיווג תנועות tracklets; ציון חדש לאיתורים בעזרת metadata |
-| 4 — DL | סקר והצעה לסגמנטציית עננים; אב־טיפוס סיווג קטעי וידאו בני עשר שניות |
-| סיום | מחברת inference על מסלול הווידאו, הסבר לעומק והעברת ידע |
+| 0 | VS Code, GitLab, Artifactory, OpenShift, Confluence, Jupyter and visualization skills |
+| 1 | A product request for the existing labeling application |
+| 2 | Hough-based license-plate rectification and stitching two airborne images |
+| 3 | LPR evaluation, tracklet motion classification and detection rescoring |
+| 4 | A cloud-segmentation research proposal and ten-second video classification |
+| Handover | Explain the deployed video inference path and reproduce it from a notebook |
 
-התרחיש הוא צוות שעוסק בווידאו ובחישה מרחוק מלוויין ומסנסור מוטס. התוכן נשמר בריפו,
-ועובדים איתו לצד האייג׳נט. בחוץ GitHub; בפנים GitLab ורשת סגורה עם הסטאק הקיים.
-התקנות וגישה נלמדות במודרך, בלי מבחן DevOps ובלי העמקה ב־GitLab CI/CD.
+Budget: **240 trainee hours**, including **40 hours of infrastructure/transfer buffer**.
+Mentor budget: **12 hours total**, normally two scheduled windows a week, no more than
+one hour on any day. Preparation and asynchronous review count against this limit.
+The syllabus replaces duplicate courses and exercises; it does not add another course on top.
 
-240 שעות: 35 קריאה/ניתוח קוד, 5 מדיה או חלופת טקסט, 144 מימוש/ניסויים/תיעוד,
-16 סשנים וחניכה, ו־40 באפר. חומר חובה נבחן בנפרד ממימוש, גם אם לא שימש במשימה.
-שתי תמונות חובה; ריבוי תמונות רק כבונוס באישור החופף. עננים הם הצעת מחקר קצרה,
-לא דרישה לאימון מערכת נוספת. מטלות המודלים מהגרסה הקודמת אינן מתווספות לעומס.
+## Implementation status
 
-## מצב הריפו
-
-זה עדכון חומרי חפיפה, משימות ותבניות. מערכת פענוח עצמה עדיין אינה ממומשת כאן;
-החופף מכין שלד לימודי עובד או ממפה קוד צוות לפני המחזור. הקוד הקיים הוא ResearchLab
-סינתטי לפיתוח Python, עם פגמים לימודיים מכוונים. פרטי המערכת אינם עובדות על צוות אמיתי.
-[מפת התרחיש](docs/SYSTEM_MAP.md) · [סטטוס אימות](docs/VALIDATION.md).
+This repository contains a synthetic Python ResearchLab and onboarding specifications. A working
+Peanuach labeling/training/serving system has not been implemented here. The mentor supplies a
+working teaching baseline or maps the existing team code before the cohort starts.
+Model training results, internal deployment and installed-skill activation are not claimed.
 
 ```bash
 uv sync --extra dev --extra mcp --locked
@@ -38,11 +37,12 @@ uv run pytest
 uv run python tools/check_mcp.py
 ```
 
-הפקודות מיועדות לקוד הסינתטי ול־lock הציבורי. בפנים משתמשים בהגדרת uv/CA/lock
-שהחופף אימת מול Artifactory. אין להניח שפקודה זו מתקינה את מערכת הפענוח המתוכננת.
+These commands apply to the existing ResearchLab environment. Internal users follow the approved
+Artifactory/CA/lock setup rather than assuming a public lock can resolve offline.
 
-[פרקי לימוד](docs/lessons/README.md) · [מלכודות כלליות](docs/PITFALLS.md)
-· [עבודה אג׳נטית](docs/AGENT_WORK.md) · [מקורות רשות](docs/SOURCES.md)
+[Research learning with agents](docs/RESEARCH_WITH_AGENTS.md) · [Skills lab](docs/SKILLS_STAGE0.md)
+· [Known pitfalls](docs/PITFALLS.md) · [Validation](docs/VALIDATION.md)
 
-הקורס המקורי והמסמך לחופף בדרייב טרם אותרו בחיבור הנוכחי; התאמה אליהם מסומנת פתוחה.
-גרסת פיתוח מקורית: ענף `v1.0.0`. המסלול הקודם: commit `838302a`. קוד וטקסט מקוריים: MIT.
+Original Drive files remain unchanged. The source folder allowed reading but rejected child-folder
+creation; the new workspace was created separately in My Drive. Move it into the original collection
+only after obtaining write access. Previous curricula remain in Git history.

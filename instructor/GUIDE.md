@@ -1,7 +1,7 @@
-# מדריך המסלול המקורי — בנק תרגילים
+# Original ResearchLab mentor bank
 
-למסלול החוקר העדכני השתמש ב־RESEARCH_GUIDE.md. הרשימה להלן מתייחסת ל־ResearchLab
-הסינתטי המקורי, ואינה עוד מסלול חובה או נוהל הסשנים הנוכחי.
+The active mentor route is RESEARCH_GUIDE.md with DEEP_DISCUSSIONS.md. The original exercises
+below are an optional bank, not another mandatory course or a current time budget.
 
 # Mentor guide — contains spoilers
 
@@ -56,5 +56,5 @@ than designing a generic networking framework. Reward that judgment when justifi
 ## Schedule
 
 The six-week researcher route in docs/CURRICULUM.md supersedes the original ten-day schedule.
-Use instructor/RESEARCH_GUIDE.md for mentor preparation, product discovery and personal sessions. Labs 00–11 are
+Use instructor/RESEARCH_GUIDE.md for the current 12-hour mentor budget and deep sessions. Labs 00–11 are
 embedded exercises, not an additional 46-hour course. Internal setup is guided teaching.

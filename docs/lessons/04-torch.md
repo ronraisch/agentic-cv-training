@@ -1,45 +1,42 @@
-# 4 — PyTorch שצריך להבין בידיים
+# Training and inference fundamentals
 
-טנזור הוא נתונים עם shape, dtype, device ולעיתים graph לחישוב נגזרות.
-NCHW אינו NHWC: תמונת [H,W,3] צריכה permute מתועד ואז batch, לא reshape שמערבב
-פיקסלים. Conv2d מחבר ערוצים ומחליק kernel במרחב; stride משנה רזולוציה. כתבו shapes
-לכל שכבה לפני הרצה. batch size אינו מספר classes ו־numel אינו גודל הזיכרון בבתים.
+A tensor has shape, dtype, device and possibly an autograd graph. HWC is not CHW: permute changes
+axis meaning; reshape alone does not. Explain convolution channels/stride/padding, receptive fields,
+residual paths and normalization using one architecture, not an exhaustive architecture history.
 
-## לולאת אימון
+For a training batch: place inputs/targets on the right device, clear gradients according to the
+accumulation policy, compute predictions/loss, backward and step. Gradients accumulate by default.
+A detach/NumPy conversion in the loss path may cut learning. Check component gradient norms and
+parameter updates, not just a decreasing scalar loss. Match logits/probabilities, target dtype,
+missing-label masks and reduction semantics to the loss.
 
-לכל batch: קלט ו־targets על אותו device; איפוס gradients לפי מדיניות accumulation;
-forward; loss; backward; optimizer.step. gradients מצטברים כברירת מחדל. אם שוכחים
-zero_grad מתקבל אלגוריתם אחר. detach או מעבר ל־NumPy באמצע loss יכול לנתק gradient.
-loss שנראה סביר אינו מוכיח שכל head לומד: בדקו gradient norms ופרמטר שהשתנה.
-בחירת loss צריכה להתאים ל־logits/targets: sigmoid נוסף לפני loss שמצפה logits משנה
-את הבעיה. קובעים reduction כדי לא להפוך מספר anchors למשקל משתנה בין batches.
+Model train/eval state affects modules such as dropout and BatchNorm. It does not switch off
+autograd. Use eval plus an appropriate no-grad/inference scope for inference. Restore caller state
+on errors when the interface promises that behavior. Retained GPU outputs can retain graphs;
+store only needed detached CPU values for reports. Seeds do not guarantee equality across all
+versions/devices/kernels.
 
-`train()` ו־`eval()` שולטים בהתנהגות כגון dropout ו־BatchNorm; הם אינם כיבוי autograd.
-`no_grad`/`inference_mode` מונעים בניית graph אך אינם מחליפים eval. בפונקציה שמבטיחה
-לא לשנות מצב למשתמש, משחזרים אותו גם ב־exception. metric על outputs שמוחזקים ב־GPU
-עלול לשמור graph/זיכרון בין batches. לצבירת דוח מעבירים תוצרים נחוצים ומנותקים ל־CPU.
+Debug in order: visualize a batch/GT; inspect shapes/ranges; run one forward/backward; verify an
+update; overfit two to eight fixed examples without augmentation; save/reload a fresh instance;
+then enlarge data or compute. Tiny overfit tests the pipeline, not generalization.
 
-## סדר דיבוג
+A checkpoint needs architecture/config, state_dict, class map, preprocessing, data provenance and
+selection rule. Optimizer state matters for true training resumption, not ordinary inference.
+Partial loading can conceal an uninitialized head: report missing/unexpected keys explicitly.
+Record what was actually trained when using a frozen encoder and a small head.
 
-1. בדקו batch ו־overlay של GT לפני מודל. הוסיפו דוגמת empty ו־nonfinite.
-2. ריצה forward אחת עם shapes ו־range. ודאו loss finite, matching ותוויות.
-3. backward אחד: gradient מגיע לרכיבים הרצויים ו־step משנה פרמטר.
-4. overfit על 2–8 תמונות קבועות בלי augmentation. יעד מפורש: ירידה ב־loss ושיפור
-   boxes/סיווג על אותן תמונות; אינו הוכחת הכללה. אי־הצלחה מחזירה ל־data/loss/assignment.
-5. save, טעינה ל־instance חדש, eval ותחזיות תואמות בטולרנס שנקבע.
-6. רק אז batch גדול, augmentation או GPU. seed אינו מבטיח שוויון בין כל פלטפורמות.
+## Attention and representation foundations
 
-## שגיאות שצריך להרגיש
+Attention scores compare projected queries and keys and aggregate values; explain shapes and
+scaling with a toy example. Self-attention without positional information is permutation-equivariant
+at token level, not a general claim that every transformer output is invariant. In ordinary decoder
+cross-attention, decoder states supply queries and encoder memory supplies keys/values.
+Patch resolution, pooling and spatial/temporal information affect small-object and event evidence.
 
-מזריקים באופן מבוקר: target float במקום class index כש־loss דורש integer; שכבה שלא
-נרשמה כ־ModuleList ולכן לא מופיעה ב־parameters; device mismatch; train בזמן inference;
-resize של תמונה בלי boxes; שימור outputs עם gradients. לכל אחת רושמים סימפטום,
-הנחה שנשברה, reproducer קטן וראיה לתיקון. לא מסתפקים ב־try/except שמעלים אותה.
+Understand supervised versus self-supervised objectives, embeddings, transfer learning and
+contrastive alignment at concept level. A text-aligned representation can support new descriptions,
+but similarity is not a verified answer probability. Full RNN/LSTM gates, generative modeling,
+distributed-training implementation and architecture-by-architecture derivations are optional.
 
-checkpoint הוא החלטה מחקרית: שומרים architecture/config, class map, preprocess,
-state_dict, data/split provenance, epoch וקריטריון בחירה. optimizer state נחוץ להמשך
-אימון אמיתי; inference אינו צריך אותו. טעינת משקל חלקית עם strict=False יכולה להסתיר
-head אקראי: מדווחים missing/unexpected keys ולא מגדירים זאת "נטען בהצלחה".
-
-תרגיל הסבר: עקבו מתא בתמונה אל activation, loss, gradient ופרמטר. לאחר restart
-הסבירו איך נבנה model זהה ואיזה קובץ מחייב את זה. הסבירו איך אותו עיקרון חל על head מעל embedding ועל מודל segmentation.
+Self-check: trace one loss to a parameter update; explain eval versus no-grad; compare pooled frame
+presence evidence with evidence needed to establish a temporal event.

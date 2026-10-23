@@ -1,12 +1,26 @@
-# למתחזק ולחופף
+# Maintainer entry point
 
-המסלול העדכני הוא צוות פענוח, לפי עדכון 23.10.2026. חומר החניך מתחיל ב־README.
-מפת הפתרון, שאלות פרודקט, קבלה והמשך משימת וידאו נמצאים ב־[מדריך החופף](instructor/RESEARCH_GUIDE.md).
-[מפת הכנת מערכת](instructor/PRODUCT_AND_PREPARATION.md) מפרידה שלד נדרש ממימוש החניך.
+Active materials are English for reliable cross-viewer layout. Original Drive files are unchanged.
+Use instructor/RESEARCH_GUIDE.md, DEEP_DISCUSSIONS.md and SOURCE_REVIEW.md for mentor operations.
+Do not expose downstream polygon acceptance details or later video requests to learners early.
 
-מסירה ללא רמזים: `python tools/export_learner.py /path/to/new/learner`.
-אין למסור Git history של הריפו המקורי. instructor/MAINTAINERS אינם חלק מההפצה.
-פרקי ידע כלליים מותרים; מפת migration/crops וה־backlog המאוחר אינם נמסרים מראש.
+Distribute a fresh learner copy without mentor files or source Git history:
 
-המסמך לחופף בדרייב והקורס המקורי לא אותרו. יש להשלים מיפוי אחרי קריאת המקור;
-אין לשייך להם נהלים שבינתיים נכתבו כתכנון מקומי.
+```bash
+python tools/export_learner.py /path/to/new/learner
+```
+
+The modern syllabus keeps the first basic screen short and preserves difficult teach-back questions
+afterward. Core study is 28 hours plus four substitute/media windows; research learning with an agent
+has 12 funded hours. Recurring mentor time is capped at 12 hours including prep/review.
+
+Drive publication files live in the newly created workspace linked from README. Creation inside the
+source collection failed with insufficient-parent-permission; no source file was modified or deleted.
+
+Published native Google Docs (mentor files are not learner assignments):
+
+- [Syllabus](https://docs.google.com/document/d/1shy8IhFa-Vri5SSCuN03x-ktt4gtwfal3Bp9Gnvwlvo/edit)
+- [Mentor handbook and deep discussions](https://docs.google.com/document/d/1isRc3EHaASPVrqoC3NlQdrdjUlU8tbYCyowrvbSsTik/edit)
+- [Prioritization and source map](https://docs.google.com/document/d/1hM78maqYQUKClPVfDacVEbVtim6UKlzhtkG9XVoDYAU/edit)
+
+The Mentor Only folder is an organizational label, not an independently verified permission boundary.

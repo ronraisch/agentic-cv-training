@@ -1,17 +1,17 @@
-# שבוע __
+# Weekly checkpoint
 
-| קטגוריה | מתוכנן | בפועל | נותר |
+| Category | Planned hours | Actual hours | Remaining |
 |---|---:|---:|---:|
-| קריאה | | | |
-| מדיה/חלופת טקסט | | | |
-| תרגול, דיבוג ותיעוד | | | |
-| חניכה/בחינה | | | |
-| באפר | | | |
+| Core study | | | |
+| Media or substitute | | | |
+| Project work | | | |
+| Independent research with agent | 2 | | |
+| Mentor contact/preparation | 2 | | |
+| Infrastructure buffer | | | |
 
-- תוצר ו־commit:
-- ראיות נצפות וקישורים:
-- מסקנות והנחות:
-- שערים חסומים, בעלים ותאריך בדיקה:
-- עבודה שהוסרה מההיקף כדי לשמור על שישה שבועות:
-- פרק שנקרא/סרטון ומשך בפועל, ללא ספירה כפולה:
-- משימה הבאה ומבחן הקבלה שלה:
+- Deliverable/commit and observed evidence:
+- Research card and source checked:
+- Deep discussion and unresolved reasoning gap:
+- Blocked access, owner and next check:
+- Work removed from scope to retain six weeks:
+- Next decision and acceptance example:
