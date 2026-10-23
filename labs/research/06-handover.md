@@ -15,3 +15,6 @@ with the mentor; a local container is not proof of an internally verified endpoi
 The final teach-back uses two separate 40-minute windows, not an unplanned multi-hour meeting.
 Explain lines, predict a new result, investigate a bounded failure and transfer knowledge.
 Syntax memorization and building CI/CD are not assessment goals.
+
+Use the ordinary-camera video subset and frozen split from Part 4B; do not introduce satellite
+footage or download another benchmark. [Data sources](../../docs/DATASETS.md#ordinary-camera-video-and-handover).

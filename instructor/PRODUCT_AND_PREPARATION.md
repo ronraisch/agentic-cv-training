@@ -13,10 +13,22 @@ Keep this map out of the initial learner product brief.
 | Tracklets | src/motion | Timestamps, motion labels, camera information, group IDs |
 | Rescoring | src/rescoring | Frozen predictions, independent GT, GSD/angle conventions |
 | Clouds | research/clouds | Available sources/data for proposal feasibility |
-| Video | src/video and services/video | Clips, approved encoder weights and service boundary |
+| Video | src/video and services/video | Ordinary-camera clips, approved encoder weights and service boundary |
 | Operations | deploy | Internal image, teaching namespace/route/storage |
 
 Prepare an offline visualization-skill bundle with full references and licenses. The mentor reviews
 the two entry files once and rehearses the short activation demonstration before the first cohort.
 This one-time curriculum preparation is distinct from the recurring 12-hour mentor budget; record
 its actual cost rather than hiding it in learner time.
+
+## Data preparation before the cohort
+
+Use [the dataset catalog](../docs/DATASETS.md). The team covers ordinary-camera video as well as
+remote sensing. Keep ground-camera video separate from satellite/airborne image tasks.
+Prepare small, approved local subsets and frozen split manifests before the cohort; access requests
+and a full benchmark download are not new trainee assignments. Record preparation cost separately.
+Provide independent GT plus frozen predictions for rescoring; public GT is not detector output.
+For video, prefer a single MEVA ground-camera collection with both indoor/outdoor views; BDD100K
+or VIRAT ground footage is optional supplementation. Avoid making dataset identity equal the label.
+Prepare a few real sky-only/ceiling/empty clips if missing; unknown labels are not negatives.
+Keep later question labels/releases mentor-only until their scheduled product request.

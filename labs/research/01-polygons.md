@@ -9,3 +9,5 @@ or completion criteria are unclear.
 Submit a reviewable MR and a demonstration that the request is complete. Distinguish verified
 behavior from untested assumptions. Required reading and the development teach-back are listed
 separately in the learning map.
+
+[Relevant data sources](../../docs/DATASETS.md#labeling-application). Use the mentor-prepared internal subset.

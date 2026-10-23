@@ -1,6 +1,7 @@
 # Part 4B Describe ten seconds of video
 
-A Peanuach consumer currently needs three answers for a ten-second clip:
+An ordinary-camera video consumer currently needs three answers for a ten-second clip.
+Use ground, handheld or vehicle-camera video, not satellite or aerial footage:
 
 - Is there a road?
 - Is the view indoors or outdoors?
@@ -17,3 +18,5 @@ The mentor supplies the next part of the request after the first demonstration.
 Required learning: [video](../../docs/lessons/06-video.md), [ML](../../docs/lessons/03-metrics-ml.md)
 and [training](../../docs/lessons/04-torch.md). Use the agent for research explanation as well as
 implementation; close it for the individual explanation.
+
+[Relevant data sources](../../docs/DATASETS.md#ordinary-camera-video-and-handover). Use the mentor-prepared internal subset.

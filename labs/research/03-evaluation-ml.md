@@ -26,3 +26,5 @@ For all three deliver target definition, grouped data/split provenance, baseline
 and limitations. For learned models include feature schema, artifact and fresh-load inference.
 Use an agent to challenge leakage and confounders; verify its argument with a source or small example.
 A valid non-improvement is acceptable. The individual teach-back is separate from the MR review.
+
+[Relevant data sources](../../docs/DATASETS.md#evaluation-and-classical-ml). Use the mentor-prepared internal subset.

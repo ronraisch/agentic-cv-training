@@ -13,3 +13,5 @@ could run internally. This is eight hours of proposal work in addition to shared
 Full cloud-model training is optional only with mentor approval.
 Required learning: [clouds](../../docs/lessons/05-clouds.md) and [training](../../docs/lessons/04-torch.md).
 Use the approved agent to decompose the research problem and critique candidate experiments.
+
+[Relevant data sources](../../docs/DATASETS.md#cloud-segmentation). Use the mentor-prepared internal subset.

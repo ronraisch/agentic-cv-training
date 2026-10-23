@@ -43,3 +43,14 @@ PASS: three DOCX publication sources were title-sanitized, rendered and visually
 All three were imported as native Google Docs in the new workspace and their content read back.
 The public syllabus and mentor-only document links are recorded in README and MAINTAINERS.
 These checks validate the published plan, not learner time estimates or internal runtime access.
+
+## Ordinary-camera scope and dataset catalog follow-up
+
+Clarified ordinary ground/handheld/vehicle-camera video independently of satellite/airborne imagery
+in the syllabus, learner brief, lesson, system map, mentor preparation and notebook scaffold.
+Every research assignment now links to the relevant section of DATASETS.md. Source documentation
+and links were checked; archives, data quality, access eligibility and internal transfer were not.
+The catalog distinguishes supplied annotations from labels/metadata still needing preparation.
+Two existing curated Drive documents were updated in place; original training documents were untouched.
+Local-link/anchor, English-content, unchanged-budget, notebook and learner-export checks passed.
+Application code/dependencies did not change; no runtime or model-training result is claimed.

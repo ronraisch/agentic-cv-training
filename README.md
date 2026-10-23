@@ -1,7 +1,8 @@
 # Peanuach Researcher Onboarding
 
 Six weeks of research learning, individual teach-back sessions and agent-assisted work in one
-video and remote-sensing monorepo. Tasks and reproducible evidence live here; reading and viewing
+monorepo covering both ordinary-camera video and remote sensing. Video scene understanding uses
+ground/handheld/vehicle cameras, not satellite video. Tasks and reproducible evidence live here; reading and viewing
 may also live in Drive. Active materials use English to avoid mixed-direction Markdown problems.
 
 [Start here](docs/START_HERE.md) · [Six-week syllabus](docs/CURRICULUM.md)
@@ -40,7 +41,7 @@ uv run python tools/check_mcp.py
 These commands apply to the existing ResearchLab environment. Internal users follow the approved
 Artifactory/CA/lock setup rather than assuming a public lock can resolve offline.
 
-[Research learning with agents](docs/RESEARCH_WITH_AGENTS.md) · [Skills lab](docs/SKILLS_STAGE0.md)
+[Datasets by assignment](docs/DATASETS.md) · [Research learning with agents](docs/RESEARCH_WITH_AGENTS.md) · [Skills lab](docs/SKILLS_STAGE0.md)
 · [Known pitfalls](docs/PITFALLS.md) · [Validation](docs/VALIDATION.md)
 
 Original Drive files remain unchanged. The source folder allowed reading but rejected child-folder

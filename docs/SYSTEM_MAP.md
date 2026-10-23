@@ -1,6 +1,8 @@
 # Teaching system and evidence scope
 
-Peanuach is a fictional team working on video, satellite and airborne imagery in one monorepo.
+The fictional team covers both ordinary-camera video and remote sensing in one monorepo.
+Satellite/airborne imagery supports the remote-sensing tasks; ground/handheld/vehicle-camera clips
+support scene understanding. Video is not satellite video. See [dataset sources](DATASETS.md).
 The existing runtime is a small synthetic ResearchLab retrieval/embedding pipeline with numerical,
 data, HTTP and optional Torch examples. A complete labeling/training/serving system is not
 implemented here. A mentor must prepare a working baseline or map actual team code before teaching.

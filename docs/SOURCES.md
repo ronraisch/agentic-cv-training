@@ -49,3 +49,9 @@ not silently reinterpreted as that collection. Existing project skills remain ex
 Linking a public course does not imply endorsement or unrestricted rights to redistribute it.
 Internal code, credentials, Confluence content and source question banks are not exported to this
 public repository. Technical examples are contracts, not evidence of internal installation.
+
+## Dataset sources
+
+See [Datasets by assignment](DATASETS.md) for official project/download entry points, source
+limitations and offline packaging. Dataset documentation was checked on 23 October 2026;
+archives were not downloaded or locally inspected. No data-access or license eligibility is assumed.

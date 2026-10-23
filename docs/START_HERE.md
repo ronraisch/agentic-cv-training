@@ -24,3 +24,7 @@ not access-controlled. Submit a bounded MR, inspect its diff and show scope-spec
 Label claims observed, inferred, unverified or blocked. A swallowed exception is not a negative
 result, a read function is not a verified live path, and a local test is not an internal deployment.
 Only add small sanitized evidence from artifacts/. Never send internal data to an unapproved model.
+
+The team covers remote sensing and ordinary-camera video. The video assignment is not satellite
+video. Use [the per-assignment dataset catalog](DATASETS.md); external URLs identify sources,
+while actual training and inference use the prepared internal data bundle.

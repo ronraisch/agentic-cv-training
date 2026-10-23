@@ -21,3 +21,5 @@ A full orthomosaic product or unmeasured geospatial accuracy is not required.
 
 Submit bounded MRs, reproducible examples and evidence. Use the funded research-agent slot to learn
 one missing geometric concept, then explain it independently in the individual session.
+
+[Relevant data sources](../../docs/DATASETS.md#classical-cv-and-lpr-evaluation). Use the mentor-prepared internal subset.

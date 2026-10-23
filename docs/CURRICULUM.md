@@ -1,6 +1,9 @@
 # Six-week researcher syllabus
 
-The teaching scenario is a team working with satellite imagery, airborne sensors and video.
+The teaching scenario covers two domains: remote sensing (satellite and airborne imagery) and
+video from ordinary cameras (ground, handheld, indoor/outdoor or vehicle-mounted). The video
+scene-understanding assignment is not satellite video and does not require aerial footage.
+Dataset sources and bounded preparation are in [Datasets by assignment](DATASETS.md).
 Required concepts are assessed through short individual teach-back sessions. Practical delivery
 is assessed separately. Agent-assisted research learning is expected, not just code generation.
 

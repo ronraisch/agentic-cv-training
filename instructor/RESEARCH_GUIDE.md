@@ -101,8 +101,9 @@ cloud/shadow/no-data definitions and partial-tile policy. Pixel IoU alone does n
 compute savings or object recall retained after gating. Unmeasured impact must remain unmeasured.
 Skipped coverage is not evidence of zero objects.
 
-## Staged video requirements
+## Staged ordinary-camera video requirements
 
+Use ordinary ground/handheld/vehicle-camera clips, not satellite or aerial video.
 Start only with the three questions in the learner brief. After a baseline demonstration, release
 releases/video-02.md. After initial handling release video-03.md. Do not expose the entire backlog
 in advance or insist that the only correct solution is a VLM.
@@ -121,3 +122,6 @@ First 40 minutes: 10 clean run and artifact trace, 25 explain difficult lines/he
 input, 5 record uncertainty. Second 40: 15 bounded failure, 15 peer transfer, 10 feedback.
 Do not add another long grilling day outside the budget. Independent learning remains deep; the
 mentor samples high-value reasoning instead of examining every historical question.
+
+Dataset selection and offline preparation: [catalog](../docs/DATASETS.md), with small prepared
+subsets and explicit missing-label/metadata limits. No new mandatory benchmark is added.

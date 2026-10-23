@@ -12,3 +12,5 @@ package is not the same as installing a skill. The 30-minute teach-back is insid
 Show a correct interpreter, notebook restart, internal fixture request, Confluence page and safe
 GitLab job log. Infrastructure is guided learning, not a DevOps assessment. Do not reinstall the
 team's entire stack or fetch public packages from the closed network.
+
+[Relevant data sources](../../docs/DATASETS.md#setup-and-visualization). Use the mentor-prepared internal subset.

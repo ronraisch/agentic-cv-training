@@ -1,5 +1,8 @@
 # Video representations and consumer questions
 
+This task uses ordinary-camera video, not satellite video. Indoor/outdoor, road and sky-only
+questions refer to the camera view. Satellite GSD and off-nadir metadata are not video features.
+
 A ten-second clip has timestamps and frame order, not merely N images. Define window, sampling,
 stride, resolution and short/corrupt-input behavior. A still frame can support road presence but
 not establish that a vehicle passed. Indoor/outdoor may refer to the camera location or visible
