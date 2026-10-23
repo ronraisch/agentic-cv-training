@@ -21,22 +21,24 @@ redistribute their lessons. Penn/Stanford pages being publicly readable does not
 reuse of all course content. Check original licenses before importing materials. This curriculum
 covers selected ideas, not every lesson taught in either university course. No endorsement implied.
 
-## Six-week researcher route: optional primary references
 
-All required explanations and assignments are local in `docs/lessons/` and `labs/research/`.
-These links are optional provenance/reference links, not required network access from inside.
-The exact CV course previously sent by the user was not recovered; its module/video mapping
-remains open. No invented course coverage or video runtimes are claimed.
+## Peanuach route — current optional primary references (2026-10-23)
 
-| Primary source | Relevant local material |
+Required explanations are local in docs/lessons; public URLs below are optional provenance,
+not required network access. No upstream lessons or code were copied into these texts.
+
+| Primary reference | Local use |
 |---|---|
-| [EfficientDet paper](https://arxiv.org/abs/1911.09070) | Lesson 05: BiFPN; reduced teaching architecture explicitly differs from full reproduction |
-| [Meta SAM 2 image predictor source](https://github.com/facebookresearch/sam2/blob/main/sam2/sam2_image_predictor.py) | Lesson 02: point-prompt backend; verify the internal pinned version |
-| [RF-DETR source and docs](https://github.com/roboflow/rf-detr) | Lesson 06: backend integration; exact API depends on installed revision |
-| [GitLab job logs](https://docs.gitlab.com/ci/jobs/job_logs/) | Guided pipeline→job→log navigation; internal UI labels may differ |
-| [uv command reference](https://docs.astral.sh/uv/reference/cli/) | Internal Getting Started: network isolation vs cached offline execution |
-| [uv certificates](https://docs.astral.sh/uv/concepts/authentication/certificates/) | Internal Getting Started: approved organizational CA trust |
+| [OpenCV Hough tutorial](https://docs.opencv.org/4.x/d9/db0/tutorial_hough_lines.html) | Classical CV: line estimation, parameters and segment/line distinction |
+| [OpenCV feature matching and homography](https://docs.opencv.org/4.x/d1/de0/tutorial_py_feature_homography.html) | Classical CV: matches, robust estimation and geometric checks |
+| [OpenCV homography concepts](https://docs.opencv.org/5.0/tutorials/features/homography/homography.html) | Planar approximation and limits of image stitching |
+| [scikit-learn calibration documentation source](https://github.com/scikit-learn/scikit-learn/blob/main/doc/modules/calibration.rst) | ML: ranking vs probability calibration and held-out fitting |
+| [GitLab job logs](https://docs.gitlab.com/ci/jobs/job_logs/) | Guided pipeline/job/log navigation only |
+| [uv CLI](https://docs.astral.sh/uv/reference/cli/) and [certificates](https://docs.astral.sh/uv/concepts/authentication/certificates/) | Internal setup prepared by the mentor |
 
-Local lessons are original explanations. They do not redistribute upstream course content,
-weights or third-party packages. Technical backend examples are contracts, not verified internal
-installations. A mentor records exact internal versions and optional media in the internal copy.
+Internal package versions can differ from these moving documentation pages. Validate installed
+APIs against the approved internal version. Cloud literature review and model comparison are
+trainee tasks: the curriculum does not claim that a current winning architecture was identified.
+The exact prior CV course and the mentor document in Drive have not been located/read; their
+content and session procedure are not claimed to be incorporated. Internal Confluence is for
+team context; no internal content is exported to this public repository.

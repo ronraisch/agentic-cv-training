@@ -42,4 +42,4 @@ state_dict, data/split provenance, epoch וקריטריון בחירה. optimize
 head אקראי: מדווחים missing/unexpected keys ולא מגדירים זאת "נטען בהצלחה".
 
 תרגיל הסבר: עקבו מתא בתמונה אל activation, loss, gradient ופרמטר. לאחר restart
-הסבירו איך נבנה model זהה ואיזה קובץ מחייב את זה. הרחיבו את הגלאי הקטן בשבוע הבא.
+הסבירו איך נבנה model זהה ואיזה קובץ מחייב את זה. הסבירו איך אותו עיקרון חל על head מעל embedding ועל מודל segmentation.

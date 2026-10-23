@@ -1,3 +1,8 @@
+# מדריך המסלול המקורי — בנק תרגילים
+
+למסלול החוקר העדכני השתמש ב־RESEARCH_GUIDE.md. הרשימה להלן מתייחסת ל־ResearchLab
+הסינתטי המקורי, ואינה עוד מסלול חובה או נוהל הסשנים הנוכחי.
+
 # Mentor guide — contains spoilers
 
 Before teaching: run all commands in README, create a learner-only export, populate the actual
@@ -51,5 +56,5 @@ than designing a generic networking framework. Reward that judgment when justifi
 ## Schedule
 
 The six-week researcher route in docs/CURRICULUM.md supersedes the original ten-day schedule.
-Use instructor/RESEARCH_GUIDE.md for mentor preparation and notebook defense. Labs 00–11 are
+Use instructor/RESEARCH_GUIDE.md for mentor preparation, product discovery and personal sessions. Labs 00–11 are
 embedded exercises, not an additional 46-hour course. Internal setup is guided teaching.

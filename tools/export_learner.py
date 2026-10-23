@@ -1,4 +1,4 @@
-"""Create a clean assessment copy with no instructor files or git history."""
+"""Export learner materials without mentor answers, staged briefs or Git history."""
 
 import argparse
 import shutil
@@ -16,6 +16,7 @@ shutil.copytree(
     dest,
     ignore=shutil.ignore_patterns(
         "instructor",
+        "MAINTAINERS.md",
         ".git",
         ".venv",
         "__pycache__",

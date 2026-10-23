@@ -1,52 +1,34 @@
-# מערכת החפיפה: עובדות, תכנון ונקודות כניסה
+# צוות פענוח — מפת התרחיש ומצב המימוש
 
-## סטטוס שנבדק ב־22.10.2026
+## מה באמת קיים
 
-ב־main בנקודת ההתחלה `060ca34` קיימים CLI, pipeline אחזור/embedding סינתטי,
-NumPy/Pandas/SQLite/HTTP, דוגמת Torch ושרת MCP. **אין** שם עדיין אפליקציית תיוג,
-אימון YOLO11, tracks, evaluator לגלאים או שירות inference פרוס. המשימות החדשות הן מפרט
-לחפיפה על מערכת כזו; אין להסיק מהמפרט שהמערכת כבר מומשה או נבדקה ברשת הצוות.
+הקוד ב־src/researchlab הוא pipeline לימודי סינתטי לאחזור/embedding, עם NumPy/Pandas,
+SQLite/HTTP, דוגמת Torch ו־MCP. אין כרגע בריפו מערכת תיוג או pipeline פענוח מלא.
+המסלול החדש הוא **תרחיש לימודי ומשימות**, לא הודעת השלמה של מערכת כזו.
+מוכנות מערכת לימודית נבדקת לפני המחזור; הנחפף אינו צריך לבנות שלד צוות מאפס.
 
-## הכנה שחייבת להסתיים לפני תחילת המחזור
+## הסביבה המדומה
 
-החונך מספק באותו ריפו עותק לימודי עובד או קישור פנימי ממופה לקוד הצוות: UI בתיוג,
-API, דוגמת תיוג ושמירה, baseline YOLO11, פלטי tracks, נתוני split, evaluator,
-אימון וטעינת artifact, Dockerfile ומניפסטים פנימיים. כל נתיב בטבלה בהמשך מסומן
-PROPOSED עד שמחליפים אותו בנתיב אמיתי וב־commit שנבדק.
-לא מצפים מהחניך לבנות את כל השלד תוך כדי תרגיל של 14 שעות.
-יש להריץ preflight ולספק דגימת קלט/פלט; בלי זה השבוע הראשון חסום. בסיס המחקר הקיים
-יכול לשמש לאבחון Python בזמן ההמתנה, אך אינו שקול לאינטגרציית תיוג/גלאי.
+הצוות עובד במונורפו ובונה שירותים לצרכני וידאו, לוויין וסנסורים מוטסים.
+יש אתר תיוג, שירותי תמונה/וידאו, קוד מחקר ואימון, רכיבי הפעלה, ADRs ויומני ניסויים.
+החופף מספק את מפת הנתיבים האמיתיים בעותק הרשת. אין לנחש נתיב מימוש מתוך שמות כאן.
 
-| אזור | נקודת כניסה מוצעת, לא קוד קיים | מי משתמש בו | ראיית חיבור נדרשת |
-|---|---|---|---|
-| Labeling UI | `apps/labeling/` React + TypeScript | מתייג | קליק בדפדפן, request ID ושמירה/טעינה |
-| Labeling API | `services/labeling/` Python | UI | schema, segmentation provider, מזהה תמונה |
-| Preprocessing | `src/vision/preprocess.py` | train/eval/serve | אותה גרסה והגדרות בשלושת המסלולים |
-| Dataset/splits | `datasets/manifests/` | train/eval | checksum, group IDs, class map |
-| Train | `training/` | חוקר | config בפועל, checkpoint נבחר והסיבה לבחירה |
-| Models | `src/vision/models/` | train ו־predict | YOLO/RF-DETR/adaptor לגלאי הלימודי |
-| Evaluation | `evaluation/` | חוקר ו־CI | matching, PR, slices ו־latency protocol |
-| Serving | `services/inference/` | צרכן downstream | artifact hash ונתיב request אמיתי |
-| Deploy | `deploy/` | Docker→Artifactory→OpenShift | digest→pod→service→route, PVC/NFS |
-| ידע מחקרי | `research/adr/`, `research/logs/` | החוקר הבא | החלטה, חלופה, ראיה, תנאי לבחינה מחדש |
-| מחברת | `notebooks/operational-inference.ipynb` | חוקר וחונך | Restart & Run All ופריטי evidence |
+| תחום | מה צריך להכיר |
+|---|---|
+| פיתוח | React/TypeScript, API Python, Git/MR ואייג׳נט |
+| תמונה ווידאו | נתוני קלט, timestamps, קואורדינטות, מטא־דאטה ומשמעות הפלט |
+| מחקר | תיוגים, manifests, experiments, models ו־evaluation |
+| הפעלה | Docker, Artifactory, OpenShift ו־storage |
+| ידע | טקסטי החפיפה בריפו; Confluence פנימי לקריאת נהלי עבודה ומציאת בעלים |
 
-## חוזה גלאי משותף
+בפנים עובדים ב־GitLab ללא אינטרנט עם המשאבים הקיימים. בחוץ הריפו מתוחזק ב־GitHub.
+קריאת החובה נשמרת מקומית; דפי Confluence משלימים מידע סביבתי ואינם תחליף לפרקים
+נגישים בריפו. מה שצריך לקרוא מתוך Confluence מועתק/מסוכם כדין בעותק הפנימי כשאפשר,
+בלי לייצא תוכן צוות לריפו הציבורי.
 
-קלט ציבורי: image_id, תמונת RGB H×W×3 uint8 בגודל המקורי, batch מוגבל ו־model ID.
-כל backend מבצע בתוכו את ה־resize/normalization הנדרשים לו, ומחזיר לחוזה אחיד:
-boxes float32 [N,4] ב־xyxy בפיקסלים של המקור; scores [N] בטווח [0,1]; class_ids [N]
-לפי class map ממוספר ומתועד. פלט ריק הוא [0,4] ו־[0], לא None ולא שגיאת שירות מוסתרת.
-לכל תשובה מצרפים model/artifact/preprocessing/class-map revisions וסטטוס.
-אפשר לעדכן חוזה אם לקוד האמיתי יש ממשק אחר; מתעדים זאת לפני מימוש adapter.
-אין לכפות normalization אחד על כל גלאי; השוואה הוגנת שומרת על משמעות התמונה והפלט,
-ומאפשרת לכל backend את העיבוד הדרוש לו.
+## מידת ודאות
 
-## טענות ומידת ודאות
-
-כל טענה משמעותית מסומנת: **נצפה** (קובץ+commit או ריצה ופלט), **מוסק** (הנחות),
-**טרם אומת** (הבדיקה החסרה), או **חסום** (בעלים ופעולת שחרור).
-קריאת קוד מוכיחה מה כתוב, לא שזה המסלול שרץ. בדיקה מקומית אינה פריסה.
-דוגמה: "נצפה: search בחן C; טרם אומת: האם best_estimator הוא ה־artifact שנטען בשירות".
-הוכחה מלאה דורשת search results→בחירה→שמירה→hash→container→loaded model→בקשה
-ואותה הגדרה גם בתשובה המבצעית. בטוחים בכוח הראיות, לא לפי אחוז שהאייג׳נט המציא.
+כל טענה מהותית: נצפה / מוסק / טרם אומת / חסום, עם קובץ+commit או ריצה+input+פלט.
+קוד שקראתי לא מוכיח שהוא מחובר למסלול שרץ. training log לא מוכיח שה־artifact הנבחר
+נטען בשירות. הוכחה מקצה לקצה עוקבת אחרי data/split, config, בחירה, שמירה, hash,
+image digest, loaded model ובקשת צרכן. מציינים בנפרד מה חסום ולא משדרגים הכול ל־PASS.

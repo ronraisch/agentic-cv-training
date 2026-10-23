@@ -5,6 +5,7 @@
 | פריט | ערך פנימי וראיית preflight |
 |---|---|
 | GitLab project ו־clone URL | FILL_IN |
+| Confluence URL, Space ודף כניסה לצוות | FILL_IN |
 | branch/commit של החפיפה | FILL_IN |
 | Python/uv ו־index/CA configuration | FILL_IN |
 | lock פנימי מאומת וגרסאות | FILL_IN |

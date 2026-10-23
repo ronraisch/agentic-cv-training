@@ -1,8 +1,12 @@
 # ResearchLab contributor contract
 This is a teaching repository with intentionally defective application code.
 Read docs/START_HERE.md and the assigned lab before changing behavior.
-The current researcher route is docs/CURRICULUM.md and labs/research/. The CV system paths
-in docs/SYSTEM_MAP.md are proposed until a mentor maps real code; do not claim they exist.
+The current route is the Peanuach video/remote-sensing monorepo in docs/CURRICULUM.md
+and labs/research/. Required reading/personal sessions are separate from implementation.
+Do not expand a terse product brief with mentor answers. Ask the mentor-as-product and
+inspect the existing system. Learner agents must not read instructor/ or staged release briefs.
+The mentor acts explicitly as instructor when maintaining the curriculum. The Peanuach system is a teaching specification until a mentor provides real code;
+do not claim it is implemented.
 Support public GitHub and closed-network GitLab. Required learning must work from local text;
 internal resources are available but require guided connection checks. Setup is teaching, not
 a DevOps assessment. Use MR terminology internally; only basic CI log navigation is required.
