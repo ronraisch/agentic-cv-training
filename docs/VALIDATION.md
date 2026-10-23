@@ -54,3 +54,12 @@ The catalog distinguishes supplied annotations from labels/metadata still needin
 Two existing curated Drive documents were updated in place; original training documents were untouched.
 Local-link/anchor, English-content, unchanged-budget, notebook and learner-export checks passed.
 Application code/dependencies did not change; no runtime or model-training result is claimed.
+
+## Open-model foundations follow-up
+
+Added a required local introduction to embeddings, generative VLMs, open-vocabulary detection and
+approved offline model use. The two-hour study allocation is inside the existing seven-hour DL
+block (3 + 0.75 + 1.25 + 2 = 7); its one-hour probe is inside the existing 19-hour video baseline.
+Local links/catalog anchor, English content, required-reading integration and unchanged weekly/total
+budgets passed. Mentor discussion replaces an existing chain. No model was installed or run here.
+The two curated Drive documents were updated in place and read back; original materials were untouched.

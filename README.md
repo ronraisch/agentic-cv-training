@@ -47,3 +47,6 @@ Artifactory/CA/lock setup rather than assuming a public lock can resolve offline
 Original Drive files remain unchanged. The source folder allowed reading but rejected child-folder
 creation; the new workspace was created separately in My Drive. Move it into the original collection
 only after obtaining write access. Previous curricula remain in Git history.
+
+Required foundation: [embeddings, VLMs, open-vocabulary detection and using open models](docs/lessons/07-open-models.md),
+with a small shared-data probe inside the existing six-week budget.

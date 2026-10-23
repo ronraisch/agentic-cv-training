@@ -134,3 +134,12 @@ Those fields are currently preparation requirements, not claims that the data wa
 licensed for this organization or transferred successfully. Stage 0 checks the supplied bundle.
 Reuse approved internal data if public-source access is unsuitable. Resolve source access before
 the cohort rather than consuming the six-week schedule waiting for a restricted dataset.
+
+## Embedding VLM and open vocabulary probe
+
+Reuse 12-20 [COCO images/annotations](https://cocodataset.org/#download), a few
+[DOTA examples](https://captain-whu.github.io/DOTA/dataset.html) and existing Part 4B
+[MEVA ground-camera clips](https://mevadata.org/). No new download/full benchmark is required.
+Use annotated object presence/locations to inspect retrieval, localization and VQA outputs;
+unannotated categories and arbitrary textual claims still need manual checking. This illustrative
+probe cannot establish general accuracy. Keep prompt-development and check examples separate.

@@ -82,3 +82,15 @@ independent derivations or role-specific follow-up, not extra compulsory mentor 
 For each discussion record: claim, derivation/assumption, counterexample, empirical check and what
 remains unverified. The trainee teaches and defends; the mentor does not lecture through slides.
 Use PRIMARY sources to correct doubtful answer keys. See SOURCE_REVIEW for examples needing care.
+
+## Embedding, grounding and VLM chain
+
+Replace one existing week-5 chain, do not add a meeting. Given two candidate text prompts, why can
+softmax be confident when both are wrong? Add a third prompt and derive the change. Show why two
+equal-dimensional encoders need not share a space. Where can a tiny vehicle disappear before the
+embedding is computed, and why cannot a global similarity recover its coordinates?
+
+Contrast a region matched to text with a VLM-generated sentence. Give an example where both are
+plausible but neither establishes the consumer's claim. How would you evaluate it independently?
+Trace processor/checkpoint/cache identity and design a fresh-process check that catches a stale
+head or missing offline artifact. Correct JSON and a loaded checkpoint are not correctness proofs.

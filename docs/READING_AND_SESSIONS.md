@@ -19,12 +19,20 @@ No lecture timestamps or measured watch-time savings are claimed.
 | Development and stack | lessons/01-development.md; ENGINEERING.md sections 1,2,3,5,6; AGENT_WORK.md; TEAM_INTEGRATION.md | Advanced Python: type hints, useful decorators, bounded concurrency; outline: arrays/data | 8 h |
 | Classical CV | lessons/02-classical-cv.md | CV mentor guide: filters, Hough lines, transforms, matching/RANSAC, warping; flow/pyramids at concept level | 6 h |
 | Evaluation and ML | lessons/03-metrics-ml.md | ML: linear/logistic models, evaluation, SVM intuition, trees/boosting; PCA/clustering intuition | 7 h |
-| DL and representations | lessons/04-torch.md; lessons/05-clouds.md; lessons/06-video.md | Stanford 2025 chapters 4,5,8,9,10,12,16, selected slides/concepts only | 7 h |
+| DL and representations | lessons/04-torch.md; lessons/05-clouds.md; lessons/06-video.md; lessons/07-open-models.md | Stanford 2025 chapters 4,5,8,9,10,12,16, selected slides/concepts only | 7 h |
 | **Core study** | | | **28 h** |
 
 The hourly caps include relevant code reading, self-checks and questions. A competent learner
 should skip an already-demonstrated introductory explanation and use the time on a gap. All core
 outcomes remain examinable; scope is bounded while the selected concepts retain deep questioning.
+
+### Explicit DL study allocation
+
+The seven hours are: 3 h training/attention fundamentals, 45 min cloud concepts, 75 min video
+concepts and **2 h embeddings, VLMs, open-vocabulary detection and open-model usage** in
+[the new local introduction](lessons/07-open-models.md). Its one-hour intuition probe uses one
+hour of the existing 19-hour video baseline project budget. No extra mentor meeting or video
+playlist is added. References replace repeated introductions and are read selectively.
 
 ### Four media windows
 

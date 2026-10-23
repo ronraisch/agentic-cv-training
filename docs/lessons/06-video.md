@@ -33,3 +33,6 @@ The inference path includes decode, sampling, transforms, representation, decisi
 The notebook must call the same modules and artifacts as the service, explain intermediate shapes,
 handle unknown/error and survive a clean restart. Use an approved agent to learn unfamiliar concepts;
 explain every critical line and imported helper yourself during the teach-back.
+
+Required companion: [embeddings, VLMs, open-vocabulary detection and open-model usage](07-open-models.md).
+Use its shared introduction instead of repeating the representation basics here.

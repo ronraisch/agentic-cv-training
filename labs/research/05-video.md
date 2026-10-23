@@ -20,3 +20,6 @@ and [training](../../docs/lessons/04-torch.md). Use the agent for research expla
 implementation; close it for the individual explanation.
 
 [Relevant data sources](../../docs/DATASETS.md#ordinary-camera-video-and-handover). Use the mentor-prepared internal subset.
+
+Before building the baseline, complete [the open-model introduction and one-hour intuition probe](../../docs/lessons/07-open-models.md).
+The probe is part of the existing baseline time allocation and does not select your final architecture.

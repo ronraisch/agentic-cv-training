@@ -32,3 +32,8 @@ For video, prefer a single MEVA ground-camera collection with both indoor/outdoo
 or VIRAT ground footage is optional supplementation. Avoid making dataset identity equal the label.
 Prepare a few real sky-only/ceiling/empty clips if missing; unknown labels are not negatives.
 Keep later question labels/releases mentor-only until their scheduled product request.
+
+For the open-model foundations probe prepare a small approved embedder bundle plus tiny COCO/DOTA
+examples reused from the catalog. Supply provenance-rich saved Grounding DINO-like and generative
+VLM examples if live heavy models are unavailable. Include failures, original images/prompts and
+processor/postprocessing/generation settings. Saved runs do not count as trainee-executed inference.

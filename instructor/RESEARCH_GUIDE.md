@@ -125,3 +125,12 @@ mentor samples high-value reasoning instead of examining every historical questi
 
 Dataset selection and offline preparation: [catalog](../docs/DATASETS.md), with small prepared
 subsets and explicit missing-label/metadata limits. No new mandatory benchmark is added.
+
+## Open-model foundations within the existing budget
+
+Require lessons/07-open-models before the video baseline. Two study hours replace repeated
+representation introductions in the seven-hour DL block; the one-hour probe is inside the existing
+19-hour baseline budget. Prepare one approved local embedder and saved detector/VLM runs with
+complete provenance; optional live heavy inference must not become three deployment projects.
+Use one existing week-5 question chain for cosine/softmax, spatial evidence and language priors.
+Do not add another first-session basics check or leak later video requests.

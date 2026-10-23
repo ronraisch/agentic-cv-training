@@ -40,3 +40,6 @@ distributed-training implementation and architecture-by-architecture derivations
 
 Self-check: trace one loss to a parameter update; explain eval versus no-grad; compare pooled frame
 presence evidence with evidence needed to establish a temporal event.
+
+Required companion: [embeddings, VLMs, open-vocabulary detection and open-model usage](07-open-models.md).
+Use its shared introduction instead of repeating the representation basics here.

@@ -55,3 +55,7 @@ public repository. Technical examples are contracts, not evidence of internal in
 See [Datasets by assignment](DATASETS.md) for official project/download entry points, source
 limitations and offline packaging. Dataset documentation was checked on 23 October 2026;
 archives were not downloaded or locally inspected. No data-access or license eligibility is assumed.
+
+Open-model foundations: see the selected primary references in [lesson 07](lessons/07-open-models.md).
+Official CLIP, Grounding DINO, Qwen2.5-VL and Transformers offline documentation were consulted
+on 23 October 2026. Examples are teaching references, not a latest-model ranking or installed assets.

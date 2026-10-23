@@ -10,7 +10,8 @@ is assessed separately. Agent-assisted research learning is expected, not just c
 ## Scope and priorities
 
 Keep Python/array/data contracts, evidence discipline, image geometry, evaluation, classical ML,
-training/inference fundamentals, representation learning, video/time and customer-facing decisions.
+training/inference fundamentals, embeddings, generative VLMs, open-vocabulary detection,
+open-model usage, video/time and customer-facing decisions.
 Choose one learning route per concept. Do not watch both Stanford 2025 and Michigan 2019, read
 several introductory blogs and then repeat the same explanation in a mentor session.
 See [the reading plan](READING_AND_SESSIONS.md) for exact local sections and substitutions.
@@ -28,6 +29,10 @@ Two-image stitching is required. More images require mentor approval and replace
 extension. Cloud work is an eight-hour proposal, not another full training project. Rescoring uses
 a frozen detector and prepared data. The previous SAM/EfficientDet/RF-DETR assignments do not
 remain additional requirements.
+
+Before Part 4, complete [the open-model introduction](lessons/07-open-models.md): two study hours
+inside the existing seven-hour DL block and a one-hour intuition probe inside the 19-hour video
+baseline portion of its 34-hour project. The probe does not add a detector-training project.
 
 ## Trainee time budget
 
