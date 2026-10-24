@@ -8,7 +8,7 @@ No direct model API integration is required or supplied.
 
 ## A repeatable small loop
 1. Orient: inspect entrypoint, dependency configuration, relevant interfaces and tests.
-2. Specify: fill templates/task-contract.md. State one failure and an acceptance example.
+2. Specify: fill [templates/task-contract.md](../templates/task-contract.md). State one failure and an acceptance example.
 3. Select context: give paths, a minimal reproducer, the contract and the relevant skill.
 4. Ask for a plan when the change crosses boundaries; inspect assumptions before implementation.
 5. Implement one bounded patch. Review semantic behavior and diff, not just the final response.
@@ -16,7 +16,7 @@ No direct model API integration is required or supplied.
 7. Commit and summarize observed results, uncertainty and rollback.
 
 ## Make repository knowledge executable
-AGENTS.md holds durable project constraints. An ADR records a significant tradeoff. A skill holds
+[AGENTS.md](../AGENTS.md) holds durable project constraints. An ADR records a significant tradeoff. A skill holds
 a reusable conditional workflow. MCP supplies tool access. None replaces types, runtime validation
 or tests. A prose instruction to reuse HTTPClient is weaker than an integration test plus review.
 If a failure repeats, decide whether to fix architecture, validation, tooling, or instructions;

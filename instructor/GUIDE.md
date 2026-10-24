@@ -1,6 +1,6 @@
 # Original ResearchLab mentor bank
 
-The active mentor route is RESEARCH_GUIDE.md with DEEP_DISCUSSIONS.md. The original exercises
+The active mentor route is [RESEARCH_GUIDE.md](RESEARCH_GUIDE.md) with [DEEP_DISCUSSIONS.md](DEEP_DISCUSSIONS.md). The original exercises
 below are an optional bank, not another mandatory course or a current time budget.
 
 # Mentor guide — contains spoilers
@@ -21,7 +21,7 @@ Do not copy internal credentials, data or tool descriptions into a public upstre
 | embed | Training dropout + autograd + output retention | Unstable results, unnecessary graph memory | Eval/inference, CPU/no-grad, exception restoration |
 | review patch | Positional join and blanket except | Identity corruption and hidden outages | Reordered rows, 401/timeout counterexamples |
 
-Reference functions are in reference.py. They illustrate core numerical/join/pagination/Torch
+Reference functions are in [reference.py](reference.py). They illustrate core numerical/join/pagination/Torch
 contracts, not a completed answer to concurrency, packaging, skills, MCP extension or capstone.
 Those are assessed by the worksheet acceptance evidence and peer review. Do not misrepresent
 partial reference coverage as a complete solution branch. A learner solution may be simpler/better.
@@ -47,7 +47,7 @@ add regression tests for each repair. The starter tests are not a grading oracle
 
 Use 0–4 on each rubric category: 0 absent; 1 demo only; 2 happy-path verified; 3 edge cases and
 tradeoffs explained; 4 independent evidence and successful peer maintenance. Convert category
-scores to the weights in CURRICULUM.md. Record remediation per gate, with a new example on retake.
+scores to the weights in [CURRICULUM.md](../docs/CURRICULUM.md). Record remediation per gate, with a new example on retake.
 
 Do not award points for number of design patterns or lines generated. A learner may say the
 current shared client needs a documented limitation (Retry-After support, total deadline) rather
@@ -55,6 +55,6 @@ than designing a generic networking framework. Reward that judgment when justifi
 
 ## Schedule
 
-The six-week researcher route in docs/CURRICULUM.md supersedes the original ten-day schedule.
-Use instructor/RESEARCH_GUIDE.md for the current 12-hour mentor budget and deep sessions. Labs 00–11 are
+The six-week researcher route in [docs/CURRICULUM.md](../docs/CURRICULUM.md) supersedes the original ten-day schedule.
+Use [instructor/RESEARCH_GUIDE.md](RESEARCH_GUIDE.md) for the current 12-hour mentor budget and deep sessions. Labs 00–11 are
 embedded exercises, not an additional 46-hour course. Internal setup is guided teaching.

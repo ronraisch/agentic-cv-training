@@ -18,7 +18,7 @@ See [the reading plan](READING_AND_SESSIONS.md) for exact local sections and sub
 
 | Part | Practical assignment |
 |---|---|
-| 0 | Guided internal setup and visualization-skill installation/teach-back |
+| 0 | Guided internal setup and Matt Pocock skill installation/teach-back |
 | 1 | Product request in the labeling application |
 | 2 | Hough-based LPR preprocessing; stitch two airborne images |
 | 3 | Evaluate the LPR change; classify tracklet motion; learn a detection rescorer |

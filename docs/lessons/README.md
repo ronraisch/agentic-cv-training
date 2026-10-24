@@ -6,10 +6,10 @@ readings/videos. Do not consume both routes as cumulative requirements.
 
 | Block | Local chapters |
 |---|---|
-| Development | 01-development; ENGINEERING; AGENT_WORK; TEAM_INTEGRATION |
-| Classical CV | 02-classical-cv |
-| Evaluation and ML | 03-metrics-ml |
-| DL and representation | 04-torch; 05-clouds; 06-video; [07-open-models](07-open-models.md) |
+| Development | [01-development](01-development.md); [ENGINEERING](../ENGINEERING.md); [AGENT_WORK](../AGENT_WORK.md); [TEAM_INTEGRATION](../TEAM_INTEGRATION.md) |
+| Classical CV | [02-classical-cv](02-classical-cv.md) |
+| Evaluation and ML | [03-metrics-ml](03-metrics-ml.md) |
+| DL and representation | [04-torch](04-torch.md); [05-clouds](05-clouds.md); [06-video](06-video.md); [07-open-models](07-open-models.md) |
 
-Stage 0 additionally uses SKILLS_STAGE0. Research conversations use RESEARCH_WITH_AGENTS.
+Stage 0 additionally uses [SKILLS_STAGE0](../SKILLS_STAGE0.md). Research conversations use [RESEARCH_WITH_AGENTS](../RESEARCH_WITH_AGENTS.md).
 A chapter is a concise core, not a claim to reproduce a university course in a few pages.

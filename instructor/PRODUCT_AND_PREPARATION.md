@@ -16,8 +16,8 @@ Keep this map out of the initial learner product brief.
 | Video | src/video and services/video | Ordinary-camera clips, approved encoder weights and service boundary |
 | Operations | deploy | Internal image, teaching namespace/route/storage |
 
-Prepare an offline visualization-skill bundle with full references and licenses. The mentor reviews
-the two entry files once and rehearses the short activation demonstration before the first cohort.
+Prepare an approved pinned Matt Pocock bundle with support files and licenses. The mentor reviews
+the selected entry files and rehearses the short activation demonstration before the first cohort.
 This one-time curriculum preparation is distinct from the recurring 12-hour mentor budget; record
 its actual cost rather than hiding it in learner time.
 

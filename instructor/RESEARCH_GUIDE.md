@@ -1,7 +1,7 @@
 # Mentor handbook
 
 Keep this file out of the learner distribution. The original source collection has now been read;
-SOURCE_REVIEW.md records the current scope and prioritization. Original Drive files remain unchanged.
+[SOURCE_REVIEW.md](SOURCE_REVIEW.md) records the current scope and prioritization. Original Drive files remain unchanged.
 The new syllabus preserves the source expectation that the trainee teaches the mentor precisely.
 It reduces repeated resources and topic breadth, not the depth of selected scientific questions.
 
@@ -12,13 +12,13 @@ for a deep discussion, 35 for product/review and 40 for preparation/asynchronous
 cost 12 hours. A required weekly 15-minute team-lead check-in is folded into product/review.
 
 The first session alone includes a rapid ten-minute basic-understanding check. Use its remaining
-30 minutes for the stage-0 visualization-skill teach-back and five minutes for next steps. The other
+30 minutes for the stage-0 Matt Pocock skill teach-back and five minutes for next steps. The other
 week-1 window is 35 minutes. After that, do not spend sessions repeatedly defining precision,
 convolution or embeddings. Use the original question banks for difficult follow-up reasoning.
 Week 6 splits notebook defense/transfer into two 40-minute windows plus 40 minutes of prep/review.
 
 Before a deep session read the one-page trainee packet and select two question chains from
-DEEP_DISCUSSIONS.md. Each should take roughly 15-18 minutes, leaving time to challenge a claim
+[DEEP_DISCUSSIONS.md](DEEP_DISCUSSIONS.md). Each should take roughly 15-18 minutes, leaving time to challenge a claim
 and record a gap. Keep the complete original banks as extension/reference; do not pretend every
 question can be discussed within this schedule. A short independent derivation can precede the
 meeting. The meeting tests the argument on a new case rather than replaying its worked solution.
@@ -34,7 +34,7 @@ The Peanuach system is still a specification, not working application code in th
 Provide a rectangle-only labeling UI/API/store and training-crop consumer; plate detector and
 recognizer; overlapping/nonoverlapping airborne pairs; tracklets and motion labels; frozen
 satellite detections/GT/metadata; ten-second clips; approved encoder weights; safe deployment and
-storage. Map actual paths in PRODUCT_AND_PREPARATION.md. Prepared data is not a model solution.
+storage. Map actual paths in [PRODUCT_AND_PREPARATION.md](PRODUCT_AND_PREPARATION.md). Prepared data is not a model solution.
 Preparing a missing baseline is mentor/course-development work, not a hidden learner assignment.
 
 ## Stage 0
@@ -42,8 +42,8 @@ Preparing a missing baseline is mentor/course-development work, not a hidden lea
 Guide VS Code, GitLab, Artifactory, OpenShift, Confluence and Jupyter readiness. Teach expected
 outputs and escalation owners. The stack already exists internally. Do not assess cluster setup,
 runner administration or YAML. GitLab needs a brief MR/pipeline/job-log walkthrough only.
-The 30-minute visualization-skill discussion is inside the first meeting; see SKILLS_STAGE0.
-Do not silently substitute Matt Pocock engineering skills for the requested plotting skills.
+The 30-minute Matt Pocock skill discussion is inside the first meeting; see [SKILLS_STAGE0](../docs/SKILLS_STAGE0.md).
+Use the selected deep-practice list in [SKILLS_STAGE0](../docs/SKILLS_STAGE0.md); catalog exposure does not require reading every skill body.
 
 ## Polygon assignment with product discovery
 
@@ -105,7 +105,7 @@ Skipped coverage is not evidence of zero objects.
 
 Use ordinary ground/handheld/vehicle-camera clips, not satellite or aerial video.
 Start only with the three questions in the learner brief. After a baseline demonstration, release
-releases/video-02.md. After initial handling release video-03.md. Do not expose the entire backlog
+[releases/video-02.md](releases/video-02.md). After initial handling release [video-03.md](releases/video-03.md). Do not expose the entire backlog
 in advance or insist that the only correct solution is a VLM.
 
 Budget 19 hours for a small baseline and 15 for subsequent requests: roughly five for the first

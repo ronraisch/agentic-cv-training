@@ -2,7 +2,7 @@
 
 The existing stack includes VS Code, Jupyter, Docker, OpenShift, GitLab, Artifactory and Confluence.
 The mentor prepares real paths, identities, locks and expected fixture outputs before teaching.
-Use GETTING_STARTED_INTERNAL for learner-facing guidance. Record owner, request date, next check
+Use [GETTING_STARTED_INTERNAL](GETTING_STARTED_INTERNAL.md) for learner-facing guidance. Record owner, request date, next check
 and fallback for blocked items; do not publish internal addresses or secrets.
 
 | Resource | Evidence of readiness |
@@ -11,7 +11,7 @@ and fallback for blocked items; do not publish internal addresses or secrets.
 | VS Code/Jupyter | Same project interpreter; breakpoint and clean notebook restart |
 | Artifactory/uv | Approved internal lock/index/CA and imports without public downloads |
 | Confluence | Team page and owner information accessible |
-| Visualization skills | Approved complete bundle, source revision and actual activation trace |
+| Matt Pocock skills | Approved complete bundle, source revision and actual activation trace |
 | Docker/registry | Known internal image/digest runs with expected output |
 | OpenShift/storage | Fixture through teaching route; persistent output after safe restart |
 | Data/weights | Manifests and approved LPR/tracklet/scoring/video resources |

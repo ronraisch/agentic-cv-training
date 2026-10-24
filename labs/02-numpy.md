@@ -3,7 +3,7 @@
 Estimated active work: 4 hours. Use the approved agent except for the mentor check.
 
 ## Read and understand
-ENGINEERING.md sections 2 and 5; installed NumPy documentation. Explain relevant concepts from docs/ENGINEERING.md in your own words.
+[ENGINEERING.md](../docs/ENGINEERING.md) sections 2 and 5; installed NumPy documentation. Explain relevant concepts from [docs/ENGINEERING.md](../docs/ENGINEERING.md) in your own words.
 
 ## Assignment
 Investigate normalize and rank using zero vectors, a view into a larger array, integers, empty batches, NaN/Inf, ties and invalid k/query shapes. Implement the documented numerical contract. Compare vectorized ranking to an independent small cosine oracle. Show a failing test BEFORE the fix. Avoid silently filtering invalid rows because that changes identity alignment.
@@ -15,7 +15,7 @@ Do not consult instructor/ in learner mode.
 
 ## Deliverables
 Parameterized regression tests; before/after output; memory/mutation notes; bounded implementation diff.
-Include templates/agent-session.md, commands and observed outputs in sanitized artifacts.
+Include [templates/agent-session.md](../templates/agent-session.md), commands and observed outputs in sanitized artifacts.
 
 ## Acceptance evidence
 Input is unchanged; zero rows remain finite; invalid inputs raise ValueError; ties retain input order; k=0 works; outputs agree with an independent oracle.

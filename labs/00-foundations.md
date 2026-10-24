@@ -3,7 +3,7 @@
 Estimated active work: 2 hours. Use the approved agent except for the mentor check.
 
 ## Read and understand
-START_HERE.md; ENGINEERING.md sections 2 and 6. Explain relevant concepts from docs/ENGINEERING.md in your own words.
+[START_HERE.md](../docs/START_HERE.md); [ENGINEERING.md](../docs/ENGINEERING.md) sections 2 and 6. Explain relevant concepts from [docs/ENGINEERING.md](../docs/ENGINEERING.md) in your own words.
 
 ## Assignment
 Create the environment, run CLI and tests, inspect git status. Before executing, predict the result of a NumPy slice mutation and a Pandas merge with two duplicate keys on each side. Explain an exception crossing a context manager. Use the debugger to inspect matrix.shape inside retrieve. Read the optional Torch file and identify tensor dimensions.
@@ -15,7 +15,7 @@ Do not consult instructor/ in learner mode.
 
 ## Deliverables
 Environment record; predictions and actual results; one short commit; missing-knowledge checklist.
-Include templates/agent-session.md, commands and observed outputs in sanitized artifacts.
+Include [templates/agent-session.md](../templates/agent-session.md), commands and observed outputs in sanitized artifacts.
 
 ## Acceptance evidence
 A fresh shell runs the CLI. Explain row versus column axis, shallow copy versus view, and why a four-row Cartesian join can result from two two-row inputs.

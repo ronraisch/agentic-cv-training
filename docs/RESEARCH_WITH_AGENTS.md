@@ -38,7 +38,7 @@ examples and general concepts; never paste restricted repository content into an
 
 ## Research card
 
-Use templates/research-learning.md: question, explanation in your own words, alternatives,
+Use [templates/research-learning.md](../templates/research-learning.md): question, explanation in your own words, alternatives,
 source/version, observed evidence, counterexample, smallest experiment, current uncertainty and
 next decision. One page is enough; a transcript dump is not the deliverable.
 

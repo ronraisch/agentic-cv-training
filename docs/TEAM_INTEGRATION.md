@@ -1,7 +1,7 @@
 # Skills and MCPs used by your actual team
 
 The course examples are not claims about your internal tools. Before the cohort starts, a mentor
-fills `templates/team-tool-inventory.csv` with at least two real skills and two available MCP tools
+fills [templates/team-tool-inventory.csv](../templates/team-tool-inventory.csv) with at least two real skills and two available MCP tools
 (or explicitly marks an unavailable category). Record owner, triggers, permissions, inputs/outputs,
 versions, offline fallback and a known evaluation task. Use approved synthetic/declassified data.
 
@@ -20,7 +20,7 @@ an evaluation. See lab 07 for required before/after runs and the negative case.
 ## MCP server connection
 1. Install the pinned extra: `uv sync --extra dev --extra mcp --locked`.
 2. Run `uv run python tools/check_mcp.py` to verify real initialization, discovery and tool calls.
-3. Adapt `templates/mcp-config.example.json` to absolute paths and the client's supported config
+3. Adapt [templates/mcp-config.example.json](../templates/mcp-config.example.json) to absolute paths and the client's supported config
    location/schema. The example is a common mcpServers shape, not a universal client config.
 4. Connect the server in the approved coding client, discover `list_samples`, request one train
    record, then try an invalid limit. Inspect bounded results and failures. Record actual tool calls.

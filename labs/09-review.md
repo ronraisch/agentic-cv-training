@@ -3,7 +3,7 @@
 Estimated active work: 3 hours. Use the approved agent except for the mentor check.
 
 ## Read and understand
-reviews/bad_patch.diff; ENGINEERING.md sections 5 and 7. Explain relevant concepts from docs/ENGINEERING.md in your own words.
+[reviews/bad_patch.diff](../reviews/bad_patch.diff); [ENGINEERING.md](../docs/ENGINEERING.md) sections 5 and 7. Explain relevant concepts from [docs/ENGINEERING.md](../docs/ENGINEERING.md) in your own words.
 
 ## Assignment
 Review the supplied patch without applying it. Rank findings by concrete consequences and propose minimal counterexamples. Then apply it in a disposable worktree and demonstrate why green smoke tests do not establish correctness. For two earlier fixes, temporarily restore the original defective behavior and verify the new tests fail. Restore clean state before commit.
@@ -15,7 +15,7 @@ Do not consult instructor/ in learner mode.
 
 ## Deliverables
 Review with file/function references; two defect-restoration results; corrected tests; clean diff.
-Include templates/agent-session.md, commands and observed outputs in sanitized artifacts.
+Include [templates/agent-session.md](../templates/agent-session.md), commands and observed outputs in sanitized artifacts.
 
 ## Acceptance evidence
 Identify silent missing-data behavior and identity corruption. Test failures correspond to the intended defect, not unrelated import/environment failures.

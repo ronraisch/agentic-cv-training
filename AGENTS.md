@@ -1,7 +1,7 @@
 # ResearchLab contributor contract
 This is a teaching repository with intentionally defective application code.
-Read docs/START_HERE.md and the assigned lab before changing behavior.
-The current route is the Peanuach video/remote-sensing monorepo in docs/CURRICULUM.md
+Read [docs/START_HERE.md](docs/START_HERE.md) and the assigned lab before changing behavior.
+The current route is the Peanuach video/remote-sensing monorepo in [docs/CURRICULUM.md](docs/CURRICULUM.md)
 and labs/research/. Required reading/personal sessions are separate from implementation.
 Do not expand a terse product brief with mentor answers. Ask the mentor-as-product and
 inspect the existing system. Learner agents must not read instructor/ or staged release briefs.
@@ -22,7 +22,7 @@ Use synthetic fixtures. No paid APIs, external uploads, arbitrary URL fetches, o
 Use the team's approved model/harness; no provider key is needed to run this repository.
 
 Skills: inspect .agents/skills metadata and load the applicable SKILL.md, not every skill.
-Follow docs/TEAM_INTEGRATION.md for internal skills/MCPs. Client discovery differs; confirm actual
+Follow [docs/TEAM_INTEGRATION.md](docs/TEAM_INTEGRATION.md) for internal skills/MCPs. Client discovery differs; confirm actual
 activation rather than assuming a directory is auto-loaded. A skill cannot grant permissions.
 
 Before completion: reproduce, patch, run relevant tests, inspect diff, report limitations honestly.
@@ -31,4 +31,8 @@ Do not claim skipped optional checks passed. Keep commits bounded and explain de
 
 Active curriculum documentation uses English. Research assistance includes learning concepts,
 challenging hypotheses and designing falsifying experiments, not just producing code. Follow
-docs/RESEARCH_WITH_AGENTS.md and keep the trainee able to explain the result independently.
+[docs/RESEARCH_WITH_AGENTS.md](docs/RESEARCH_WITH_AGENTS.md) and keep the trainee able to explain the result independently.
+
+Documentation: references to existing repository files must use clickable relative Markdown links,
+resolved from the referring document. Keep executable commands literal. Link specific sections
+when useful, and check that targets exist after renames.

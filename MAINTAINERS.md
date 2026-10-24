@@ -1,7 +1,7 @@
 # Maintainer entry point
 
 Active materials are English for reliable cross-viewer layout. Original Drive files are unchanged.
-Use instructor/RESEARCH_GUIDE.md, DEEP_DISCUSSIONS.md and SOURCE_REVIEW.md for mentor operations.
+Use [instructor/RESEARCH_GUIDE.md](instructor/RESEARCH_GUIDE.md), [DEEP_DISCUSSIONS.md](instructor/DEEP_DISCUSSIONS.md) and [SOURCE_REVIEW.md](instructor/SOURCE_REVIEW.md) for mentor operations.
 Do not expose downstream polygon acceptance details or later video requests to learners early.
 
 Distribute a fresh learner copy without mentor files or source Git history:

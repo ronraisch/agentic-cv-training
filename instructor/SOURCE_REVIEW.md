@@ -77,7 +77,7 @@ over six weeks. These are planning caps; no measured percent reduction in viewin
 
 The first session uses a ten-minute basic screen, a 30-minute plotting-skill check and five minutes
 of next steps. Later sessions use two substantial chains: derivation/assumption, counterexample,
-empirical check and uncertainty. Difficult questions are retained in DEEP_DISCUSSIONS.md and the
+empirical check and uncertainty. Difficult questions are retained in [DEEP_DISCUSSIONS.md](DEEP_DISCUSSIONS.md) and the
 original banks. Cut repeated content and breadth before reducing a deep discussion to definitions.
 
 ## Answer-key care

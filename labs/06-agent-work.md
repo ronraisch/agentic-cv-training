@@ -3,7 +3,7 @@
 Estimated active work: 3 hours. Use the approved agent except for the mentor check.
 
 ## Read and understand
-AGENT_WORK.md; templates/task-contract.md. Explain relevant concepts from docs/ENGINEERING.md in your own words.
+[AGENT_WORK.md](../docs/AGENT_WORK.md); [templates/task-contract.md](../templates/task-contract.md). Explain relevant concepts from [docs/ENGINEERING.md](../docs/ENGINEERING.md) in your own words.
 
 ## Assignment
 Choose an unresolved bounded defect. Write acceptance examples before prompting. Run broad-context and selected-context sessions from the same starting commit using the same model/harness. Preserve first attempts, inspect actual changes, and reject at least one unnecessary abstraction or unsupported claim. Compare correctness before token/time metrics. Record unavailable token counters as unavailable.
@@ -15,7 +15,7 @@ Do not consult instructor/ in learner mode.
 
 ## Deliverables
 Two sanitized session records; small task spec; diff review; measured comparison with limitations.
-Include templates/agent-session.md, commands and observed outputs in sanitized artifacts.
+Include [templates/agent-session.md](../templates/agent-session.md), commands and observed outputs in sanitized artifacts.
 
 ## Acceptance evidence
 Accepted code passes independent checks. Context selection is justified with paths. No unmeasured throughput or causal claims. A peer can resume from the handoff.

@@ -28,15 +28,13 @@ Stanford CS231n 2025 is the current course identified by the source documents. S
 sections, not the entire course, are retained. The live schedule page did not load during this
 revision; no exact video timestamps or current lecture durations are claimed.
 
-## Visualization skill sources
+## Matt Pocock skill sources
 
-K-Dense-AI/scientific-agent-skills at `593377bb048752abb0152deab9fbb1083a6087df`:
-[matplotlib](https://github.com/K-Dense-AI/scientific-agent-skills/tree/593377bb048752abb0152deab9fbb1083a6087df/skills/matplotlib)
-and [scientific-visualization](https://github.com/K-Dense-AI/scientific-agent-skills/tree/593377bb048752abb0152deab9fbb1083a6087df/skills/scientific-visualization).
-Read upstream instructions and individual licenses; the source directories are not vendored here.
-Installed-client activation and internal package compatibility remain stage-0 checks.
-Matt Pocock's engineering-skill collection is a separate tool family; the new plotting request is
-not silently reinterpreted as that collection. Existing project skills remain examples.
+[Upstream README](https://github.com/mattpocock/skills/blob/5beb35b040e3de97e54fa9e386d7e42d15c295c2/README.md), pinned at `5beb35b040e3de97e54fa9e386d7e42d15c295c2` and inspected 24 October 2026.
+See [the catalog](MATT_POCOCK_CATALOG.md) for exact entry links and
+[stage 0](SKILLS_STAGE0.md) for selected practice and offline installation.
+The former plotting-skill requirement was a name misunderstanding and is superseded.
+No internal installation or activation is claimed.
 
 ## Original development influences
 

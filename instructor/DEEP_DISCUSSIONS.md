@@ -81,7 +81,7 @@ independent derivations or role-specific follow-up, not extra compulsory mentor 
 
 For each discussion record: claim, derivation/assumption, counterexample, empirical check and what
 remains unverified. The trainee teaches and defends; the mentor does not lecture through slides.
-Use PRIMARY sources to correct doubtful answer keys. See SOURCE_REVIEW for examples needing care.
+Use PRIMARY sources to correct doubtful answer keys. See [SOURCE_REVIEW](SOURCE_REVIEW.md) for examples needing care.
 
 ## Embedding, grounding and VLM chain
 

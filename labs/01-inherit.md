@@ -3,7 +3,7 @@
 Estimated active work: 3 hours. Use the approved agent except for the mentor check.
 
 ## Read and understand
-ENGINEERING.md sections 1 and 7; AGENT_WORK.md. Explain relevant concepts from docs/ENGINEERING.md in your own words.
+[ENGINEERING.md](../docs/ENGINEERING.md) sections 1 and 7; [AGENT_WORK.md](../docs/AGENT_WORK.md). Explain relevant concepts from [docs/ENGINEERING.md](../docs/ENGINEERING.md) in your own words.
 
 ## Assignment
 Ask an agent for an architecture map, then verify every edge with file/function references and a debugger trace. Identify the public report contract and the existing HTTP transport. Record five risks as hypotheses with reproduction ideas. Write an ADR comparing a function-based source interface with a class hierarchy; choose based on current consumers.
@@ -15,7 +15,7 @@ Do not consult instructor/ in learner mode.
 
 ## Deliverables
 Verified component map; end-to-end trace; risk register; ADR; minimal task contract for the first repair.
-Include templates/agent-session.md, commands and observed outputs in sanitized artifacts.
+Include [templates/agent-session.md](../templates/agent-session.md), commands and observed outputs in sanitized artifacts.
 
 ## Acceptance evidence
 No speculative rewrite. Each claimed dependency exists. A peer can find the extension point and explain which module should own retries.

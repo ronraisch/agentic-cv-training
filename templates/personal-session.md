@@ -2,7 +2,7 @@
 
 - Part, date, mentor and trainee:
 - Required learning completed or independently substituted:
-- First session only: rapid basic screen and visualization-skill teach-back:
+- First session only: rapid basic screen and Matt Pocock skill teach-back:
 - Later sessions: selected deep question chains, assumptions and derivation:
 - New counterexample/prediction and independent evidence:
 - Claim, scope and uncertainty:

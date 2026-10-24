@@ -3,7 +3,7 @@
 Estimated active work: 4 hours. Use the approved agent except for the mentor check.
 
 ## Read and understand
-ENGINEERING.md section 4; installed PyTorch eval/inference_mode docs. Explain relevant concepts from docs/ENGINEERING.md in your own words.
+[ENGINEERING.md](../docs/ENGINEERING.md) section 4; installed PyTorch eval/inference_mode docs. Explain relevant concepts from [docs/ENGINEERING.md](../docs/ENGINEERING.md) in your own words.
 
 ## Assignment
 Install CPU Torch. Run repeated embeddings from the same model and batch; inspect requires_grad and model.training. Define an inference contract: finite floating [N,4], empty [0,4] accepted, CPU outputs without graph, input unchanged, caller mode restored. Repair embed; test exception-path restoration too. Compare several batch sizes for numerical agreement. Document peak-memory measurement limits rather than inventing a measurement.
@@ -15,7 +15,7 @@ Do not consult instructor/ in learner mode.
 
 ## Deliverables
 Regression tests for dropout/mode/gradients, batch shape and nonfinite inputs; batch-size comparison; reproducibility manifest.
-Include templates/agent-session.md, commands and observed outputs in sanitized artifacts.
+Include [templates/agent-session.md](../templates/agent-session.md), commands and observed outputs in sanitized artifacts.
 
 ## Acceptance evidence
 Repeated inference is stable within stated tolerance; no graph retained; outputs on CPU; empty input supported; caller training mode restored after success and failure.

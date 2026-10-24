@@ -41,14 +41,14 @@ brief does not reveal migration, schema or crop/training acceptance requirements
 
 PASS: three DOCX publication sources were title-sanitized, rendered and visually inspected.
 All three were imported as native Google Docs in the new workspace and their content read back.
-The public syllabus and mentor-only document links are recorded in README and MAINTAINERS.
+The public syllabus and mentor-only document links are recorded in README and [MAINTAINERS](../MAINTAINERS.md).
 These checks validate the published plan, not learner time estimates or internal runtime access.
 
 ## Ordinary-camera scope and dataset catalog follow-up
 
 Clarified ordinary ground/handheld/vehicle-camera video independently of satellite/airborne imagery
 in the syllabus, learner brief, lesson, system map, mentor preparation and notebook scaffold.
-Every research assignment now links to the relevant section of DATASETS.md. Source documentation
+Every research assignment now links to the relevant section of [DATASETS.md](DATASETS.md). Source documentation
 and links were checked; archives, data quality, access eligibility and internal transfer were not.
 The catalog distinguishes supplied annotations from labels/metadata still needing preparation.
 Two existing curated Drive documents were updated in place; original training documents were untouched.
@@ -63,3 +63,13 @@ block (3 + 0.75 + 1.25 + 2 = 7); its one-hour probe is inside the existing 19-ho
 Local links/catalog anchor, English content, required-reading integration and unchanged weekly/total
 budgets passed. Mentor discussion replaces an existing chain. No model was installed or run here.
 The two curated Drive documents were updated in place and read back; original materials were untouched.
+
+## Matt Pocock exposure and navigation correction — 24 October 2026
+
+Replaced the mistaken plotting-skill requirement with pinned Matt Pocock catalog exposure and
+selected deep practice. Kept the existing setup/mentor time caps; distributed practice replaces
+part of existing work. Catalog metadata was read from the upstream snapshot; this is not evidence
+of installed-client behavior. Internal installation and activation remain unverified.
+Converted prose file references to relative Markdown links and added the ongoing authoring rule.
+Checked local link targets/anchors, skill metadata, learner export and Git whitespace. Application
+code and dependencies were unchanged; runtime/model checks were not rerun for this documentation edit.

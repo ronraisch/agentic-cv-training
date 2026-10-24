@@ -3,17 +3,17 @@
 Open the repository alongside the approved agent. Start from the syllabus and the required-learning
 map; reading/video resources may live in Drive, while tasks and reproducible evidence live here.
 
-1. Read CURRICULUM.md and READING_AND_SESSIONS.md.
+1. Read [CURRICULUM.md](CURRICULUM.md) and [READING_AND_SESSIONS.md](READING_AND_SESSIONS.md).
 2. Complete [stage 0](../labs/research/00-installations.md) with the mentor, including visualization
    skills, VS Code, GitLab, Artifactory, OpenShift, Confluence and Jupyter.
-3. Obtain the working teaching baseline and real paths from the mentor. SYSTEM_MAP.md records what
+3. Obtain the working teaching baseline and real paths from the mentor. [SYSTEM_MAP.md](SYSTEM_MAP.md) records what
    is specified versus implemented; a filename in a plan is not evidence of working code.
 4. Receive the [labeling product request](../labs/research/01-polygons.md).
 5. Continue with [CV](../labs/research/02-classical-cv.md), [ML](../labs/research/03-evaluation-ml.md),
    [clouds](../labs/research/04-clouds.md), [video](../labs/research/05-video.md) and
    [handover](../labs/research/06-handover.md) as released by the mentor.
 
-Use an agent for research learning as well as coding. Follow RESEARCH_WITH_AGENTS.md; bring a
+Use an agent for research learning as well as coding. Follow [RESEARCH_WITH_AGENTS.md](RESEARCH_WITH_AGENTS.md); bring a
 small hypothesis and evidence packet to the scheduled mentor window. Queue product questions
 instead of assuming the mentor is available every day. Do not guess requirements silently.
 

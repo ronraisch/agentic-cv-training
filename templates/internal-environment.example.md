@@ -10,7 +10,7 @@ Do not store credentials here.
 | VS Code interpreter/remote/extensions | FILL_IN |
 | Jupyter URL without token and kernel path | FILL_IN |
 | Confluence space/team page and access owner | FILL_IN |
-| Complete visualization-skill snapshot and checksums | FILL_IN |
+| Complete Matt Pocock skill snapshot and checksums | FILL_IN |
 | Internal teaching image, digest and safe run command | FILL_IN |
 | Expected ONBOARDING_OK output | FILL_IN |
 | OpenShift console/namespace/workload | FILL_IN |

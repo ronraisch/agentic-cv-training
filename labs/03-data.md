@@ -3,7 +3,7 @@
 Estimated active work: 4 hours. Use the approved agent except for the mentor check.
 
 ## Read and understand
-ENGINEERING.md section 3; Pandas merge validation documentation. Explain relevant concepts from docs/ENGINEERING.md in your own words.
+[ENGINEERING.md](../docs/ENGINEERING.md) section 3; Pandas merge validation documentation. Explain relevant concepts from [docs/ENGINEERING.md](../docs/ENGINEERING.md) in your own words.
 
 ## Assignment
 Add duplicate feature IDs and a missing sample ID to a temporary fixture. Explain cardinality before running the join. Require unique sample/feature IDs, reject missing features explicitly, and preserve report keys. Replace alternating-row split with a deterministic group split by scene. Add a manifest proposal containing data/preprocessing revisions, seed and split hash.
@@ -15,7 +15,7 @@ Do not consult instructor/ in learner mode.
 
 ## Deliverables
 Data-contract tests; leakage reproducer; deterministic split test; provenance manifest example.
-Include templates/agent-session.md, commands and observed outputs in sanitized artifacts.
+Include [templates/agent-session.md](../templates/agent-session.md), commands and observed outputs in sanitized artifacts.
 
 ## Acceptance evidence
 Duplicate/missing IDs fail loudly. Train and test scene sets are disjoint; their union preserves all samples. Repeated runs produce the same split. A downstream consumer still reads the report.

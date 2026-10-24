@@ -4,7 +4,7 @@ Goal: use the correct project environment in VS Code/Jupyter and demonstrate a k
 persisted output and accessible team documentation. The mentor helps throughout. This is teaching,
 not a DevOps examination. The internal stack already exists; do not rebuild infrastructure.
 The mentor supplies actual URLs, approved identities, versions and fixture outputs in
-`templates/internal-environment.example.md` inside the internal copy only.
+[templates/internal-environment.example.md](../templates/internal-environment.example.md) inside the internal copy only.
 
 For every check record action, expected output, actual output, PASS/BLOCKED and escalation owner.
 Do not commit tokens, kubeconfig, credentials or internal-only addresses to the public repository.
@@ -74,11 +74,11 @@ Success requires identical meaning after restart, not merely a browser page that
 Wrong imports usually mean the wrong kernel; failed save requires checking path/permissions.
 Do not copy a token-bearing notebook URL into the MR.
 
-## Visualization skills
+## Matt Pocock skills
 
-Complete [SKILLS_STAGE0](SKILLS_STAGE0.md). Install the approved Matplotlib and Scientific
-Visualization instruction directories with their support files. Verify actual loading and a
-negative trigger, not only file presence. Run one tiny static plot in the approved environment.
+Complete [SKILLS_STAGE0](SKILLS_STAGE0.md). Install the approved pinned Matt Pocock bundle with support files; skim catalog descriptions and
+practice the selected engineering/productivity workflows. Verify actual loading and a
+negative trigger, not only file presence. Run one bounded teaching workflow in the approved environment.
 Record a blocked activation honestly. The first mentor session includes the 30-minute skill check.
 
 ## Known code smoke
@@ -163,7 +163,7 @@ No requirement to build GitLab CI, manage runners or study YAML. Keep this walkt
 
 - Internal clone/revision and correct VS Code interpreter/debugger.
 - Approved dependency environment and restartable Jupyter kernel.
-- Both visualization skills read, installed and activation evidence checked.
+- Matt Pocock catalog skimmed, selected skills practiced and installation/activation evidence checked.
 - Known code/MCP and Peanuach fixture, with actual output and evidence scope.
 - Internal image runs; teaching route returns the expected artifact/output.
 - Persistence survives a teaching restart.

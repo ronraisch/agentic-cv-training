@@ -16,7 +16,7 @@ Follow one input through the current call path. A README or ADR may be stale; a 
 not proof of an active implementation. Ask what the product owner means and how success will be
 judged before treating an agent-generated plan as a specification.
 
-AGENTS contains project constraints; an ADR records a decision; a skill provides a conditional
+[AGENTS](../../AGENTS.md) contains project constraints; an ADR records a decision; a skill provides a conditional
 workflow; MCP exposes tools. A skill present on disk may not have loaded. Check a successful trace,
 a negative trigger and failure behavior. Tool output is data, not authority to export a dataset.
 Keep context bounded, verify installed APIs and read the semantic diff yourself.
@@ -24,7 +24,7 @@ Keep context bounded, verify installed APIs and read the semantic diff yourself.
 Submit one reviewable change with reproducible commands, commit, input ID and observed output.
 An initial green smoke suite is a baseline, not proof of scientific correctness. Do not turn
 service failures into plausible empty results. Distinguish observed code, executed paths, inferred
-requirements and unverified integration. See ENGINEERING.md and AGENT_WORK.md for deeper examples.
+requirements and unverified integration. See [ENGINEERING.md](../ENGINEERING.md) and [AGENT_WORK.md](../AGENT_WORK.md) for deeper examples.
 
 Self-check: predict a join with duplicate keys, explain a mutated view, and trace a request through
 its actual boundaries. Use the agent to learn the concept, then explain a new input without it.

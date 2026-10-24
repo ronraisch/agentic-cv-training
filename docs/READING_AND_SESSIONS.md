@@ -16,10 +16,10 @@ No lecture timestamps or measured watch-time savings are claimed.
 
 | Block | Required local material | Source section retained selectively | Study cap |
 |---|---|---|---:|
-| Development and stack | lessons/01-development.md; ENGINEERING.md sections 1,2,3,5,6; AGENT_WORK.md; TEAM_INTEGRATION.md | Advanced Python: type hints, useful decorators, bounded concurrency; outline: arrays/data | 8 h |
-| Classical CV | lessons/02-classical-cv.md | CV mentor guide: filters, Hough lines, transforms, matching/RANSAC, warping; flow/pyramids at concept level | 6 h |
-| Evaluation and ML | lessons/03-metrics-ml.md | ML: linear/logistic models, evaluation, SVM intuition, trees/boosting; PCA/clustering intuition | 7 h |
-| DL and representations | lessons/04-torch.md; lessons/05-clouds.md; lessons/06-video.md; lessons/07-open-models.md | Stanford 2025 chapters 4,5,8,9,10,12,16, selected slides/concepts only | 7 h |
+| Development and stack | [lessons/01-development.md](lessons/01-development.md); [ENGINEERING.md](ENGINEERING.md) sections 1,2,3,5,6; [AGENT_WORK.md](AGENT_WORK.md); [TEAM_INTEGRATION.md](TEAM_INTEGRATION.md) | Advanced Python: type hints, useful decorators, bounded concurrency; outline: arrays/data | 8 h |
+| Classical CV | [lessons/02-classical-cv.md](lessons/02-classical-cv.md) | CV mentor guide: filters, Hough lines, transforms, matching/RANSAC, warping; flow/pyramids at concept level | 6 h |
+| Evaluation and ML | [lessons/03-metrics-ml.md](lessons/03-metrics-ml.md) | ML: linear/logistic models, evaluation, SVM intuition, trees/boosting; PCA/clustering intuition | 7 h |
+| DL and representations | [lessons/04-torch.md](lessons/04-torch.md); [lessons/05-clouds.md](lessons/05-clouds.md); [lessons/06-video.md](lessons/06-video.md); [lessons/07-open-models.md](lessons/07-open-models.md) | Stanford 2025 chapters 4,5,8,9,10,12,16, selected slides/concepts only | 7 h |
 | **Core study** | | | **28 h** |
 
 The hourly caps include relevant code reading, self-checks and questions. A competent learner
@@ -72,10 +72,10 @@ Use notes and a debugger; memorizing syntax is not the goal. The mentor samples 
 not every question in the original banks. Missing knowledge triggers a bounded retake.
 
 Only the first session includes a rapid **10-minute basic-understanding check**, followed by the
-**30-minute visualization-skill teach-back**. Subsequent sessions focus on difficult question chains
+**30-minute Matt Pocock skill teach-back**. Subsequent sessions focus on difficult question chains
 from the existing mentor materials: derivations, counterexamples and research/production decisions.
 Do not turn them into a repeated vocabulary quiz.
-The weekly plan and the total 12-hour mentor cap are in CURRICULUM.md. Product conversations and
+The weekly plan and the total 12-hour mentor cap are in [CURRICULUM.md](CURRICULUM.md). Product conversations and
 reviews share those same windows; a new daily hour is not assumed.
 
 ## Independent research learning is part of the work

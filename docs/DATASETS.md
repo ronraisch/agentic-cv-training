@@ -11,7 +11,7 @@ and internal availability have not been inspected here; suggested subset sizes a
 
 | Assignment | Recommended source | Optional alternative or supplement |
 |---|---|---|
-| 0: setup and Matplotlib skills | Synthetic fixtures already in the repo; no external ML dataset needed | A tiny approved sample from the later assignments |
+| 0: setup and Matt Pocock skills | Synthetic fixtures already in the repo; no external ML dataset needed | A tiny approved sample from the later assignments |
 | 1: labeling application | [COCO 2017 images and instance annotations](https://cocodataset.org/#download) | [DOTA](https://captain-whu.github.io/DOTA/dataset.html) for remote-sensing examples |
 | 2: Hough LPR, then 3: LPR evaluation | [CCPD](https://github.com/detectRecog/CCPD) | [RodoSol-ALPR](https://github.com/raysonlaroca/rodosol-alpr-dataset) |
 | 2: stitch two images from a flight | [UAVid, video-supported release](https://uavid.nl/) | An approved team flight with two overlapping frames |
@@ -21,7 +21,7 @@ and internal availability have not been inspected here; suggested subset sizes a
 | 4B: ordinary-camera scene understanding | [MEVA ground-camera subset](https://mevadata.org/) | [BDD100K](https://github.com/bdd100k/bdd100k) driving video or [VIRAT ground-camera subset](https://viratdata.org/) |
 | Handover: operational video notebook | The same local Part 4B subset and manifest | New clips from held-out ordinary cameras, not another benchmark |
 
-## Setup and visualization
+## Setup and skills
 
 Use deterministic synthetic arrays or existing fixtures for imports, plotting, file roundtrips and
 skill activation. Success at setup must not depend on downloading a large dataset. Plotting a

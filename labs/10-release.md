@@ -3,7 +3,7 @@
 Estimated active work: 4 hours. Use the approved agent except for the mentor check.
 
 ## Read and understand
-ENGINEERING.md section 6; package build docs. Explain relevant concepts from docs/ENGINEERING.md in your own words.
+[ENGINEERING.md](../docs/ENGINEERING.md) section 6; package build docs. Explain relevant concepts from [docs/ENGINEERING.md](../docs/ENGINEERING.md) in your own words.
 
 ## Assignment
 Build a wheel and install it into a fresh environment outside the checkout. Invoke the public pipeline with caller-provided DataFrames and run a tiny downstream script against report keys. Decide whether CLI fixtures are packaged or must be supplied explicitly; document and test the decision. Write release notes, dependency policy, compatibility policy, reproducibility manifest and rollback instructions. Have a peer follow the instructions.
@@ -15,7 +15,7 @@ Do not consult instructor/ in learner mode.
 
 ## Deliverables
 Wheel/install transcript; downstream consumer; release notes; peer feedback and one follow-up improvement.
-Include templates/agent-session.md, commands and observed outputs in sanitized artifacts.
+Include [templates/agent-session.md](../templates/agent-session.md), commands and observed outputs in sanitized artifacts.
 
 ## Acceptance evidence
 Imports work away from the repo. No hidden source-path or fixture dependency. Public schema remains compatible or has an explicit migration/version decision.
