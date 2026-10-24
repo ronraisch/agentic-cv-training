@@ -9,6 +9,16 @@ The mentor supplies actual URLs, approved identities, versions and fixture outpu
 For every check record action, expected output, actual output, PASS/BLOCKED and escalation owner.
 Do not commit tokens, kubeconfig, credentials or internal-only addresses to the public repository.
 
+## Required setup order
+
+1. Install VS Code using the approved internal distribution.
+2. With the mentor, obtain your own OpenShift development pod and connect VS Code to it using
+   the team's supported remote connection method. Verify the terminal and workspace are in that pod.
+3. In that remote development environment, install/configure **OMP** and connect it to the approved
+   **local LLM service, currently QWEN 3.8**. Complete the checks below before agent-assisted labs
+   and Matt Pocock skill activation.
+4. Continue the Python/uv, debugger, Jupyter and remaining readiness checks below.
+
 ## GitLab and VS Code
 
 Open the internal project, use its approved Clone URL and open the directory in VS Code.
@@ -23,6 +33,39 @@ Expect the chosen branch/commit, clean tree and internal remote. The README must
 revision. A missing repository usually means the wrong directory; DNS/timeout needs network help;
 certificate issues need the approved organizational CA; permission denied needs the correct identity
 and project access. The mentor helps rather than grading your infrastructure troubleshooting speed.
+
+## OMP and the local LLM
+
+After VS Code is connected to your personal OpenShift pod, install the team's approved OMP
+version in the remote environment and configure its provider, internal model endpoint and exact
+served model identifier. The current team model is QWEN 3.8; the service owner supplies the actual
+identifier rather than inferring it from that display name. Use the approved internal OMP package
+or image and installation recipe from the mentor. The local LLM may be a shared internal service;
+this step does not require every trainee to deploy a model server or download model weights.
+
+The mentor fills the OMP version/source/install command, remote connection method, endpoint,
+provider/protocol, model ID, authentication method and support owner in the internal copy of
+[the environment map](../templates/internal-environment.example.md). These deployment-specific
+values and OMP commands have not been verified here; do not invent installer commands or assume
+API compatibility. Use the team's secret mechanism for credentials.
+
+Readiness requires all of the following, with sanitized evidence:
+
+- VS Code's remote indicator, terminal and workspace identify the trainee's assigned pod and repo.
+- OMP launches there and reports the approved installed version.
+- A fresh OMP session targets the configured internal endpoint and served QWEN 3.8 model ID;
+  confirm the route using client configuration/request metadata or service-side evidence, not
+  the model's self-description or a successful response alone.
+- Ask OMP to read a tiny synthetic fixture from the repository and run a harmless workspace
+  command. Inspect its tool trace and independently compare its answer/output with the file.
+  A chat response alone does not prove that workspace tools operate in the pod.
+- Reconnect VS Code and start another OMP session; verify the configuration and workspace access
+  still work. Use the pod's approved persistent location where required.
+
+If the endpoint is unreachable, check access from the pod, service availability and routing with
+its owner. For authentication/model-ID/tool-call errors, compare the approved client/provider
+configuration and logs. Record BLOCKED and the owner when unresolved; a public-provider fallback
+or a model switch is not evidence that the required OMP/local-LLM path works.
 
 ## Python and uv through Artifactory
 
@@ -161,6 +204,8 @@ No requirement to build GitLab CI, manage runners or study YAML. Keep this walkt
 
 ## Completion checklist
 
+- VS Code installed and connected to the trainee's own OpenShift development pod.
+- OMP installed there; current local QWEN 3.8 route, workspace tools and reconnect checks verified.
 - Internal clone/revision and correct VS Code interpreter/debugger.
 - Approved dependency environment and restartable Jupyter kernel.
 - Matt Pocock catalog skimmed, selected skills practiced and installation/activation evidence checked.

@@ -7,7 +7,13 @@ Do not store credentials here.
 |---|---|
 | GitLab URL and chosen commit | FILL_IN |
 | Python/uv index, CA and internal lock | FILL_IN |
-| VS Code interpreter/remote/extensions | FILL_IN |
+| VS Code distribution/extensions and remote connection method | FILL_IN |
+| Personal OpenShift pod/namespace, workspace and identity verification | FILL_IN |
+| OMP approved version/source, internal installation command and configuration location | FILL_IN |
+| Local LLM provider/protocol, endpoint and exact served model ID (currently QWEN 3.8) | FILL_IN |
+| OMP authentication method/secret reference and service support owner (no secret values) | FILL_IN |
+| OMP model-route, workspace-tool and reconnect evidence | FILL_IN |
+| VS Code project interpreter and debugger | FILL_IN |
 | Jupyter URL without token and kernel path | FILL_IN |
 | Confluence space/team page and access owner | FILL_IN |
 | Complete Matt Pocock skill snapshot and checksums | FILL_IN |

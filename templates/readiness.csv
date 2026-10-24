@@ -10,3 +10,5 @@ confluence_access,mentor,UNVERIFIED,,,,,,mentor_guided_read
 mentor_drive_source,mentor,READ_2026_10_23,,,,,,explicit_provisional_sessions
 original_course_mapping,mentor,REVIEWED_2025_SOURCE,,,,,,local_lessons
 matt_pocock_skills,mentor,NOT_INSTALLED,,,,,,approved_complete_internal_bundle
+personal_openshift_pod,mentor,UNVERIFIED,,,,,,mentor_guided_remote_connection
+omp_local_llm_qwen_3_8,mentor,NOT_INSTALLED,,,,,,BLOCKED_until_internal_route_and_workspace_tools_verified

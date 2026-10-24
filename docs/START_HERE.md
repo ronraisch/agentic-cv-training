@@ -4,8 +4,9 @@ Open the repository alongside the approved agent. Start from the syllabus and th
 map; reading/video resources may live in Drive, while tasks and reproducible evidence live here.
 
 1. Read [CURRICULUM.md](CURRICULUM.md) and [READING_AND_SESSIONS.md](READING_AND_SESSIONS.md).
-2. Complete [stage 0](../labs/research/00-installations.md) with the mentor, including visualization
-   skills, VS Code, GitLab, Artifactory, OpenShift, Confluence and Jupyter.
+2. Complete [stage 0](../labs/research/00-installations.md) with the mentor, in this order: VS Code installation, connection
+   to your own OpenShift pod, then OMP with the local LLM (currently QWEN 3.8). Continue with
+   Matt Pocock skills, GitLab, Artifactory, Confluence and Jupyter.
 3. Obtain the working teaching baseline and real paths from the mentor. [SYSTEM_MAP.md](SYSTEM_MAP.md) records what
    is specified versus implemented; a filename in a plan is not evidence of working code.
 4. Receive the [labeling product request](../labs/research/01-polygons.md).

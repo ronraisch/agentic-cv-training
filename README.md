@@ -12,7 +12,7 @@ may also live in Drive. Active materials use English to avoid mixed-direction Ma
 
 | Part | Practical work |
 |---|---|
-| 0 | VS Code, GitLab, Artifactory, OpenShift, Confluence, Jupyter and Matt Pocock skills |
+| 0 | VS Code → personal OpenShift pod → OMP + local QWEN 3.8; GitLab, Artifactory, Confluence, Jupyter and Matt Pocock skills |
 | 1 | A product request for the existing labeling application |
 | 2 | Hough-based license-plate rectification and stitching two airborne images |
 | 3 | LPR evaluation, tracklet motion classification and detection rescoring |

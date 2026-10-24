@@ -73,3 +73,13 @@ of installed-client behavior. Internal installation and activation remain unveri
 Converted prose file references to relative Markdown links and added the ongoing authoring rule.
 Checked local link targets/anchors, skill metadata, learner export and Git whitespace. Application
 code and dependencies were unchanged; runtime/model checks were not rerun for this documentation edit.
+
+## OMP and local LLM setup — 24 October 2026
+
+Added the required order: install VS Code, connect it to the trainee's personal OpenShift pod,
+then install/configure OMP against the local LLM (currently QWEN 3.8), before skill activation.
+Added internal configuration fields and readiness gates for actual model routing, pod workspace
+tools and reconnect. No OMP installer, provider protocol, internal endpoint or live connectivity
+was verified here. The mentor supplies those deployment-specific values. Existing time allocations
+and application code/dependencies are unchanged. Local links and Git whitespace were checked;
+no application/runtime/model tests were rerun for this documentation-only change.

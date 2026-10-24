@@ -5,6 +5,11 @@ to Matplotlib and Scientific Visualization were a name misunderstanding and are 
 Plotting libraries may still be used in research; plotting skills are not a stage-0 requirement.
 A skill supplies instructions, not tools, permissions, dependencies or proof that code works.
 
+Before installing/activating skills, complete [VS Code, personal OpenShift pod and OMP/local-LLM
+setup](GETTING_STARTED_INTERNAL.md#required-setup-order). Run the activation experiment in that
+OMP environment against the approved local model (currently QWEN 3.8); unsupported skill discovery
+or tool calling must be recorded as blocked rather than assumed from file presence.
+
 ## Scope and time
 
 Within the existing six-hour guided setup, reserve about 75 minutes for installation, catalog
