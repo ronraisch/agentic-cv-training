@@ -34,8 +34,9 @@ will install in a Linux pod. On the connected staging machine:
 ```bash
 uv sync --extra dev --extra mcp --locked
 mkdir -p staging/wheels
+python3 -m venv staging/download-env
 uv export --locked --extra dev --extra mcp --no-emit-project --format requirements-txt -o staging/requirements.txt
-python -m pip download --only-binary=:all: -r staging/requirements.txt -d staging/wheels
+staging/download-env/bin/python -m pip download --only-binary=:all: -r staging/requirements.txt -d staging/wheels
 uv run --no-sync python -m build --wheel
 ```
 

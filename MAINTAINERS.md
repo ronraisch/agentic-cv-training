@@ -15,7 +15,7 @@ sharing settings before every cohort and never share it with trainee accounts or
 4. Commit the reviewed learner-facing source, then run:
 
 ```bash
-python tools/export_learner.py /path/to/new/learner
+uv run --no-sync python tools/export_learner.py /path/to/new/learner
 ```
 
 5. Confirm the export has no maintainer blocks, private links, answers, history or prior artifacts.
