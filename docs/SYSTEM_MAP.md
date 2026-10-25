@@ -11,6 +11,7 @@ procedural inputs by default and can read approved compatible bundles. See [base
 | Labeling interface | [index.html](../src/researchlab/static/index.html) |
 | Existing catalog/retrieval modules | [pipeline.py](../src/researchlab/pipeline.py), [sources.py](../src/researchlab/sources.py) |
 | Shared transport | [http.py](../src/researchlab/http.py) |
+| Local CNN detector, fixture, training and inference | [detector.py](../src/researchlab/detector.py), [contract](DETECTOR.md) |
 | Optional Torch component | [torch_model.py](../src/researchlab/torch_model.py) |
 
 Annotations persist in the selected bundle's SQLite store. Training consumes current records and

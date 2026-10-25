@@ -14,3 +14,11 @@ jobs:
       - run: uv run python tools/preflight.py --scope starter
       - run: uv run --no-sync researchlab-demo smoke --root artifacts/baseline-check
       - run: uv run python -m build
+  detector:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --locked --extra dev --extra torch
+      - run: uv run --no-sync pytest tests/test_detector.py
+      - run: uv run --no-sync researchlab-detector smoke --model artifacts/detector/model.npz

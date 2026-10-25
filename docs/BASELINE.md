@@ -43,3 +43,7 @@ point to [offline setup](OFFLINE_SETUP.md), rather than appear as a negative pre
 
 The existing catalog/retrieval and optional Torch modules remain available for assigned work.
 Run the bounded [preflight](PREFLIGHT.md) and tests separately from any internal-system claim.
+
+The separate [local CNN detector](DETECTOR.md) provides actual box localization, class and object
+presence training, saved weights and inference. Use it to verify detector plumbing; crop
+classification above does not implement detection.

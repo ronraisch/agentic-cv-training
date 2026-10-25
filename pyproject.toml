@@ -13,6 +13,7 @@ torch = ["torch>=2.5,<3"]
 mcp = ["mcp==2.3.0"]
 [project.scripts]
 researchlab = "researchlab.cli:main"
+researchlab-detector = "researchlab.detector:main"
 researchlab-demo = "researchlab.demo_cli:main"
 [tool.hatch.build.targets.wheel]
 packages = ["src/researchlab"]

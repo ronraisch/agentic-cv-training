@@ -58,3 +58,6 @@ The ordinary-camera video task is distinct from the satellite/airborne image ass
 Budget: 240 trainee hours including 40 infrastructure/transfer hours, and 12 recurring mentor
 hours. External libraries/data/models are transferred and approved before the cohort; learners
 are not expected to rebuild the team's infrastructure.
+
+For an executable CNN localization baseline, see [the local detector](docs/DETECTOR.md).
+It includes offline training, saved-weight inference and held-out box/class/presence evaluation.

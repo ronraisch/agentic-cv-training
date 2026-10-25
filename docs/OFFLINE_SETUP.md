@@ -124,3 +124,19 @@ Every first-use error must identify what is absent, where it was expected, a pre
 or training command, and this document. Missing Python packages are environment errors; a missing
 manifest/array is a data error; a missing artifact is a model error. Do not represent any as a
 successful prediction. Ask the named owner when the approved internal value has not been supplied.
+
+## Detector runtime
+
+The included single-object CNN requires the `torch` extra. On the matching connected staging
+machine use `uv sync --locked --extra dev --extra mcp --extra torch`, then run
+`uv run --no-sync researchlab-detector smoke --model artifacts/detector/model.npz`.
+For the wheelhouse route, add `--extra torch` to the `uv export` command above and download all
+exported requirements for the actual target platform. Transfer the complete verified image or
+wheelhouse, rather than asking the trainee to fetch Torch inside the network. CPU is sufficient
+for this fixture; CUDA models need the owner's separately verified driver/runtime combination.
+
+Training generates the detector fixture in memory, and saves the artifact at the explicit
+`--model` path (default `artifacts/detector/model.npz`). Supply that file for inference or run the
+local training command. Inference input must already exist as a local float32 RGB BCHW `.npy`
+array. See [detector architecture and input/output contracts](DETECTOR.md). Neither missing Torch,
+weights nor input arrays triggers a download.
