@@ -31,9 +31,9 @@ review and research assignments; do not add another course or require reading ev
 | `setup-matt-pocock-skills` | Configure the approved GitLab or local-file tracker and documentation paths once. Check those settings rather than assuming GitHub access. |
 | `ask-matt` (Ask Matt Pocock) | Route three scenarios to a suitable workflow; explain why a tiny fix does not need the largest flow. |
 | `grill-me`, `grill-with-docs`, `grilling` | Compare a standalone interview, a repo-aware interview with glossary/ADRs, and the reusable interview primitive. Try a bounded ambiguous request; distinguish facts to inspect from decisions to ask the human. |
-| `wayfinder` | Explore a deliberately large uncertain project as linked decision tickets. Produce a small decision map and explain when to stop mapping and create a buildable spec. Do not implement a whole project for this exercise. |
+| `wayfinder` | Explain how a large uncertain project becomes linked decision tickets. Make a small decision map for the current assignment and explain when to stop mapping and create a buildable spec. No separate project is required. |
 | `to-spec`, `to-tickets`, `implement-spec` | Compare conversation-to-spec synthesis, decomposition into dependent vertical tickets, and execution of the ticket graph. Trace one requirement through all three artifacts. These are different stages, not interchangeable spec variants. |
-| `implement` | Implement one bounded synthetic ticket in the existing lab. Explain test seams, feedback and completion evidence. Contrast with whole-spec orchestration in `implement-spec`. |
+| `implement` | Implement one bounded ticket in the existing research assignment, using synthetic fixtures for checks. Explain test seams, feedback and completion evidence. Contrast with whole-spec orchestration in `implement-spec`. |
 | `code-review` | Pin a comparison commit and review requirements fidelity separately from coding standards. Check one plausible but unsupported finding against the actual diff and runtime path. A reviewer assertion is not evidence. |
 | `retro` | Use the completed session's trace to propose one environment improvement: navigation, a deterministic check or a justified standard. Verify what failed and avoid adding generic rules that would not prevent it. |
 
@@ -70,8 +70,28 @@ its artifacts; 10 for an incorrect choice, unsupported claim or excessive grilli
 pin, activation evidence and a case where no skill is useful. Record the source revision, catalog
 orientation, selected full reads, loaded trace, sanitized artifacts and remaining blocked checks.
 
-Required deeper practice is distributed across [agent work](../labs/06-agent-work.md),
-[skills](../labs/07-skills.md), [review](../labs/09-review.md) and the existing research work.
+## Required practice inside existing assignments
+
+The following rows are the complete required selection from the older
+[agent-work](../labs/06-agent-work.md), [skills](../labs/07-skills.md) and
+[review](../labs/09-review.md) worksheets for the six-week route. Their standalone 3/4/3-hour
+estimates and remaining deliverables do not apply. These planning caps replace work already in
+the named allocations; they do not add hours to the 240-hour syllabus.
+
+| Selected practice | Where and time already allocated | One acceptance artifact |
+|---|---|---|
+| Lab 06: compare broad versus selected context on the same tiny, unresolved task, with the same starting commit/model and acceptance example | Up to 45 minutes of week 2's two-hour research-with-agent slot, replacing another agent-method exercise | Two session summaries with correctness, one unsupported claim checked, and available counters; no causal performance claim |
+| Lab 07: ask-matt routing, a bounded product interview, one requirement through spec/ticket/implementation, then retro | Up to 60 minutes within the 24-hour labeling assignment, replacing its ordinary planning/handoff work | A linked requirement/ticket/diff/evidence trace and one justified improvement; explanations of wayfinder and whole-spec orchestration need no separate project |
+| Lab 09: review one existing MR against its pinned base and check one plausible finding with a counterexample | Up to 45 minutes within the 24-hour labeling assignment, replacing its normal MR review | A checked review finding, relevant test result and bounded diff |
+
+No additional connector/Torch repair, paired defect-restoration exercise, mandatory skill rewrite
+or synthetic capstone is required by these references. Internal skill/MCP discovery, success,
+failure and fallback remain part of stage 0's existing readiness checks; unavailable tools are
+marked BLOCKED with an owner. Do not repeat their walkthrough for each worksheet. The optional
+Torch example is used only if assigned. Read selected skill bodies when needed, not all at setup.
+If the approved local model exceeds a practice cap, narrow the example with the mentor and record
+the limitation; do not consume a separate standalone lab budget silently.
+
 Recommended extras, not another mandatory deep-reading list: `diagnosing-bugs` for a reproducible
 failure, `tdd` for behavioral feedback, `handoff` for transfer, and `wait-what` when an explanation
 is unclear. Explain why one of these would help your actual task.

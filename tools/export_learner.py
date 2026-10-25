@@ -28,6 +28,9 @@ shutil.copytree(
         "*.egg-info",
     ),
 )
+# Keep an empty evidence destination, never previous cohorts' artifacts.
+(dest / "artifacts").mkdir()
+(dest / "artifacts/.gitkeep").touch()
 # Instructor-only Torch CI job is absent from learner distribution.
 workflow = dest / ".github/workflows/ci.yml"
 workflow.write_text(

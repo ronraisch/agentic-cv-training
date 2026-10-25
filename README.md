@@ -40,6 +40,8 @@ uv run python tools/check_mcp.py
 
 These commands apply to the existing ResearchLab environment. Internal users follow the approved
 Artifactory/CA/lock setup rather than assuming a public lock can resolve offline.
+The full research tasks require a separately prepared
+[research environment](docs/RESEARCH_ENVIRONMENT.md), working team code, data and model bundles.
 
 [Datasets by assignment](docs/DATASETS.md) · [Research learning with agents](docs/RESEARCH_WITH_AGENTS.md) · [Skills lab](docs/SKILLS_STAGE0.md)
 · [Known pitfalls](docs/PITFALLS.md) · [Validation](docs/VALIDATION.md)

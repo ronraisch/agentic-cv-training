@@ -78,6 +78,10 @@ covers access, transfer, queues and unusual setup failures.
 These include implementation, tests, experiments and evidence. Their placement within a week may
 move to follow readiness and mentor windows. No full CS231n assignments, Kaggle leaderboard target,
 shape-rendering project or duplicate Python exercise bank is added on top.
+For the exact required selection from older labs 06/07/09 and the time it replaces, use
+[the embedded practice map](SKILLS_STAGE0.md#required-practice-inside-existing-assignments).
+Other deliverables in those standalone worksheets are optional unless the mentor explicitly
+substitutes them for existing work.
 
 ## Mentor availability
 

@@ -7,6 +7,9 @@ Do not store credentials here.
 |---|---|
 | GitLab URL and chosen commit | FILL_IN |
 | Python/uv index, CA and internal lock | FILL_IN |
+| Research image/lock hash, OS/architecture, selected CV/ML/video packages and decoder codecs | FILL_IN |
+| Data bundle paths, manifest/schema hashes, label/group/split checks and loader smoke | FILL_IN |
+| Model/processor/tokenizer paths, revisions/hashes, offline fresh-load command and resources | FILL_IN |
 | VS Code distribution/extensions and remote connection method | FILL_IN |
 | Personal OpenShift pod/namespace, workspace and identity verification | FILL_IN |
 | OMP approved version/source, internal installation command and configuration location | FILL_IN |

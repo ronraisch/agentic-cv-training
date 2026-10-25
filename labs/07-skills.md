@@ -1,5 +1,9 @@
 # Lab 07 — Use and evaluate reusable team knowledge
 
+For the six-week research route, follow only the
+[embedded practice selection](../docs/SKILLS_STAGE0.md#required-practice-inside-existing-assignments).
+The standalone estimate and full deliverable list below are optional worksheet material.
+
 Estimated active work: 4 hours. Use the approved agent except for the mentor check.
 
 ## Read and understand
