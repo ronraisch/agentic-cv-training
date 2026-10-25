@@ -23,6 +23,8 @@ uv run --no-sync python tools/export_learner.py /path/to/new/learner
 6. Give the trainee only the fresh copy and the released brief. Keep later requests in Drive.
 
 GitHub history before this policy already contains mentor material. Removing current files does
-not make old public commits private. Source repository visibility/history needs a separate owner
-decision; do not promise confidentiality from an instruction saying not to read a directory.
+not make old public commits private. The owner decided on 2026-10-25 to keep this repository public, preserve its history and remove
+mentor material from the current tree only. Do not change visibility or rewrite history. This
+choice does not prevent trainees from finding historical material; use a fresh learner copy for
+distribution and do not promise confidentiality from a directory-reading instruction.
 Preparation is measured separately from the recurring 12-hour mentor budget.
