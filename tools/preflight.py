@@ -80,11 +80,21 @@ def starter_checks():
     return checks
 
 
-def readiness_checks(path):
+def same_file(first, second):
+    """Compare both paths and existing inode aliases, including hard links."""
+    if first.resolve() == second.resolve():
+        return True
+    try:
+        return first.samefile(second)
+    except OSError:
+        return False
+
+
+def readiness_checks(path, *, output=None):
     """Inspect record metadata and local evidence-file presence; never execute CSV contents."""
     try:
         with path.open(newline="", encoding="utf-8-sig") as source:
-            reader = csv.DictReader(source)
+            reader = csv.DictReader(source, strict=True)
             if not REQUIRED_COLUMNS.issubset(reader.fieldnames or ()):
                 return [check("readiness_records", "FAIL", "Required CSV columns are missing.")]
             if len(reader.fieldnames) != len(set(reader.fieldnames)):
@@ -98,8 +108,20 @@ def readiness_checks(path):
                 if not name or name in rows:
                     return [check("readiness_records", "FAIL", "Empty or duplicate component ID.")]
                 rows[name] = row
-    except (OSError, UnicodeError, csv.Error):
+    except (UnicodeError, csv.Error):
+        return [check("readiness_records", "FAIL", "Readiness CSV has invalid syntax or encoding.")]
+    except OSError:
         return [check("readiness_records", "BLOCKED", "Readiness CSV cannot be read.")]
+
+    if output:
+        # Protect all referenced evidence, including records not yet VERIFIED or required.
+        for row in rows.values():
+            if row["smoke_evidence"] not in PLACEHOLDERS:
+                evidence = Path(row["smoke_evidence"])
+                if not evidence.is_absolute():
+                    evidence = path.parent / evidence
+                if same_file(output, evidence):
+                    raise ValueError("Output must not overwrite a smoke evidence file")
 
     checks = []
     for name in REQUIRED_COMPONENTS:
@@ -176,11 +198,16 @@ def main(argv=None):
     if args.scope == "starter" and args.readiness:
         parser.error("--readiness requires --scope handoff")
     readiness = args.readiness or ROOT / "templates/readiness.csv"
-    if args.output and args.output.resolve() == readiness.resolve():
+    if args.output and same_file(args.output, readiness):
         parser.error("Output must not overwrite the readiness CSV")
-    checks = starter_checks()
+    records = []
     if args.scope == "handoff":
-        checks += readiness_checks(readiness)
+        try:
+            records = readiness_checks(readiness, output=args.output)
+        except ValueError as error:
+            parser.error(str(error))
+    checks = starter_checks()
+    checks += records
     status, code = summarize(checks)
     revision, dirty = source_state()
     report = {

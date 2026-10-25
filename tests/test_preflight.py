@@ -85,6 +85,20 @@ def test_duplicate_status_columns_fail(tmp_path):
     assert preflight.summarize(preflight.readiness_checks(path)) == ("FAIL", 1)
 
 
+def test_unterminated_quote_in_informational_row_fails(tmp_path):
+    path = readiness_file(tmp_path)
+    with path.open("a") as output:
+        output.write(',historical-source,mentor,smoke.txt,VERIFIED,"unterminated\n')
+    assert preflight.summarize(preflight.readiness_checks(path)) == ("FAIL", 1)
+
+
+def test_invalid_csv_encoding_fails(tmp_path):
+    path = readiness_file(tmp_path)
+    with path.open("ab") as output:
+        output.write(b"\xff\n")
+    assert preflight.summarize(preflight.readiness_checks(path)) == ("FAIL", 1)
+
+
 def test_missing_readiness_file_blocks(tmp_path):
     records = preflight.readiness_checks(tmp_path / "missing.csv")
     assert preflight.summarize(records) == ("BLOCKED", 2)
@@ -131,6 +145,26 @@ def test_output_cannot_destroy_input_csv(tmp_path):
         preflight.main(["--readiness", str(path), "--output", str(path)])
     assert error.value.code == 2
     assert path.read_bytes() == before
+
+
+@pytest.mark.parametrize("source", ["csv", "evidence"])
+@pytest.mark.parametrize("alias", ["direct", "hardlink", "symlink"])
+def test_output_preserves_all_input_files_and_aliases(tmp_path, monkeypatch, source, alias):
+    path = readiness_file(tmp_path)
+    original = path if source == "csv" else tmp_path / "smoke.txt"
+    before = original.read_bytes()
+    target = original
+    if alias != "direct":
+        target = tmp_path / "output.json"
+        if alias == "hardlink":
+            target.hardlink_to(original)
+        else:
+            target.symlink_to(original)
+    monkeypatch.setattr(preflight, "starter_checks", lambda: [])
+    with pytest.raises(SystemExit) as error:
+        preflight.main(["--readiness", str(path), "--output", str(target)])
+    assert error.value.code == 2
+    assert original.read_bytes() == before
 
 
 @pytest.mark.skipif(importlib.util.find_spec("mcp") is None, reason="Install the optional MCP extra")

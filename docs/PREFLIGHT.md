@@ -47,6 +47,9 @@ evidence paths resolve beside the CSV. Use a sanitized transcript of an executed
 The component IDs come from the template; historical source-reading rows are informational and
 do not replace runtime checks. Missing components block; duplicate IDs/columns and malformed CSV
 fail. URLs and shell commands are not fetched or executed as evidence.
+Invalid CSV quoting or encoding is a failure, while a missing/unreadable file is blocked.
+The output report must not overwrite the CSV or any referenced evidence file, including symlink
+or hard-link aliases. This protection is checked before the local smoke commands run.
 
 Such records receive **RECORDED**, never `PASS`: the tool checks metadata/file presence, not
 transcript contents, authenticity, freshness, asset hashes, label quality or live system behavior.
