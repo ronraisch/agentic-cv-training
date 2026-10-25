@@ -4,8 +4,14 @@ import asyncio
 import sys
 from pathlib import Path
 
-from mcp import ClientSession, StdioServerParameters
-from mcp.client.stdio import stdio_client
+try:
+    from mcp import ClientSession, StdioServerParameters
+    from mcp.client.stdio import stdio_client
+except ModuleNotFoundError as error:
+    raise SystemExit(
+        f"Missing MCP dependency: {error.name}. Install the approved dev/MCP environment; "
+        "see docs/OFFLINE_SETUP.md#python-runtime. No runtime installation was attempted."
+    ) from error
 
 
 async def main():

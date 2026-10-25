@@ -4,6 +4,7 @@ import argparse
 from fnmatch import fnmatch
 from io import BytesIO
 from pathlib import Path
+import re
 import subprocess
 import tarfile
 from tempfile import TemporaryDirectory
@@ -61,6 +62,18 @@ with TemporaryDirectory(prefix=".learner-export-", dir=dest.parent) as temporary
     # Keep an empty evidence destination, never previous cohorts' artifacts.
     (staged / "artifacts").mkdir()
     (staged / "artifacts/.gitkeep").touch()
+    # Distribution-only notes must not accompany the operational learner instructions.
+    for name in ("README.md", "AGENTS.md"):
+        document = staged / name
+        if not document.exists():
+            continue
+        text = document.read_text()
+        if text.count("<!-- maintainer-only:start -->") != text.count("<!-- maintainer-only:end -->"):
+            parser.error(f"Unclosed maintainer block in {name}")
+        text = re.sub(r"<!-- maintainer-only:start -->.*?<!-- maintainer-only:end -->\n?", "", text, flags=re.S)
+        if "<!-- maintainer-only:" in text:
+            parser.error(f"Invalid maintainer block in {name}")
+        document.write_text(text)
     # Instructor-only Torch CI job is absent from learner distribution.
     workflow = staged / ".github/workflows/ci.yml"
     workflow.write_text(

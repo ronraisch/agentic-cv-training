@@ -63,7 +63,7 @@ def test_learner_export_preserves_empty_output_directory_and_links(tmp_path):
     for name in ("AGENTS.md", "README.md", "LICENSE", "pyproject.toml", "uv.lock", ".gitignore"):
         shutil.copyfile(ROOT / name, root / name)
     for name in (".agents", ".github", "docs", "labs", "templates", "src", "tests", "tools",
-                 "data", "reviews"):
+                 "data"):
         shutil.copytree(
             ROOT / name, root / name, dirs_exist_ok=True,
             ignore=shutil.ignore_patterns("__pycache__", ".env*"),
@@ -105,6 +105,27 @@ def test_export_never_distributes_previous_artifacts(tmp_path):
     result = run(script, tmp_path, destination)
     assert result.returncode == 0, result.stderr
     assert sorted(p.name for p in (destination / "artifacts").iterdir()) == [".gitkeep"]
+
+
+def test_export_removes_distribution_notes_but_keeps_runtime_instructions(tmp_path):
+    root, script = tool_copy(tmp_path, "export_learner.py")
+    workflow = root / ".github/workflows/ci.yml"
+    workflow.parent.mkdir(parents=True)
+    workflow.write_text("jobs:\n  core:\n    steps: []\n")
+    for name in ("README.md", "AGENTS.md"):
+        (root / name).write_text(
+            "Operational instructions\n<!-- maintainer-only:start -->\n"
+            "PRIVATE_DISTRIBUTION_CANARY\n<!-- maintainer-only:end -->\nRun the baseline\n"
+        )
+    commit_source(root)
+    destination = tmp_path / "learner"
+    result = run(script, tmp_path, destination)
+    assert result.returncode == 0, result.stderr
+    for name in ("README.md", "AGENTS.md"):
+        text = (destination / name).read_text()
+        assert "PRIVATE_DISTRIBUTION_CANARY" not in text
+        assert "maintainer-only" not in text
+        assert "Operational instructions" in text and "Run the baseline" in text
 
 
 def test_export_uses_committed_source_without_local_files(tmp_path):

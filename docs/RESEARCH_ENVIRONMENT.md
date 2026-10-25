@@ -1,8 +1,9 @@
 # Research environment handoff
 
-The README's locked command installs the synthetic ResearchLab examples and checks. It is not
-the full Peanuach research environment. A successful ResearchLab smoke does not establish that
-image decoding, video, notebook kernels or prepared models are ready.
+The README's locked command installs the working procedural CPU baseline, catalog examples and
+checks. The [baseline](BASELINE.md) can label, train, reload and predict without external assets.
+Real research datasets, codecs, notebook kernels and pretrained model families require the
+separately approved environment below. See [offline installation](OFFLINE_SETUP.md).
 
 The mentor supplies an approved internal image/digest or environment lock, actual paths and
 commands in [the environment map](../templates/internal-environment.example.md). Use the

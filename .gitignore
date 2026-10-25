@@ -9,3 +9,7 @@ artifacts/*
 data/generated/
 *.egg-info/
 .env
+.local/
+data/local-demo/
+data/imported/
+wheelhouse/

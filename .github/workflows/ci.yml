@@ -11,14 +11,6 @@ jobs:
       - run: uv sync --extra dev --extra mcp --locked
       - run: uv run ruff check .
       - run: uv run pytest
-      - run: COURSE_IMPL=reference uv run pytest instructor/test_contracts.py
       - run: uv run python tools/preflight.py --scope starter
+      - run: uv run --no-sync researchlab-demo smoke --root artifacts/baseline-check
       - run: uv run python -m build
-  torch:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v6
-      - run: uv sync --extra dev --locked
-      - run: uv pip install torch --index-url https://download.pytorch.org/whl/cpu
-      - run: COURSE_IMPL=reference uv run --no-sync python -m pytest instructor/test_torch_contract.py

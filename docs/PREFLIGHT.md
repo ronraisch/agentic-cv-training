@@ -3,7 +3,8 @@
 Run this with the project's approved interpreter after the
 [locked installation](GETTING_STARTED_INTERNAL.md#python-and-uv-through-artifactory).
 It does not install packages, download data/weights, call internal endpoints or execute commands
-from a configuration file. It preserves the intentional application defects.
+from a configuration file. Run the training baseline separately using
+`uv run --no-sync researchlab-demo smoke --root artifacts/baseline-check`.
 
 ## Starter checks
 
