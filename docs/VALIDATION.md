@@ -108,3 +108,20 @@ The MCP invalid-input traceback is expected, not a failed protocol check.
 No internal baseline, data/weights, OMP/client skill activation, Artifactory/OpenShift route or
 production inference was verified. No intentional application defect or dependency lock was
 changed. The supply checklist records preparation requirements, not newly supplied assets.
+
+## PR 1 code review follow-up — 25 October 2026
+
+The original PR clarified the research-environment handoff, preparation ownership/budget and
+embedded practice, but its exporter still copied local environment files and scratch material.
+Two new regressions reproduced this before the fix. Export now reads an immutable committed
+HEAD archive, excludes `.env*` even when tracked, rejects source links and stages output before
+publishing the destination. Local edits, untracked files and ignored caches are not distributed.
+Maintainers must commit reviewed changes before exporting. The integration fixture also permits
+running the tooling suite from a history-free learner copy.
+
+On Linux / Python 3.12.14, the 16 application/tooling tests and 10 core reference checks passed;
+Ruff, ResearchLab, course-skill file validation and real stdio MCP checks passed. The optional
+Torch reference checks were not rerun in this environment. The pre-cohort checklist now asks for
+a baseline notebook replay rather than the trainee's completed final handover notebook.
+No research application, model bundle or real dataset was added; internal readiness remains
+unverified until the supplied assets and actual commands are exercised in the trainee's pod.

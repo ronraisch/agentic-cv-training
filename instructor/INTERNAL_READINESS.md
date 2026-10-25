@@ -142,7 +142,8 @@ research model needs accelerator access, record its actual quota/queue and an ap
 - [ ] Stage 0 has a known ResearchLab smoke and separate real-system smoke with expected output.
 - [ ] Each assignment's prerequisites are VERIFIED before release; a blocked item has an owner and next action.
 - [ ] Product decisions are answered consistently; later briefs/acceptance labels remain staged.
-- [ ] Handover notebook calls the service's actual modules/artifact, clean-runs and matches its known output.
+- [ ] Baseline inference modules/artifact can be replayed in a clean notebook with known output;
+      the trainee completes the operational handover notebook during the final assignment.
 - [ ] Learner export has empty artifacts, intact local links, no instructor/history and passing tooling checks.
 - [ ] Preparation and rehearsal time are recorded; weekly and total trainee/mentor budgets remain unchanged.
 

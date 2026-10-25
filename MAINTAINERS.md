@@ -8,6 +8,11 @@ Do not expose downstream polygon acceptance details or later video requests to l
 
 Distribute a fresh learner copy without mentor files or source Git history:
 
+The exporter reads committed `HEAD`, not working-tree edits. Commit reviewed changes first.
+Untracked/ignored files are never copied; environment files matching `.env*` are excluded even
+if tracked. Run it from the source Git checkout, not from a history-free learner copy. Inspect
+the resulting file list before distribution; keep internal configuration in the internal copy.
+
 ```bash
 python tools/export_learner.py /path/to/new/learner
 ```
