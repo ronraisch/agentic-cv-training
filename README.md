@@ -1,56 +1,63 @@
-# Peanuach Researcher Onboarding
+# Peanuach research workspace
 
-Six weeks of research learning, individual teach-back sessions and agent-assisted work in one
-monorepo covering both ordinary-camera video and remote sensing. Video scene understanding uses
-ground/handheld/vehicle cameras, not satellite video. Tasks and reproducible evidence live here; reading and viewing
-may also live in Drive. Active materials use English to avoid mixed-direction Markdown problems.
+Labeling, image geometry and ordinary-camera video in one Python workspace. Start with the
+working baseline, then implement the assigned product request and demonstrate its effects.
 
-[Start here](docs/START_HERE.md) · [Six-week syllabus](docs/CURRICULUM.md)
-· [Drive syllabus](https://docs.google.com/document/d/1shy8IhFa-Vri5SSCuN03x-ktt4gtwfal3Bp9Gnvwlvo/edit)
-· [Required learning](docs/READING_AND_SESSIONS.md) · [Internal setup](docs/GETTING_STARTED_INTERNAL.md)
-· [Original Drive collection](https://drive.google.com/drive/folders/1ZfbxunFLoea6JsUIbAiRbDgrkumhGDDA) · [New curated Drive workspace](https://drive.google.com/drive/folders/1MqJ6JWJ5ivd6voElujzTzPhmf7gZp_Jx)
+<!-- maintainer-only:start -->
+## Maintainer distribution reminder
 
-| Part | Practical work |
-|---|---|
-| 0 | VS Code → personal OpenShift pod → OMP + local QWEN 3.8; GitLab, Artifactory, Confluence, Jupyter and Matt Pocock skills |
-| 1 | A product request for the existing labeling application |
-| 2 | Hough-based license-plate rectification and stitching two airborne images |
-| 3 | LPR evaluation, tracklet motion classification and detection rescoring |
-| 4 | A cloud-segmentation research proposal and ten-second video classification |
-| Handover | Explain the deployed video inference path and reproduce it from a notebook |
+Keep the baseline working and preserve the course's intentional minor rough edges. Follow
+[the persistent maintainer policy](AGENTS.md) and [maintainer operations](MAINTAINERS.md).
+Exact teaching scenarios and answers belong only in the restricted Drive registry.
+**Before giving this to a trainee: remove this maintainer section, private links and maintainer
+agent instructions by running the learner exporter. Do not distribute source Git history.**
+Ask the owner to confirm this reminder on every cohort handoff. Do not add an answer catalogue.
+<!-- maintainer-only:end -->
 
-Budget: **240 trainee hours**, including **40 hours of infrastructure/transfer buffer**.
-Mentor budget: **12 hours total**, normally two scheduled windows a week, no more than
-one hour on any day. Preparation and asynchronous review count against this limit.
-The syllabus replaces duplicate courses and exercises; it does not add another course on top.
+## First run
 
-## Implementation status
-
-This repository contains a synthetic Python ResearchLab and onboarding specifications. A working
-Peanuach labeling/training/serving system has not been implemented here. The mentor supplies a
-working teaching baseline or maps the existing team code before the cohort starts.
-Model training results, internal deployment and installed-skill activation are not claimed.
+Install the approved environment using [offline setup](docs/OFFLINE_SETUP.md). For a connected
+public development workstation only, the locked installation is:
 
 ```bash
 uv sync --extra dev --extra mcp --locked
-uv run researchlab
-uv run pytest
-uv run python tools/preflight.py --scope starter
 ```
 
-These commands apply to the existing ResearchLab environment. Internal users follow the approved
-Artifactory/CA/lock setup rather than assuming a public lock can resolve offline.
-The full research tasks require a separately prepared
-[research environment](docs/RESEARCH_ENVIRONMENT.md), working team code, data and model bundles.
-Use [preflight](docs/PREFLIGHT.md) to separate local smoke results from missing internal handoff
-records. Its default handoff scope reports the public template as blocked.
+Then run without dependency resolution or downloads:
 
-[Datasets by assignment](docs/DATASETS.md) · [Research learning with agents](docs/RESEARCH_WITH_AGENTS.md) · [Skills lab](docs/SKILLS_STAGE0.md)
-· [Known pitfalls](docs/PITFALLS.md) · [Validation](docs/VALIDATION.md)
+```bash
+uv run --no-sync researchlab-demo prepare --root data/local-demo
+uv run --no-sync researchlab-demo train --root data/local-demo
+uv run --no-sync researchlab-demo evaluate --root data/local-demo
+uv run --no-sync researchlab-demo predict --root data/local-demo --sample video-030
+uv run --no-sync researchlab-demo serve --root data/local-demo
+```
 
-Original Drive files remain unchanged. The source folder allowed reading but rejected child-folder
-creation; the new workspace was created separately in My Drive. Move it into the original collection
-only after obtaining write access. Previous curricula remain in Git history.
+Open the loopback URL printed by the server. Draw rectangles, save and reload annotations.
+Training reads the persisted records. The selected artifact is loaded for prediction; use its
+reported SHA-256 to trace a response to the saved model. The same commands can use an approved
+local data bundle conforming to [the data contracts](docs/DATA_FORMATS.md).
 
-Required foundation: [embeddings, VLMs, open-vocabulary detection and using open models](docs/lessons/07-open-models.md),
-with a small shared-data probe inside the existing six-week budget.
+The included procedural fixture requires no dataset download or external weights. It exercises
+real CPU optimization, artifact persistence and inference, and does not establish accuracy on
+real cameras. For real assignments use the prepared [dataset bundles](docs/DATASETS.md).
+Missing packages, files or model artifacts must stop with a path, recovery action and setup link.
+
+```bash
+uv run --no-sync researchlab-demo smoke --root artifacts/baseline-check
+uv run --no-sync pytest
+uv run --no-sync python tools/preflight.py --scope starter
+```
+
+[Start here](docs/START_HERE.md) · [Six-week syllabus](docs/CURRICULUM.md)
+· [Required learning](docs/READING_AND_SESSIONS.md) · [System map](docs/SYSTEM_MAP.md)
+· [Internal setup](docs/GETTING_STARTED_INTERNAL.md) · [Research environment](docs/RESEARCH_ENVIRONMENT.md)
+· [Preflight scope](docs/PREFLIGHT.md) · [Verification practice](docs/PITFALLS.md)
+
+The ordinary-camera video task is distinct from the satellite/airborne image assignments.
+Budget: 240 trainee hours including 40 infrastructure/transfer hours, and 12 recurring mentor
+hours. External libraries/data/models are transferred and approved before the cohort; learners
+are not expected to rebuild the team's infrastructure.
+
+For an executable CNN localization baseline, see [the local detector](docs/DETECTOR.md).
+It includes offline training, saved-weight inference and held-out box/class/presence evaluation.

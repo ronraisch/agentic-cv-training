@@ -9,6 +9,9 @@ Do not store credentials here.
 | Python/uv index, CA and internal lock | FILL_IN |
 | Research image/lock hash, OS/architecture, selected CV/ML/video packages and decoder codecs | FILL_IN |
 | Data bundle paths, manifest/schema hashes, label/group/split checks and loader smoke | FILL_IN |
+| LPR frozen detector and recognizer source/revision, weights, preprocessing, local invocation and known input/output | FILL_IN |
+| Frozen detections and independent GT bundle for rescoring, IDs/classes/coordinate schema and hashes | FILL_IN |
+| Optional CLIP/Grounding DINO/Qwen2.5-VL implementation and complete offline model/processor bundle | FILL_IN |
 | Model/processor/tokenizer paths, revisions/hashes, offline fresh-load command and resources | FILL_IN |
 | VS Code distribution/extensions and remote connection method | FILL_IN |
 | Personal OpenShift pod/namespace, workspace and identity verification | FILL_IN |

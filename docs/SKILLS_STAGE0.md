@@ -72,20 +72,18 @@ orientation, selected full reads, loaded trace, sanitized artifacts and remainin
 
 ## Required practice inside existing assignments
 
-The following rows are the complete required selection from the older
-[agent-work](../labs/06-agent-work.md), [skills](../labs/07-skills.md) and
-[review](../labs/09-review.md) worksheets for the six-week route. Their standalone 3/4/3-hour
-estimates and remaining deliverables do not apply. These planning caps replace work already in
-the named allocations; they do not add hours to the 240-hour syllabus.
+The following rows define the required practice for the six-week route. Perform them on the
+current assignment. These planning caps replace work already in the named allocations; they do
+not add hours to the 240-hour syllabus.
 
 | Selected practice | Where and time already allocated | One acceptance artifact |
 |---|---|---|
-| Lab 06: compare broad versus selected context on the same tiny, unresolved task, with the same starting commit/model and acceptance example | Up to 45 minutes of week 2's two-hour research-with-agent slot, replacing another agent-method exercise | Two session summaries with correctness, one unsupported claim checked, and available counters; no causal performance claim |
-| Lab 07: ask-matt routing, a bounded product interview, one requirement through spec/ticket/implementation, then retro | Up to 60 minutes within the 24-hour labeling assignment, replacing its ordinary planning/handoff work | A linked requirement/ticket/diff/evidence trace and one justified improvement; explanations of wayfinder and whole-spec orchestration need no separate project |
-| Lab 09: review one existing MR against its pinned base and check one plausible finding with a counterexample | Up to 45 minutes within the 24-hour labeling assignment, replacing its normal MR review | A checked review finding, relevant test result and bounded diff |
+| Context practice: compare broad versus selected context on the same tiny, unresolved task, with the same starting commit/model and acceptance example | Up to 45 minutes of week 2's two-hour research-with-agent slot, replacing another agent-method exercise | Two session summaries with correctness, one unsupported claim checked, and available counters; no causal performance claim |
+| Skill practice: ask-matt routing, a bounded product interview, one requirement through spec/ticket/implementation, then retro | Up to 60 minutes within the 24-hour labeling assignment, replacing its ordinary planning/handoff work | A linked requirement/ticket/diff/evidence trace and one justified improvement; explanations of wayfinder and whole-spec orchestration need no separate project |
+| Review practice: review one existing MR against its pinned base and check one plausible finding with a counterexample | Up to 45 minutes within the 24-hour labeling assignment, replacing its normal MR review | A checked review finding, relevant test result and bounded diff |
 
-No additional connector/Torch repair, paired defect-restoration exercise, mandatory skill rewrite
-or synthetic capstone is required by these references. Internal skill/MCP discovery, success,
+No separate repair project, mandatory skill rewrite or additional capstone is required by these
+references. Internal skill/MCP discovery, success,
 failure and fallback remain part of stage 0's existing readiness checks; unavailable tools are
 marked BLOCKED with an owner. Do not repeat their walkthrough for each worksheet. The optional
 Torch example is used only if assigned. Read selected skill bodies when needed, not all at setup.

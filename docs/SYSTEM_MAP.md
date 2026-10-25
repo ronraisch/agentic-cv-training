@@ -1,25 +1,25 @@
-# Teaching system and evidence scope
+# System map
 
-The fictional team covers both ordinary-camera video and remote sensing in one monorepo.
-Satellite/airborne imagery supports the remote-sensing tasks; ground/handheld/vehicle-camera clips
-support scene understanding. Video is not satellite video. See [dataset sources](DATASETS.md).
-The existing runtime is a small synthetic ResearchLab retrieval/embedding pipeline with numerical,
-data, HTTP and optional Torch examples. A complete labeling/training/serving system is not
-implemented here. A mentor must prepare a working baseline or map actual team code before teaching.
+The working CPU baseline covers image labeling and ordinary-camera video. It uses local
+procedural inputs by default and can read approved compatible bundles. See [baseline commands](BASELINE.md).
 
-| Area | What the trainee should understand |
+| Area | Implemented path |
 |---|---|
-| Development | React/TypeScript, Python API, data contracts, MR review and agent boundaries |
-| Imagery/video | Coordinates, timestamps, metadata, input/output meaning and failure states |
-| Research | Labels, splits/manifests, model artifacts, experiments and evaluation |
-| Operations | Docker, Artifactory, OpenShift, storage and the actual loaded model |
-| Knowledge | Repository tasks, linked Drive learning, internal Confluence context |
+| CLI and installation errors | [demo_cli.py](../src/researchlab/demo_cli.py) |
+| Data/annotations/crop loader, training, artifact and inference | [demo.py](../src/researchlab/demo.py) |
+| Local HTTP API and image rendering | [demo_web.py](../src/researchlab/demo_web.py) |
+| Labeling interface | [index.html](../src/researchlab/static/index.html) |
+| Existing catalog/retrieval modules | [pipeline.py](../src/researchlab/pipeline.py), [sources.py](../src/researchlab/sources.py) |
+| Shared transport | [http.py](../src/researchlab/http.py) |
+| Local CNN detector, fixture, training and inference | [detector.py](../src/researchlab/detector.py), [contract](DETECTOR.md) |
+| Optional Torch component | [torch_model.py](../src/researchlab/torch_model.py) |
 
-Inside the network use GitLab and approved internal resources. Outside, maintain the public
-curriculum in GitHub. Internal Confluence content does not belong in the public repository.
-Required Drive resources need an approved internal copy or a local-text substitute.
+Annotations persist in the selected bundle's SQLite store. Training consumes current records and
+writes an explicit model artifact with feature/class/question versions and data fingerprints.
+Inference reports the loaded artifact checksum. The video baseline pools local frame features;
+it is not a large pretrained video/VLM system. Image geometry, LPR and later customer requests are
+implemented as assigned against approved prepared inputs.
 
-For each claim mark observed, inferred, unverified or blocked with commit/file or input/command/
-output evidence. Reading code proves what is written, not which code executes. Trace training
-configuration and selection through the saved artifact, image digest, loaded model and request.
-Do not describe an incomplete chain as verified production behavior.
+The service binds to loopback. Internal hosting uses approved identity, ingress, registry and
+persistent mounts; local success does not verify those integrations. Ordinary ground/handheld/
+vehicle-camera video is distinct from airborne/satellite imagery used in separate assignments.

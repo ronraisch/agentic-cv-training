@@ -15,7 +15,7 @@ globally unless the team wants that behavior. The examples are committed project
 A skill has name/description frontmatter and a task-specific procedure. Its metadata helps decide
 when to load it; references are loaded only when needed. Scripts can avoid repeated generation.
 Evaluate both a task that should trigger it and one that should not. A persuasive SKILL.md is not
-an evaluation. See lab 07 for required before/after runs and the negative case.
+an evaluation. Use [the embedded practice map](SKILLS_STAGE0.md#required-practice-inside-existing-assignments) for the required evidence and negative case.
 
 ## MCP server connection
 1. Install the pinned extra: `uv sync --extra dev --extra mcp --locked`.

@@ -1,33 +1,30 @@
-# Maintainer entry point
+# Maintainer operations
 
-Active materials are English for reliable cross-viewer layout. Original Drive files are unchanged.
-Use [instructor/RESEARCH_GUIDE.md](instructor/RESEARCH_GUIDE.md), [DEEP_DISCUSSIONS.md](instructor/DEEP_DISCUSSIONS.md) and [SOURCE_REVIEW.md](instructor/SOURCE_REVIEW.md) for mentor operations.
-Before the cohort, complete [the internal supply and readiness checklist](instructor/INTERNAL_READINESS.md):
-code, data, models, configuration, owners and executed preflight evidence.
-Do not expose downstream polygon acceptance details or later video requests to learners early.
+Read the persistent policy in [AGENTS.md](AGENTS.md). Protect the operational baseline and avoid
+blanket repairs of minor code/documentation discrepancies. The exact scenario inventory, old
+worksheets, acceptance answers and reference implementation are maintained only in the
+[restricted Drive registry](https://docs.google.com/document/d/16ul-ZwApQib4KogsTutnGTZYgxns1toek-vZOUhu-2w/edit).
+Use the owner's authorized Drive account; a file link is not permission. Verify the registry's
+sharing settings before every cohort and never share it with trainee accounts or their agents.
 
-Distribute a fresh learner copy without mentor files or source Git history:
+## Before distribution — remind the owner
 
-The exporter reads committed `HEAD`, not working-tree edits. Commit reviewed changes first.
-Untracked/ignored files are never copied; environment files matching `.env*` are excluded even
-if tracked. Run it from the source Git checkout, not from a history-free learner copy. Inspect
-the resulting file list before distribution; keep internal configuration in the internal copy.
+1. Check the happy path: prepare/import, save/reload, train, selected-artifact reload and inference.
+2. Verify closed-network dependencies, bundle manifests and actionable missing-asset messages.
+3. Review changes against the private registry without copying its contents into repository logs.
+4. Commit the reviewed learner-facing source, then run:
 
 ```bash
-python tools/export_learner.py /path/to/new/learner
+uv run --no-sync python tools/export_learner.py /path/to/new/learner
 ```
 
-The modern syllabus keeps the first basic screen short and preserves difficult teach-back questions
-afterward. Core study is 28 hours plus four substitute/media windows; research learning with an agent
-has 12 funded hours. Recurring mentor time is capped at 12 hours including prep/review.
+5. Confirm the export has no maintainer blocks, private links, answers, history or prior artifacts.
+   Initialize a fresh learner repository. Remind the owner to remove any additional local notes.
+6. Give the trainee only the fresh copy and the released brief. Keep later requests in Drive.
 
-Drive publication files live in the newly created workspace linked from README. Creation inside the
-source collection failed with insufficient-parent-permission; no source file was modified or deleted.
-
-Published native Google Docs (mentor files are not learner assignments):
-
-- [Syllabus](https://docs.google.com/document/d/1shy8IhFa-Vri5SSCuN03x-ktt4gtwfal3Bp9Gnvwlvo/edit)
-- [Mentor handbook and deep discussions](https://docs.google.com/document/d/1isRc3EHaASPVrqoC3NlQdrdjUlU8tbYCyowrvbSsTik/edit)
-- [Prioritization and source map](https://docs.google.com/document/d/1hM78maqYQUKClPVfDacVEbVtim6UKlzhtkG9XVoDYAU/edit)
-
-The Mentor Only folder is an organizational label, not an independently verified permission boundary.
+GitHub history before this policy already contains mentor material. Removing current files does
+not make old public commits private. The owner decided on 2026-10-25 to keep this repository public, preserve its history and remove
+mentor material from the current tree only. Do not change visibility or rewrite history. This
+choice does not prevent trainees from finding historical material; use a fresh learner copy for
+distribution and do not promise confidentiality from a directory-reading instruction.
+Preparation is measured separately from the recurring 12-hour mentor budget.
