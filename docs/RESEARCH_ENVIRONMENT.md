@@ -28,3 +28,7 @@ Record OS/architecture, Python and package versions, device/memory budget, image
 model/processor revisions, local mounts and exact successful commands. Use secret references,
 never secret values. Record expected output and actual output, plus owner/status when blocked.
 An import alone is insufficient: the representative operation must run in the trainee's pod.
+
+Run [preflight](PREFLIGHT.md) for local synthetic smokes and coarse readiness-record checks.
+Recorded evidence is reported separately from executed checks; internal integrations still need
+their actual owner-run commands and review.

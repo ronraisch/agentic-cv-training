@@ -12,8 +12,7 @@ jobs:
       - run: uv run ruff check .
       - run: uv run pytest
       - run: COURSE_IMPL=reference uv run pytest instructor/test_contracts.py
-      - run: uv run python tools/check_skills.py
-      - run: uv run python tools/check_mcp.py
+      - run: uv run python tools/preflight.py --scope starter
       - run: uv run python -m build
   torch:
     runs-on: ubuntu-latest

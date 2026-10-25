@@ -35,13 +35,15 @@ Model training results, internal deployment and installed-skill activation are n
 uv sync --extra dev --extra mcp --locked
 uv run researchlab
 uv run pytest
-uv run python tools/check_mcp.py
+uv run python tools/preflight.py --scope starter
 ```
 
 These commands apply to the existing ResearchLab environment. Internal users follow the approved
 Artifactory/CA/lock setup rather than assuming a public lock can resolve offline.
 The full research tasks require a separately prepared
 [research environment](docs/RESEARCH_ENVIRONMENT.md), working team code, data and model bundles.
+Use [preflight](docs/PREFLIGHT.md) to separate local smoke results from missing internal handoff
+records. Its default handoff scope reports the public template as blocked.
 
 [Datasets by assignment](docs/DATASETS.md) · [Research learning with agents](docs/RESEARCH_WITH_AGENTS.md) · [Skills lab](docs/SKILLS_STAGE0.md)
 · [Known pitfalls](docs/PITFALLS.md) · [Validation](docs/VALIDATION.md)
