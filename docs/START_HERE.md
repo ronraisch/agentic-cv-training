@@ -9,6 +9,8 @@ map; reading/video resources may live in Drive, while tasks and reproducible evi
    Matt Pocock skills, GitLab, Artifactory, Confluence and Jupyter.
 3. Obtain the working teaching baseline and real paths from the mentor. [SYSTEM_MAP.md](SYSTEM_MAP.md) records what
    is specified versus implemented; a filename in a plan is not evidence of working code.
+   Verify the [research environment handoff](RESEARCH_ENVIRONMENT.md) for the assigned task;
+   the synthetic ResearchLab installation does not provide the full research stack.
 4. Receive the [labeling product request](../labs/research/01-polygons.md).
 5. Continue with [CV](../labs/research/02-classical-cv.md), [ML](../labs/research/03-evaluation-ml.md),
    [clouds](../labs/research/04-clouds.md), [video](../labs/research/05-video.md) and

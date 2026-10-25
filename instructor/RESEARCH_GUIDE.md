@@ -30,6 +30,9 @@ repositories. If preparation starts exceeding 40 minutes weekly, narrow the sess
 
 ## Prepare the teaching baseline before the cohort
 
+Complete [the internal supply and readiness checklist](INTERNAL_READINESS.md) with the code,
+data, model and platform owners. Keep the filled evidence inside the approved network.
+
 The Peanuach system is still a specification, not working application code in this repository.
 Provide a rectangle-only labeling UI/API/store and training-crop consumer; plate detector and
 recognizer; overlapping/nonoverlapping airborne pairs; tracklets and motion labels; frozen

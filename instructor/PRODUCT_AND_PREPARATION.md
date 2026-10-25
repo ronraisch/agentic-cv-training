@@ -2,6 +2,8 @@
 
 These are proposed areas, not implemented paths. Map them to a working teaching system before the cohort.
 Keep this map out of the initial learner product brief.
+Use [the internal supply checklist](INTERNAL_READINESS.md) for per-asset contracts, owners,
+immutable versions, manifests and executed readiness gates.
 
 | Area | Suggested location | Prepared baseline |
 |---|---|---|

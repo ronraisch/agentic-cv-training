@@ -132,7 +132,7 @@ uv run --no-sync pytest
 uv run --no-sync python tools/check_mcp.py
 ```
 
-For the preserved starter, expect a fixture JSON report, five smoke tests and MCP discovery/calls
+For the starter, expect a fixture JSON report, application smoke/tooling tests and MCP discovery/calls
 plus rejection of an invalid limit. An intentional invalid-input error in that check is expected.
 The teaching code has deliberate defects; a green smoke suite is not proof of full correctness.
 Record the actual revision and compare with mentor-provided outputs if the baseline changes.

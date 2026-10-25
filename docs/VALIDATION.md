@@ -41,7 +41,7 @@ brief does not reveal migration, schema or crop/training acceptance requirements
 
 PASS: three DOCX publication sources were title-sanitized, rendered and visually inspected.
 All three were imported as native Google Docs in the new workspace and their content read back.
-The public syllabus and mentor-only document links are recorded in README and [MAINTAINERS](../MAINTAINERS.md).
+The public syllabus and workspace links are recorded in [README](../README.md).
 These checks validate the published plan, not learner time estimates or internal runtime access.
 
 ## Ordinary-camera scope and dataset catalog follow-up
@@ -83,3 +83,45 @@ tools and reconnect. No OMP installer, provider protocol, internal endpoint or l
 was verified here. The mentor supplies those deployment-specific values. Existing time allocations
 and application code/dependencies are unchanged. Local links and Git whitespace were checked;
 no application/runtime/model tests were rerun for this documentation-only change.
+
+## Readiness audit fixes — 25 October 2026
+
+Fixed learner export to recreate an empty artifacts directory without earlier evidence. Removed
+the exported validation page's link to the omitted maintainer file. Course-skill file validation
+now uses the repository path, requires both examples and reports its count; it does not claim
+client activation. Seven tooling regressions cover missing skills, invocation from another cwd,
+clean export, local file links and rejection of existing/nested export destinations. On the prior
+tools these checks produced five failures and two passes; after the fixes all seven passed.
+
+Added an instructor-only code/data/model/environment supply checklist with per-asset owners,
+revisions and executed readiness gates, plus a learner-facing research-environment handoff.
+Mapped the required selection from old labs 06/07/09 to existing allocations, leaving other
+worksheet deliverables optional, and removed the obsolete weighted-grade reference.
+
+Observed locally on macOS ARM64 / Python 3.11.14: locked dev/MCP/Torch sync succeeded; all 12
+starter/tooling tests passed; Ruff and Git whitespace checks passed. The 10 core and two Torch
+reference contracts passed. ResearchLab, real stdio MCP discovery/success/invalid-limit checks
+and course-skill file validation succeeded. Local Markdown targets/anchors and the unchanged
+six 40-hour weeks were checked. Export regression checks include learner local-link integrity.
+The MCP invalid-input traceback is expected, not a failed protocol check.
+
+No internal baseline, data/weights, OMP/client skill activation, Artifactory/OpenShift route or
+production inference was verified. No intentional application defect or dependency lock was
+changed. The supply checklist records preparation requirements, not newly supplied assets.
+
+## PR 1 code review follow-up — 25 October 2026
+
+The original PR clarified the research-environment handoff, preparation ownership/budget and
+embedded practice, but its exporter still copied local environment files and scratch material.
+Two new regressions reproduced this before the fix. Export now reads an immutable committed
+HEAD archive, excludes `.env*` even when tracked, rejects source links and stages output before
+publishing the destination. Local edits, untracked files and ignored caches are not distributed.
+Maintainers must commit reviewed changes before exporting. The integration fixture also permits
+running the tooling suite from a history-free learner copy.
+
+On Linux / Python 3.12.14, the 16 application/tooling tests and 10 core reference checks passed;
+Ruff, ResearchLab, course-skill file validation and real stdio MCP checks passed. The optional
+Torch reference checks were not rerun in this environment. The pre-cohort checklist now asks for
+a baseline notebook replay rather than the trainee's completed final handover notebook.
+No research application, model bundle or real dataset was added; internal readiness remains
+unverified until the supplied assets and actual commands are exercised in the trainee's pod.

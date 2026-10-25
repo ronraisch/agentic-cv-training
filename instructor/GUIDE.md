@@ -46,8 +46,10 @@ add regression tests for each repair. The starter tests are not a grading oracle
 - Lab 10: build/install outside checkout; new downstream caller that only knows the documented API.
 
 Use 0–4 on each rubric category: 0 absent; 1 demo only; 2 happy-path verified; 3 edge cases and
-tradeoffs explained; 4 independent evidence and successful peer maintenance. Convert category
-scores to the weights in [CURRICULUM.md](../docs/CURRICULUM.md). Record remediation per gate, with a new example on retake.
+tradeoffs explained; 4 independent evidence and successful peer maintenance. These are diagnostic
+descriptions, not a weighted course grade. The current [syllabus](../docs/CURRICULUM.md#completion-and-fallback)
+uses separate concept and implementation gates; it defines no score weights. Record remediation
+per gate, with a new example on retake.
 
 Do not award points for number of design patterns or lines generated. A learner may say the
 current shared client needs a documented limitation (Retry-After support, total deadline) rather
@@ -56,5 +58,7 @@ than designing a generic networking framework. Reward that judgment when justifi
 ## Schedule
 
 The six-week researcher route in [docs/CURRICULUM.md](../docs/CURRICULUM.md) supersedes the original ten-day schedule.
-Use [instructor/RESEARCH_GUIDE.md](RESEARCH_GUIDE.md) for the current 12-hour mentor budget and deep sessions. Labs 00–11 are
-embedded exercises, not an additional 46-hour course. Internal setup is guided teaching.
+Use [instructor/RESEARCH_GUIDE.md](RESEARCH_GUIDE.md) for the current 12-hour mentor budget and deep sessions.
+Only the [selected outcomes](../docs/SKILLS_STAGE0.md#required-practice-inside-existing-assignments)
+are embedded in the research route. Remaining standalone labs 00–11 are an optional bank,
+not an additional 46-hour course. Internal setup is guided teaching.
