@@ -1,4 +1,4 @@
-# Six-week researcher syllabus
+# Researcher syllabus — six weeks plus two working days
 
 The teaching scenario covers two domains: remote sensing (satellite and airborne imagery) and
 video from ordinary cameras (ground, handheld, indoor/outdoor or vehicle-mounted). The video
@@ -21,6 +21,7 @@ See [the reading plan](READING_AND_SESSIONS.md) for exact local sections and sub
 | 0a | Guided pod/VS Code/Python/Artifactory setup; [manual Python capstone](../labs/research/00-python-manual.md), about three working days, without coding agents |
 | 0b | OMP/local-LLM setup after capstone review; Matt Pocock skill installation/teach-back |
 | 1 | Product request in the labeling application |
+| 1b | [Required SAM2-assisted annotation service](../labs/research/01b-sam2-service.md): Docker image, Deployment, Service, Route and application integration |
 | 2 | Hough-based LPR preprocessing; stitch two airborne images |
 | 3 | Evaluate the LPR change; classify tracklet motion; learn a detection rescorer |
 | 4 | Short cloud-segmentation proposal; video classification with staged customer requests |
@@ -28,8 +29,8 @@ See [the reading plan](READING_AND_SESSIONS.md) for exact local sections and sub
 
 Two-image stitching is required. More images require mentor approval and replace another optional
 extension. Cloud work is an eight-hour proposal, not another full training project. Rescoring uses
-a frozen detector and prepared data. The previous SAM/EfficientDet/RF-DETR assignments do not
-remain additional requirements.
+a frozen detector and prepared data. The [SAM2 service assignment](../labs/research/01b-sam2-service.md) is mandatory after polygon support.
+EfficientDet/RF-DETR assignments remain outside the required route.
 
 Before Part 4, complete [the open-model introduction](lessons/07-open-models.md): two study hours
 inside the existing seven-hour DL block and a one-hour intuition probe inside the 19-hour video
@@ -37,7 +38,8 @@ baseline portion of its 34-hour project. The probe does not add a detector-train
 
 ## Trainee time budget
 
-Assume 30 working days at eight hours: 240 hours. These are planning caps, not measured cohort times.
+Plan 32 working days at eight hours: 256 hours. The mandatory SAM2 service adds an initial
+16-hour estimate to the previous 240-hour plan; retain the remaining 16-hour buffer. These are planning caps, not measured cohort times.
 
 | Week | Focus | Core study | Video or substitute | Project work | Research with agent | Mentor contact/prep budget | Buffer | Total |
 |---|---|---:|---:|---:|---:|---:|---:|---:|
@@ -47,7 +49,8 @@ Assume 30 working days at eight hours: 240 hours. These are planning caps, not m
 | 4 | Tracklets, rescoring and evaluation | 5 | 0 | 27 | 2 | 2 | 4 | 40 |
 | 5 | Cloud proposal and video baseline | 5 | 1 | 27 | 2 | 2 | 3 | 40 |
 | 6 | Video requirements and handover | 2 | 0 | 31 | 2 | 2 | 3 | 40 |
-| **Total** | | **28** | **4** | **168** | **12** | **12** | **16** | **240** |
+| Added allocation | SAM2 service, scheduled after polygon support; shift later work accordingly | 0 | 0 | 16 | 0 | 0 | 0 | 16 |
+| **Total** | | **28** | **4** | **184** | **12** | **12** | **16** | **256** |
 
 The mentor column reserves capacity conservatively: preparation/review time does not require
 trainee attendance, but those hours are not double-booked with a separate trainee task. Contact
@@ -67,6 +70,7 @@ covers access, transfer, queues and unusual setup failures.
 | Guided setup, including skills (OMP only after manual capstone review) | 6 |
 | Manual Python capstone and review | 24 |
 | Labeling request | 24 |
+| Required SAM2 service and application integration | 16 |
 | Hough-based LPR rectification | 13 |
 | Stitch two images | 12 |
 | LPR evaluation | 7 |
@@ -75,14 +79,15 @@ covers access, transfer, queues and unusual setup failures.
 | Cloud literature review and proposal | 8 |
 | Video baseline and subsequent customer requests | 34 |
 | Notebook, integration and transfer | 16 |
-| **Total** | **168** |
+| **Total** | **184** |
 
 These include implementation, tests, experiments and evidence. Their placement within a week may
 move to follow readiness and mentor windows. The manual Python capstone uses 24 hours of the former 40-hour buffer, leaving 16 hours;
-this remains a 240-hour plan. No full CS231n assignments, Kaggle leaderboard target or duplicate
+SAM2 then adds 16 project hours, bringing the plan to 256 hours. No full CS231n assignments, Kaggle leaderboard target or duplicate
 Python exercise bank is added on top. The legacy shapes/parser exercise is this single capstone.
 For the exact required selection from older labs 06/07/09 and the time it replaces, use
 [the embedded practice map](SKILLS_STAGE0.md#required-practice-inside-existing-assignments).
+The required SAM2 service supersedes any earlier optional SAM wording.
 Other deliverables in those standalone worksheets are optional unless the mentor explicitly
 substitutes them for existing work.
 
