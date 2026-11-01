@@ -1,6 +1,7 @@
 # Required SAM2-assisted annotation service
 
-Complete after [polygon support](01-polygons.md), using the approved agent and local LLM.
+Complete after [polygon support](01-polygons.md). The first service setup must be done manually,
+as described below; approved agent use elsewhere does not override this requirement.
 This is mandatory. Plan an initial 16 hours for implementation, deployment and verification;
 record actual time and blockers. The mentor supplies any original SAM2 handout internally.
 
@@ -11,6 +12,29 @@ interaction is required (for example points or a box), how a proposed mask becom
 annotation, and how the user accepts, corrects or rejects it. Preserve manual labeling.
 Use actual SAM2 inference with an approved local checkpoint; a mock response does not complete
 the assignment. Bound this task to image annotation; video propagation is not an extra requirement.
+
+## First service: hands-on ownership
+
+For the trainee: set up this first SAM2 service yourself, by hand. Write and edit the Dockerfile
+and Deployment/Service/Route configuration, run the image build and registry push, deploy the
+service, inspect logs and diagnose the initial failures yourself. Do not delegate this work to
+OMP, another coding agent or AI code completion, or ask AI to generate the setup files or command
+sequence for you. OMP can remain installed for other assignments; keep it inactive for this work.
+
+Documentation, approved organizational examples, conceptual ChatGPT questions within team data
+policy and mentor guidance are allowed. Understand and adapt examples yourself. The point is
+first-hand experience of bringing a service up, not a rigid quota of manually typed lines.
+Agent assistance for other application work can resume outside this setup phase; the first
+successful SAM2 deployment and its verification remain your own work.
+
+For the mentor: state this boundary before the exercise. Explain concepts, point to documentation,
+help with access and ask diagnostic questions, while leaving the setup edits, commands and
+debugging to the trainee. Do not have an agent or another person deliver a ready-made deployment
+for them. During review, ask the trainee to show how they built and brought up the service,
+explain the files and request path, and make a small configuration change themselves.
+Judge understanding and ownership with practical judgment; no mathematical authorship score
+or extra formal reporting is required. Agent-assisted RabbitMQ/SAM3 work later does not replace
+this first manual deployment.
 
 ## Build and deploy
 
