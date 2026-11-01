@@ -8,7 +8,9 @@ separately approved environment below. See [offline installation](OFFLINE_SETUP.
 The mentor supplies an approved internal image/digest or environment lock, actual paths and
 commands in [the environment map](../templates/internal-environment.example.md). Use the
 [internal installation procedure](GETTING_STARTED_INTERNAL.md); do not install arbitrary public
-packages or re-lock from inside the closed network. No additional full stack is a trainee task.
+packages or re-lock from inside the closed network. The trainee does not rebuild the shared stack. For the mandatory
+[SAM2 assignment](../labs/research/01b-sam2-service.md), the trainee builds and deploys a bounded
+inference service on that stack.
 
 | Work | Capabilities the approved environment must provide | Readiness evidence |
 |---|---|---|
@@ -17,6 +19,7 @@ packages or re-lock from inside the closed network. No additional full stack is 
 | Tracklets and rescoring | Feature/table tooling, a small classical estimator and artifact serialization; e.g. scikit-learn, with XGBoost only if selected | Fit a tiny approved fixture; save and load a fresh instance with identical feature schema/output |
 | Video | Actual decoder with required codecs, timestamp handling, selected representation and head runtime | Decode a ten-second fixture with timestamps; run one forward pass and fresh-load inference |
 | Open-model probe | Approved local embedder with matching processor/tokenizer and offline loading support | Known sample and fresh-process replay without runtime network downloads |
+| Required SAM2 annotation service | Approved SAM2 code/config and checkpoint, compatible inference dependencies, device/memory allocation, internal base image, registry push and teaching namespace/Route permissions | Actual mask inference from the deployed image through its Route, application save/reload and teaching-pod restart |
 | Notebook | Jupyter/ipykernel supplied by the approved environment and a registered project kernel | Correct sys.executable, restart and run all, saved output |
 
 Torch is an existing optional ResearchLab extra. If the optional CPU exercise is assigned, its
