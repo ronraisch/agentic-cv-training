@@ -23,3 +23,9 @@ implementation; close it for the individual explanation.
 
 Before building the baseline, complete [the open-model introduction and one-hour intuition probe](../../docs/lessons/07-open-models.md).
 The probe is part of the existing baseline time allocation and does not select your final architecture.
+
+## Required DL pipeline
+
+Complete [RabbitMQ/SAM3 pseudo-labeling and detector training](05b-rabbitmq-sam3-detector.md)
+before handover. It has a separate 24-hour initial allocation and does not replace this clip-level
+scene-understanding baseline. Train one RT-DETR or YOLO detector on queued SAM3 outputs.
