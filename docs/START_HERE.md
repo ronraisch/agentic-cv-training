@@ -20,7 +20,9 @@ map; reading/video resources may live in Drive, while tasks and reproducible evi
    registry push, OpenShift Deployment/Service/Route and application integration.
 5. Continue with [CV](../labs/research/02-classical-cv.md), [ML](../labs/research/03-evaluation-ml.md),
    [clouds](../labs/research/04-clouds.md), [video](../labs/research/05-video.md) and
-   [handover](../labs/research/06-handover.md) as released by the mentor.
+   [handover](../labs/research/06-handover.md) as released by the mentor. In the DL/video block,
+   complete [RabbitMQ/SAM3 batch pseudo-labeling and detector training](../labs/research/05b-rabbitmq-sam3-detector.md)
+   before handover; this is mandatory.
 
 After the manual Python capstone, use an agent for research learning as well as coding. Follow [RESEARCH_WITH_AGENTS.md](RESEARCH_WITH_AGENTS.md); bring a
 small hypothesis and evidence packet to the scheduled mentor window. Queue product questions
