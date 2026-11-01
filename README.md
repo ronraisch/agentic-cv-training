@@ -49,14 +49,15 @@ uv run --no-sync pytest
 uv run --no-sync python tools/preflight.py --scope starter
 ```
 
-[Start here](docs/START_HERE.md) · [Six-week syllabus](docs/CURRICULUM.md)
+[Start here](docs/START_HERE.md) · [Syllabus](docs/CURRICULUM.md)
 · [Required learning](docs/READING_AND_SESSIONS.md) · [System map](docs/SYSTEM_MAP.md)
 · [Internal setup](docs/GETTING_STARTED_INTERNAL.md) · [Research environment](docs/RESEARCH_ENVIRONMENT.md)
 · [Preflight scope](docs/PREFLIGHT.md) · [Verification practice](docs/PITFALLS.md)
 
 The ordinary-camera video task is distinct from the satellite/airborne image assignments.
-Budget: 240 trainee hours including 40 infrastructure/transfer hours, and 12 recurring mentor
-hours. External libraries/data/models are transferred and approved before the cohort; learners
+Budget: 256 trainee hours (six weeks plus two working days), including the manual Python
+capstone and mandatory [SAM2 service deployment](labs/research/01b-sam2-service.md), with 16 buffer
+hours and 12 recurring mentor hours. External libraries/data/models are transferred and approved before the cohort; learners
 are not expected to rebuild the team's infrastructure.
 
 For an executable CNN localization baseline, see [the local detector](docs/DETECTOR.md).
