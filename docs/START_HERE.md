@@ -3,7 +3,9 @@
 Begin with the manual Python exercise below; use the approved agent only after that exercise is reviewed. Start from the syllabus and the required-learning
 map; reading/video resources may live in Drive, while tasks and reproducible evidence live here.
 
-1. Read [CURRICULUM.md](CURRICULUM.md) and [READING_AND_SESSIONS.md](READING_AND_SESSIONS.md).
+1. Read [the short trainee guide](TRAINEE_GUIDE.md): all tasks, study/viewing, active hours,
+   sessions and correction allowances are summarized there without needing Drive. Use
+   [CURRICULUM.md](CURRICULUM.md) and [READING_AND_SESSIONS.md](READING_AND_SESSIONS.md) for details.
 2. Complete [stage 0](../labs/research/00-installations.md) with the mentor, in this order: VS Code installation, connection
    to your own OpenShift pod, then Python/uv through Artifactory, interpreter/debugger and required access.
    Complete [the manual Python capstone](../labs/research/00-python-manual.md) before installing,
