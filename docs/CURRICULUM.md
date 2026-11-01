@@ -1,4 +1,4 @@
-# Researcher syllabus — six weeks plus two working days
+# Researcher syllabus — seven working weeks
 
 The teaching scenario covers two domains: remote sensing (satellite and airborne imagery) and
 video from ordinary cameras (ground, handheld, indoor/outdoor or vehicle-mounted). The video
@@ -25,6 +25,7 @@ See [the reading plan](READING_AND_SESSIONS.md) for exact local sections and sub
 | 2 | Hough-based LPR preprocessing; stitch two airborne images |
 | 3 | Evaluate the LPR change; classify tracklet motion; learn a detection rescorer |
 | 4 | Short cloud-segmentation proposal; video classification with staged customer requests |
+| 4C | [Required RabbitMQ/SAM3 batch pseudo-labeling and RT-DETR or YOLO training](../labs/research/05b-rabbitmq-sam3-detector.md) in the DL/video block |
 | Handover | Reproducible operational video notebook and peer transfer |
 
 Two-image stitching is required. More images require mentor approval and replace another optional
@@ -38,8 +39,9 @@ baseline portion of its 34-hour project. The probe does not add a detector-train
 
 ## Trainee time budget
 
-Plan 32 working days at eight hours: 256 hours. The mandatory SAM2 service adds an initial
-16-hour estimate to the previous 240-hour plan; retain the remaining 16-hour buffer. These are planning caps, not measured cohort times.
+Plan 35 working days at eight hours: 280 hours. SAM2 adds 16 hours and the mandatory
+RabbitMQ/SAM3 detector pipeline adds 24 hours to the previous 240-hour plan. Retain the
+remaining 16-hour buffer. These are planning caps, not measured cohort times.
 
 | Week | Focus | Core study | Video or substitute | Project work | Research with agent | Mentor contact/prep budget | Buffer | Total |
 |---|---|---:|---:|---:|---:|---:|---:|---:|
@@ -50,7 +52,8 @@ Plan 32 working days at eight hours: 256 hours. The mandatory SAM2 service adds 
 | 5 | Cloud proposal and video baseline | 5 | 1 | 27 | 2 | 2 | 3 | 40 |
 | 6 | Video requirements and handover | 2 | 0 | 31 | 2 | 2 | 3 | 40 |
 | Added allocation | SAM2 service, scheduled after polygon support; shift later work accordingly | 0 | 0 | 16 | 0 | 0 | 0 | 16 |
-| **Total** | | **28** | **4** | **184** | **12** | **12** | **16** | **256** |
+| Added DL allocation | RabbitMQ/SAM3 pseudo-labels and detector training, before handover | 0 | 0 | 24 | 0 | 0 | 0 | 24 |
+| **Total** | | **28** | **4** | **208** | **12** | **12** | **16** | **280** |
 
 The mentor column reserves capacity conservatively: preparation/review time does not require
 trainee attendance, but those hours are not double-booked with a separate trainee task. Contact
@@ -78,12 +81,15 @@ covers access, transfer, queues and unusual setup failures.
 | Detection rescoring and evaluation | 10 |
 | Cloud literature review and proposal | 8 |
 | Video baseline and subsequent customer requests | 34 |
+| Required RabbitMQ/SAM3 batch labeling and detector training | 24 |
 | Notebook, integration and transfer | 16 |
-| **Total** | **184** |
+| **Total** | **208** |
 
 These include implementation, tests, experiments and evidence. Their placement within a week may
 move to follow readiness and mentor windows. The manual Python capstone uses 24 hours of the former 40-hour buffer, leaving 16 hours;
-SAM2 then adds 16 project hours, bringing the plan to 256 hours. No full CS231n assignments, Kaggle leaderboard target or duplicate
+SAM2 adds 16 project hours and RabbitMQ/SAM3 adds 24, bringing the plan to 280 hours.
+The 24-hour DL estimate includes implementation and review; record unattended batch/training
+runtime separately and overlap it only where compute and dependencies permit. No full CS231n assignments, Kaggle leaderboard target or duplicate
 Python exercise bank is added on top. The legacy shapes/parser exercise is this single capstone.
 For the exact required selection from older labs 06/07/09 and the time it replaces, use
 [the embedded practice map](SKILLS_STAGE0.md#required-practice-inside-existing-assignments).
@@ -94,10 +100,11 @@ substitutes them for existing work.
 ## Mentor availability
 
 Plan two windows a week: typically 45 minutes of teach-back and 35 minutes of product/review,
-plus 40 minutes of preparation/asynchronous review. This is two hours weekly and 12 total.
+plus 40 minutes of preparation/asynchronous review. This is 12 total recurring mentor hours across the original six-week blocks; the added work uses those
+existing review windows. This does not assume an additional mentor week.
 Week 1 uses a 45-minute first session: 10 minutes of basic understanding, 30 minutes of manual-code review or, after capstone completion, skill
 teach-back and 5 minutes of next steps, plus a separate 35-minute setup/product window.
-Week 6 uses two separate 40-minute handover/defense windows and 40 minutes of prep/review.
+The final handover uses two separate 40-minute handover/defense windows and 40 minutes of prep/review.
 Never assume a daily meeting; leave product questions in a concise queue and record decisions.
 The existing weekly 15-minute team-lead check-in is folded into a review window if required,
 not scheduled as an extra meeting. One person holding both roles still has the same total budget.
