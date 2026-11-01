@@ -15,7 +15,9 @@ map; reading/video resources may live in Drive, while tasks and reproducible evi
    the synthetic ResearchLab installation does not provide the full research stack.
    Run [preflight](PREFLIGHT.md) to collect local smoke results and identify missing handoff records;
    a successful starter smoke is not evidence that internal prerequisites are ready.
-4. Receive the [labeling product request](../labs/research/01-polygons.md).
+4. Receive the [labeling product request](../labs/research/01-polygons.md), then complete the
+   mandatory [SAM2 annotation service](../labs/research/01b-sam2-service.md), including image build,
+   registry push, OpenShift Deployment/Service/Route and application integration.
 5. Continue with [CV](../labs/research/02-classical-cv.md), [ML](../labs/research/03-evaluation-ml.md),
    [clouds](../labs/research/04-clouds.md), [video](../labs/research/05-video.md) and
    [handover](../labs/research/06-handover.md) as released by the mentor.
