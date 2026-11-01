@@ -55,9 +55,10 @@ uv run --no-sync python tools/preflight.py --scope starter
 · [Preflight scope](docs/PREFLIGHT.md) · [Verification practice](docs/PITFALLS.md)
 
 The ordinary-camera video task is distinct from the satellite/airborne image assignments.
-Budget: 256 trainee hours (six weeks plus two working days), including the manual Python
+Budget: 280 trainee hours (seven working weeks), including the manual Python
 capstone and mandatory [SAM2 service deployment](labs/research/01b-sam2-service.md), with 16 buffer
-hours and 12 recurring mentor hours. External libraries/data/models are transferred and approved before the cohort; learners
+hours and 12 recurring mentor hours. The DL block also requires
+[RabbitMQ/SAM3 batch pseudo-labeling and detector training](labs/research/05b-rabbitmq-sam3-detector.md). External libraries/data/models are transferred and approved before the cohort; learners
 are not expected to rebuild the team's infrastructure.
 
 For an executable CNN localization baseline, see [the local detector](docs/DETECTOR.md).
