@@ -14,10 +14,13 @@ Do not commit tokens, kubeconfig, credentials or internal-only addresses to the 
 1. Install VS Code using the approved internal distribution.
 2. With the mentor, obtain your own OpenShift development pod and connect VS Code to it using
    the team's supported remote connection method. Verify the terminal and workspace are in that pod.
-3. In that remote development environment, install/configure **OMP** and connect it to the approved
+3. Prepare Python/uv through Artifactory, the VS Code interpreter/debugger and required access below.
+   Complete [the manual Python capstone](../labs/research/00-python-manual.md) in that pod
+   (approximately three working days). Do not install, update or configure OMP yet. Disable any
+   existing coding agents and AI code completion for the exercise.
+4. After mentor review of the capstone, install/configure **OMP** and connect it to the approved
    **local LLM service, currently QWEN 3.8**. Complete the checks below before agent-assisted labs
-   and Matt Pocock skill activation.
-4. Continue the Python/uv, debugger, Jupyter and remaining readiness checks below.
+   and Matt Pocock skill activation, then finish remaining readiness checks.
 
 ## GitLab and VS Code
 
@@ -36,7 +39,8 @@ and project access. The mentor helps rather than grading your infrastructure tro
 
 ## OMP and the local LLM
 
-After VS Code is connected to your personal OpenShift pod, install the team's approved OMP
+After VS Code is connected to your personal OpenShift pod and the
+[manual Python capstone](../labs/research/00-python-manual.md) has been reviewed, install the team's approved OMP
 version in the remote environment and configure its provider, internal model endpoint and exact
 served model identifier. The current team model is QWEN 3.8; the service owner supplies the actual
 identifier rather than inferring it from that display name. Use the approved internal OMP package
@@ -205,6 +209,7 @@ No requirement to build GitLab CI, manage runners or study YAML. Keep this walkt
 ## Completion checklist
 
 - VS Code installed and connected to the trainee's own OpenShift development pod.
+- Manual Python capstone completed and reviewed before OMP installation/update/configuration.
 - OMP installed there; current local QWEN 3.8 route, workspace tools and reconnect checks verified.
 - Internal clone/revision and correct VS Code interpreter/debugger.
 - Approved dependency environment and restartable Jupyter kernel.
