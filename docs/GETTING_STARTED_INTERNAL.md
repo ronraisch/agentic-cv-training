@@ -204,7 +204,11 @@ installed version. Retry only a safe teaching job agreed with the mentor, never 
 
 Success means you can locate a review and explain the job result. Skipped is not passed; pending
 may be runner/queue availability. If this project has no pipeline, use a prepared teaching example.
-No requirement to build GitLab CI, manage runners or study YAML. Keep this walkthrough brief.
+This initial walkthrough is brief. Later, the [first SAM2 service assignment](../labs/research/01b-sam2-service.md#first-gitlab-cicd-pipeline-also-by-hand)
+requires writing and running a minimal build/push/deploy pipeline by hand. ChatGPT explanations
+and examples are allowed; the trainee assembles, runs and explains the configuration personally.
+The mentor supplies an existing runner, approved build mechanism and teaching deployment access;
+runner administration and an advanced YAML/CI course are not required.
 
 ## Completion checklist
 
