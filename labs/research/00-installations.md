@@ -2,8 +2,12 @@
 
 Follow [internal setup](../../docs/GETTING_STARTED_INTERNAL.md) with the mentor.
 Obtain VS Code, OpenShift, GitLab, Artifactory, Confluence and Jupyter access using the existing stack.
-First install VS Code and connect it to your own OpenShift development pod. Then install/configure
-OMP there with the approved local LLM service (currently QWEN 3.8), following
+First install VS Code and connect it to your own OpenShift development pod. Prepare Python/uv,
+Artifactory, the interpreter/debugger and required access. Complete
+[the manual Python capstone](00-python-manual.md), approximately three working days, before OMP.
+Do not install, update or configure OMP during this phase; disable any existing coding agents and
+AI code completion. After mentor review, install/configure OMP there with the approved local LLM
+service (currently QWEN 3.8), following
 [the OMP readiness checks](../../docs/GETTING_STARTED_INTERNAL.md#omp-and-the-local-llm).
 Verify an actual model request, workspace tool use and reconnect before skill activation.
 For each check record the expected output, actual output, evidence scope and owner if blocked.
