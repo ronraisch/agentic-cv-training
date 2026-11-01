@@ -21,7 +21,7 @@ service, inspect logs and diagnose the initial failures yourself. Do not delegat
 OMP, another coding agent or AI code completion, or ask AI to generate the setup files or command
 sequence for you. OMP can remain installed for other assignments; keep it inactive for this work.
 
-Documentation, approved organizational examples, conceptual ChatGPT questions within team data
+Documentation, approved organizational examples, ChatGPT explanations and small illustrative examples within team data
 policy and mentor guidance are allowed. Understand and adapt examples yourself. The point is
 first-hand experience of bringing a service up, not a rigid quota of manually typed lines.
 Agent assistance for other application work can resume outside this setup phase; the first
@@ -52,6 +52,26 @@ Define the image/prompt and mask/coordinate contracts, including dimensions and 
 The application must call the deployed service through the approved Route or application-backend
 path that exercises it; a notebook-only call or localhost-only demo is insufficient.
 Handle unavailable inference visibly without losing existing annotations.
+
+## First GitLab CI/CD pipeline: also by hand
+
+After the first manual deployment, write a minimal GitLab CI/CD configuration and any short
+shell script it invokes yourself. Build the SAM2 image, push it to Artifactory and deploy that
+same image revision to the teaching OpenShift namespace. A manually triggered deploy job is
+sufficient. Keep the pipeline small; one build/push job followed by one deploy job is enough.
+
+ChatGPT may explain the file structure, YAML, commands and small examples. Read, adapt and
+assemble the configuration yourself; do not delegate delivery or execution to an agent.
+Understand jobs/stages, the runner's execution environment, variables, registry authentication,
+image tags/digests and how the deployed image is selected. Use approved CI secret variables and
+the existing runner/build mechanism; runner provisioning and privileged Docker setup are not
+trainee requirements.
+
+Run the pipeline on a learning commit, inspect its logs and trace commit to pushed image to
+running workload. Make one small change yourself and show its effect. When a job fails, locate
+the failing command and diagnose it before asking a model to fix it. The mentor checks this
+understanding in the existing review window. Include the first pipeline within the service's
+initial 16-hour estimate and record actual effort; do not add a separate CI course.
 
 ## Completion evidence
 
