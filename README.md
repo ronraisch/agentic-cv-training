@@ -14,6 +14,12 @@ agent instructions by running the learner exporter. Do not distribute source Git
 Ask the owner to confirm this reminder on every cohort handoff. Do not add an answer catalogue.
 <!-- maintainer-only:end -->
 
+## Trainee syllabus
+
+Read [the concise trainee guide](docs/TRAINEE_GUIDE.md) for the full sequence, study/viewing,
+manual-work requirements and separate estimates for active exercises, sessions and corrections.
+No Drive access is needed to understand the syllabus.
+
 ## First run
 
 Install the approved environment using [offline setup](docs/OFFLINE_SETUP.md). For a connected
@@ -55,9 +61,11 @@ uv run --no-sync python tools/preflight.py --scope starter
 · [Preflight scope](docs/PREFLIGHT.md) · [Verification practice](docs/PITFALLS.md)
 
 The ordinary-camera video task is distinct from the satellite/airborne image assignments.
-Budget: 280 trainee hours (seven working weeks), including the manual Python
+Budget: 260 planned active trainee hours; a conservative 280-hour scheduling envelope, including the manual Python
 capstone and mandatory [SAM2 service deployment](labs/research/01b-sam2-service.md), with 16 buffer
-hours and 12 recurring mentor hours. The DL block also requires
+hours and 4 hours reserved for mentor preparation. Total recurring mentor effort is 12 hours,
+including 8 hours trainee attendance already counted in the active total. Unattended agent/compute
+waiting is tracked separately; seven calendar weeks is not a measured forecast. The DL block also requires
 [RabbitMQ/SAM3 batch pseudo-labeling and detector training](labs/research/05b-rabbitmq-sam3-detector.md). External libraries/data/models are transferred and approved before the cohort; learners
 are not expected to rebuild the team's infrastructure.
 
