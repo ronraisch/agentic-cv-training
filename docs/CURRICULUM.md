@@ -1,4 +1,7 @@
-# Researcher syllabus — seven working weeks
+# Researcher syllabus — active effort and scheduling envelope
+
+Start with [the concise trainee guide](TRAINEE_GUIDE.md), which separates active work,
+feedback corrections, mentor attendance and unattended waiting.
 
 The teaching scenario covers two domains: remote sensing (satellite and airborne imagery) and
 video from ordinary cameras (ground, handheld, indoor/outdoor or vehicle-mounted). The video
@@ -40,9 +43,12 @@ baseline portion of its 34-hour project. The probe does not add a detector-train
 
 ## Trainee time budget
 
-Plan 35 working days at eight hours: 280 hours. SAM2 adds 16 hours and the mandatory
+The conservative schedule reserves 280 hours. This comprises 260 hours of planned active trainee
+effort, 16 hours contingency and 4 hours previously reserved for mentor preparation (not trainee work).
+It is not a measured seven-week completion forecast. SAM2 adds 16 hours and the mandatory
 RabbitMQ/SAM3 detector pipeline adds 24 hours to the previous 240-hour plan. Retain the
-remaining 16-hour buffer. These are planning caps, not measured cohort times.
+remaining 16-hour buffer. These are planning estimates, not measured cohort times. Unattended agent/compute waiting is
+recorded separately; no fixed saving from AI is assumed.
 
 | Week | Focus | Core study | Video or substitute | Project work | Research with agent | Mentor contact/prep budget | Buffer | Total |
 |---|---|---:|---:|---:|---:|---:|---:|---:|
@@ -68,6 +74,11 @@ training job while reading counts once. Ordinary debugging belongs to project wo
 covers access, transfer, queues and unusual setup failures.
 
 ### Project allocations
+
+The following totals include feedback corrections: 184 active implementation hours + 24 active
+feedback-correction hours = 208. See [the per-task split](TRAINEE_GUIDE.md#practical-work--active-hours-not-elapsed-runtime).
+The 12-hour mentor column splits into 8 hours trainee attendance and 4 hours mentor preparation.
+Trainee preparation stays inside study/project allocations; do not count it again.
 
 | Work | Hours |
 |---|---:|
