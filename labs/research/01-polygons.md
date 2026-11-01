@@ -11,3 +11,8 @@ behavior from untested assumptions. Required reading and the development teach-b
 separately in the learning map.
 
 [Relevant data sources](../../docs/DATASETS.md#labeling-application). Use the mentor-prepared internal subset.
+
+## Required next step
+
+After this request, complete [SAM2-assisted annotation and service deployment](01b-sam2-service.md).
+This continuation is mandatory and has its own 16-hour initial allocation.
