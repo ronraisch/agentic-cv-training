@@ -5,7 +5,8 @@ video from ordinary cameras (ground, handheld, indoor/outdoor or vehicle-mounted
 scene-understanding assignment is not satellite video and does not require aerial footage.
 Dataset sources and bounded preparation are in [Datasets by assignment](DATASETS.md).
 Required concepts are assessed through short individual teach-back sessions. Practical delivery
-is assessed separately. After the initial manual Python capstone, agent-assisted research learning is expected, not just code generation.
+is assessed separately. After the initial manual Python capstone, agent-assisted research learning is expected, not just
+code generation, except for the first SAM2 service setup, which must be completed by hand.
 
 ## Scope and priorities
 
@@ -21,7 +22,7 @@ See [the reading plan](READING_AND_SESSIONS.md) for exact local sections and sub
 | 0a | Guided pod/VS Code/Python/Artifactory setup; [manual Python capstone](../labs/research/00-python-manual.md), about three working days, without coding agents |
 | 0b | OMP/local-LLM setup after capstone review; Matt Pocock skill installation/teach-back |
 | 1 | Product request in the labeling application |
-| 1b | [Required SAM2-assisted annotation service](../labs/research/01b-sam2-service.md): Docker image, Deployment, Service, Route and application integration |
+| 1b | [Required SAM2-assisted annotation service](../labs/research/01b-sam2-service.md): first Docker image and Deployment/Service/Route setup by hand; application integration |
 | 2 | Hough-based LPR preprocessing; stitch two airborne images |
 | 3 | Evaluate the LPR change; classify tracklet motion; learn a detection rescorer |
 | 4 | Short cloud-segmentation proposal; video classification with staged customer requests |
@@ -108,6 +109,10 @@ The final handover uses two separate 40-minute handover/defense windows and 40 m
 Never assume a daily meeting; leave product questions in a concise queue and record decisions.
 The existing weekly 15-minute team-lead check-in is folded into a review window if required,
 not scheduled as an extra meeting. One person holding both roles still has the same total budget.
+
+For both trainee and mentor: the first SAM2 service setup is a hands-on exercise without coding
+agents generating or executing its setup. Follow [the manual setup boundary and mentor guidance](../labs/research/01b-sam2-service.md#first-service-hands-on-ownership).
+The mentor guides; the trainee writes, runs, debugs and explains the deployment personally.
 
 The trainee teaches the concept; the mentor asks discriminating questions. Do not replay slides.
 Unresolved topics become a bounded independent-learning task followed by one new check.
