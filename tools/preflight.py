@@ -174,7 +174,7 @@ def summarize(checks):
 
 def source_state():
     if not (ROOT / ".git").exists():
-        return None, None  # Learner exports intentionally have no Git history.
+        return None, None
     try:
         revision = subprocess.check_output(
             ["git", "rev-parse", "HEAD"], cwd=ROOT, stderr=subprocess.DEVNULL, text=True,

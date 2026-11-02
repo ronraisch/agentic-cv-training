@@ -10,11 +10,18 @@ processing time. Do not report only successful crops.
 
 ## Tracklet motion classification
 
+Use the supplied [tracklet producer](../../docs/COMPONENTS.md#tracklets-for-motion-classification)
+or a documented frozen source export. Acquiring videos and independently labeling motion is part
+of the work; implementing a detector/tracker is not.
+
 Given tracklets and independent motion labels, clarify the target, decision time and available
 information. Train a small classical model such as XGBoost against a simple baseline. Evaluate it,
 store feature computation and reload the selected artifact. Do not retrain the detector/tracker.
 
 ## Detection rescoring
+
+Use the supplied [vehicle prediction export](../../docs/COMPONENTS.md#vehicle-predictions-for-rescoring)
+with independent dataset GT. Record source-class mapping and the box representation before comparing.
 
 Given a frozen detector's predictions, independent GT and detection/satellite-image metadata,
 learn a new score from the old score and useful metadata. Physical size relative to GSD and viewing
@@ -27,4 +34,5 @@ and limitations. For learned models include feature schema, artifact and fresh-l
 Use an agent to challenge leakage and confounders; verify its argument with a source or small example.
 A valid non-improvement is acceptable. The individual teach-back is separate from the MR review.
 
-[Relevant data sources](../../docs/DATASETS.md#evaluation-and-classical-ml). Use the mentor-prepared internal subset.
+[Relevant data sources](../../docs/DATASETS.md#evaluation-and-classical-ml).
+Follow [the acquisition steps](../../docs/DATASETS.md#acquire-a-working-subset).

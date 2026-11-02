@@ -2,7 +2,7 @@
 
 Updated 1 November 2026. This is the short learner-facing overview; it is complete without Drive.
 [Detailed syllabus](CURRICULUM.md) · [Reading map](READING_AND_SESSIONS.md) ·
-[Dataset catalog](DATASETS.md). Mentor-only scenarios and answers are not included.
+[Dataset catalog](DATASETS.md).
 
 ## Order and working rules
 
@@ -125,5 +125,6 @@ your work on both tasks. A blocked resource may still extend the calendar even w
 
 Show working outputs on a new input, persistence/checkpoint reload where relevant and a concise
 MR with scope-specific evidence. Distinguish observed, inferred, unverified and blocked claims.
-The mentor supplies original Python/SAM handouts, internal paths, approved assets and access;
+Use the linked original Python handout and acquire data using the dataset guide. The owner supplies
+internal paths, permissions, approved model assets and any original SAM handout;
 do not invent missing specifications or treat a synthetic local smoke as internal deployment.

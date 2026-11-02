@@ -11,10 +11,13 @@ dependencies = ["numpy>=2,<3", "pandas>=2.2,<4", "httpx>=0.27,<1", "tenacity>=9,
 dev = ["pytest>=8,<10", "ruff>=0.11,<1", "build>=1,<2"]
 torch = ["torch>=2.5,<3"]
 mcp = ["mcp==2.3.0"]
+components = ["opencv-python-headless>=4.10,<5", "onnxruntime>=1.20,<2", "httpx[socks]>=0.27,<1"]
+
 [project.scripts]
 researchlab = "researchlab.cli:main"
 researchlab-detector = "researchlab.detector:main"
 researchlab-demo = "researchlab.demo_cli:main"
+researchlab-components = "researchlab.components:main"
 [tool.hatch.build.targets.wheel]
 packages = ["src/researchlab"]
 [tool.pytest.ini_options]

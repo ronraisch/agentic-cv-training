@@ -21,4 +21,4 @@ Show a correct interpreter, notebook restart, internal fixture request, Confluen
 GitLab job log. Infrastructure is guided learning, not a DevOps assessment. Do not reinstall the
 team's entire stack or fetch public packages from the closed network.
 
-[Relevant data sources](../../docs/DATASETS.md#setup-and-skills). Use the mentor-prepared internal subset.
+[Relevant data sources](../../docs/DATASETS.md#setup-and-skills). Follow [the acquisition steps](../../docs/DATASETS.md#acquire-a-working-subset); use the approved internal copy where required.

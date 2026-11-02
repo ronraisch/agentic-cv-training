@@ -14,7 +14,3 @@ The CPU fixture is procedural, not evidence of research accuracy on real camera 
 deployment. Internal code/data/model/platform owners must execute their own representative checks
 in the trainee's pod. Preflight reports supplied records separately from executed local checks.
 Do not infer internal readiness from local success or a file-presence check.
-
-Export only reviewed committed source. Validate installation, local links, model reload and the
-baseline in a fresh learner copy without source history or earlier artifacts. Private assessment
-material is not a public validation suite. Historical records are maintained separately.

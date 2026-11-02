@@ -19,7 +19,7 @@ Required learning: [video](../../docs/lessons/06-video.md), [ML](../../docs/less
 and [training](../../docs/lessons/04-torch.md). Use the agent for research explanation as well as
 implementation; close it for the individual explanation.
 
-[Relevant data sources](../../docs/DATASETS.md#ordinary-camera-video-and-handover). Use the mentor-prepared internal subset.
+[Relevant data sources](../../docs/DATASETS.md#ordinary-camera-video-and-handover). Follow [the acquisition steps](../../docs/DATASETS.md#acquire-a-working-subset); use the approved internal copy where required.
 
 Before building the baseline, complete [the open-model introduction and one-hour intuition probe](../../docs/lessons/07-open-models.md).
 The probe is part of the existing baseline time allocation and does not select your final architecture.

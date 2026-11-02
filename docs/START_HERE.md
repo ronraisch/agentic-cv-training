@@ -39,4 +39,4 @@ Only add small sanitized evidence from artifacts/. Never send internal data to a
 
 The team covers remote sensing and ordinary-camera video. The video assignment is not satellite
 video. Use [the per-assignment dataset catalog](DATASETS.md); external URLs identify sources,
-while actual training and inference use the prepared internal data bundle.
+while acquire the task data using those instructions and use approved local copies for training and inference.

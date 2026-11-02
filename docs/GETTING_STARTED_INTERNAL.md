@@ -126,7 +126,8 @@ Do not copy a token-bearing notebook URL into the MR.
 Complete [SKILLS_STAGE0](SKILLS_STAGE0.md). Install the approved pinned Matt Pocock bundle with support files; skim catalog descriptions and
 practice the selected engineering/productivity workflows. Verify actual loading and a
 negative trigger, not only file presence. Run one bounded teaching workflow in the approved environment.
-Record a blocked activation honestly. The first mentor session includes the 30-minute skill check.
+Record a blocked activation honestly. Review skills in an existing mentor window after the
+manual Python review and OMP setup; the first meeting may be the Python review itself.
 
 ## Known code smoke
 

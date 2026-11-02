@@ -5,12 +5,12 @@ Allow approximately three working days (24 hours including review), rather than 
 
 ## Source and scope
 
-Use the team's existing final Python exercise from the
-legacy onboarding materials supplied directly by the mentor:
-the parser and point/polygon drawing exercise, including panda drawings.
-The mentor supplies the exact original handout, input examples and expected outputs before work begins.
-Its exact document and input grammar have not been verified in this repository. Do not invent a
-replacement specification or confuse it with [the later labeling product request](01-polygons.md).
+Use the original [Shape Rendering assignment](https://docs.google.com/document/d/1mdw1ahKP9M3MbeGYcVxJhA5HC5nXHEZ2aio9RzqgFPk/),
+linked from the original New 2025 training outline's Python final exercise. It is the source of
+the parser, shape rendering and example-output requirements. Open it before starting; request
+access if your account cannot read it. Obtain the input examples and expected drawings from
+that assignment, including panda drawings. Do not invent a replacement grammar or confuse it
+with [the later labeling product request](01-polygons.md).
 
 The purpose is a shared minimum standard for readable, modular Python and independent coding.
 Follow the original exercise requirements; review how parsing, geometry/data representation and

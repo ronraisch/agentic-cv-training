@@ -42,9 +42,7 @@ checkpoint and processor instructions. To assign that probe, the environment own
 the selected implementation and exact checkpoint revision, compatible runtime, processor and a
 local invocation example. Those large-model runtimes and weights are not included here.
 
-For the LPR and frozen-detection assignments, supply the approved detector and recognizer,
-weights/class map, representative inputs and their actual local inference command before the
-assignment begins. The procedural two-class network cannot substitute for those models. Record
-these in [the internal environment map](../templates/internal-environment.example.md), including
-artifact hashes and expected paths, and follow [model preparation](OFFLINE_SETUP.md#model-artifacts).
-Do not revive superseded detector assignments merely because a historical document named them.
+For LPR and frozen-vehicle predictions, use [the supplied research components](COMPONENTS.md).
+They provide separate plate and vehicle models; this procedural two-class network is not their
+replacement. The trainee acquires the compatible data subset. The owner supplies internal model
+mounts/transfer access using [the environment map](../templates/internal-environment.example.md).

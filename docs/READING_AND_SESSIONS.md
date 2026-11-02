@@ -1,11 +1,6 @@
 # Required learning and individual sessions
 
-[Source collection](https://drive.google.com/drive/folders/1ZfbxunFLoea6JsUIbAiRbDgrkumhGDDA) · [Curated workspace](https://drive.google.com/drive/folders/1MqJ6JWJ5ivd6voElujzTzPhmf7gZp_Jx)
-
-The current source documents have now been read: the New 2025 outline, Advanced Python, ML,
-Stanford-2025 DL, the CV/ML/DL mentor guides, and the newer developer primer/questions.
-Old 2021-2024 and Archive folders were excluded. No original Drive file was edited or deleted.
-Detailed source decisions and mentor-only question selection are kept in the new mentor materials.
+Use the local lessons and the specific learner references linked below.
 
 ## One route per concept
 
@@ -49,7 +44,8 @@ or both legacy and current videos. Choose source segments by concept and record 
 
 - Broad beginner Linux/Python courses become diagnostics plus just-in-time remediation.
 - Dozens of NumPy/Pandas exercises become a few failing counterexamples in the real project.
-- Streamlit benchmarking, shape rendering and the separate Kaggle score target leave the core.
+- Streamlit benchmarking and the separate Kaggle score target leave the core. The
+  [manual Shape Rendering capstone](../labs/research/00-python-manual.md) remains required.
 - Parallel introductory explanations of loss, regularization and linear models are merged once.
 - Naive Bayes derivation, EM/GMM, spectral clustering and detailed t-SNE/UMAP become optional.
 - RNN/LSTM gate derivations, exhaustive architecture history, generative-models blocks, 3D vision
@@ -71,8 +67,10 @@ question, and a small counterexample. Explain a new example without the agent du
 Use notes and a debugger; memorizing syntax is not the goal. The mentor samples the required topics,
 not every question in the original banks. Missing knowledge triggers a bounded retake.
 
-Only the first session includes a rapid **10-minute basic-understanding check**, followed by the
-**30-minute Matt Pocock skill teach-back**. Subsequent sessions focus on difficult question chains
+Only the first session includes a rapid **10-minute basic-understanding check**. Use its
+remaining time for the manual Python review, or the Matt Pocock teach-back once Python is
+reviewed and OMP/skills are configured. Skills practice stays within the existing meeting budget.
+Subsequent sessions focus on difficult question chains
 from the existing mentor materials: derivations, counterexamples and research/production decisions.
 Do not turn them into a repeated vocabulary quiz.
 The weekly plan and the total 12-hour mentor cap are in [CURRICULUM.md](CURRICULUM.md). Product conversations and
