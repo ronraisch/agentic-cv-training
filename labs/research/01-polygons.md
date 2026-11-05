@@ -10,7 +10,7 @@ Submit a reviewable MR and a demonstration that the request is complete. Disting
 behavior from untested assumptions. Required reading and the development teach-back are listed
 separately in the learning map.
 
-[Relevant data sources](../../docs/DATASETS.md#labeling-application). Use the mentor-prepared internal subset.
+[Relevant data sources](../../docs/DATASETS.md#labeling-application). Follow [the acquisition steps](../../docs/DATASETS.md#acquire-a-working-subset); use the approved internal copy where required.
 
 ## Required next step
 

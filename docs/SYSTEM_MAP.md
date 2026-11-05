@@ -13,12 +13,13 @@ procedural inputs by default and can read approved compatible bundles. See [base
 | Shared transport | [http.py](../src/researchlab/http.py) |
 | Local CNN detector, fixture, training and inference | [detector.py](../src/researchlab/detector.py), [contract](DETECTOR.md) |
 | Optional Torch component | [torch_model.py](../src/researchlab/torch_model.py) |
+| Frozen LPR, vehicle detection and tracking | [components.py](../src/researchlab/components.py), [commands/models](COMPONENTS.md) |
 
 Annotations persist in the selected bundle's SQLite store. Training consumes current records and
 writes an explicit model artifact with feature/class/question versions and data fingerprints.
 Inference reports the loaded artifact checksum. The video baseline pools local frame features;
 it is not a large pretrained video/VLM system. Image geometry, LPR and later customer requests are
-implemented as assigned against approved prepared inputs.
+implemented as assigned against acquired, approved local inputs.
 
 The service binds to loopback. Internal hosting uses approved identity, ingress, registry and
 persistent mounts; local success does not verify those integrations. Ordinary ground/handheld/

@@ -14,4 +14,4 @@ Full cloud-model training is optional only with mentor approval.
 Required learning: [clouds](../../docs/lessons/05-clouds.md) and [training](../../docs/lessons/04-torch.md).
 Use the approved agent to decompose the research problem and critique candidate experiments.
 
-[Relevant data sources](../../docs/DATASETS.md#cloud-segmentation). Use the mentor-prepared internal subset.
+[Relevant data sources](../../docs/DATASETS.md#cloud-segmentation). Follow [the acquisition steps](../../docs/DATASETS.md#acquire-a-working-subset); use the approved internal copy where required.

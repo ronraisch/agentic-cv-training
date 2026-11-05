@@ -5,7 +5,7 @@ the imagery assignments. Scene understanding uses ordinary ground, handheld or v
 it is not satellite video. UAV footage below is for the airborne stitching task only.
 
 This is a reference catalog, not another reading course or a requirement to download every source.
-Pick one small prepared subset per task. Reuse LPR data for evaluation and video data for handover.
+Acquire and prepare one small subset per task. Reuse LPR data for evaluation and video data for handover.
 Official project/download entry points were checked on 23 October 2026. Archives, annotation files
 and internal availability have not been inspected here; suggested subset sizes are planning targets.
 
@@ -13,7 +13,7 @@ and internal availability have not been inspected here; suggested subset sizes a
 |---|---|---|
 | 0: setup and Matt Pocock skills | Synthetic fixtures already in the repo; no external ML dataset needed | A tiny approved sample from the later assignments |
 | 1: labeling application | [COCO 2017 images and instance annotations](https://cocodataset.org/#download) | [DOTA](https://captain-whu.github.io/DOTA/dataset.html) for remote-sensing examples |
-| 2: Hough LPR, then 3: LPR evaluation | [CCPD](https://github.com/detectRecog/CCPD) | [RodoSol-ALPR](https://github.com/raysonlaroca/rodosol-alpr-dataset) |
+| 2: Hough LPR, then 3: LPR evaluation | [RodoSol-ALPR](https://github.com/raysonlaroca/rodosol-alpr-dataset), or approved Latin/digit plate images | [CCPD](https://github.com/detectRecog/CCPD), with a matching Chinese recognizer |
 | 2: stitch two images from a flight | [UAVid, video-supported release](https://uavid.nl/) | An approved team flight with two overlapping frames |
 | 3: tracklet motion classification | [UA-DETRAC, author download entry](https://www.albany.edu/faculty/mchang2/chang_download.html) | [VIRAT ground-camera video and tracks](https://viratdata.org/) |
 | 3: remote-sensing detection rescoring | [DOTA](https://captain-whu.github.io/DOTA/dataset.html) | [SpaceNet 4 off-nadir buildings](https://spacenet.ai/off-nadir-building-detection/) for an angle-focused variant |
@@ -27,10 +27,51 @@ Use deterministic synthetic arrays or existing fixtures for imports, plotting, f
 skill activation. Success at setup must not depend on downloading a large dataset. Plotting a
 prepared sample later is useful, but does not establish that an internal data mount is accessible.
 
+## Acquire a working subset
+
+Data acquisition is part of the assignment. Follow the source's download/access instructions;
+use a small subset rather than the entire benchmark. A request form, account or manual annotation
+step is work to plan, not a reason to replace the task with the procedural smoke fixture. If access
+cannot be obtained within the assignment's budget, agree another listed source with the mentor.
+Inside the closed network, use the owner's approved import procedure; internal connectivity and
+transfer paths are supplied separately. Do not try to obtain external data from an isolated pod.
+
+1. Record source URL, release, terms/access status and exact selected source IDs. Request restricted
+   data first; do not wait until the exercise is otherwise complete to discover a required form.
+2. Download/extract outside Git to `data/imported/<task>/` or the approved storage mount. Keep a
+   source inventory with archive/file hashes and extraction commands. Do not flatten conflicting
+   filenames from different videos/scenes.
+3. Check the exact assets below; labels for a different task are not interchangeable. Decode a
+   few images and a video, inspect their annotations and retain their original IDs.
+4. Write [an image manifest](COMPONENTS.md#image-manifest) for image inference, or retain source
+   video IDs for tracking. Freeze grouped train/validation/test assignments before model fitting.
+5. Run [the supplied component command](COMPONENTS.md) on a small subset and inspect its overlays
+   or frame records. This establishes that data and frozen inference connect before your change.
+
+| Task | Acquire from source | Local preparation required |
+|---|---|---|
+| Labeling | COCO download page: `2017 Val images` and `2017 Train/Val annotations` | Select 20-40 image IDs; retain matching `instances_val2017.json` records and convert to [the application bundle](DATA_FORMATS.md) |
+| LPR | RodoSol README: request access under its agreement, then obtain images and annotation text; or approved existing Latin/digit imagery | Select about 200-400 images with plate text and corner labels; preserve raw files and source groups. Use supplied Latin OCR. Annotate missing text/corners independently; do not use them as inference inputs |
+| Stitching | UAVid download instructions: video-supported release, not only semantic still images | Select two overlapping frames from the same flight, record sequence/frame timestamps; inspect overlap manually |
+| Motion | UA-DETRAC author download page: videos plus tracking annotations, or VIRAT ground-camera release | Select 6-10 sequences; run the supplied tracklet producer, or adapt the provided source tracks with provenance. Add independent motion labels; keep whole sequences/cameras together |
+| Rescoring | DOTA `images` and `labelTxt` for the same release/partition | Select 50-100 parent images; preserve parent/tile coordinates and annotation polygons. Run frozen vehicle inference, define the target class grouping and HBB conversion for this supplied model; preserve null metadata |
+| Clouds | CloudSEN12 project: follow its data/loading example for a pinned release | Select 50-100 patches with suitable dense GT and required bands, retain ROI/date IDs |
+| Video | MEVA site: download instructions plus annotation repositories, select ground EO footage | Extract 120-200 ten-second clips with camera/recording/time IDs; add road/indoor/sky labels. Use the existing video baseline and prepared open-model probe |
+
+For CCPD, the source README documents archive access and filename fields for text, box and corner
+annotations. Its Chinese province character is outside the supplied OCR alphabet. Use a compatible
+recognizer before choosing it for full-plate LPR evaluation. Do not silently evaluate it with Latin OCR.
+For RodoSol, retain its annotation text alongside each image; corner order and plate text must be
+confirmed from the dataset README and a visual sample. Access approval is not guaranteed.
+
+For the cloud proposal, opening and inspecting an approved small subset is enough; training a
+cloud model is not required. For every source, a URL is an acquisition entry point, not a claim
+that access or organizational reuse has already been approved.
+
 ## Labeling application
 
 COCO supplies ordinary-camera images and instance annotations. Start with about 20-40 images.
-The mentor supplies the initial application data bundle; ask product which data to work on.
+Prepare a compatible initial application data bundle; ask product which data to work on.
 DOTA offers remote-sensing imagery if the prepared application uses that domain instead.
 COCO annotations and individual image rights have different terms; retain the source image-license
 information from the [official terms](https://cocodataset.org/#termsofuse).
@@ -62,8 +103,9 @@ The published license is CC BY-NC-SA 4.0. More than two images remains an approv
 ## Evaluation and classical ML
 
 **Tracklets:** UA-DETRAC contains traffic-camera sequences and tracking annotations. Start with
-about 6-10 sequences and a few hundred usable tracklets, not the entire benchmark. Obtain a fixed
-detector/tracker's outputs, then define and manually audit a small motion taxonomy with the mentor.
+about 6-10 sequences and a few hundred usable tracklets, not the entire benchmark. Run the
+[supplied frozen tracker](COMPONENTS.md#tracklets-for-motion-classification), or use a pinned
+source export, then define and manually audit a small motion taxonomy with the mentor.
 Track IDs and boxes do not automatically supply labels such as turning, stopping or passing.
 Keep complete sequences/cameras together in splits; do not randomly split windows of the same
 track. Image-plane displacement is not automatically physical speed or object motion under a moving
@@ -72,7 +114,7 @@ The UA-DETRAC author page links the benchmark; current archive access and reuse 
 checking by the person preparing the internal subset.
 
 **Rescoring:** DOTA provides oriented boxes and classes in satellite/aerial imagery. Use roughly
-50-100 parent images with independent labels and frozen detector predictions supplied by the mentor;
+50-100 parent images with independent labels and [frozen detector predictions](COMPONENTS.md#vehicle-predictions-for-rescoring);
 include false positives and missed objects. Fit the small rescorer, not another detector. Separate
 parent images and overlapping crops across train/validation/test. Inspect GSD availability per image:
 missing scale must remain missing. DOTA's small/large-vehicle categories are not bus labels, and its
@@ -121,19 +163,20 @@ level and group neighboring or overlapping clips. Reuse these exact assets in th
 
 ## Closed-network delivery
 
-The source links above remain useful outside the network. Inside, use a prepared local bundle or
-approved storage mount; no runtime access to these sites is assumed. Do not commit images/videos
-or whole datasets to Git. Before the cohort, the mentor/data owner records:
+The source links above remain useful outside the network. The trainee acquires the permitted
+subset; the owner handles internal connectivity and approved transfer paths. Inside, use the
+transferred bundle or approved storage mount; no runtime access to these sites is assumed. Do not
+commit images/videos or whole datasets to Git. The person preparing the data records:
 
 - Source URL, exact release, terms/access status, attribution and selected item IDs.
 - Actual file hashes, byte size, paths, decode checks and annotation availability after transfer.
 - Frozen split/group manifest, label definitions, missing values and extraction timestamps.
 - The approved internal location and a tiny read/decode/annotation smoke check with expected output.
 
-Those fields are currently preparation requirements, not claims that the data was downloaded,
-licensed for this organization or transferred successfully. Stage 0 checks the supplied bundle.
-Reuse approved internal data if public-source access is unsuitable. Resolve source access before
-the cohort rather than consuming the six-week schedule waiting for a restricted dataset.
+Those fields are preparation requirements, not claims that the data was downloaded, licensed for
+this organization or transferred successfully. Check the prepared bundle before beginning an
+experiment. Reuse approved internal data if public-source access is unsuitable; ask for help with
+unavailable access rather than inventing labels or an alternate unapproved task.
 
 ## Embedding VLM and open vocabulary probe
 

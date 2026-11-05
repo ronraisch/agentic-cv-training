@@ -4,6 +4,9 @@ Required learning: [Classical CV](../../docs/lessons/02-classical-cv.md).
 
 ## Plate rectification before LPR
 
+Run the supplied [raw LPR components](../../docs/COMPONENTS.md#lpr-baseline-and-crop-recognition)
+on your acquired subset first. Keep its model hashes and output as the comparison baseline.
+
 The detector returns an axis-aligned plate box, while the actual plate may be tilted or projectively
 distorted. Add preprocessing that uses Hough lines to estimate plate boundaries and rectifies the
 plate to a rectangle before recognition. Clarify the system contract and failure behavior with product.
@@ -22,4 +25,5 @@ A full orthomosaic product or unmeasured geospatial accuracy is not required.
 Submit bounded MRs, reproducible examples and evidence. Use the funded research-agent slot to learn
 one missing geometric concept, then explain it independently in the individual session.
 
-[Relevant data sources](../../docs/DATASETS.md#classical-cv-and-lpr-evaluation). Use the mentor-prepared internal subset.
+[Relevant data sources](../../docs/DATASETS.md#classical-cv-and-lpr-evaluation).
+Follow [the acquisition steps](../../docs/DATASETS.md#acquire-a-working-subset).

@@ -14,6 +14,18 @@ jobs:
       - run: uv run python tools/preflight.py --scope starter
       - run: uv run --no-sync researchlab-demo smoke --root artifacts/baseline-check
       - run: uv run python -m build
+  components:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --locked --extra dev --extra components
+      - run: uv run --no-sync researchlab-components fetch --root .local/models
+      - run: curl --fail --location https://raw.githubusercontent.com/ankandrew/fast-alpr/c5a94706f175590b2bc09aa86f46182d4c267fae/assets/test_image.png --output .local/sample.png
+      - run: uv run --no-sync pytest tests/test_components.py
+        env:
+          RESEARCHLAB_COMPONENT_MODELS: ${{ github.workspace }}/.local/models
+          RESEARCHLAB_COMPONENT_IMAGE: ${{ github.workspace }}/.local/sample.png
   detector:
     runs-on: ubuntu-latest
     steps:

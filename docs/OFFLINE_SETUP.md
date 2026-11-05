@@ -78,15 +78,17 @@ SQLite store if annotations have been edited. `prepare` does not reset existing 
 ## External datasets
 
 Use [the per-assignment catalog](DATASETS.md) for the exact source entry points: COCO for labeling,
-CCPD/approved alternative for LPR, selected overlapping airborne frames, motion-labeled tracklets,
+RodoSol/approved Latin-plate alternative for LPR, selected overlapping airborne frames, motion-labeled tracklets,
 frozen detections plus independent GT, cloud patches and ordinary-camera clips. Download the
 selected release on approved connected staging only, resolve access/terms there, and record
 source IDs, release, license/approval, counts, bytes and SHA-256 values after transfer.
 
-Before a task starts, the data owner prepares one small subset and its annotations, grouped
-train/validation/test manifest and decoder/loader smoke. Do not ask a trainee inside the closed
-network to visit a public dataset site. Transfer inputs into the assigned data mount, for example
-`data/imported/<bundle-id>/` or its approved external mount. Use that path with `--root`.
+The trainee prepares a small subset, independent annotations and grouped train/validation/test
+manifest using [the acquisition instructions](DATASETS.md#acquire-a-working-subset), then verifies
+decoding. The owner supplies internal connectivity and the approved transfer path. Do not try to
+visit a public dataset site from a closed-network pod. Place transferred inputs in the assigned
+mount, for example `data/imported/<bundle-id>/`. The baseline commands below use that bundle
+with `--root`; the research component commands take an image `--manifest` or local `--video`.
 
 For the local training baseline, convert approved images to RGB uint8 `.npy` using the staging
 environment's approved decoder; convert sampled video frames to RGB uint8 THWC arrays and retain
@@ -140,3 +142,16 @@ Training generates the detector fixture in memory, and saves the artifact at the
 local training command. Inference input must already exist as a local float32 RGB BCHW `.npy`
 array. See [detector architecture and input/output contracts](DETECTOR.md). Neither missing Torch,
 weights nor input arrays triggers a download.
+
+## Frozen research components
+
+The locked `components` extra adds CPU ONNX Runtime and headless OpenCV. On the approved connected
+preparation workstation, install it with `uv sync --locked --extra dev --extra mcp --extra components`.
+Use the existing wheelhouse/image-transfer procedure for offline installation. Fetch the pinned
+models explicitly with `researchlab-components fetch --root .local/models` and transfer that
+directory, including its manifest. Run `researchlab-components check --root /approved/model/path`
+in the trainee environment. Inference never downloads a missing artifact. Model transfer is about
+125 MiB; installed runtime dependencies have their own size. See [commands and model scope](COMPONENTS.md).
+
+The owner completes network-specific URLs, identities and permissions in the internal copy.
+The trainee obtains permitted dataset subsets using [the acquisition guide](DATASETS.md#acquire-a-working-subset).

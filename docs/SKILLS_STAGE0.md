@@ -1,8 +1,6 @@
 # Stage 0 — Matt Pocock skills: installation and exposure
 
-The required collection is **Matt Pocock's engineering/productivity skills**. Earlier references
-to Matplotlib and Scientific Visualization were a name misunderstanding and are superseded here.
-Plotting libraries may still be used in research; plotting skills are not a stage-0 requirement.
+The required collection is **Matt Pocock's engineering/productivity skills**.
 A skill supplies instructions, not tools, permissions, dependencies or proof that code works.
 
 Before installing/activating skills, complete [VS Code, personal OpenShift pod and OMP/local-LLM
@@ -13,8 +11,8 @@ or tool calling must be recorded as blocked rather than assumed from file presen
 ## Scope and time
 
 Within the existing six-hour guided setup, reserve about 75 minutes for installation, catalog
-orientation and one activation experiment. The first week still has a 30-minute mentor teach-back
-inside its existing meeting. Spread deeper practice across the existing agent-work, skills,
+orientation and one activation experiment. A 30-minute mentor teach-back stays inside an existing meeting
+after the manual Python review and OMP setup. Spread deeper practice across the existing agent-work, skills,
 review and research assignments; do not add another course or require reading every full skill.
 
 1. Skim **names and descriptions** of the entire pinned collection in the [catalog](MATT_POCOCK_CATALOG.md).
@@ -72,9 +70,9 @@ orientation, selected full reads, loaded trace, sanitized artifacts and remainin
 
 ## Required practice inside existing assignments
 
-The following rows define the required practice for the six-week route. Perform them on the
+The following rows define the required practice for the current route. Perform them on the
 current assignment. These planning caps replace work already in the named allocations; they do
-not add hours to the 240-hour syllabus.
+not add hours to the current syllabus.
 
 | Selected practice | Where and time already allocated | One acceptance artifact |
 |---|---|---|

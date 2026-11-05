@@ -3,16 +3,6 @@
 Labeling, image geometry and ordinary-camera video in one Python workspace. Start with the
 working baseline, then implement the assigned product request and demonstrate its effects.
 
-<!-- maintainer-only:start -->
-## Maintainer distribution reminder
-
-Keep the baseline working and preserve the course's intentional minor rough edges. Follow
-[the persistent maintainer policy](AGENTS.md) and [maintainer operations](MAINTAINERS.md).
-Exact teaching scenarios and answers belong only in the restricted Drive registry.
-**Before giving this to a trainee: remove this maintainer section, private links and maintainer
-agent instructions by running the learner exporter. Do not distribute source Git history.**
-Ask the owner to confirm this reminder on every cohort handoff. Do not add an answer catalogue.
-<!-- maintainer-only:end -->
 
 ## Trainee syllabus
 
@@ -71,3 +61,8 @@ are not expected to rebuild the team's infrastructure.
 
 For an executable CNN localization baseline, see [the local detector](docs/DETECTOR.md).
 It includes offline training, saved-weight inference and held-out box/class/presence evaluation.
+
+The [frozen research components](docs/COMPONENTS.md) supply raw plate detection/recognition,
+vehicle predictions for rescoring and tracklets for motion classification. Acquire task data
+using [the per-task steps](docs/DATASETS.md#acquire-a-working-subset). Model acquisition is
+explicit; inference reads verified local artifacts.

@@ -2,8 +2,11 @@
 
 The README's locked command installs the working procedural CPU baseline, catalog examples and
 checks. The [baseline](BASELINE.md) can label, train, reload and predict without external assets.
-Real research datasets, codecs, notebook kernels and pretrained model families require the
-separately approved environment below. See [offline installation](OFFLINE_SETUP.md).
+The optional locked `components` extra and [frozen model bundle](COMPONENTS.md) supply plate
+detection/recognition, vehicle predictions and tracklet generation. The trainee acquires the
+task data using [the dataset instructions](DATASETS.md#acquire-a-working-subset). Internal
+connectivity, transfer paths, credentials and platform permissions are supplied by the owner.
+Other capabilities below use the separately approved environment; see [offline installation](OFFLINE_SETUP.md).
 
 The mentor supplies an approved internal image/digest or environment lock, actual paths and
 commands in [the environment map](../templates/internal-environment.example.md). Use the
@@ -16,8 +19,8 @@ broker and SAM3 worker for [batch labeling and detector training](../labs/resear
 | Work | Capabilities the approved environment must provide | Readiness evidence |
 |---|---|---|
 | Existing labeling application | Its actual frontend runtime/package lock, Python API, store and consumer dependencies | Known UI/API/save/reload and consumer commands work at the selected revision |
-| Hough, warping and stitching | Image decoder, numerical and CV operations, plotting/overlay output; often OpenCV/Pillow/Matplotlib or team equivalents | Decode a prepared image, check channel order/range, run a known geometric fixture and save/read an overlay |
-| Tracklets and rescoring | Feature/table tooling, a small classical estimator and artifact serialization; e.g. scikit-learn, with XGBoost only if selected | Fit a tiny approved fixture; save and load a fresh instance with identical feature schema/output |
+| Hough, warping and stitching | Locked headless OpenCV in `components`; supplied raw LPR detector/recognizer and crop interface | Decode an acquired image, run [raw LPR](COMPONENTS.md#lpr-baseline-and-crop-recognition), save/read an overlay; trainee implements geometry |
+| Tracklets and rescoring | Supplied [frozen vehicle detector and tracklet producer](COMPONENTS.md); approved small estimator runtime, e.g. scikit-learn with XGBoost only if selected | Export predictions/tracklets from acquired data; trainee fits the assigned head, saves and reloads it |
 | Video | Actual decoder with required codecs, timestamp handling, selected representation and head runtime | Decode a ten-second fixture with timestamps; run one forward pass and fresh-load inference |
 | Open-model probe | Approved local embedder with matching processor/tokenizer and offline loading support | Known sample and fresh-process replay without runtime network downloads |
 | Required SAM2 annotation service | Approved SAM2 code/config and checkpoint, compatible inference dependencies, device/memory allocation, internal base image, registry push and teaching namespace/Route permissions | Actual mask inference from the deployed image through its Route, application save/reload and teaching-pod restart |

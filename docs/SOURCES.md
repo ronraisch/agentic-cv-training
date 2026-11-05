@@ -4,12 +4,8 @@ The curriculum is original teaching material adapted to the current Drive source
 authorization. Original documents remain unchanged. Required reading can live in Drive or local
 text; public web references are optional and require approved internal copies/substitutes.
 
-[Original Drive](https://drive.google.com/drive/folders/1ZfbxunFLoea6JsUIbAiRbDgrkumhGDDA) · [Curated workspace](https://drive.google.com/drive/folders/1MqJ6JWJ5ivd6voElujzTzPhmf7gZp_Jx)
-
-The current source outline, advanced Python/ML/DL learner documents, three mentor guides and newer
-developer primer/question file were read. Old 2021-2024 and Archive were excluded. The detailed
-mentor source map is in the mentor distribution, not a prerequisite for the learner product brief.
-Videos were not watched end-to-end and runtime savings have not been empirically measured.
+The selected reading is linked below. Videos were not watched end-to-end and runtime savings
+have not been empirically measured.
 
 ## Primary technical references
 
@@ -33,7 +29,6 @@ revision; no exact video timestamps or current lecture durations are claimed.
 [Upstream README](https://github.com/mattpocock/skills/blob/5beb35b040e3de97e54fa9e386d7e42d15c295c2/README.md), pinned at `5beb35b040e3de97e54fa9e386d7e42d15c295c2` and inspected 24 October 2026.
 See [the catalog](MATT_POCOCK_CATALOG.md) for exact entry links and
 [stage 0](SKILLS_STAGE0.md) for selected practice and offline installation.
-The former plotting-skill requirement was a name misunderstanding and is superseded.
 No internal installation or activation is claimed.
 
 ## Original development influences
