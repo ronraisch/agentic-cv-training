@@ -1,31 +1,41 @@
-# Part 4B Describe ten seconds of video
+# Answer three questions about a ten-second clip
 
-An ordinary-camera video consumer currently needs three answers for a ten-second clip.
-Use ground, handheld or vehicle-camera video, not satellite or aerial footage:
+## The request
+
+For an ordinary-camera clip, answer:
 
 - Is there a road?
 - Is the view indoors or outdoors?
 - Does the clip show only sky?
 
-Clarify question meanings and input/output requirements with product. Start with a small testable
-solution, for example an available video embedding, a few manual labels and a small learned head.
-That is a possible starting point, not a mandatory architecture. Justify a better-fitting alternative.
+Use ground, handheld or vehicle-camera video. Satellite and aerial footage are outside this task.
+The mentor acts as product owner; clarify what the questions mean and what the input/output
+contract should be before choosing the implementation.
 
-Deliver a baseline, evaluation and runnable prediction on a new clip. Explain sampling/time,
-model and representation versions, missing information and what the metrics establish.
-The mentor supplies the next part of the request after the first demonstration.
+## Prepare the data and concepts
 
-Required learning: [video](../../docs/lessons/06-video.md), [ML](../../docs/lessons/03-metrics-ml.md)
-and [training](../../docs/lessons/04-torch.md). Use the agent for research explanation as well as
-implementation; close it for the individual explanation.
+Use [the ordinary-camera subset](../../docs/DATASETS.md#ordinary-camera-video-and-handover)
+and [the acquisition instructions](../../docs/DATASETS.md#acquire-a-working-subset).
+Study the relevant [video](../../docs/lessons/06-video.md),
+[ML](../../docs/lessons/03-metrics-ml.md) and [training](../../docs/lessons/04-torch.md) material.
 
-[Relevant data sources](../../docs/DATASETS.md#ordinary-camera-video-and-handover). Follow [the acquisition steps](../../docs/DATASETS.md#acquire-a-working-subset); use the approved internal copy where required.
+Before the baseline, complete [the open-model introduction and one-hour intuition probe](../../docs/lessons/07-open-models.md).
+The probe is already included in the baseline allocation; it does not prescribe the final architecture.
 
-Before building the baseline, complete [the open-model introduction and one-hour intuition probe](../../docs/lessons/07-open-models.md).
-The probe is part of the existing baseline time allocation and does not select your final architecture.
+## Build and evaluate a first solution
 
-## Required DL pipeline
+Start with something small enough to inspect. An available video embedding, a few manual labels
+and a small learned head are one possible starting point; justify an alternative if it fits better.
 
-Complete [RabbitMQ/SAM3 pseudo-labeling and detector training](05b-rabbitmq-sam3-detector.md)
-before handover. It has a separate 24-hour initial allocation and does not replace this clip-level
-scene-understanding baseline. Train one RT-DETR or YOLO detector on queued SAM3 outputs.
+Use the approved agent for both implementation and understanding. Track sampling/timing choices,
+model and representation versions, missing information and what the evaluation actually establishes.
+
+## First demonstration and continuation
+
+Show the baseline, its evaluation and runnable prediction on a new clip. Explain your decisions
+independently, with the agent closed for the individual explanation. After that demonstration,
+the mentor supplies the next part of the product request.
+
+Also complete [the required RabbitMQ/SAM3 detector pipeline](05b-rabbitmq-sam3-detector.md)
+before handover. Its initial 24-hour allocation is separate; it does not replace this clip-level
+scene-understanding task. It trains one RT-DETR or YOLO detector, not both.

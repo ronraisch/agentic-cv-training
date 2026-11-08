@@ -1,17 +1,28 @@
-# Part 4A Cloud segmentation proposal
+# Propose a cloud-segmentation approach
 
-Consumers waste object-detector work on cloudy regions with little useful observation. Propose
-cloud segmentation to support a decision about where to run the detector.
+## Goal
 
-Do a short focused literature review and propose architecture, data, training and evaluation.
-Consider the sensors and channels actually available at inference. Compare a simple baseline and
-two plausible research alternatives with primary sources and dated revisions. Do not rank dozens
-of models or claim a winning architecture without evidence.
+A detector spends work on cloudy regions that contain little useful observation. Propose a way
+to identify those regions and support a decision about where the detector should run.
+This is a focused research proposal: eight hours, separate from shared core study.
 
-Deliver a concise proposal, evidence table, limitations and a minimal falsifying experiment that
-could run internally. This is eight hours of proposal work in addition to shared core study.
-Full cloud-model training is optional only with mentor approval.
-Required learning: [clouds](../../docs/lessons/05-clouds.md) and [training](../../docs/lessons/04-torch.md).
-Use the approved agent to decompose the research problem and critique candidate experiments.
+## What to investigate
 
-[Relevant data sources](../../docs/DATASETS.md#cloud-segmentation). Follow [the acquisition steps](../../docs/DATASETS.md#acquire-a-working-subset); use the approved internal copy where required.
+Start with the sensors and channels available at inference. Review primary sources and compare
+a simple baseline with two plausible research alternatives, recording dated revisions.
+Explain the proposed architecture, data, training and evaluation and how they fit this setting.
+
+Use the approved agent to help break down the problem and challenge candidate experiments.
+The aim is a defensible choice between a few options, rather than a long model ranking or an
+unsupported claim that one architecture will win.
+
+## Submit and discuss
+
+Deliver a concise proposal, an evidence table and limitations. Include a minimal experiment
+that could run internally and would reveal a weakness in the proposal. Full cloud-model training
+requires mentor approval; it is not part of the default deliverable.
+
+[Cloud concepts](../../docs/lessons/05-clouds.md) ·
+[Training concepts](../../docs/lessons/04-torch.md) ·
+[Cloud data](../../docs/DATASETS.md#cloud-segmentation) ·
+[Acquisition steps](../../docs/DATASETS.md#acquire-a-working-subset)

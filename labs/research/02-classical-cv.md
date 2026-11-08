@@ -1,29 +1,40 @@
-# Part 2 Classical CV tasks
+# Rectify a licence plate and stitch two airborne images
 
-Required learning: [Classical CV](../../docs/lessons/02-classical-cv.md).
+## Goal and preparation
 
-## Plate rectification before LPR
+Use classical geometry in two existing image-processing tasks. For both, show the intermediate
+results that explain how the output was produced, including a failure case.
 
-Run the supplied [raw LPR components](../../docs/COMPONENTS.md#lpr-baseline-and-crop-recognition)
-on your acquired subset first. Keep its model hashes and output as the comparison baseline.
+Read selectively from [the CV syllabus](../../docs/syllabi/cv.md) and
+[the practical CV lesson](../../docs/lessons/02-classical-cv.md).
+Acquire [the CV/LPR subset](../../docs/DATASETS.md#classical-cv-and-lpr-evaluation) using
+[the dataset instructions](../../docs/DATASETS.md#acquire-a-working-subset).
 
-The detector returns an axis-aligned plate box, while the actual plate may be tilted or projectively
-distorted. Add preprocessing that uses Hough lines to estimate plate boundaries and rectifies the
-plate to a rectangle before recognition. Clarify the system contract and failure behavior with product.
+## Task 1: rectify a plate before recognition
 
-Show input, candidate lines, chosen boundaries/corners, transform and output. Retain failures and
-explain assumptions. Looking straighter does not prove improved recognition. Here we require working
-geometry and sanity checks; formal evaluation comes in part 3. Preserve baseline/configuration.
+First run [the supplied raw LPR path](../../docs/COMPONENTS.md#lpr-baseline-and-crop-recognition)
+on your subset. Save its output, model hashes and configuration as the comparison baseline.
 
-## Two images from one airborne flight
+The detector returns an axis-aligned box, but the plate inside may be tilted or projectively
+distorted. Add preprocessing that uses Hough lines to estimate its boundaries, then rectifies it
+to a rectangle before recognition. Clarify the integration contract and failure behaviour with product.
 
-Stitch two sequential overlapping images into a larger image. Explain matching and geometry, and
-show a case where reliable stitching is impossible. Do not force a plausible-looking output.
-Two images are required. More images are a bonus requiring explicit mentor approval.
-A full orthomosaic product or unmeasured geospatial accuracy is not required.
+Show the input, candidate lines, selected boundaries/corners, transform and resulting crop.
+Explain the assumptions and retain failed cases. This stage checks working geometry and sanity;
+[part 3](03-evaluation-ml.md) formally evaluates recognition. A straighter-looking plate alone
+does not establish an improvement.
 
-Submit bounded MRs, reproducible examples and evidence. Use the funded research-agent slot to learn
-one missing geometric concept, then explain it independently in the individual session.
+## Task 2: stitch two images from one flight
 
-[Relevant data sources](../../docs/DATASETS.md#classical-cv-and-lpr-evaluation).
-Follow [the acquisition steps](../../docs/DATASETS.md#acquire-a-working-subset).
+Use two sequential, overlapping airborne images to produce a larger image. Explain the feature
+matching and geometric model. Also show an input pair for which reliable stitching is impossible
+and explain the failure rather than forcing a plausible output.
+
+Two images are required. Additional images need explicit mentor approval. A full orthomosaic
+product and a claim of unmeasured geospatial accuracy are outside this task.
+
+## Submit and explain
+
+Submit bounded MRs with reproducible inputs/configurations and the intermediate visual evidence.
+Use the allocated research-agent time to resolve one missing geometric concept, then explain it
+independently in the individual session. Keep the saved LPR baseline for the next exercise.

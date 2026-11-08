@@ -1,24 +1,40 @@
-# Stage 0 Guided setup
+# Set up your research workspace
 
-Follow [internal setup](../../docs/GETTING_STARTED_INTERNAL.md) with the mentor.
-Obtain VS Code, OpenShift, GitLab, Artifactory, Confluence and Jupyter access using the existing stack.
-First install VS Code and connect it to your own OpenShift development pod. Prepare Python/uv,
-Artifactory, the interpreter/debugger and required access. Complete
-[the manual Python capstone](00-python-manual.md), approximately three working days, before OMP.
-Do not install, update or configure OMP during this phase; disable any existing coding agents and
-AI code completion. After mentor review, install/configure OMP there with the approved local LLM
-service (currently QWEN 3.8), following
-[the OMP readiness checks](../../docs/GETTING_STARTED_INTERNAL.md#omp-and-the-local-llm).
-Verify an actual model request, workspace tool use and reconnect before skill activation.
-For each check record the expected output, actual output, evidence scope and owner if blocked.
+## Goal
 
-Complete [the Matt Pocock skill lab](../../docs/SKILLS_STAGE0.md): install the approved Matt Pocock skill bundle, skim the catalog descriptions and follow the selected
-deep-practice list. Explain when each workflow fits.
-Use a successful activation trace and a case that should not trigger them. Installing a Python
-package is not the same as installing a skill. The 30-minute teach-back is inside week 1's budget.
+Run and debug Python in your own OpenShift pod, then prepare the approved agent workflow.
+Do this with the mentor using [the internal setup guide](../../docs/GETTING_STARTED_INTERNAL.md).
+This is guided setup, not a DevOps exam.
 
-Show a correct interpreter, notebook restart, internal fixture request, Confluence page and safe
-GitLab job log. Infrastructure is guided learning, not a DevOps assessment. Do not reinstall the
-team's entire stack or fetch public packages from the closed network.
+## First: prepare Python and complete the manual exercise
 
-[Relevant data sources](../../docs/DATASETS.md#setup-and-skills). Follow [the acquisition steps](../../docs/DATASETS.md#acquire-a-working-subset); use the approved internal copy where required.
+1. Obtain access to VS Code, OpenShift, GitLab, Artifactory, Confluence and Jupyter.
+2. Install VS Code and connect it to your own development pod.
+3. Prepare Python/uv through Artifactory. Select the pod's interpreter and check the debugger.
+4. Complete [the manual Python capstone](00-python-manual.md), allowing about three working days.
+
+Keep coding agents and AI code completion inactive during this phase. Install, update or configure
+OMP only after the mentor has reviewed the capstone.
+
+## Then: prepare OMP and skills
+
+Follow [the OMP readiness checks](../../docs/GETTING_STARTED_INTERNAL.md#omp-and-the-local-llm)
+with the approved local model service, currently QWEN 3.8. Check a real model request, workspace
+tool use and reconnection before activating skills.
+
+Complete [the Matt Pocock skill lab](../../docs/SKILLS_STAGE0.md): install the approved bundle,
+skim the catalog descriptions and do the selected deeper practice. Show a successful activation
+and an example that should not trigger a skill. Installing a Python package does not install a
+skill. The 30-minute teach-back stays inside the existing week-one allocation.
+
+## Show that the workspace is ready
+
+Demonstrate the selected interpreter, a notebook restart, an internal fixture request, an accessible
+Confluence page and a safe GitLab job log. For each readiness check, record expected versus actual
+output and what the evidence establishes. If access is missing, record the blocker and its owner.
+
+Use the existing stack; rebuilding it or fetching public packages from the closed network is not
+part of this exercise.
+
+[Setup data and fixtures](../../docs/DATASETS.md#setup-and-skills) ·
+[How to acquire an approved subset](../../docs/DATASETS.md#acquire-a-working-subset)

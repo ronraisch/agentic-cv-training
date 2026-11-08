@@ -1,39 +1,38 @@
-# Manual Python capstone — legacy shapes/parser exercise
+# Build the original shape renderer by hand
 
-Complete this at the start of onboarding, after basic environment setup and before OMP.
-Allow approximately three working days (24 hours including review), rather than three short sessions.
+## Goal and starting point
 
-## Source and scope
+Build the parser and renderer specified in [the original Shape Rendering handout](../../docs/reading/legacy-shape-rendering.md).
+The point is to practise readable, modular Python and understand the code you write.
+Allow about three working days: 24 hours including review.
 
-Use the [preserved original Shape Rendering assignment](../../docs/reading/legacy-shape-rendering.md),
-converted from the archived original Word handout. Its text and included figures are local;
-it specifies the parser, shapes and expected drawings. The old live-document URL could not be
-read during migration, so this is the supplied archive copy rather than a claim about an unseen
-later revision. Open it before starting and obtain any separate input fixtures from the mentor.
-Do not invent a replacement grammar or confuse it with [the later labeling request](01-polygons.md).
+Start after basic environment setup and before OMP installation/configuration. The local handout
+contains the archived original text and figures; its old live-document URL was unavailable during
+migration. Obtain any separate input fixtures from the mentor. Follow its grammar, shapes and
+expected drawings, including the panda examples, rather than inventing a replacement specification.
+This is separate from [the later labeling application request](01-polygons.md).
 
-The purpose is a shared minimum standard for readable, modular Python and independent coding.
-Follow the original exercise requirements; review how parsing, geometry/data representation and
-drawing responsibilities are separated, how interfaces are named and how errors are handled.
-Prefer clear, small units over unnecessary abstractions.
+## How to work
 
-## Environment and assistance
+Work in your own pod through VS Code with Python/uv, Artifactory, interpreter and debugger ready.
+Use [the internal setup guide](../../docs/GETTING_STARTED_INTERNAL.md) if needed.
 
-- Work in your own OpenShift pod through VS Code, with approved Python/uv, Artifactory access,
-  dependencies, interpreter and debugger ready. Follow [internal setup](../../docs/GETTING_STARTED_INTERNAL.md).
-- Do not install, update or configure OMP until the exercise is completed and reviewed.
-  If an agent is already present in the environment, keep it inactive.
-- Write, debug and refactor the code yourself. No coding agents or AI code completion.
-- Occasional ChatGPT questions about concepts are allowed only within team data policy.
-  Do not ask it to write the solution, functions, tests or replacement code, or paste generated
-  code into the submission. Documentation and mentor clarification remain available.
+Write, debug and refactor the code yourself. Keep coding agents and AI completion inactive;
+do not install, update or configure OMP until review is complete. Documentation and mentor
+clarification are available. Occasional ChatGPT questions about concepts are allowed within team
+data policy, but not requests for solution code, functions, tests or a generated replacement to paste.
 
-## Completion and review
+As you implement, keep parsing, validation, geometry/data representation and drawing responsibilities
+clear. Prefer small, well-named units with explicit interfaces and useful errors. There is no need
+to introduce abstractions that do not help the exercise.
 
-Submit the original exercise's required code and outputs with a short run instruction.
-Demonstrate representative valid input and malformed input using the original specification.
-Walk the mentor through the module boundaries and a concrete design choice; make a small change
-yourself to demonstrate that you understand the code. Review modularity, readability and correctness
-together, then make the agreed corrections manually. No model-training or agent-use report is required.
+## Submit and demonstrate
 
-After mentor review, return to [stage 0](00-installations.md) for OMP/local-LLM setup and skills.
+Submit the required code and drawings with a short run instruction. At review:
+
+- Run representative valid input and malformed input from the original specification.
+- Trace one input through the modules and explain one design choice.
+- Make a small change yourself, then address the agreed review corrections manually.
+
+Review covers modularity, readability and correctness. No model-training or agent-use report is
+required. After approval, return to [workspace setup](00-installations.md) for OMP and skills.

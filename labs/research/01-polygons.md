@@ -1,18 +1,31 @@
-# Part 1 Product request
+# Add polygons to the labeling application
 
-> Just add polygon support to the labeling website.
+## The request
 
-You are a researcher in Peanuach working in the existing monorepo with the approved agent.
-The mentor is the product owner who brought the request. Ask questions when the intended behavior
-or completion criteria are unclear.
+> Add polygon support to the labeling website.
 
-Submit a reviewable MR and a demonstration that the request is complete. Distinguish verified
-behavior from untested assumptions. Required reading and the development teach-back are listed
-separately in the learning map.
+Work in the existing Peanuach monorepo with the approved agent. The mentor is the product owner
+for this request. The short brief is intentional: clarify the intended interactions and completion
+criteria with them before deciding what “support” includes.
 
-[Relevant data sources](../../docs/DATASETS.md#labeling-application). Follow [the acquisition steps](../../docs/DATASETS.md#acquire-a-working-subset); use the approved internal copy where required.
+## Start with the existing behaviour
 
-## Required next step
+Find the relevant application path and inspect how its current annotations are created, saved and
+consumed. Use this to make the product questions concrete. Agree on the scope, implement the
+change and verify it through the relevant consumer, including persistence where applicable.
 
-After this request, complete [SAM2-assisted annotation and service deployment](01b-sam2-service.md).
-This continuation is mandatory and has its own 16-hour initial allocation.
+Use the [development syllabus](../../docs/syllabi/development.md) for the associated theory and
+individual discussion. Reading and the teach-back are separate from the code review.
+
+## Submit and demonstrate
+
+Submit a bounded, reviewable MR and show that the agreed request is complete on a new example.
+Separate behaviour you actually verified from assumptions or paths you have not tested.
+
+## What follows
+
+Continue with [the required SAM2 annotation service](01b-sam2-service.md).
+Its separate initial allocation is 16 hours.
+
+[Labeling data](../../docs/DATASETS.md#labeling-application) ·
+[Acquisition steps](../../docs/DATASETS.md#acquire-a-working-subset)

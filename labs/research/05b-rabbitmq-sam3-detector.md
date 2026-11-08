@@ -1,73 +1,88 @@
-# Required DL assignment — RabbitMQ, SAM3 pseudo-labels and detector training
+# Label a video batch with SAM3, then train one detector
 
-Build a resumable batch-labeling pipeline for ordinary-camera video frames, then train one
-detector on its output. This belongs in the deep-learning/video block, after
-[training fundamentals](../../docs/lessons/04-torch.md) and before final
-[video handover](06-handover.md). Use the approved agent/local LLM.
-Initial allocation: 24 trainee hours; measure actual effort separately from unattended GPU runtime.
+## Goal and scope
 
-## Outcome and scope
+Build a batch-labeling pipeline that can resume after a worker failure. It processes ordinary-camera
+frames with real SAM3 inference, saves pseudo-labels and supplies training data for one RT-DETR
+or YOLO detector. Then reload that detector's saved checkpoint and predict on held-out frames.
+
+This exercise is required in the DL/video block, after [training fundamentals](../../docs/lessons/04-torch.md)
+and before [handover](06-handover.md). Use the approved agent/local LLM.
+The initial allocation is 24 active trainee hours; record unattended GPU runtime separately.
+
+## Before starting
+
+Agree with the mentor on classes, prompt wording, data volume, detector variant and device budget.
+The mentor supplies approved broker/model/detector assets, compute and teaching-namespace access
+through [the environment handoff](../../docs/RESEARCH_ENVIRONMENT.md).
+
+Split by source video/scene before sampling frames or generating pseudo-labels. Keep neighbouring
+frames from one source out of different splits. Reserve a bounded, independently human-checked
+validation/test set. Agreement with SAM3 alone is not an accuracy evaluation.
+
+## 1. Bring up the broker and worker
 
 Deploy a teaching RabbitMQ broker and a containerized SAM3 consumer on the existing OpenShift
-stack. Write a producer that submits a manifest of approved frames. Use messages to carry the
-image reference and prompt configuration; do not require the entire dataset in a notebook session.
-Run real SAM3 inference and persist pseudo-labels. Export the accepted training data for one
-mentor-agreed RT-DETR or YOLO detector, train it, reload its checkpoint and run inference on new
-video frames. Choose one detector, not both. Reuse existing image/registry/deployment knowledge
-from [the SAM2 service](01b-sam2-service.md).
+stack. Reuse what you learned in [the SAM2 service](01b-sam2-service.md).
+Configure broker image, persistent storage, credentials and internal Service, plus worker
+Deployment and model/data mounts. AMQP stays internal; no external HTTP Route is required.
 
-Agree with the mentor on target classes, prompt wording, dataset volume, device budget and detector
-variant before starting. Start with a tiny verified batch, then run a substantially larger batch
-whose frame count and runtime budget are recorded. The full batch must execute; a queued job count
-alone is not completion. No invented universal image count or accuracy target is required.
+Use approved packages/base images and local assets without runtime downloads. Production-broker
+administration is outside the exercise. A notebook can inspect results, but is not the long-running
+consumer or batch orchestrator.
 
-## Queue and worker contract
+## 2. Define what a job means and how it recovers
 
-Define and version a message schema: job ID, dataset/frame ID, authorized shared image path or
-object reference, prompts, prompt-to-class mapping/config revision, model revision and output
-reference. Freeze the job configuration so retries remain traceable. Credentials are secret
-references, not message values. Keep images/checkpoints/results in approved shared storage.
+Write a producer that submits an approved frame manifest. Messages carry references and
+configuration rather than requiring the dataset to stay in a notebook session.
+Define a versioned schema containing:
 
-Use durable queue/storage configuration and publisher confirmation appropriate to the selected
-RabbitMQ version. Acknowledge work only after its result is durably saved. Bound in-flight work
-and consumer concurrency to available GPU memory. Define finite retry behavior, a dead-letter
-destination for permanent failures and observable job states. Duplicate delivery must not create
-duplicate training examples or silently overwrite results from a different model/prompt revision.
-Do not claim exactly-once inference; demonstrate idempotent committed outputs.
+- Job ID and dataset/frame ID.
+- Authorized shared image path or object reference.
+- Prompts, prompt-to-class mapping and configuration revision.
+- Model revision and output reference.
 
-The trainee configures the teaching broker's image, persistent storage, credentials and internal
-Service, plus the worker Deployment and model/data mounts. AMQP remains internal; an external
-HTTP Route is not a requirement for this broker. Use approved base images/packages and local SAM3
-assets without runtime downloads. Do not administer or modify a production broker.
+Freeze that configuration for retries. Keep images, checkpoints and results in approved shared
+storage; credentials remain secret references, not message values.
 
-## Pseudo-labels and learning quality
+Use durable queue/storage settings and publisher confirmation appropriate to the chosen RabbitMQ
+version. Acknowledge only after a result is durably saved. Bound in-flight work and concurrency
+to GPU memory. Define finite retries, a dead-letter destination for permanent failures and
+observable job states.
 
-Store model/checkpoint, prompt, class mapping and preprocessing provenance with each labeling run.
-Make mask-to-box conversion, coordinate conventions and filtering explicit for detector training.
-Review a sample of labels and record class-specific errors, missed objects and corrections.
-An absent SAM3 prediction is not proof that the image contains no target objects; define how
-incomplete labels and background examples are handled rather than silently treating all misses
-as verified negatives.
+A duplicate delivery must not add a duplicate training example or overwrite a result from a
+different prompt/model revision. Demonstrate idempotent committed outputs; do not claim
+exactly-once inference.
 
-Split by source video/scene before frame sampling or pseudo-label production. Keep neighboring
-frames from the same source out of different splits. Use a bounded independently human-checked
-validation/test set; agreement with SAM3 pseudo-labels alone does not establish detector accuracy.
-Report a detector metric on that set alongside qualitative examples and its limitations.
+## 3. Verify a small batch, then execute the larger batch
 
-## Required demonstration
+Start with a tiny batch whose inputs, outputs and failures you can inspect. Then execute a
+substantially larger batch with a recorded frame count and runtime budget. The batch must
+actually process: a count of queued jobs alone is not completion. There is no universal required
+image count or accuracy target.
 
-Show producer submission, real SAM3 processing, durable labels and a reconciled manifest of
-successful, failed and pending jobs. Record processed count, throughput and labeling configuration.
-Stop a worker mid-job, restart it and demonstrate recovery without duplicate committed labels.
-Replay a job and submit one invalid reference to demonstrate deduplication and bounded failure
-handling. Explain acknowledgment, redelivery, prefetch/backpressure and dead-letter behavior.
+Persist labeling provenance: checkpoint/model, prompts, class mapping and preprocessing.
+Explain mask-to-box conversion, coordinates and filters used for the detector export. Audit a
+sample for class-specific errors, missed objects and needed corrections. Define how incomplete
+labels and background cases are treated; a missing SAM3 prediction is not a verified negative.
 
-Then show exported examples, actual detector parameter updates, saved-checkpoint reload and
-inference on held-out video frames. Submit code, schemas, Dockerfiles/manifests and reproducible
-submit/status/resume/export/train/predict instructions with sanitized evidence.
-A notebook may inspect results; it must not be the long-running queue consumer or batch orchestrator.
+## 4. Export, train and evaluate
 
-The mentor supplies approved RabbitMQ/SAM3/detector assets, compute and teaching namespace access
-through [the environment handoff](../../docs/RESEARCH_ENVIRONMENT.md).
-Unavailable prerequisites are BLOCKED with an owner, not a reason to replace the pipeline with mocks.
-This assignment specifies required work; the repository's synthetic baseline does not implement it.
+Export the accepted data for the one agreed detector. Show actual parameter updates during
+training, save the checkpoint, reload it and run held-out inference. Report a detector metric
+on the independently checked set, with representative outputs and limitations.
+
+## Submit and demonstrate
+
+Submit code, schemas, Dockerfiles/manifests and reproducible commands for
+submit/status/resume/export/train/predict, with sanitized evidence. Demonstrate:
+
+- Producer submission, real SAM3 processing and durable labels. Reconcile successful, failed
+  and pending jobs, and record processed count, throughput and configuration.
+- A worker stopped mid-job and restarted, recovering without duplicate committed labels.
+- A replayed job and an invalid reference, showing deduplication and bounded failure handling.
+- Exported training examples, real detector updates, checkpoint reload and held-out inference.
+
+Explain acknowledgement, redelivery, prefetch/backpressure and dead-letter handling.
+If prerequisites are missing, mark the exercise BLOCKED with an owner. Mocks do not replace
+the required pipeline, and the repository's synthetic baseline does not implement it.

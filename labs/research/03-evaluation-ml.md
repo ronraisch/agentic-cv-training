@@ -1,38 +1,50 @@
-# Part 3 Evaluation and classical models
+# Evaluate a change and train two small classical models
 
-Required learning: [Evaluation and ML](../../docs/lessons/03-metrics-ml.md).
+## Goal and preparation
 
-## Did LPR rectification help
+Complete three comparisons: the LPR preprocessing change, a motion classifier and a detection
+rescorer. A well-supported non-improvement is a valid result.
 
-Evaluate the part-2 change against the original path using the same detector, recognizer and examples.
-Predefine splits, metrics and thresholds. Include failed rectification, fallback, regressions and
-processing time. Do not report only successful crops.
-
-## Tracklet motion classification
-
-Use the supplied [tracklet producer](../../docs/COMPONENTS.md#tracklets-for-motion-classification)
-or a documented frozen source export. Acquiring videos and independently labeling motion is part
-of the work; implementing a detector/tracker is not.
-
-Given tracklets and independent motion labels, clarify the target, decision time and available
-information. Train a small classical model such as XGBoost against a simple baseline. Evaluate it,
-store feature computation and reload the selected artifact. Do not retrain the detector/tracker.
-
-## Detection rescoring
-
-Use the supplied [vehicle prediction export](../../docs/COMPONENTS.md#vehicle-predictions-for-rescoring)
-with independent dataset GT. Record source-class mapping and the box representation before comparing.
-
-Given a frozen detector's predictions, independent GT and detection/satellite-image metadata,
-learn a new score from the old score and useful metadata. Physical size relative to GSD and viewing
-angle are hypotheses, not universal rules. Compare raw score, a simple baseline and the model;
-ablate metadata. State whether the aim is ranking, an operating threshold or probability calibration.
-Use a small prepared dataset and limited configurations, not a new detector project.
-
-For all three deliver target definition, grouped data/split provenance, baseline, experiment, metrics
-and limitations. For learned models include feature schema, artifact and fresh-load inference.
-Use an agent to challenge leakage and confounders; verify its argument with a source or small example.
-A valid non-improvement is acceptable. The individual teach-back is separate from the MR review.
-
-[Relevant data sources](../../docs/DATASETS.md#evaluation-and-classical-ml).
+Use [the ML syllabus](../../docs/syllabi/ml.md),
+[the practical lesson](../../docs/lessons/03-metrics-ml.md) and
+[the prepared data sources](../../docs/DATASETS.md#evaluation-and-classical-ml).
 Follow [the acquisition steps](../../docs/DATASETS.md#acquire-a-working-subset).
+
+## Task 1: did plate rectification help?
+
+Compare your part-2 path with the original path on the same examples, detector and recognizer.
+Decide the splits, metrics and thresholds before looking at the final comparison.
+Include failed rectification, fallback cases, regressions and processing time. Reporting only the
+successfully rectified crops would answer a narrower question than whether the change helps.
+
+## Task 2: classify tracklet motion
+
+Use [the supplied tracklet producer](../../docs/COMPONENTS.md#tracklets-for-motion-classification)
+or a documented frozen export. Acquire videos and label motion independently; implementing or
+retraining the detector/tracker is not part of this exercise.
+
+Clarify the target, decision time and information available at that moment. Define features and
+train a small classical model, such as XGBoost, against a simple baseline. Evaluate it, save the
+feature computation and model, and verify inference after loading the selected artifact afresh.
+
+## Task 3: rescore frozen detections
+
+Use [the vehicle prediction export](../../docs/COMPONENTS.md#vehicle-predictions-for-rescoring)
+with independent ground truth. Record the source-to-target class mapping and box representation.
+
+Learn a new score from the detector's original score and useful image/detection metadata.
+Physical size relative to GSD and viewing angle are hypotheses to test, not universal rules.
+State whether the goal is better ranking, an operating threshold or probability calibration.
+
+Compare the raw score, a simple baseline and your learned model. Ablate the metadata so its
+contribution is visible. Use a small prepared dataset and limited configurations; keep the detector
+frozen rather than turning this into a new detector-training project.
+
+## Submit and explain
+
+For each comparison include the target, grouped split/data provenance, baseline, experiment,
+metrics and limitations. For the learned models also include the feature schema, saved artifact
+and fresh-load inference example.
+
+Use the agent to challenge possible leakage or confounding, then check its argument against a
+source or a small example. The individual theory explanation is separate from the MR review.
