@@ -1,85 +1,65 @@
-# Required learning and individual sessions
+# Theory, viewing and mentor conversations
 
-Use the local lessons and the specific learner references linked below.
+Start at [the training index](TRAINING_INDEX.md). Each of the four syllabi links directly to
+HTML reading in this repository, exact source video URLs, exercises and mentor conversations.
 
-## One route per concept
+## Learning policy
 
-The local material below is the default route. Use the named source section in Drive as a
-substitute or targeted reference, not additional mandatory reading. External videos are optional
-within the four funded media windows. If they are unavailable internally, use the local exercise.
-No lecture timestamps or measured watch-time savings are claimed.
+The material is for the trainee, not a compulsory reading checklist. A trainee who can explain
+the concepts, solve a new example and answer the mentor's questions may skip familiar pages.
+The expected understanding remains; exercises and agent-generated explanations do not replace it.
+Reading, course viewing, derivations and discussion are substantial parts of the learning process.
 
-| Block | Required local material | Source section retained selectively | Study cap |
-|---|---|---|---:|
-| Development and stack | [lessons/01-development.md](lessons/01-development.md); [ENGINEERING.md](ENGINEERING.md) sections 1,2,3,5,6; [AGENT_WORK.md](AGENT_WORK.md); [TEAM_INTEGRATION.md](TEAM_INTEGRATION.md) | Advanced Python: type hints, useful decorators, bounded concurrency; outline: arrays/data | 8 h |
-| Classical CV | [lessons/02-classical-cv.md](lessons/02-classical-cv.md) | CV mentor guide: filters, Hough lines, transforms, matching/RANSAC, warping; flow/pyramids at concept level | 6 h |
-| Evaluation and ML | [lessons/03-metrics-ml.md](lessons/03-metrics-ml.md) | ML: linear/logistic models, evaluation, SVM intuition, trees/boosting; PCA/clustering intuition | 7 h |
-| DL and representations | [lessons/04-torch.md](lessons/04-torch.md); [lessons/05-clouds.md](lessons/05-clouds.md); [lessons/06-video.md](lessons/06-video.md); [lessons/07-open-models.md](lessons/07-open-models.md) | Stanford 2025 chapters 4,5,8,9,10,12,16, selected slides/concepts only | 7 h |
-| **Core study** | | | **28 h** |
+Use the agent for active learning while implementing: ask why a method works, compare approaches,
+construct counterexamples and test a hypothesis. Verify the answer and explain it yourself.
+Use approved endpoints for internal code/data, and preserve the existing manual boundaries for
+the Python capstone and the first SAM2 service setup.
 
-The hourly caps include relevant code reading, self-checks and questions. A competent learner
-should skip an already-demonstrated introductory explanation and use the time on a gap. All core
-outcomes remain examinable; scope is bounded while the selected concepts retain deep questioning.
+## Four study routes
 
-### Explicit DL study allocation
+| Part | Syllabus and topic map | Suggested study | Suggested viewing/reflection |
+|---|---|---:|---:|
+| Development | [Development](syllabi/development.md) | 10–14 h | 3–5 h |
+| Classical CV | [CV](syllabi/cv.md) | 12–18 h | 8–12 h |
+| ML and evaluation | [ML](syllabi/ml.md) | 14–22 h | 3–5 h |
+| Deep learning, open models and video | [DL](syllabi/deep.md) | 16–26 h | 18–28 h |
+| **First-pass planning range** | | **52–80 h** | **32–50 h** |
 
-The seven hours are: 3 h training/attention fundamentals, 45 min cloud concepts, 75 min video
-concepts and **2 h embeddings, VLMs, open-vocabulary detection and open-model usage** in
-[the new local introduction](lessons/07-open-models.md). Its one-hour intuition probe uses one
-hour of the existing 19-hour video baseline project budget. No extra mentor meeting or video
-playlist is added. References replace repeated introductions and are read selectively.
+These are initial planning ranges, not measured course runtimes, mandatory page quotas or hard
+caps. They replace the former 28-hour study plan and four short media windows, which did not
+represent the restored breadth. A novice watching every complete lecture may need more time;
+an experienced learner may need less. Record actual active study, viewing and reflection, and
+revise the plan with the mentor. Do not silently discard theory to fit the old time envelope.
 
-### Four media windows
+Retain UD810/CS4495 units 1,2,3,4,6,7A,9A,9B and Stanford CS231n 2025 lectures 1–16.
+The stage syllabi preserve their exact source links and the original skip/survey choices.
+Michigan 2019 is an alternative explanation for corresponding topics, not a second required
+course. Generative models, 3D and distributed training remain visible even when their first
+pass is survey depth. Retained breadth and archived role-specific material are explicitly labeled.
 
-1. Development/array self-check: trace a request and an independent numerical example.
-2. CV: draw a Hough vote, solve a transform and explain a failure case.
-3. Evaluation: compute a metric and design a grouped comparison.
-4. DL/video: trace tensor shapes or explain attention/temporal information with a toy example.
+## Two conversations for each part
 
-Each window is one hour. A mentor may select at most 40 minutes of a single relevant source video
-and replace that exercise; pauses/reflection use the remaining 20. Do not assign a whole playlist
-or both legacy and current videos. Choose source segments by concept and record actual runtime.
+Arrange one foundations/application conversation and one deeper conversation for each of the
+four parts, around actual readiness. This gives eight concept conversations. A suggested
+45 minutes each uses 6 h trainee attendance; reserve the remaining 2 h from the existing
+8 h contact allocation for targeted product/code review and final handover. These are scheduling
+suggestions, not a limit on the mentor's theory questions. If more time is needed, update the
+schedule explicitly rather than inventing an extra daily meeting.
 
-## What was deliberately reduced
+Only the first conversation begins with a brief basic-understanding check. Later discussion
+focuses on derivations, counterexamples, difficult cases and research/production choices from
+the existing question banks. The mentor can ask theory throughout and does not have to replay
+all slides or inspect a page-completion log.
 
-- Broad beginner Linux/Python courses become diagnostics plus just-in-time remediation.
-- Dozens of NumPy/Pandas exercises become a few failing counterexamples in the real project.
-- Streamlit benchmarking and the separate Kaggle score target leave the core. The
-  [manual Shape Rendering capstone](../labs/research/00-python-manual.md) remains required.
-- Parallel introductory explanations of loss, regularization and linear models are merged once.
-- Naive Bayes derivation, EM/GMM, spectral clustering and detailed t-SNE/UMAP become optional.
-- RNN/LSTM gate derivations, exhaustive architecture history, generative-models blocks, 3D vision
-  and distributed-training implementation become optional role-specific follow-up.
-- Preserve attention/ViT, SSL/embeddings, segmentation, video, vision-language and inference
-  correctness because they support this team's tasks. Replace many detector-history papers with
-  one short comparison; a full detector implementation is no longer a second capstone.
-- The developer-oriented primer is a diagnostic/reference for missing foundations, not another
-  required 5-6 hours for researchers who have already learned those foundations.
+Bring one concept you can explain, evidence from the exercise and one unresolved question.
+Explain an unseen example without the agent. A gap leads to targeted reading/viewing and another
+check. Practical correctness and conceptual understanding are recorded separately.
 
-## Teach-back rather than slide replay
+## Material preservation
 
-The source DL mentor guide explicitly expects the trainee to teach the mentor, with precise terms
-and sound arguments. The CV guide asks for cost-effective sessions rather than slide speed-runs.
-Keep those principles with shorter scope and a limited question sample.
-
-Before a meeting submit a one-page packet: one concept diagram, two verified claims, an unresolved
-question, and a small counterexample. Explain a new example without the agent during the meeting.
-Use notes and a debugger; memorizing syntax is not the goal. The mentor samples the required topics,
-not every question in the original banks. Missing knowledge triggers a bounded retake.
-
-Only the first session includes a rapid **10-minute basic-understanding check**. Use its
-remaining time for the manual Python review, or the Matt Pocock teach-back once Python is
-reviewed and OMP/skills are configured. Skills practice stays within the existing meeting budget.
-Subsequent sessions focus on difficult question chains
-from the existing mentor materials: derivations, counterexamples and research/production decisions.
-Do not turn them into a repeated vocabulary quiz.
-The weekly plan and the total 12-hour mentor cap are in [CURRICULUM.md](CURRICULUM.md). Product conversations and
-reviews share those same windows; a new daily hour is not assumed.
-
-## Independent research learning is part of the work
-
-Use [RESEARCH_WITH_AGENTS](RESEARCH_WITH_AGENTS.md) for two funded hours every week. Ask the
-approved repository-aware agent or ChatGPT to explain unfamiliar concepts, challenge hypotheses,
-compare methods and propose a falsifying experiment. Verify evidence and explain the result yourself.
-Only an approved internal endpoint may receive internal code or data; use synthetic abstractions
-for public ChatGPT. A confident answer from a model is not a verified scientific source.
+The [source coverage table](reading/sources.html) maps original article/PDF subjects to local
+chapters and preserves complete learner handouts. These chapters are original explanatory text,
+not verbatim copies of third-party publications. Source links remain as provenance; reading does
+not depend on opening them. Video/course and data acquisition references retain external URLs.
+Exact unidentified internal resources are recorded as unresolved rather than invented.
+Original Drive files remain unchanged; mentor question-bank text is not copied into learner pages.

@@ -1,5 +1,8 @@
 # Training and inference fundamentals
 
+Full theory and original course links: [Deep syllabus](../syllabi/deep.md).
+This short lesson supplements that route; reading completion is optional when understanding is demonstrated.
+
 A tensor has shape, dtype, device and possibly an autograd graph. HWC is not CHW: permute changes
 axis meaning; reshape alone does not. Explain convolution channels/stride/padding, receptive fields,
 residual paths and normalization using one architecture, not an exhaustive architecture history.

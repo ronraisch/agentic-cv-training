@@ -1,0 +1,4875 @@
+[
+  {
+    "source": "Advanced Python Training.docx",
+    "label": "https://towardsdatascience.com/type-hints-in-python-everything-you-need-to-know-in-5-minutes-24e0bad06d0b",
+    "url": "https://towardsdatascience.com/type-hints-in-python-everything-you-need-to-know-in-5-minutes-24e0bad06d0b",
+    "kind": "reading",
+    "local": "python-tools.html"
+  },
+  {
+    "source": "Advanced Python Training.docx",
+    "label": "https://docs.python.org/3/library/typing.html",
+    "url": "https://docs.python.org/3/library/typing.html",
+    "kind": "reading",
+    "local": "python-tools.html"
+  },
+  {
+    "source": "Advanced Python Training.docx",
+    "label": "https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html",
+    "url": "https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html",
+    "kind": "reading",
+    "local": "python-tools.html"
+  },
+  {
+    "source": "Advanced Python Training.docx",
+    "label": "https://www.programiz.com/python-programming/decorator",
+    "url": "https://www.programiz.com/python-programming/decorator",
+    "kind": "reading",
+    "local": "python-tools.html"
+  },
+  {
+    "source": "Advanced Python Training.docx",
+    "label": "https://medium.com/data-science/10-fabulous-python-decorators-ab674a732871):",
+    "url": "https://medium.com/data-science/10-fabulous-python-decorators-ab674a732871",
+    "kind": "reading",
+    "local": "python-tools.html"
+  },
+  {
+    "source": "Advanced Python Training.docx",
+    "label": "https://docs.python.org/3/library/functools.html#functools.lru_cache",
+    "url": "https://docs.python.org/3/library/functools.html#functools.lru_cache",
+    "kind": "reading",
+    "local": "python-tools.html"
+  },
+  {
+    "source": "Advanced Python Training.docx",
+    "label": "https://www.programiz.com/python-programming/property",
+    "url": "https://www.programiz.com/python-programming/property",
+    "kind": "reading",
+    "local": "python-tools.html"
+  },
+  {
+    "source": "Advanced Python Training.docx",
+    "label": "https://docs.python.org/3/library/dataclasses.html",
+    "url": "https://docs.python.org/3/library/dataclasses.html",
+    "kind": "reading",
+    "local": "python-tools.html"
+  },
+  {
+    "source": "Advanced Python Training.docx",
+    "label": "https://docs.python.org/3/library/functools.html#functools.singledispatch",
+    "url": "https://docs.python.org/3/library/functools.html#functools.singledispatch",
+    "kind": "reading",
+    "local": "python-tools.html"
+  },
+  {
+    "source": "Advanced Python Training.docx",
+    "label": "https://stackoverflow.com/a/12179752",
+    "url": "https://stackoverflow.com/a/12179752",
+    "kind": "reading",
+    "local": "python-tools.html"
+  },
+  {
+    "source": "Advanced Python Training.docx",
+    "label": "https://docs.python.org/3.11/howto/enum.html",
+    "url": "https://docs.python.org/3.11/howto/enum.html",
+    "kind": "reading",
+    "local": "python-tools.html"
+  },
+  {
+    "source": "Advanced Python Training.docx",
+    "label": "https://docs.python.org/3/library/queue.html",
+    "url": "https://docs.python.org/3/library/queue.html",
+    "kind": "reading",
+    "local": "python-tools.html"
+  },
+  {
+    "source": "Advanced Python Training.docx",
+    "label": "https://docs.streamlit.io/",
+    "url": "https://docs.streamlit.io/",
+    "kind": "reading",
+    "local": "python-tools.html"
+  },
+  {
+    "source": "Advanced Python Training.docx",
+    "label": "https://docs.streamlit.io/library/get-started",
+    "url": "https://docs.streamlit.io/library/get-started",
+    "kind": "reading",
+    "local": "python-tools.html"
+  },
+  {
+    "source": "Developer outline (archive).docx",
+    "label": "https://www.tutorialspoint.com/unix/index.htm",
+    "url": "https://www.tutorialspoint.com/unix/index.htm",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "Developer outline (archive).docx",
+    "label": "https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud",
+    "url": "https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "Developer outline (archive).docx",
+    "label": "https://www.katacoda.com/courses/docker",
+    "url": "https://www.katacoda.com/courses/docker",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "Developer outline (archive).docx",
+    "label": "The Python Tutorial",
+    "url": "https://www.tutorialspoint.com/python/index.htm",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "Developer outline (archive).docx",
+    "label": "https://docs.python-guide.org/writing/style/",
+    "url": "https://docs.python-guide.org/writing/style/",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "Developer outline (archive).docx",
+    "label": "Python Numpy Tutorial (CS231n)",
+    "url": "http://cs231n.github.io/python-numpy-tutorial/",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "Developer outline (archive).docx",
+    "label": "TutorialsPoint",
+    "url": "https://www.tutorialspoint.com/numpy/index.htm",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "Developer outline (archive).docx",
+    "label": "100 Numpy Questions",
+    "url": "https://github.com/rougier/numpy-100",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "Developer outline (archive).docx",
+    "label": "Pandas Exercises",
+    "url": "https://github.com/guipsamora/pandas_exercises",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "Developer outline (archive).docx",
+    "label": "TutorialsPoint",
+    "url": "https://www.tutorialspoint.com/python_pandas/index.htm",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "Developer outline (archive).docx",
+    "label": "Visualizations with Seaborn tutorial",
+    "url": "https://github.com/rajivramanjani/UdemyPythonDSML/tree/master/06-Data-Visualization-with-Seaborn",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "Developer outline (archive).docx",
+    "label": "https://youtu.be/7EmboKQH8lM",
+    "url": "https://youtu.be/7EmboKQH8lM",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "https://www.tutorialspoint.com/unix/index.htm",
+    "url": "https://www.tutorialspoint.com/unix/index.htm",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "https://www.atlassiarrently checked out commit -- it's essentially what commit you're working on top of.n.com/git/tutorials/learn-git-with-bitbucket-cloud",
+    "url": "https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "https://www.udemy.com/course/docker-essentials/",
+    "url": "https://www.udemy.com/course/docker-essentials/",
+    "kind": "course",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "The Python Tutorial",
+    "url": "https://www.tutorialspoint.com/python/index.htm",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "https://docs.python-guide.org/writing/style/",
+    "url": "https://docs.python-guide.org/writing/style/",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "advanced Python training program",
+    "url": "https://docs.google.com/document/d/1plC1Xk7hPde-kOEtHHnGpXkBRWqvixFOvCCbVGhgVYY/edit?usp=sharing",
+    "kind": "retained-handout",
+    "local": "legacy-python.html"
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "Python Numpy Tutorial (CS231n)",
+    "url": "http://cs231n.github.io/python-numpy-tutorial/",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "TutorialsPoint",
+    "url": "https://www.tutorialspoint.com/numpy/index.htm",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "100 Numpy Questions",
+    "url": "https://github.com/rougier/numpy-100",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "Boids simulation",
+    "url": "https://docs.google.com/document/d/1Ngbd31sq_GQ4oAFBFmNjsXrTNoFL9wPoDxiw7wqv6zs/edit#",
+    "kind": "retained-handout",
+    "local": "legacy-boids.html"
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "Pandas Exercises",
+    "url": "https://github.com/guipsamora/pandas_exercises",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "TutorialsPoint",
+    "url": "https://www.tutorialspoint.com/python_pandas/index.htm",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "https://youtu.be/7EmboKQH8lM",
+    "url": "https://youtu.be/7EmboKQH8lM",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "https://youtu.be/2a_ytyt9sf8",
+    "url": "https://youtu.be/2a_ytyt9sf8",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "Shape Rendering",
+    "url": "https://docs.google.com/document/d/1mdw1ahKP9M3MbeGYcVxJhA5HC5nXHEZ2aio9RzqgFPk/",
+    "kind": "retained-handout",
+    "local": "legacy-shape-rendering.html"
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "Udacity UD810 / CS4495 ",
+    "url": "https://docs.google.com/spreadsheets/d/1ecUGIyhYOfQPi3HPXb-7NndrLgpX_zgkwsqzfqHPaus/pubhtml",
+    "kind": "course",
+    "local": "cv.html"
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "Udacity",
+    "url": "https://www.udacity.com/enrollment/ud810",
+    "kind": "course",
+    "local": "cv-filtering.html"
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "https://docs.google.com/document/d/1pH0W2ayG0wFHTs-vXqah2udiYRUqgoeQ2I6sdTkqE_Q/edit?usp=sharing",
+    "url": "https://docs.google.com/document/d/1pH0W2ayG0wFHTs-vXqah2udiYRUqgoeQ2I6sdTkqE_Q/edit?usp=sharing",
+    "kind": "retained-handout",
+    "local": "legacy-ml.html"
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "https://docs.google.com/document/d/10BH9a9M4lRILoVYEsoZvQ81LQmL1B6N-QkoefXt52Uk/edit?usp=sharing",
+    "url": "https://docs.google.com/document/d/10BH9a9M4lRILoVYEsoZvQ81LQmL1B6N-QkoefXt52Uk/edit?usp=sharing",
+    "kind": "retained-handout",
+    "local": "legacy-ml-additional.html"
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "https://drive.google.com/drive/folders/1uXbVlgaL0kvrTS0cbbPZhMDXNXUu8Oed?usp=sharing",
+    "url": "https://drive.google.com/drive/folders/1uXbVlgaL0kvrTS0cbbPZhMDXNXUu8Oed?usp=sharing",
+    "kind": "exercise-or-data",
+    "local": null
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "https://drive.google.com/drive/folders/1hM7-LkPs8F97dNx1zQqpknPBnTACuoPa?usp=sharing",
+    "url": "https://drive.google.com/drive/folders/1hM7-LkPs8F97dNx1zQqpknPBnTACuoPa?usp=sharing",
+    "kind": "exercise-or-data",
+    "local": null
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "EECS498 ",
+    "url": "https://web.eecs.umich.edu/~justincj/teaching/eecs498/FA2019/",
+    "kind": "collection",
+    "local": "deep.html"
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "2019 course version",
+    "url": "https://web.eecs.umich.edu/~justincj/teaching/eecs498/FA2019/schedule.html",
+    "kind": "collection",
+    "local": "deep.html"
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "link",
+    "url": "https://www.dropbox.com/sh/t3rlt3ghbnxuvjn/AADOwhPkfxe8dQlOsLaygWqPa?dl=0",
+    "kind": "collection",
+    "local": "deep.html",
+    "note": "Archive notes collection; current topic explanations are local. Exact external archive contents were not fetched."
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "here",
+    "url": "https://www.youtube.com/watch?v=T-smYxIQGDw",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "ViT",
+    "url": "https://www.youtube.com/watch?v=TrdevFK_am4",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "DeTR",
+    "url": "https://www.youtube.com/watch?v=T35ba_VXkMY",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "DINO",
+    "url": "https://www.youtube.com/watch?v=h3ij3F3cPIk",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "CLIP",
+    "url": "https://www.youtube.com/watch?v=T9XSU0pKX2E",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "Self-supervised Learning",
+    "url": "https://lilianweng.github.io/posts/2019-11-10-self-supervised/",
+    "kind": "reading",
+    "local": "dl-self-supervision.html"
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "Contrastive Learning",
+    "url": "https://lilianweng.github.io/posts/2021-05-31-contrastive/#moco--moco-v2",
+    "kind": "reading",
+    "local": "dl-self-supervision.html"
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "Neural Networks and Deep Learning",
+    "url": "http://neuralnetworksanddeeplearning.com",
+    "kind": "reading",
+    "local": "dl-training.html",
+    "also": [
+      "ml-probabilistic-survey.html",
+      "dl-training.html",
+      "dl-cnns.html",
+      "dl-generative.html"
+    ]
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "Lecture Videos",
+    "url": "https://www.youtube.com/playlist?list=PLqYmG7hTraZDNJre23vqCGIVpfZ_K2RZs",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "Course Homepage",
+    "url": "http://introtodeeplearning.com/",
+    "kind": "collection",
+    "local": "deep.html"
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "Slides",
+    "url": "http://josh-tobin.com/assets/pdf/troubleshooting-deep-neural-networks-01-19.pdf",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "Video",
+    "url": "https://www.youtube.com/watch?v=XtCNNwDi9xg",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "Unsupervised Feature Learning and Deep Learning",
+    "url": "http://deeplearning.stanford.edu/tutorial/",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "Training Program Outline (archive).docx",
+    "label": "Montreal AI",
+    "url": "https://montrealartificialintelligence.com/academy/",
+    "kind": "collection",
+    "local": "deep.html"
+  },
+  {
+    "source": "Deep Learning Training - For Shampooer.docx",
+    "label": "https://twitter.com/itayevron/status/1328421322821693441?s=08",
+    "url": "https://twitter.com/itayevron/status/1328421322821693441?s=08",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "Deep Learning Training - For Shampooer.docx",
+    "label": "https://distill.pub/2019/computing-receptive-fields/",
+    "url": "https://distill.pub/2019/computing-receptive-fields/",
+    "kind": "reading",
+    "local": "dl-cnns.html"
+  },
+  {
+    "source": "Deep Learning Training - For Shampooer.docx",
+    "label": "Fully Convolutional Networks for Semantic Segmentation",
+    "url": "https://arxiv.org/abs/1411.4038",
+    "kind": "reading",
+    "local": "dl-detection.html"
+  },
+  {
+    "source": "Deep Learning Training - For Shampooer.docx",
+    "label": "wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Batch_normalization#Length-Direction_Decoupling",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "Machine Learning Training Program.docx",
+    "label": "https://drive.google.com/drive/folders/1hM7-LkPs8F97dNx1zQqpknPBnTACuoPa?usp=sharing",
+    "url": "https://drive.google.com/drive/folders/1hM7-LkPs8F97dNx1zQqpknPBnTACuoPa?usp=sharing",
+    "kind": "exercise-or-data",
+    "local": null
+  },
+  {
+    "source": "Machine Learning Training Program.docx",
+    "label": "CS229 Notes 1: Supervised Learning and Discriminative Algorithms",
+    "url": "http://cs229.stanford.edu/notes2019fall/cs229-notes1.pdf",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "Machine Learning Training Program.docx",
+    "label": "Overfitting/Underfitting, Bias, and Variance",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/08_model-eval-1/08-model-eval-1-intro__notes.pdf",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "Machine Learning Training Program.docx",
+    "label": "Chapter 8 Bias–Variance Tradeoff | R for Statistical Learning",
+    "url": "https://daviddalpiaz.github.io/r4sl/biasvariance-tradeoff.html",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "Machine Learning Training Program.docx",
+    "label": "Holdout Validation, Resampling, Bootstrapping ",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/09_eval2-ci/09-eval2-ci__notes.pdf",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "Machine Learning Training Program.docx",
+    "label": "Model Selection and Cross Validation",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/10_eval3-cv/10-eval3-cv__notes.pdf",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "Machine Learning Training Program.docx",
+    "label": "Statistical Tests",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/11_eval4-algo/11-eval4-algo__notes.pdf",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "Machine Learning Training Program.docx",
+    "label": "Lecture Slides",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/12_eval5-metrics/12_eval5-metrics__slides.pdf",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "Machine Learning Training Program.docx",
+    "label": "metric summary written ",
+    "url": "https://docs.google.com/document/u/0/d/1URUQiw9mPm9ZyVKfAxYYm6eeS_e66Q_HXvbBWKoOwSY/edit",
+    "kind": "retained-handout",
+    "local": "legacy-metrics.html"
+  },
+  {
+    "source": "Machine Learning Training Program.docx",
+    "label": "Feature Selection",
+    "url": "https://see.stanford.edu/materials/aimlcs229/cs229-notes5.pdf",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "Machine Learning Training Program.docx",
+    "label": "What is the difference between bootstrapping and cross-validation?",
+    "url": "https://datascience.stackexchange.com/questions/32264/what-is-the-difference-between-bootstrapping-and-cross-validation",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "Machine Learning Training Program.docx",
+    "label": "CS229 Notes 2: Generative Algorithms",
+    "url": "http://cs229.stanford.edu/notes2019fall/cs229-notes2.pdf",
+    "kind": "reading",
+    "local": "ml-generative-neighbors.html"
+  },
+  {
+    "source": "Machine Learning Training Program.docx",
+    "label": "Lecture Notes",
+    "url": "https://sebastianraschka.com/pdf/lecture-notes/stat479fs18/02_knn_notes.pdf",
+    "kind": "reading",
+    "local": "ml-generative-neighbors.html"
+  },
+  {
+    "source": "Machine Learning Training Program.docx",
+    "label": "CS229 Lecture Notes",
+    "url": "http://cs229.stanford.edu/notes2021fall/cs229-notes3.pdf",
+    "kind": "reading",
+    "local": "ml-generative-neighbors.html"
+  },
+  {
+    "source": "Machine Learning Training Program.docx",
+    "label": "Decision Trees ",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/06_trees/06-trees__notes.pdf",
+    "kind": "reading",
+    "local": "ml-trees-ensembles.html"
+  },
+  {
+    "source": "Machine Learning Training Program.docx",
+    "label": "Ensembling",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/07_ensembles/07-ensembles__notes.pdf",
+    "kind": "reading",
+    "local": "ml-trees-ensembles.html"
+  },
+  {
+    "source": "Machine Learning Training Program.docx",
+    "label": "Principal Component Analysis",
+    "url": "http://cs229.stanford.edu/notes2019fall/cs229-notes10.pdf",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "Machine Learning Training Program.docx",
+    "label": "Clustering Algorithms Blog",
+    "url": "https://towardsdatascience.com/the-5-clustering-algorithms-data-scientists-need-to-know-a36d136ef68",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "Machine Learning Training Program.docx",
+    "label": "GMM and EM",
+    "url": "https://towardsdatascience.com/expectation-maximization-for-gmms-explained-5636161577ca",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "Machine Learning Training Program.docx",
+    "label": "Distill post on TSNE",
+    "url": "https://distill.pub/2016/misread-tsne/",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "Machine Learning Training Program.docx",
+    "label": "post on UMAP",
+    "url": "https://pair-code.github.io/understanding-umap/",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "Machine Learning Training Program.docx",
+    "label": "Visualizations with Seaborn tutorial",
+    "url": "https://github.com/rajivramanjani/UdemyPythonDSML/tree/master/06-Data-Visualization-with-Seaborn",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "Machine Learning Training Program.docx",
+    "label": "Shelter Animal Outcomes",
+    "url": "https://www.kaggle.com/c/shelter-animal-outcomes/overview",
+    "kind": "exercise-or-data",
+    "local": null
+  },
+  {
+    "source": "Training Program Outline - New 2025.docx",
+    "label": "https://www.tutorialspoint.com/unix/index.htm",
+    "url": "https://www.tutorialspoint.com/unix/index.htm",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "Training Program Outline - New 2025.docx",
+    "label": "https://www.atlassiarrently checked out commit -- it's essentially what commit you're working on top of.n.com/git/tutorials/learn-git-with-bitbucket-cloud",
+    "url": "https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "Training Program Outline - New 2025.docx",
+    "label": "https://www.udemy.com/course/docker-essentials/",
+    "url": "https://www.udemy.com/course/docker-essentials/",
+    "kind": "course",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "Training Program Outline - New 2025.docx",
+    "label": "The Python Tutorial",
+    "url": "https://www.tutorialspoint.com/python/index.htm",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "Training Program Outline - New 2025.docx",
+    "label": "https://docs.python-guide.org/writing/style/",
+    "url": "https://docs.python-guide.org/writing/style/",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "Training Program Outline - New 2025.docx",
+    "label": "Advanced Python Training.docx",
+    "url": "https://docs.google.com/document/d/10i3uoZeVV98XpXxplrF0VUhZwJiyUWch/edit?usp=sharing&ouid=113308865358382635513&rtpof=true&sd=true",
+    "kind": "retained-handout",
+    "local": "legacy-python.html"
+  },
+  {
+    "source": "Training Program Outline - New 2025.docx",
+    "label": "Python Numpy Tutorial (CS231n)",
+    "url": "http://cs231n.github.io/python-numpy-tutorial/",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "Training Program Outline - New 2025.docx",
+    "label": "TutorialsPoint",
+    "url": "https://www.tutorialspoint.com/numpy/index.htm",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "Training Program Outline - New 2025.docx",
+    "label": "100 Numpy Questions",
+    "url": "https://github.com/rougier/numpy-100",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "Training Program Outline - New 2025.docx",
+    "label": "Boids simulation",
+    "url": "https://docs.google.com/document/d/1Ngbd31sq_GQ4oAFBFmNjsXrTNoFL9wPoDxiw7wqv6zs/edit#",
+    "kind": "retained-handout",
+    "local": "legacy-boids.html"
+  },
+  {
+    "source": "Training Program Outline - New 2025.docx",
+    "label": "Pandas Exercises",
+    "url": "https://github.com/guipsamora/pandas_exercises",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "Training Program Outline - New 2025.docx",
+    "label": "TutorialsPoint",
+    "url": "https://www.tutorialspoint.com/python_pandas/index.htm",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "Training Program Outline - New 2025.docx",
+    "label": "https://youtu.be/7EmboKQH8lM",
+    "url": "https://youtu.be/7EmboKQH8lM",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Training Program Outline - New 2025.docx",
+    "label": "https://youtu.be/2a_ytyt9sf8",
+    "url": "https://youtu.be/2a_ytyt9sf8",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Training Program Outline - New 2025.docx",
+    "label": "Shape Rendering",
+    "url": "https://docs.google.com/document/d/1mdw1ahKP9M3MbeGYcVxJhA5HC5nXHEZ2aio9RzqgFPk/",
+    "kind": "retained-handout",
+    "local": "legacy-shape-rendering.html"
+  },
+  {
+    "source": "Training Program Outline - New 2025.docx",
+    "label": "Udacity UD810 / CS4495 ",
+    "url": "https://docs.google.com/spreadsheets/d/1ecUGIyhYOfQPi3HPXb-7NndrLgpX_zgkwsqzfqHPaus/pubhtml",
+    "kind": "course",
+    "local": "cv.html"
+  },
+  {
+    "source": "Training Program Outline - New 2025.docx",
+    "label": "Udacity",
+    "url": "https://www.udacity.com/enrollment/ud810",
+    "kind": "course",
+    "local": "cv-filtering.html"
+  },
+  {
+    "source": "Training Program Outline - New 2025.docx",
+    "label": "Machine Learning Training.docx",
+    "url": "https://docs.google.com/document/d/1v6KsRgMbj395X2sIQ27RsVnfX_1Kq9O_/edit?usp=drive_link&ouid=113308865358382635513&rtpof=true&sd=true",
+    "kind": "retained-handout",
+    "local": "legacy-ml.html"
+  },
+  {
+    "source": "Training Program Outline - New 2025.docx",
+    "label": "ML Additional Readings.docx",
+    "url": "https://docs.google.com/document/d/1n9A6QM7w7pWlbZk3VDUKCaF-HvI8znSQ/edit?usp=drive_link&ouid=113308865358382635513&rtpof=true&sd=true",
+    "kind": "retained-handout",
+    "local": "legacy-ml-additional.html"
+  },
+  {
+    "source": "Training Program Outline - New 2025.docx",
+    "label": "ml_training_exercises.ipynb",
+    "url": "https://drive.google.com/file/d/19Snas2MqzS4-o4B3NfTzv4HBhPpAIRBF/view?usp=drive_link",
+    "kind": "exercise-or-data",
+    "local": null
+  },
+  {
+    "source": "Training Program Outline - New 2025.docx",
+    "label": "data",
+    "url": "https://drive.google.com/drive/folders/1P1MFkVfQTT8F4g3D0ejp5ocVDMyFeZLc?usp=drive_link",
+    "kind": "exercise-or-data",
+    "local": null
+  },
+  {
+    "source": "Training Program Outline - New 2025.docx",
+    "label": "Deep Learning Training.docx",
+    "url": "https://docs.google.com/document/d/1ZWM5zmbQNZdYHGjkpCE9XgowJWRWLbnF/edit?usp=drive_link&ouid=113308865358382635513&rtpof=true&sd=true",
+    "kind": "retained-handout",
+    "local": "legacy-dl.html"
+  },
+  {
+    "source": "Training Program Outline - New 2025.docx",
+    "label": "Neural Networks and Deep Learning",
+    "url": "http://neuralnetworksanddeeplearning.com",
+    "kind": "reading",
+    "local": "dl-training.html",
+    "also": [
+      "ml-probabilistic-survey.html",
+      "dl-training.html",
+      "dl-cnns.html",
+      "dl-generative.html"
+    ]
+  },
+  {
+    "source": "Training Program Outline - New 2025.docx",
+    "label": "Lecture Videos",
+    "url": "https://www.youtube.com/playlist?list=PLqYmG7hTraZDNJre23vqCGIVpfZ_K2RZs",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Training Program Outline - New 2025.docx",
+    "label": "Course Homepage",
+    "url": "http://introtodeeplearning.com/",
+    "kind": "collection",
+    "local": "deep.html"
+  },
+  {
+    "source": "Training Program Outline - New 2025.docx",
+    "label": "Slides",
+    "url": "http://josh-tobin.com/assets/pdf/troubleshooting-deep-neural-networks-01-19.pdf",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "Training Program Outline - New 2025.docx",
+    "label": "Video",
+    "url": "https://www.youtube.com/watch?v=XtCNNwDi9xg",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Training Program Outline - New 2025.docx",
+    "label": "Unsupervised Feature Learning and Deep Learning",
+    "url": "http://deeplearning.stanford.edu/tutorial/",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "Training Program Outline - New 2025.docx",
+    "label": "Montreal AI",
+    "url": "https://montrealartificialintelligence.com/academy/",
+    "kind": "collection",
+    "local": "deep.html"
+  },
+  {
+    "source": "Metrics Summary.docx",
+    "label": "following blog",
+    "url": "https://developers.google.com/machine-learning/crash-course/classification/precision-and-recall#:~:text=all%20malignant%20tumors.-,Precision%20and%20Recall%3A%20A%20Tug%20of%20War,-To%20fully%20evaluate",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "Metrics Summary.docx",
+    "label": "https://adamyedidia.files.wordpress.com/2014/11/f_score.pdf",
+    "url": "https://adamyedidia.files.wordpress.com/2014/11/f_score.pdf",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "Metrics Summary.docx",
+    "label": "https://stats.stackexchange.com/a/7210",
+    "url": "https://stats.stackexchange.com/a/7210",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "Metrics Summary.docx",
+    "label": "https://www.cs.technion.ac.il/users/wwwb/cgi-bin/tr-get.cgi/2019/PHD/PHD-2019-09.pdf",
+    "url": "https://www.cs.technion.ac.il/users/wwwb/cgi-bin/tr-get.cgi/2019/PHD/PHD-2019-09.pdf",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "Metrics Summary.docx",
+    "label": "https://scikit-learn.org/stable/modules/model_evaluation.html#mean-absolute-error",
+    "url": "https://scikit-learn.org/stable/modules/model_evaluation.html#mean-absolute-error",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "Metrics Summary.docx",
+    "label": "https://scikit-learn.org/stable/modules/model_evaluation.html#mean-squared-error",
+    "url": "https://scikit-learn.org/stable/modules/model_evaluation.html#mean-squared-error",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "Metrics Summary.docx",
+    "label": "https://scikit-learn.org/stable/modules/model_evaluation.html#mean-absolute-percentage-error",
+    "url": "https://scikit-learn.org/stable/modules/model_evaluation.html#mean-absolute-percentage-error",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "Metrics Summary.docx",
+    "label": "https://twitter.com/capeandcode/status/1450666977236713480",
+    "url": "https://twitter.com/capeandcode/status/1450666977236713480",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "Metrics Summary.docx",
+    "label": "https://scikit-learn.org/stable/modules/model_evaluation.html#median-absolute-error",
+    "url": "https://scikit-learn.org/stable/modules/model_evaluation.html#median-absolute-error",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "Metrics Summary.docx",
+    "label": "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html#sklearn.metrics.r2_score",
+    "url": "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html#sklearn.metrics.r2_score",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "Metrics Summary.docx",
+    "label": "https://queirozf.com/entries/evaluation-metrics-for-ranking-problems-introduction-and-examples",
+    "url": "https://queirozf.com/entries/evaluation-metrics-for-ranking-problems-introduction-and-examples",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud",
+    "url": "https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "https://www.katacoda.com/courses/docker",
+    "url": "https://www.katacoda.com/courses/docker",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "The Python Tutorial",
+    "url": "https://docs.python.org/3/tutorial/",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "https://docs.python-guide.org/writing/style/",
+    "url": "https://docs.python-guide.org/writing/style/",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "Python Numpy Tutorial (CS231n)",
+    "url": "http://cs231n.github.io/python-numpy-tutorial/",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "TutorialsPoint",
+    "url": "https://www.tutorialspoint.com/numpy/index.htm",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "100 Numpy Questions",
+    "url": "https://github.com/rougier/numpy-100",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "Pandas Exercises",
+    "url": "https://github.com/guipsamora/pandas_exercises",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "TutorialsPoint",
+    "url": "https://www.tutorialspoint.com/python_pandas/python_pandas_indexing_and_selecting_data.htm",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "Shape Rendering",
+    "url": "https://docs.google.com/document/d/1x4sYpDjfXaKN3ysICXq5tjpgUTYmlNCQxtj4jep0Uio/edit",
+    "kind": "retained-handout",
+    "local": "legacy-shape-rendering.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "Pandas Exercises - Section 7 - Titanic Disaster",
+    "url": "https://github.com/guipsamora/pandas_exercises/tree/master/07_Visualization/Titanic_Desaster",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "Comprehensive Data Exploration in Python",
+    "url": "https://www.kaggle.com/pmarcelino/comprehensive-data-exploration-with-python",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "Kaggle Micro-Courses",
+    "url": "https://www.kaggle.com/learn/overview",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "Udacity UD810 / CS4495 ",
+    "url": "https://docs.google.com/spreadsheets/d/1ecUGIyhYOfQPi3HPXb-7NndrLgpX_zgkwsqzfqHPaus/pubhtml",
+    "kind": "course",
+    "local": "cv.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "Udacity",
+    "url": "https://www.udacity.com/course/introduction-to-computer-vision--ud810",
+    "kind": "course",
+    "local": "cv-filtering.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "CS229 Notes 1: Supervised Learning and Discriminative Algorithms",
+    "url": "http://cs229.stanford.edu/notes2019fall/cs229-notes1.pdf",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "CS229 Notes 2: Generative Algorithms",
+    "url": "http://cs229.stanford.edu/notes2019fall/cs229-notes2.pdf",
+    "kind": "reading",
+    "local": "ml-generative-neighbors.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "Lecture Slides",
+    "url": "https://www.cs.toronto.edu/~urtasun/courses/CSC411_Fall16/05_nn.pdf",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "Lecture Notes",
+    "url": "https://sebastianraschka.com/pdf/lecture-notes/stat479fs18/02_knn_notes.pdf",
+    "kind": "reading",
+    "local": "ml-generative-neighbors.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "CS229 Lecture Notes",
+    "url": "http://cs229.stanford.edu/notes/cs229-notes3.pdf",
+    "kind": "reading",
+    "local": "ml-generative-neighbors.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "The Hundred Page Machine Learning Book",
+    "url": "https://file.ai100.com.cn/files/file-code/original/cd136ebe-0e34-4e43-966b-224acff83005/100MLBOOK/The+Hundred-Page+Machine+Learning+Book.pdf",
+    "kind": "reading",
+    "local": "ml-advanced-learning.html",
+    "also": [
+      "ml-probabilistic-survey.html",
+      "dl-training.html",
+      "dl-cnns.html",
+      "dl-generative.html"
+    ]
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "Overfitting/Underfitting, Bias, and Variance",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/08_model-eval-1/08-model-eval-1-intro__notes.pdf",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "Holdout Validation, Resampling, Bootstrapping ",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/09_eval2-ci/09-eval2-ci__notes.pdf",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "Model Selection and Cross Validation",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/10_eval3-cv/10-eval3-cv__notes.pdf",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "Statistical Tests",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/11_eval4-algo/11-eval4-algo__notes.pdf",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "Lecture Slides",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/12_eval5-metrics/12_eval5-metrics__slides.pdf",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "Feature Selection",
+    "url": "https://see.stanford.edu/materials/aimlcs229/cs229-notes5.pdf",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "Decision Trees ",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/06_trees/06-trees__notes.pdf",
+    "kind": "reading",
+    "local": "ml-trees-ensembles.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "Ensembling",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/07_ensembles/07-ensembles__notes.pdf",
+    "kind": "reading",
+    "local": "ml-trees-ensembles.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "Principal Component Analysis",
+    "url": "http://cs229.stanford.edu/notes2019fall/cs229-notes10.pdf",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "K-Means Clustering",
+    "url": "http://cs229.stanford.edu/notes/cs229-notes7a.pdf",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "Notes from STAT479",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/14_feat-extract/14_feat-extract__slides.pdf",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "Neural Networks and Deep Learning",
+    "url": "http://neuralnetworksanddeeplearning.com",
+    "kind": "reading",
+    "local": "dl-training.html",
+    "also": [
+      "ml-probabilistic-survey.html",
+      "dl-training.html",
+      "dl-cnns.html",
+      "dl-generative.html"
+    ]
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "Lecture Videos",
+    "url": "https://www.youtube.com/playlist?list=PLqYmG7hTraZDNJre23vqCGIVpfZ_K2RZs",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "Course Homepage",
+    "url": "http://introtodeeplearning.com/",
+    "kind": "collection",
+    "local": "deep.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "Slides",
+    "url": "http://josh-tobin.com/assets/pdf/troubleshooting-deep-neural-networks-01-19.pdf",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "Video",
+    "url": "https://www.youtube.com/watch?v=XtCNNwDi9xg",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "Unsupervised Feature Learning and Deep Learning",
+    "url": "http://deeplearning.stanford.edu/tutorial/",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "https://paperswithcode.com/sota",
+    "url": "https://paperswithcode.com/sota",
+    "kind": "collection",
+    "local": "deep.html"
+  },
+  {
+    "source": "Training Program Outline - Old Version.docx",
+    "label": "Montreal AI",
+    "url": "https://montrealartificialintelligence.com/academy/",
+    "kind": "collection",
+    "local": "deep.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "CS231n from Stanford",
+    "url": "https://cs231n.stanford.edu/schedule.html",
+    "kind": "collection",
+    "local": "deep.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 1: Introduction",
+    "url": "https://www.youtube.com/watch?v=2fq9wYslV0A&list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16&index=1",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "CS231n: Deep Learning for Computer Vision Lecture 1: part 1",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_1_part_1.pdf",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "CS231n: Deep Learning for Computer Vision Lecture 1: part 2",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_1_part_2.pdf",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 1: Introduction to Deep Learning for Computer Vision",
+    "url": "https://www.youtube.com/watch?v=dJYGatp4SvA&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Stanford CS231N | Spring 2025 | Lecture 2: Image Classification with Linear Classifiers",
+    "url": "https://www.youtube.com/watch?v=pdqofxJeBN8&list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16&index=2",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Image Classification",
+    "url": "https://cs231n.github.io/classification/",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Linear Classification",
+    "url": "https://cs231n.github.io/linear-classify/",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 2: - Image Classification with Linear Classifiers",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_2.pdf",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 2: Image Classification",
+    "url": "https://www.youtube.com/watch?v=0nqvO3AM2Vw&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 3: Linear Classifiers",
+    "url": "https://www.youtube.com/watch?v=qcSEP17uKKY&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Stanford CS231N | Spring 2025 | Lecture 3: Regularization and Optimization",
+    "url": "https://www.youtube.com/watch?v=dyNGd06MWn4&list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16&index=3",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Adam vs. AdamW: Understanding Weight Decay and Its Impact on Model Performance | by Ahmed Yassin",
+    "url": "https://yassin01.medium.com/adam-vs-adamw-understanding-weight-decay-and-its-impact-on-model-performance-b7414f0af8a1",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Interactive Visualization of Optimization Algorithms in Deep Learning | Emilien Dupont",
+    "url": "https://emiliendupont.github.io/2018/01/24/optimization-visualization/",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Optimization",
+    "url": "https://cs231n.github.io/optimization-1/",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 3: Regularization and Optimization",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_3.pdf",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 4: Optimization",
+    "url": "https://www.youtube.com/watch?v=YnQJTfbwBM8&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Stanford CS231N | Spring 2025 | Lecture 4: Neural Networks and Backpropagation",
+    "url": "https://www.youtube.com/watch?v=25zD5qJHYsk&list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16&index=4",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Backpropagation",
+    "url": "https://cs231n.github.io/optimization-2/",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 4: Neural Networks and Backpropagation",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_4.pdf",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "A visual proof that neural nets can compute any function",
+    "url": "http://neuralnetworksanddeeplearning.com/chap4.html",
+    "kind": "reading",
+    "local": "dl-training.html",
+    "also": [
+      "ml-probabilistic-survey.html",
+      "dl-training.html",
+      "dl-cnns.html",
+      "dl-generative.html"
+    ]
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 5: Neural Networks",
+    "url": "https://www.youtube.com/watch?v=g6InpdhUblE&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 6: Backpropagation",
+    "url": "https://www.youtube.com/watch?v=dB-u77Y5a6A&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Stanford CS231N | Spring 2025 | Lecture 5: Image Classification with CNNs",
+    "url": "https://www.youtube.com/watch?v=f3g1zGdxptI&list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16&index=5",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Convolutional Neural Networks (CNNs / ConvNets)",
+    "url": "https://cs231n.github.io/convolutional-networks/",
+    "kind": "reading",
+    "local": "dl-cnns.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 5: Image Classification with CNNs",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_5.pdf",
+    "kind": "reading",
+    "local": "dl-cnns.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 7: Convolutional Networks",
+    "url": "https://www.youtube.com/watch?v=ANyxBVxmdZ0&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r&index=7",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 6: CNN Architectures",
+    "url": "https://www.youtube.com/watch?v=aVJy4O5TOk8&list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16&index=6",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 6: Training CNNs and Architectures",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_6.pdf",
+    "kind": "reading",
+    "local": "dl-cnns.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift",
+    "url": "https://www.youtube.com/watch?v=OioFONrSETc",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 8: CNN Architectures",
+    "url": "https://www.youtube.com/watch?v=XaZIlVrIO-Q&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r&index=8",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 10: Training Neural Networks I",
+    "url": "https://www.youtube.com/watch?v=lGbQlr1Ts7w&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 11: Training Neural Networks II",
+    "url": "https://www.youtube.com/watch?v=WUazOtlti0g&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r&index=11",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Stanford CS231N | Spring 2025 | Lecture 7: Recurrent Neural Networks",
+    "url": "https://www.youtube.com/watch?v=kG2lAPBF7zA&list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16&index=7",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Understanding LSTM Networks - colah's blog",
+    "url": "https://colah.github.io/posts/2015-08-Understanding-LSTMs/",
+    "kind": "reading",
+    "local": "dl-sequences.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 7: Recurrent Neural Networks",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_7.pdf",
+    "kind": "reading",
+    "local": "dl-sequences.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Stanford CS231N | Spring 2025 | Lecture 8: Attention and Transformers",
+    "url": "https://www.youtube.com/watch?v=RQowiOF_FvQ&list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16&index=8",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 8: Attention and Transformers",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_8.pdf",
+    "kind": "reading",
+    "local": "dl-attention.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Attention? Attention! | Lil'Log",
+    "url": "https://lilianweng.github.io/posts/2018-06-24-attention/",
+    "kind": "reading",
+    "local": "dl-attention.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "AAAI - Transformers",
+    "url": "https://www.youtube.com/watch?v=T-smYxIQGDw",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (Paper Explained)",
+    "url": "https://www.youtube.com/watch?v=TrdevFK_am4",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Stanford CS231N | Spring 2025 | Lecture 9: Object Detection, Image Segmentation, Visualizing",
+    "url": "https://www.youtube.com/watch?v=PTypu6GqEd4&list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16&index=9",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 9: Detection, Segmentation, Visualization, and Understanding",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_9.pdf",
+    "kind": "reading",
+    "local": "dl-detection.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "DETR: End-to-End Object Detection with Transformers (Yannic Kilcher)",
+    "url": "https://www.youtube.com/watch?v=T35ba_VXkMY",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 15: Object Detection",
+    "url": "https://www.youtube.com/watch?v=TB-fdISzpHQ&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 16: Detection and Segmentation",
+    "url": "https://www.youtube.com/watch?v=9AyMR4IhSWQ&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 14: Visualizing and Understanding",
+    "url": "https://www.youtube.com/watch?v=G1hGwHVykDU&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 10: Video Understanding",
+    "url": "https://www.youtube.com/watch?v=wElqklprhPE&list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16&index=10",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 10: Video Understanding",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_10.pdf",
+    "kind": "reading",
+    "local": "dl-sequences.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 18: Videos",
+    "url": "https://www.youtube.com/watch?v=A9D6NXBJdwU&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Stanford CS231N | Spring 2025 | Lecture 11: Large Scale Distributed Training",
+    "url": "https://www.youtube.com/watch?v=9MvD-XsowsE&list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16&index=11",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 11: Large-Scale Distributed Training",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_11.pdf",
+    "kind": "reading",
+    "local": "dl-deployment.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Stanford CS231N | Spring 2025 | Lecture 12: Self-Supervised Learning",
+    "url": "https://www.youtube.com/watch?v=4howBU7THbM&list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16&index=13",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 12: Self-Supervised Learning",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_12.pdf",
+    "kind": "reading",
+    "local": "dl-self-supervision.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "DINO: Emerging Properties in Self-Supervised Vision Transformers (Facebook AI Research Explained)",
+    "url": "https://www.youtube.com/watch?v=h3ij3F3cPIk",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Self-supervised Learning",
+    "url": "https://lilianweng.github.io/posts/2019-11-10-self-supervised/",
+    "kind": "reading",
+    "local": "dl-self-supervision.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Contrastive Learning",
+    "url": "https://lilianweng.github.io/posts/2021-05-31-contrastive/#moco--moco-v2",
+    "kind": "reading",
+    "local": "dl-self-supervision.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 13: Generative Models 1",
+    "url": "https://www.youtube.com/watch?v=zbHXQRUNlH0&list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16&index=13",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 13: Generative Models (part 1)",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_13.pdf",
+    "kind": "reading",
+    "local": "dl-generative.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "ELBO — What & Why | Yunfan’s Blog",
+    "url": "https://yunfanj.com/blog/2021/01/11/ELBO.html",
+    "kind": "reading",
+    "local": "dl-generative.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 19: Generative Models I",
+    "url": "https://www.youtube.com/watch?v=Q3HU2vEhD5Y&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Stanford CS231N Deep Learning for Computer Vision| Spring 2025 | Lecture 14: Generative Models 2",
+    "url": "https://www.youtube.com/watch?v=Edr4uZFh4EE&list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16&index=14",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 14: Generative Models (part 2)",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_14.pdf",
+    "kind": "reading",
+    "local": "dl-generative.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 15: 3D Vision",
+    "url": "https://www.youtube.com/watch?v=7lxrKDKtykM&list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16&index=15",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 15: 3D Vision",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_15.pdf",
+    "kind": "reading",
+    "local": "dl-3d.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 17: 3D Vision",
+    "url": "https://www.youtube.com/watch?v=S1_nCdLUQQ8&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 16: Vision and Language",
+    "url": "https://www.youtube.com/watch?v=mQOK0Mfyrkk&list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16&index=16",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Lecture 16: Vision and Language",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_16.pdf",
+    "kind": "reading",
+    "local": "dl-vision-language.html"
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "OpenAI CLIP: ConnectingText and Images (Paper Explained)",
+    "url": "https://www.youtube.com/watch?v=T9XSU0pKX2E",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Deep Learning Training.docx",
+    "label": "Batch Normalization, Dropout, Convolutional Nets, Network Visualization, Image Captioning with RNNs",
+    "url": "https://cs231n.github.io/assignments2025/assignment2/",
+    "kind": "reading",
+    "local": "dl-cnns.html"
+  },
+  {
+    "source": "reading_materials.docx",
+    "label": "What is Machine Learning?",
+    "url": "https://developers.google.com/machine-learning/intro-to-ml/what-is-ml",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "reading_materials.docx",
+    "label": "Five machine learning types to know",
+    "url": "https://www.ibm.com/think/topics/machine-learning-types",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "reading_materials.docx",
+    "label": "Image Classification vs. Object Detection vs. Image Segmentation",
+    "url": "https://medium.com/analytics-vidhya/image-classification-vs-object-detection-vs-image-segmentation-f36db85fe81",
+    "kind": "reading",
+    "local": "dl-detection.html"
+  },
+  {
+    "source": "reading_materials.docx",
+    "label": "Regression, Classification, and Clustering: Understanding Core Machine Learning Concepts",
+    "url": "https://muttinenisairohith.medium.com/regression-classification-and-clustering-understanding-core-machine-learning-concepts-8a546bfc1a96",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "reading_materials.docx",
+    "label": "But what is a neural network? (Ch. 1)",
+    "url": "https://www.youtube.com/watch?v=aircAruvnKk",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "reading_materials.docx",
+    "label": "Google ML Crash Course — Activation Functions",
+    "url": "https://developers.google.com/machine-learning/crash-course/neural-networks/activation-functions",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "reading_materials.docx",
+    "label": "Gradient Descent, Step-by-Step",
+    "url": "https://www.youtube.com/watch?v=sDv4f4s2SB8",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "reading_materials.docx",
+    "label": "Regularization Part 1: Ridge (L2) Regression",
+    "url": "https://www.youtube.com/watch?v=Q81RR3yKn30",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "reading_materials.docx",
+    "label": "But what is a convolution? (CNN chapter)",
+    "url": "https://www.youtube.com/watch?v=KuXjwB4LzSA",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "reading_materials.docx",
+    "label": "Classification: Accuracy, recall, precision, and related metrics",
+    "url": "https://developers.google.com/machine-learning/crash-course/classification/accuracy-precision-recall",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "reading_materials.docx",
+    "label": "Machine Learning Fundamentals: Sensitivity and Specificity",
+    "url": "https://www.youtube.com/watch?v=vP06aMoz4v8",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "reading_materials.docx",
+    "label": "Let's build the GPT Tokenizer",
+    "url": "https://www.youtube.com/watch?v=zduSFxRajkE",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "reading_materials.docx",
+    "label": "The Illustrated Word2vec",
+    "url": "https://jalammar.github.io/illustrated-word2vec/",
+    "kind": "reading",
+    "local": "dl-attention.html"
+  },
+  {
+    "source": "reading_materials.docx",
+    "label": "Attention in transformers, visually explained (Ch. 6)",
+    "url": "https://www.youtube.com/watch?v=eMlx5fFNoYc",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "reading_materials.docx",
+    "label": "The Illustrated Transformer",
+    "url": "https://jalammar.github.io/illustrated-transformer/",
+    "kind": "reading",
+    "local": "dl-attention.html"
+  },
+  {
+    "source": "reading_materials.docx",
+    "label": "But what is a GPT? Visual intro to Transformers (Ch. 5)",
+    "url": "https://www.youtube.com/watch?v=wjZofJX0v4M",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "reading_materials.docx",
+    "label": "What is Vector Quantization?",
+    "url": "https://qdrant.tech/articles/what-is-vector-quantization/",
+    "kind": "reading",
+    "local": "dl-retrieval.html"
+  },
+  {
+    "source": "reading_materials.docx",
+    "label": "Introduction to Faiss",
+    "url": "https://www.pinecone.io/learn/series/faiss/faiss-tutorial/",
+    "kind": "reading",
+    "local": "dl-retrieval.html"
+  },
+  {
+    "source": "reading_materials.docx",
+    "label": "Nearest Neighbor Indexes for Similarity Search",
+    "url": "https://www.pinecone.io/learn/series/faiss/vector-indexes/",
+    "kind": "reading",
+    "local": "dl-retrieval.html"
+  },
+  {
+    "source": "reading_materials.docx",
+    "label": "Retrieval-Augmented Generation",
+    "url": "https://www.pinecone.io/learn/retrieval-augmented-generation/",
+    "kind": "reading",
+    "local": "dl-retrieval.html"
+  },
+  {
+    "source": "reading_materials.docx",
+    "label": "Saving and Loading Models",
+    "url": "https://docs.pytorch.org/tutorials/beginner/saving_loading_models.html",
+    "kind": "reading",
+    "local": "dl-deployment.html"
+  },
+  {
+    "source": "reading_materials.docx",
+    "label": "Fine-tuning a pretrained model",
+    "url": "https://huggingface.co/docs/transformers/en/training",
+    "kind": "reading",
+    "local": "dl-deployment.html"
+  },
+  {
+    "source": "reading_materials.docx",
+    "label": "LoRA conceptual guide",
+    "url": "https://huggingface.co/docs/peft/main/en/conceptual_guides/lora",
+    "kind": "reading",
+    "local": "dl-deployment.html"
+  },
+  {
+    "source": "reading_materials.docx",
+    "label": "Inference Latency",
+    "url": "https://www.ultralytics.com/glossary/inference-latency",
+    "kind": "reading",
+    "local": "dl-deployment.html"
+  },
+  {
+    "source": "reading_materials.docx",
+    "label": "A Gentle Introduction to 8-bit Matrix Multiplication",
+    "url": "https://huggingface.co/blog/hf-bitsandbytes-integration",
+    "kind": "reading",
+    "local": "dl-deployment.html"
+  },
+  {
+    "source": "reading_materials.docx",
+    "label": "AI Compilers Demystified",
+    "url": "https://medium.com/geekculture/ai-compilers-ae28afbc4907",
+    "kind": "reading",
+    "local": "dl-deployment.html"
+  },
+  {
+    "source": "reading_materials.docx",
+    "label": "Parallelism methods",
+    "url": "https://huggingface.co/docs/transformers/perf_train_gpu_many",
+    "kind": "reading",
+    "local": "dl-deployment.html"
+  },
+  {
+    "source": "Machine Learning Topics and Links.docx",
+    "label": "data",
+    "url": "https://drive.google.com/drive/folders/1hM7-LkPs8F97dNx1zQqpknPBnTACuoPa?usp=sharing",
+    "kind": "exercise-or-data",
+    "local": null
+  },
+  {
+    "source": "Machine Learning Topics and Links.docx",
+    "label": "CS229 Notes 1: Supervised Learning and Discriminative Algorithms",
+    "url": "http://cs229.stanford.edu/notes2019fall/cs229-notes1.pdf",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "Machine Learning Topics and Links.docx",
+    "label": "https://medium.com/datadriveninvestor/l1-l2-regularization-7f1b4fe948f2",
+    "url": "https://medium.com/datadriveninvestor/l1-l2-regularization-7f1b4fe948f2",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "Machine Learning Topics and Links.docx",
+    "label": "https://bjlkeng.github.io/posts/probabilistic-interpretation-of-regularization/",
+    "url": "https://bjlkeng.github.io/posts/probabilistic-interpretation-of-regularization/",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "Machine Learning Topics and Links.docx",
+    "label": "Overfitting/Underfitting, Bias, and Variance",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/08_model-eval-1/08-model-eval-1-intro__notes.pdf",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "Machine Learning Topics and Links.docx",
+    "label": "Holdout Validation, Resampling, Bootstrapping ",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/09_eval2-ci/09-eval2-ci__notes.pdf",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "Machine Learning Topics and Links.docx",
+    "label": "Model Selection and Cross Validation",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/10_eval3-cv/10-eval3-cv__notes.pdf",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "Machine Learning Topics and Links.docx",
+    "label": "Statistical Tests",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/11_eval4-algo/11-eval4-algo__notes.pdf",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "Machine Learning Topics and Links.docx",
+    "label": "Lecture Slides",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/12_eval5-metrics/12_eval5-metrics__slides.pdf",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "Machine Learning Topics and Links.docx",
+    "label": "metric summary written ",
+    "url": "https://docs.google.com/document/u/0/d/1URUQiw9mPm9ZyVKfAxYYm6eeS_e66Q_HXvbBWKoOwSY/edit",
+    "kind": "retained-handout",
+    "local": "legacy-metrics.html"
+  },
+  {
+    "source": "Machine Learning Topics and Links.docx",
+    "label": "Feature Selection",
+    "url": "https://see.stanford.edu/materials/aimlcs229/cs229-notes5.pdf",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "Machine Learning Topics and Links.docx",
+    "label": "CS229 Notes 2: Generative Algorithms",
+    "url": "http://cs229.stanford.edu/notes2019fall/cs229-notes2.pdf",
+    "kind": "reading",
+    "local": "ml-generative-neighbors.html"
+  },
+  {
+    "source": "Machine Learning Topics and Links.docx",
+    "label": "Lecture Notes",
+    "url": "https://sebastianraschka.com/pdf/lecture-notes/stat479fs18/02_knn_notes.pdf",
+    "kind": "reading",
+    "local": "ml-generative-neighbors.html"
+  },
+  {
+    "source": "Machine Learning Topics and Links.docx",
+    "label": "Lecture Notes CS229",
+    "url": "http://cs229.stanford.edu/notes2021fall/cs229-notes3.pdf",
+    "kind": "reading",
+    "local": "ml-generative-neighbors.html"
+  },
+  {
+    "source": "Machine Learning Topics and Links.docx",
+    "label": "Decision Trees ",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/06_trees/06-trees__notes.pdf",
+    "kind": "reading",
+    "local": "ml-trees-ensembles.html"
+  },
+  {
+    "source": "Machine Learning Topics and Links.docx",
+    "label": "Ensembling",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/07_ensembles/07-ensembles__notes.pdf",
+    "kind": "reading",
+    "local": "ml-trees-ensembles.html"
+  },
+  {
+    "source": "Machine Learning Topics and Links.docx",
+    "label": "Principal Component Analysis",
+    "url": "http://cs229.stanford.edu/notes2019fall/cs229-notes10.pdf",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "Machine Learning Topics and Links.docx",
+    "label": "Clustering Algorithms Blog",
+    "url": "https://towardsdatascience.com/the-5-clustering-algorithms-data-scientists-need-to-know-a36d136ef68",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "Machine Learning Topics and Links.docx",
+    "label": "GMM and EM",
+    "url": "https://towardsdatascience.com/expectation-maximization-for-gmms-explained-5636161577ca",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "Machine Learning Topics and Links.docx",
+    "label": "Distill post on TSNE",
+    "url": "https://distill.pub/2016/misread-tsne/",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "Machine Learning Topics and Links.docx",
+    "label": "post on UMAP",
+    "url": "https://pair-code.github.io/understanding-umap/",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "Machine Learning Topics and Links.docx",
+    "label": "Visualizations with Seaborn tutorial",
+    "url": "https://github.com/rajivramanjani/UdemyPythonDSML/tree/master/06-Data-Visualization-with-Seaborn",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "ML Additional Readings.docx",
+    "label": "https://drive.google.com/drive/mobile/folders/16g08YIerCR2YX-NcgI8bzy7sRA3xIi7t/1eDhLME8aHhtO3EKo_7GvHMRb2fhJbA2M/1mdzE2StszermzZfFzTUgjJV1qbuQXX2M/1ylnpUb8tf455WDXD6VkhfkPlvRtogtLr?sort=13&direction=a",
+    "url": "https://drive.google.com/drive/mobile/folders/16g08YIerCR2YX-NcgI8bzy7sRA3xIi7t/1eDhLME8aHhtO3EKo_7GvHMRb2fhJbA2M/1mdzE2StszermzZfFzTUgjJV1qbuQXX2M/1ylnpUb8tf455WDXD6VkhfkPlvRtogtLr?sort=13&direction=a",
+    "kind": "course",
+    "local": "ml.html"
+  },
+  {
+    "source": "ML Additional Readings.docx",
+    "label": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-2.pdf",
+    "url": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-2.pdf",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "ML Additional Readings.docx",
+    "label": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-3.pdf",
+    "url": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-3.pdf",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "ML Additional Readings.docx",
+    "label": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-5.pdf",
+    "url": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-5.pdf",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "ML Additional Readings.docx",
+    "label": "https://ocw.mit.edu/courses/sloan-school-of-management/15-097-prediction-machine-learning-and-statistics-spring-2012/lecture-notes/MIT15_097S12_lec07.pdf",
+    "url": "https://ocw.mit.edu/courses/sloan-school-of-management/15-097-prediction-machine-learning-and-statistics-spring-2012/lecture-notes/MIT15_097S12_lec07.pdf",
+    "kind": "reading",
+    "local": "ml-generative-neighbors.html"
+  },
+  {
+    "source": "ML Additional Readings.docx",
+    "label": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-6.pdf",
+    "url": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-6.pdf",
+    "kind": "reading",
+    "local": "ml-generative-neighbors.html"
+  },
+  {
+    "source": "ML Additional Readings.docx",
+    "label": "https://sebastianraschka.com/pdf/lecture-notes/stat479fs18/02_knn_notes.pdf",
+    "url": "https://sebastianraschka.com/pdf/lecture-notes/stat479fs18/02_knn_notes.pdf",
+    "kind": "reading",
+    "local": "ml-generative-neighbors.html"
+  },
+  {
+    "source": "ML Additional Readings.docx",
+    "label": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-7.pdf",
+    "url": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-7.pdf",
+    "kind": "reading",
+    "local": "ml-generative-neighbors.html"
+  },
+  {
+    "source": "ML Additional Readings.docx",
+    "label": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/06_trees/06-trees__notes.pdf",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/06_trees/06-trees__notes.pdf",
+    "kind": "reading",
+    "local": "ml-trees-ensembles.html"
+  },
+  {
+    "source": "ML Additional Readings.docx",
+    "label": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-9.pdf",
+    "url": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-9.pdf",
+    "kind": "reading",
+    "local": "ml-trees-ensembles.html"
+  },
+  {
+    "source": "ML Additional Readings.docx",
+    "label": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-10.pdf",
+    "url": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-10.pdf",
+    "kind": "reading",
+    "local": "ml-trees-ensembles.html"
+  },
+  {
+    "source": "ML Additional Readings.docx",
+    "label": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/07_ensembles/07-ensembles__notes.pdf",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/07_ensembles/07-ensembles__notes.pdf",
+    "kind": "reading",
+    "local": "ml-trees-ensembles.html"
+  },
+  {
+    "source": "ML Additional Readings.docx",
+    "label": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-13.pdf",
+    "url": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-13.pdf",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "ML Additional Readings.docx",
+    "label": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-14.pdf",
+    "url": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-14.pdf",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "ML Additional Readings.docx",
+    "label": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-16.pdf",
+    "url": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-16.pdf",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "ML Additional Readings.docx",
+    "label": "https://towardsdatascience.com/k-means-clustering-explained-4528df86a120",
+    "url": "https://towardsdatascience.com/k-means-clustering-explained-4528df86a120",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "ML Additional Readings.docx",
+    "label": "https://towardsdatascience.com/dbscan-clustering-explained-97556a2ad556",
+    "url": "https://towardsdatascience.com/dbscan-clustering-explained-97556a2ad556",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "ML Additional Readings.docx",
+    "label": "https://towardsdatascience.com/t-sne-clearly-explained-d84c537f53a",
+    "url": "https://towardsdatascience.com/t-sne-clearly-explained-d84c537f53a",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "ML Additional Readings.docx",
+    "label": "https://distill.pub/2016/misread-tsne/",
+    "url": "https://distill.pub/2016/misread-tsne/",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "ML Additional Readings.docx",
+    "label": "https://pair-code.github.io/understanding-umap/",
+    "url": "https://pair-code.github.io/understanding-umap/",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "ML Additional Readings.docx",
+    "label": "http://www.r2d3.us/visual-intro-to-machine-learning-part-1/",
+    "url": "http://www.r2d3.us/visual-intro-to-machine-learning-part-1/",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "ML Additional Readings.docx",
+    "label": "http://www.r2d3.us/visual-intro-to-machine-learning-part-2/",
+    "url": "http://www.r2d3.us/visual-intro-to-machine-learning-part-2/",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "ML Additional Readings.docx",
+    "label": "http://scott.fortmann-roe.com/docs/BiasVariance.html",
+    "url": "http://scott.fortmann-roe.com/docs/BiasVariance.html",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "data",
+    "url": "https://drive.google.com/drive/folders/1P1MFkVfQTT8F4g3D0ejp5ocVDMyFeZLc?usp=sharing",
+    "kind": "exercise-or-data",
+    "local": null
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Machine Learning Training Program",
+    "url": "https://docs.google.com/document/d/1pH0W2ayG0wFHTs-vXqah2udiYRUqgoeQ2I6sdTkqE_Q/edit#heading=h.f4ac557rolhc",
+    "kind": "retained-handout",
+    "local": "legacy-ml.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Topics and Exercises",
+    "url": "https://docs.google.com/document/d/1pH0W2ayG0wFHTs-vXqah2udiYRUqgoeQ2I6sdTkqE_Q/edit#heading=h.s7kk72tnlwuc",
+    "kind": "retained-handout",
+    "local": "legacy-ml.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "1. Supervised Learning and Discriminative Algorithms",
+    "url": "https://docs.google.com/document/d/1pH0W2ayG0wFHTs-vXqah2udiYRUqgoeQ2I6sdTkqE_Q/edit#heading=h.ox4fujf7d1w5",
+    "kind": "retained-handout",
+    "local": "legacy-ml.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Resources",
+    "url": "https://docs.google.com/document/d/1pH0W2ayG0wFHTs-vXqah2udiYRUqgoeQ2I6sdTkqE_Q/edit#heading=h.1kzwa3crrag2",
+    "kind": "retained-handout",
+    "local": "legacy-ml.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Exercises",
+    "url": "https://docs.google.com/document/d/1pH0W2ayG0wFHTs-vXqah2udiYRUqgoeQ2I6sdTkqE_Q/edit#heading=h.xchbvz32wls7",
+    "kind": "retained-handout",
+    "local": "legacy-ml.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "2. Model Evaluation and Selection",
+    "url": "https://docs.google.com/document/d/1pH0W2ayG0wFHTs-vXqah2udiYRUqgoeQ2I6sdTkqE_Q/edit#heading=h.a1a9b1a2ml2w",
+    "kind": "retained-handout",
+    "local": "legacy-ml.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Resources",
+    "url": "https://docs.google.com/document/d/1pH0W2ayG0wFHTs-vXqah2udiYRUqgoeQ2I6sdTkqE_Q/edit#heading=h.guqxf8aimph",
+    "kind": "retained-handout",
+    "local": "legacy-ml.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Exercises",
+    "url": "https://docs.google.com/document/d/1pH0W2ayG0wFHTs-vXqah2udiYRUqgoeQ2I6sdTkqE_Q/edit#heading=h.84osk3178srl",
+    "kind": "retained-handout",
+    "local": "legacy-ml.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "3. Generative Algorithms",
+    "url": "https://docs.google.com/document/d/1pH0W2ayG0wFHTs-vXqah2udiYRUqgoeQ2I6sdTkqE_Q/edit#heading=h.gqcezul49kkt",
+    "kind": "retained-handout",
+    "local": "legacy-ml.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Resources",
+    "url": "https://docs.google.com/document/d/1pH0W2ayG0wFHTs-vXqah2udiYRUqgoeQ2I6sdTkqE_Q/edit#heading=h.2tbxjx5nnhc5",
+    "kind": "retained-handout",
+    "local": "legacy-ml.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Exercises",
+    "url": "https://docs.google.com/document/d/1pH0W2ayG0wFHTs-vXqah2udiYRUqgoeQ2I6sdTkqE_Q/edit#heading=h.qwq18v97rdef",
+    "kind": "retained-handout",
+    "local": "legacy-ml.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "4. Fundamental Algorithms",
+    "url": "https://docs.google.com/document/d/1pH0W2ayG0wFHTs-vXqah2udiYRUqgoeQ2I6sdTkqE_Q/edit#heading=h.elsbyvtz965w",
+    "kind": "retained-handout",
+    "local": "legacy-ml.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Resources",
+    "url": "https://docs.google.com/document/d/1pH0W2ayG0wFHTs-vXqah2udiYRUqgoeQ2I6sdTkqE_Q/edit#heading=h.xfogbzww6ohe",
+    "kind": "retained-handout",
+    "local": "legacy-ml.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Exercises",
+    "url": "https://docs.google.com/document/d/1pH0W2ayG0wFHTs-vXqah2udiYRUqgoeQ2I6sdTkqE_Q/edit#heading=h.y80no9iwa4mh",
+    "kind": "retained-handout",
+    "local": "legacy-ml.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "5. Unsupervised Learning",
+    "url": "https://docs.google.com/document/d/1pH0W2ayG0wFHTs-vXqah2udiYRUqgoeQ2I6sdTkqE_Q/edit#heading=h.jze19nc8aopi",
+    "kind": "retained-handout",
+    "local": "legacy-ml.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Resources",
+    "url": "https://docs.google.com/document/d/1pH0W2ayG0wFHTs-vXqah2udiYRUqgoeQ2I6sdTkqE_Q/edit#heading=h.pzx6tw4ej6br",
+    "kind": "retained-handout",
+    "local": "legacy-ml.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Exercises",
+    "url": "https://docs.google.com/document/d/1pH0W2ayG0wFHTs-vXqah2udiYRUqgoeQ2I6sdTkqE_Q/edit#heading=h.a2ixnq7800cq",
+    "kind": "retained-handout",
+    "local": "legacy-ml.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "6. Visualizations",
+    "url": "https://docs.google.com/document/d/1pH0W2ayG0wFHTs-vXqah2udiYRUqgoeQ2I6sdTkqE_Q/edit#heading=h.9loqwi9g3aq3",
+    "kind": "retained-handout",
+    "local": "legacy-ml.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Supervised Learning VS Unsupervised Learning",
+    "url": "https://www.geeksforgeeks.org/machine-learning/difference-between-supervised-and-unsupervised-learning/",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "following lecture notes",
+    "url": "https://www.cs.cmu.edu/~hn1/documents/machine-learning/notes.pdf",
+    "kind": "reading",
+    "local": "ml-foundations.html",
+    "also": [
+      "ml-generative-neighbors.html",
+      "ml-bias-validation.html"
+    ]
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Curse of Dimensionality",
+    "url": "https://www.geeksforgeeks.org/machine-learning/curse-of-dimensionality-in-machine-learning/",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Quiz",
+    "url": "https://developers.google.com/machine-learning/crash-course/linear-regression/quiz",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Play",
+    "url": "https://developers.google.com/machine-learning/crash-course/linear-regression/gradient-descent-exercise",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Bias-Variance Tradeoff",
+    "url": "https://medium.com/data-science/understanding-the-bias-variance-tradeoff-165e6942b229",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Data Split and Tweaking models",
+    "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets#additional_problems_with_test_sets",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Overfitting",
+    "url": "https://developers.google.com/machine-learning/crash-course/overfitting/overfitting",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Imbalanced Data",
+    "url": "https://developers.google.com/machine-learning/crash-course/overfitting/imbalanced-datasets",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Types of biases",
+    "url": "https://developers.google.com/machine-learning/crash-course/fairness/types-of-bias",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Data Drift and Data Shift",
+    "url": "https://abhishek-reddy.medium.com/detecting-and-managing-data-distribution-shifts-in-the-mlops-lifecycle-for-machine-learning-models-1ea33ce84c3c",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Statistical Tests",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/11_eval4-algo/11-eval4-algo__notes.pdf",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "thresholding",
+    "url": "https://developers.google.com/machine-learning/crash-course/classification/thresholding",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Main Metrics",
+    "url": "https://developers.google.com/machine-learning/crash-course/classification/accuracy-precision-recall",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Curves",
+    "url": "https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "metric summary written by the mador",
+    "url": "https://docs.google.com/document/u/0/d/1URUQiw9mPm9ZyVKfAxYYm6eeS_e66Q_HXvbBWKoOwSY/edit",
+    "kind": "retained-handout",
+    "local": "legacy-metrics.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Lecture Slides",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/12_eval5-metrics/12_eval5-metrics__slides.pdf",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Itay’s lecture",
+    "url": "https://www.youtube.com/watch?v=aClpa7VORrE&list=PLuS9MY73SUnKeZQBk5LWxZah_-njyk-gV&index=12",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Decision Trees and Forests",
+    "url": "https://developers.google.com/machine-learning/decision-forests",
+    "kind": "reading",
+    "local": "ml-trees-ensembles.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Bagging and boosting",
+    "url": "https://medium.com/@abhishekjainindore24/different-types-of-ensemble-techniques-bagging-boosting-stacking-voting-blending-b04355a03c93",
+    "kind": "reading",
+    "local": "ml-trees-ensembles.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "AdaBoost",
+    "url": "https://claude.ai/public/artifacts/c94c29e8-23f4-43ee-9fcd-092c46957aab",
+    "kind": "reading",
+    "local": "ml-trees-ensembles.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "XGBoost",
+    "url": "https://www.nvidia.com/en-eu/glossary/xgboost/",
+    "kind": "reading",
+    "local": "ml-trees-ensembles.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "LightGBM",
+    "url": "https://medium.com/@abhaysingh71711/lightgbm-explained-faster-and-smarter-gradient-boosting-4ab549629925",
+    "kind": "reading",
+    "local": "ml-trees-ensembles.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Ron’s AAAI",
+    "url": "https://youtu.be/-KWgXpDZVoI?si=Za38DBG7d9ppzUdZ",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Principal Component Analysis",
+    "url": "http://cs229.stanford.edu/notes2019fall/cs229-notes10.pdf",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Clustering Algorithms Blog",
+    "url": "https://medium.com/data-science/a-guide-to-clustering-algorithms-e28af85da0b7",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Spectreal Clustering",
+    "url": "https://www.kaggle.com/code/vipulgandhi/spectral-clustering-detailed-explanation",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "EM",
+    "url": "https://www.geeksforgeeks.org/machine-learning/ml-expectation-maximization-algorithm/",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "GMM",
+    "url": "https://www.geeksforgeeks.org/machine-learning/gaussian-mixture-model/",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "Distill post on TSNE",
+    "url": "https://distill.pub/2016/misread-tsne/",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "post on UMAP",
+    "url": "https://pair-code.github.io/understanding-umap/",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "plotly notebook",
+    "url": "https://colab.research.google.com/github/pb111/Data-Analysis-and-Visualization-with-Python/blob/master/Plotly%20basics.ipynb#scrollTo=H6Z5_cV2IEs7",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "plotly notebook",
+    "url": "https://www.kaggle.com/code/kanncaa1/plotly-tutorial-for-beginners",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "plotly express",
+    "url": "https://plotly.com/python/plotly-express/",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "this Kaggle challenge",
+    "url": "https://www.kaggle.com/competitions/2024-b2sw-ml/overview",
+    "kind": "exercise-or-data",
+    "local": null
+  },
+  {
+    "source": "Machine Learning Training.docx",
+    "label": "here",
+    "url": "https://indico.belle2.org/event/11190/contributions/76556/attachments/29202/43141/ML%20Hands-on%20session%202024.pdf",
+    "kind": "exercise-or-data",
+    "local": null
+  },
+  {
+    "source": "cv/Archive/Exercises/Boids Simulation Exercise.docx",
+    "label": "https://www.labri.fr/perso/nrougier/from-python-to-numpy/#id5",
+    "url": "https://www.labri.fr/perso/nrougier/from-python-to-numpy/#id5",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "cv/Archive/Exercises/Boids Simulation Exercise.docx",
+    "label": " ",
+    "url": "https://commons.wikimedia.org/wiki/File:Fugle,_%C3%B8rns%C3%B8_073.jpg",
+    "kind": "exercise-or-data",
+    "local": null
+  },
+  {
+    "source": "cv/Archive/Exercises/Boids Simulation Exercise.docx",
+    "label": "boid_numpy.py",
+    "url": "https://drive.google.com/file/d/1SP8GYxUhvIi1v_lxSlI9nLEMR_1ZvBZR/view?usp=sharing",
+    "kind": "exercise-or-data",
+    "local": null
+  },
+  {
+    "source": "cv/Archive/Exercises/Final Exercise - Software Training.docx",
+    "label": "Numpy",
+    "url": "http://www.numpy.org/",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "cv/Archive/Exercises/Final Exercise - Software Training.docx",
+    "label": "OpenCV",
+    "url": "https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_tutorials.html",
+    "kind": "reading",
+    "local": "cv-filtering.html"
+  },
+  {
+    "source": "cv/Archive/Exercises/Final Exercise - Software Training.docx",
+    "label": "ElementTree",
+    "url": "https://docs.python.org/3/library/xml.etree.elementtree.html",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "cv/Archive/Exercises/Final Exercise - Software Training.docx",
+    "label": "factories",
+    "url": "http://python-3-patterns-idioms-test.readthedocs.io/en/latest/Factory.html",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "cv/Archive/Exercises/תרגיל סוף - הכשרת תכנות.docx",
+    "label": "Numpy",
+    "url": "http://www.numpy.org/",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "cv/Archive/Exercises/תרגיל סוף - הכשרת תכנות.docx",
+    "label": "openCV",
+    "url": "https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_tutorials.html",
+    "kind": "reading",
+    "local": "cv-filtering.html"
+  },
+  {
+    "source": "cv/Archive/Exercises/תרגיל סוף - הכשרת תכנות.docx",
+    "label": "elementTree",
+    "url": "https://docs.python.org/3/library/xml.etree.elementtree.html",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "cv/Archive/Exercises/תרגיל סוף - הכשרת תכנות.docx",
+    "label": "מכאן",
+    "url": "http://python-3-patterns-idioms-test.readthedocs.io/en/latest/Factory.html",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud",
+    "url": "https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "https://www.katacoda.com/courses/docker",
+    "url": "https://www.katacoda.com/courses/docker",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "The Python Tutorial",
+    "url": "https://docs.python.org/3/tutorial/",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "https://docs.python-guide.org/writing/style/",
+    "url": "https://docs.python-guide.org/writing/style/",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "Python Numpy Tutorial (CS231n)",
+    "url": "http://cs231n.github.io/python-numpy-tutorial/",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "TutorialsPoint",
+    "url": "https://www.tutorialspoint.com/numpy/index.htm",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "100 Numpy Questions",
+    "url": "https://github.com/rougier/numpy-100",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "Pandas Exercises",
+    "url": "https://github.com/guipsamora/pandas_exercises",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "TutorialsPoint",
+    "url": "https://www.tutorialspoint.com/python_pandas/python_pandas_indexing_and_selecting_data.htm",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "Shape Rendering",
+    "url": "https://docs.google.com/document/d/1x4sYpDjfXaKN3ysICXq5tjpgUTYmlNCQxtj4jep0Uio/edit",
+    "kind": "retained-handout",
+    "local": "legacy-shape-rendering.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "Pandas Exercises - Section 7 - Titanic Disaster",
+    "url": "https://github.com/guipsamora/pandas_exercises/tree/master/07_Visualization/Titanic_Desaster",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "Comprehensive Data Exploration in Python",
+    "url": "https://www.kaggle.com/pmarcelino/comprehensive-data-exploration-with-python",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "Kaggle Micro-Courses",
+    "url": "https://www.kaggle.com/learn/overview",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "Udacity UD810 / CS4495 ",
+    "url": "https://docs.google.com/spreadsheets/d/1ecUGIyhYOfQPi3HPXb-7NndrLgpX_zgkwsqzfqHPaus/pubhtml",
+    "kind": "course",
+    "local": "cv.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "Udacity",
+    "url": "https://www.udacity.com/course/introduction-to-computer-vision--ud810",
+    "kind": "course",
+    "local": "cv-filtering.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "CS229 Notes 1: Supervised Learning and Discriminative Algorithms",
+    "url": "http://cs229.stanford.edu/notes2019fall/cs229-notes1.pdf",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "CS229 Notes 2: Generative Algorithms",
+    "url": "http://cs229.stanford.edu/notes2019fall/cs229-notes2.pdf",
+    "kind": "reading",
+    "local": "ml-generative-neighbors.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "Lecture Slides",
+    "url": "https://www.cs.toronto.edu/~urtasun/courses/CSC411_Fall16/05_nn.pdf",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "Lecture Notes",
+    "url": "https://sebastianraschka.com/pdf/lecture-notes/stat479fs18/02_knn_notes.pdf",
+    "kind": "reading",
+    "local": "ml-generative-neighbors.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "CS229 Lecture Notes",
+    "url": "http://cs229.stanford.edu/notes/cs229-notes3.pdf",
+    "kind": "reading",
+    "local": "ml-generative-neighbors.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "The Hundred Page Machine Learning Book",
+    "url": "https://file.ai100.com.cn/files/file-code/original/cd136ebe-0e34-4e43-966b-224acff83005/100MLBOOK/The+Hundred-Page+Machine+Learning+Book.pdf",
+    "kind": "reading",
+    "local": "ml-advanced-learning.html",
+    "also": [
+      "ml-probabilistic-survey.html",
+      "dl-training.html",
+      "dl-cnns.html",
+      "dl-generative.html"
+    ]
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "Overfitting/Underfitting, Bias, and Variance",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/08_model-eval-1/08-model-eval-1-intro__notes.pdf",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "Holdout Validation, Resampling, Bootstrapping ",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/09_eval2-ci/09-eval2-ci__notes.pdf",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "Model Selection and Cross Validation",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/10_eval3-cv/10-eval3-cv__notes.pdf",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "Statistical Tests",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/11_eval4-algo/11-eval4-algo__notes.pdf",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "Lecture Slides",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/12_eval5-metrics/12_eval5-metrics__slides.pdf",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "Feature Selection",
+    "url": "https://see.stanford.edu/materials/aimlcs229/cs229-notes5.pdf",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "Decision Trees ",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/06_trees/06-trees__notes.pdf",
+    "kind": "reading",
+    "local": "ml-trees-ensembles.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "Ensembling",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/07_ensembles/07-ensembles__notes.pdf",
+    "kind": "reading",
+    "local": "ml-trees-ensembles.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "Principal Component Analysis",
+    "url": "http://cs229.stanford.edu/notes2019fall/cs229-notes10.pdf",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "K-Means Clustering",
+    "url": "http://cs229.stanford.edu/notes/cs229-notes7a.pdf",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "Notes from STAT479",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/14_feat-extract/14_feat-extract__slides.pdf",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "Neural Networks and Deep Learning",
+    "url": "http://neuralnetworksanddeeplearning.com",
+    "kind": "reading",
+    "local": "dl-training.html",
+    "also": [
+      "ml-probabilistic-survey.html",
+      "dl-training.html",
+      "dl-cnns.html",
+      "dl-generative.html"
+    ]
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "Lecture Videos",
+    "url": "https://www.youtube.com/playlist?list=PLqYmG7hTraZDNJre23vqCGIVpfZ_K2RZs",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "Course Homepage",
+    "url": "http://introtodeeplearning.com/",
+    "kind": "collection",
+    "local": "deep.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "Slides",
+    "url": "http://josh-tobin.com/assets/pdf/troubleshooting-deep-neural-networks-01-19.pdf",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "Video",
+    "url": "https://www.youtube.com/watch?v=XtCNNwDi9xg",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "Unsupervised Feature Learning and Deep Learning",
+    "url": "http://deeplearning.stanford.edu/tutorial/",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "https://paperswithcode.com/sota",
+    "url": "https://paperswithcode.com/sota",
+    "kind": "collection",
+    "local": "deep.html"
+  },
+  {
+    "source": "cv/Archive/Training Program Outline - Old Version.docx",
+    "label": "Montreal AI",
+    "url": "https://montrealartificialintelligence.com/academy/",
+    "kind": "collection",
+    "local": "deep.html"
+  },
+  {
+    "source": "cv/Archive/Training for Pianuach/Training Program Outline.docx",
+    "label": "https://www.tutorialspoint.com/unix/index.htm",
+    "url": "https://www.tutorialspoint.com/unix/index.htm",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "cv/Archive/Training for Pianuach/Training Program Outline.docx",
+    "label": "https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud",
+    "url": "https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "cv/Archive/Training for Pianuach/Training Program Outline.docx",
+    "label": "https://www.katacoda.com/courses/docker",
+    "url": "https://www.katacoda.com/courses/docker",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "cv/Archive/Training for Pianuach/Training Program Outline.docx",
+    "label": "The Python Tutorial",
+    "url": "https://www.tutorialspoint.com/python/index.htm",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "cv/Archive/Training for Pianuach/Training Program Outline.docx",
+    "label": "https://docs.python-guide.org/writing/style/",
+    "url": "https://docs.python-guide.org/writing/style/",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "cv/Archive/Training for Pianuach/Training Program Outline.docx",
+    "label": "Python Numpy Tutorial (CS231n)",
+    "url": "http://cs231n.github.io/python-numpy-tutorial/",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "cv/Archive/Training for Pianuach/Training Program Outline.docx",
+    "label": "TutorialsPoint",
+    "url": "https://www.tutorialspoint.com/numpy/index.htm",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "cv/Archive/Training for Pianuach/Training Program Outline.docx",
+    "label": "100 Numpy Questions",
+    "url": "https://github.com/rougier/numpy-100",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "cv/Archive/Training for Pianuach/Training Program Outline.docx",
+    "label": "Pandas Exercises",
+    "url": "https://github.com/guipsamora/pandas_exercises",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "cv/Archive/Training for Pianuach/Training Program Outline.docx",
+    "label": "TutorialsPoint",
+    "url": "https://www.tutorialspoint.com/python_pandas/index.htm",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "cv/Archive/Training for Pianuach/Training Program Outline.docx",
+    "label": "Visualizations with Seaborn tutorial",
+    "url": "https://github.com/rajivramanjani/UdemyPythonDSML/tree/master/06-Data-Visualization-with-Seaborn",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "cv/Archive/Training for Pianuach/Training Program Outline.docx",
+    "label": "https://youtu.be/7EmboKQH8lM",
+    "url": "https://youtu.be/7EmboKQH8lM",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/Archive/Vortex Training.docx",
+    "label": "My First C Program",
+    "url": "https://docs.google.com/presentation/d/1XTYlX8d0c-5N5RRqymkGA0HoNu9oQmgcORKBZ5_61Uc/edit",
+    "kind": "reading",
+    "local": "development-cpp.html"
+  },
+  {
+    "source": "cv/Archive/Vortex Training.docx",
+    "label": "https://medium.com/@__r/installing-clion-on-windows-for-c-c-newbies-like-me-4a346aaf9557",
+    "url": "https://medium.com/@__r/installing-clion-on-windows-for-c-c-newbies-like-me-4a346aaf9557",
+    "kind": "reading",
+    "local": "development-cpp.html"
+  },
+  {
+    "source": "cv/Archive/Vortex Training.docx",
+    "label": "Learn C - Free Interactive C Tutorial",
+    "url": "https://www.learn-c.org/",
+    "kind": "reading",
+    "local": "development-cpp.html"
+  },
+  {
+    "source": "cv/Archive/Vortex Training.docx",
+    "label": "Difference between pointer and array in C?",
+    "url": "https://www.geeksforgeeks.org/difference-pointer-array-c/",
+    "kind": "reading",
+    "local": "development-cpp.html"
+  },
+  {
+    "source": "cv/Archive/Vortex Training.docx",
+    "label": "http://c-faq.com/",
+    "url": "http://c-faq.com/",
+    "kind": "reading",
+    "local": "development-cpp.html"
+  },
+  {
+    "source": "cv/Archive/Vortex Training.docx",
+    "label": "http://www.ericbrasseur.org/cppcen.html",
+    "url": "http://www.ericbrasseur.org/cppcen.html",
+    "kind": "reading",
+    "local": "development-cpp.html"
+  },
+  {
+    "source": "cv/Archive/Vortex Training.docx",
+    "label": "https://berthub.eu/articles/posts/cpp-intro/",
+    "url": "https://berthub.eu/articles/posts/cpp-intro/",
+    "kind": "reading",
+    "local": "development-cpp.html"
+  },
+  {
+    "source": "cv/Archive/Vortex Training.docx",
+    "label": "https://www.artima.com/cppsource/bigtwo.html",
+    "url": "https://www.artima.com/cppsource/bigtwo.html",
+    "kind": "reading",
+    "local": "development-cpp.html"
+  },
+  {
+    "source": "cv/Archive/Vortex Training.docx",
+    "label": "http://www.cplusplus.com/doc/tutorial/",
+    "url": "http://www.cplusplus.com/doc/tutorial/",
+    "kind": "reading",
+    "local": "development-cpp.html"
+  },
+  {
+    "source": "cv/Archive/Vortex Training.docx",
+    "label": "https://smartbear.com/blog/develop/the-biggest-changes-in-c11-and-why-you-should-care/",
+    "url": "https://smartbear.com/blog/develop/the-biggest-changes-in-c11-and-why-you-should-care/",
+    "kind": "reading",
+    "local": "development-cpp.html"
+  },
+  {
+    "source": "cv/Archive/Vortex Training.docx",
+    "label": "https://www.codingame.com/playgrounds/2205/7-features-of-c17-that-will-simplify-your-code/introduction",
+    "url": "https://www.codingame.com/playgrounds/2205/7-features-of-c17-that-will-simplify-your-code/introduction",
+    "kind": "reading",
+    "local": "development-cpp.html"
+  },
+  {
+    "source": "cv/Archive/Vortex Training.docx",
+    "label": "https://hackaday.com/2019/07/30/c20-is-feature-complete-heres-what-changes-are-coming/",
+    "url": "https://hackaday.com/2019/07/30/c20-is-feature-complete-heres-what-changes-are-coming/",
+    "kind": "reading",
+    "local": "development-cpp.html"
+  },
+  {
+    "source": "cv/Archive/Vortex Training.docx",
+    "label": "C/C++ Programming Practice Problems",
+    "url": "https://www.cprogramming.com/challenge.html?inl=nv",
+    "kind": "reading",
+    "local": "development-cpp.html"
+  },
+  {
+    "source": "cv/Archive/Vortex Training.docx",
+    "label": "תרגיל",
+    "url": "https://docs.google.com/document/d/1g4Oh52u5K1ZLD3XlV7gbvXRfuYPtndjjXwyt1-b1Sxs/edit?usp=sharing",
+    "kind": "exercise-or-data",
+    "local": null
+  },
+  {
+    "source": "cv/Archive/Vortex Training.docx",
+    "label": "https://github.com/CVBranch/Fast-GEMM",
+    "url": "https://github.com/CVBranch/Fast-GEMM",
+    "kind": "reading",
+    "local": "development-cpp.html"
+  },
+  {
+    "source": "cv/Archive/Vortex Training.docx",
+    "label": "https://github.com/CVBranch/QR-Reader",
+    "url": "https://github.com/CVBranch/QR-Reader",
+    "kind": "reading",
+    "local": "development-cpp.html"
+  },
+  {
+    "source": "cv/Archive/Vortex Training.docx",
+    "label": "ttps://github.com/planetchili/sne",
+    "url": "https://github.com/planetchili/snek",
+    "kind": "reading",
+    "local": "development-cpp.html"
+  },
+  {
+    "source": "cv/Archive/Vortex Training.docx",
+    "label": "Beginner C++ Game Programming DirectX [Snake Game] Tutorial 14a",
+    "url": "https://www.youtube.com/watch?v=KTyemy82Zqk",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/Archive/Vortex Training.docx",
+    "label": "Beginner C++ Game Programming DirectX [Snake Game] Tutorial 14b",
+    "url": "https://www.youtube.com/watch?v=DoO_NEksf3c",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/Archive/Vortex Training.docx",
+    "label": "Introduction to Embedded Systems Software and Development Environments",
+    "url": "https://www.coursera.org/learn/introduction-embedded-systems/",
+    "kind": "course",
+    "local": "development-cpp.html"
+  },
+  {
+    "source": "cv/Archive/Vortex Training.docx",
+    "label": "://make.mad-scientist.net/papers/advanced-auto-dependency-generation/",
+    "url": "http://make.mad-scientist.net/papers/advanced-auto-dependency-generation/",
+    "kind": "reading",
+    "local": "development-cpp.html"
+  },
+  {
+    "source": "cv/Archive/Vortex Training.docx",
+    "label": "://interrupt.memfault.com/blog/get-the-most-out-of-the-linker-map-file",
+    "url": "https://interrupt.memfault.com/blog/get-the-most-out-of-the-linker-map-file",
+    "kind": "reading",
+    "local": "development-cpp.html"
+  },
+  {
+    "source": "cv/Archive/Vortex Training.docx",
+    "label": "://make.mad-scientist.net/papers/multi-architecture-builds/",
+    "url": "http://make.mad-scientist.net/papers/multi-architecture-builds/",
+    "kind": "reading",
+    "local": "development-cpp.html"
+  },
+  {
+    "source": "cv/Archive/Vortex Training.docx",
+    "label": "Why Makefile?",
+    "url": "https://www.tutorialspoint.com/makefile/why_makefile.htm",
+    "kind": "reading",
+    "local": "development-cpp.html"
+  },
+  {
+    "source": "cv/Archive/Vortex Training.docx",
+    "label": "GNU make",
+    "url": "https://www.gnu.org/software/make/manual/make.html",
+    "kind": "reading",
+    "local": "development-cpp.html"
+  },
+  {
+    "source": "cv/Archive/Vortex Training.docx",
+    "label": "[1602.02830] Binarized Neural Networks: Training Deep Neural Networks with Weights and Activations Constrained to +1 or -1",
+    "url": "https://arxiv.org/abs/1602.02830",
+    "kind": "reading",
+    "local": "development-cpp.html"
+  },
+  {
+    "source": "cv/For Shampooee/Advanced Python Training.docx",
+    "label": "https://towardsdatascience.com/type-hints-in-python-everything-you-need-to-know-in-5-minutes-24e0bad06d0b",
+    "url": "https://towardsdatascience.com/type-hints-in-python-everything-you-need-to-know-in-5-minutes-24e0bad06d0b",
+    "kind": "reading",
+    "local": "python-tools.html"
+  },
+  {
+    "source": "cv/For Shampooee/Advanced Python Training.docx",
+    "label": "https://docs.python.org/3/library/typing.html",
+    "url": "https://docs.python.org/3/library/typing.html",
+    "kind": "reading",
+    "local": "python-tools.html"
+  },
+  {
+    "source": "cv/For Shampooee/Advanced Python Training.docx",
+    "label": "https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html",
+    "url": "https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html",
+    "kind": "reading",
+    "local": "python-tools.html"
+  },
+  {
+    "source": "cv/For Shampooee/Advanced Python Training.docx",
+    "label": "https://www.programiz.com/python-programming/decorator",
+    "url": "https://www.programiz.com/python-programming/decorator",
+    "kind": "reading",
+    "local": "python-tools.html"
+  },
+  {
+    "source": "cv/For Shampooee/Advanced Python Training.docx",
+    "label": "https://towardsdatascience.com/10-fabulous-python-decorators-ab674a732871",
+    "url": "https://towardsdatascience.com/10-fabulous-python-decorators-ab674a732871",
+    "kind": "reading",
+    "local": "python-tools.html"
+  },
+  {
+    "source": "cv/For Shampooee/Advanced Python Training.docx",
+    "label": "https://docs.python.org/3/library/functools.html#functools.lru_cache",
+    "url": "https://docs.python.org/3/library/functools.html#functools.lru_cache",
+    "kind": "reading",
+    "local": "python-tools.html"
+  },
+  {
+    "source": "cv/For Shampooee/Advanced Python Training.docx",
+    "label": "https://www.programiz.com/python-programming/property",
+    "url": "https://www.programiz.com/python-programming/property",
+    "kind": "reading",
+    "local": "python-tools.html"
+  },
+  {
+    "source": "cv/For Shampooee/Advanced Python Training.docx",
+    "label": "https://docs.python.org/3/library/dataclasses.html",
+    "url": "https://docs.python.org/3/library/dataclasses.html",
+    "kind": "reading",
+    "local": "python-tools.html"
+  },
+  {
+    "source": "cv/For Shampooee/Advanced Python Training.docx",
+    "label": "https://docs.python.org/3/library/functools.html#functools.singledispatch",
+    "url": "https://docs.python.org/3/library/functools.html#functools.singledispatch",
+    "kind": "reading",
+    "local": "python-tools.html"
+  },
+  {
+    "source": "cv/For Shampooee/Advanced Python Training.docx",
+    "label": "https://stackoverflow.com/a/12179752",
+    "url": "https://stackoverflow.com/a/12179752",
+    "kind": "reading",
+    "local": "python-tools.html"
+  },
+  {
+    "source": "cv/For Shampooee/Advanced Python Training.docx",
+    "label": "https://docs.python.org/3.11/howto/enum.html",
+    "url": "https://docs.python.org/3.11/howto/enum.html",
+    "kind": "reading",
+    "local": "python-tools.html"
+  },
+  {
+    "source": "cv/For Shampooee/Advanced Python Training.docx",
+    "label": "https://docs.python.org/3/library/queue.html",
+    "url": "https://docs.python.org/3/library/queue.html",
+    "kind": "reading",
+    "local": "python-tools.html"
+  },
+  {
+    "source": "cv/For Shampooee/Advanced Python Training.docx",
+    "label": "https://docs.streamlit.io/",
+    "url": "https://docs.streamlit.io/",
+    "kind": "reading",
+    "local": "python-tools.html"
+  },
+  {
+    "source": "cv/For Shampooee/Advanced Python Training.docx",
+    "label": "https://docs.streamlit.io/library/get-started",
+    "url": "https://docs.streamlit.io/library/get-started",
+    "kind": "reading",
+    "local": "python-tools.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "CS231n from Stanford",
+    "url": "https://cs231n.stanford.edu/schedule.html",
+    "kind": "collection",
+    "local": "deep.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 1: Introduction to Deep Learning for Computer Vision",
+    "url": "https://www.youtube.com/watch?v=dJYGatp4SvA&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "CS231n: Deep Learning for Computer Vision Lecture 1: part 1",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_1_part_1.pdf",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "CS231n: Deep Learning for Computer Vision Lecture 1: part 2",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_1_part_2.pdf",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 2: Image Classification",
+    "url": "https://www.youtube.com/watch?v=0nqvO3AM2Vw&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 3: Linear Classifiers",
+    "url": "https://www.youtube.com/watch?v=qcSEP17uKKY&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Image Classification",
+    "url": "https://cs231n.github.io/classification/",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Linear Classification",
+    "url": "https://cs231n.github.io/linear-classify/",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 2: - Image Classification with Linear Classifiers",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_2.pdf",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 4: Optimization",
+    "url": "https://www.youtube.com/watch?v=YnQJTfbwBM8&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Adam vs. AdamW: Understanding Weight Decay and Its Impact on Model Performance | by Ahmed Yassin",
+    "url": "https://yassin01.medium.com/adam-vs-adamw-understanding-weight-decay-and-its-impact-on-model-performance-b7414f0af8a1",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Interactive Visualization of Optimization Algorithms in Deep Learning | Emilien Dupont",
+    "url": "https://emiliendupont.github.io/2018/01/24/optimization-visualization/",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Optimization",
+    "url": "https://cs231n.github.io/optimization-1/",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 3: Regularization and Optimization",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_3.pdf",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 5: Neural Networks",
+    "url": "https://www.youtube.com/watch?v=g6InpdhUblE&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 6: Backpropagation",
+    "url": "https://www.youtube.com/watch?v=dB-u77Y5a6A&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Backpropagation",
+    "url": "https://cs231n.github.io/optimization-2/",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 4: Neural Networks and Backpropagation",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_4.pdf",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 7: Convolutional Networks",
+    "url": "https://www.youtube.com/watch?v=ANyxBVxmdZ0&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r&index=7",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Convolutional Neural Networks (CNNs / ConvNets)",
+    "url": "https://cs231n.github.io/convolutional-networks/",
+    "kind": "reading",
+    "local": "dl-cnns.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 5: Image Classification with CNNs",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_5.pdf",
+    "kind": "reading",
+    "local": "dl-cnns.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 8: CNN Architectures",
+    "url": "https://www.youtube.com/watch?v=XaZIlVrIO-Q&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r&index=8",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 10: Training Neural Networks I",
+    "url": "https://www.youtube.com/watch?v=lGbQlr1Ts7w&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 11: Training Neural Networks II",
+    "url": "https://www.youtube.com/watch?v=WUazOtlti0g&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r&index=11",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 6: Training CNNs and Architectures",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_6.pdf",
+    "kind": "reading",
+    "local": "dl-cnns.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Understanding LSTM Networks - colah's blog",
+    "url": "https://colah.github.io/posts/2015-08-Understanding-LSTMs/",
+    "kind": "reading",
+    "local": "dl-sequences.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 7: Recurrent Neural Networks",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_7.pdf",
+    "kind": "reading",
+    "local": "dl-sequences.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 8: Attention and Transformers",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_8.pdf",
+    "kind": "reading",
+    "local": "dl-attention.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Attention? Attention! | Lil'Log",
+    "url": "https://lilianweng.github.io/posts/2018-06-24-attention/",
+    "kind": "reading",
+    "local": "dl-attention.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "AAAI - Transformers",
+    "url": "https://www.youtube.com/watch?v=T-smYxIQGDw",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (Paper Explained)",
+    "url": "https://www.youtube.com/watch?v=TrdevFK_am4",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 15: Object Detection",
+    "url": "https://www.youtube.com/watch?v=TB-fdISzpHQ&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 16: Detection and Segmentation",
+    "url": "https://www.youtube.com/watch?v=9AyMR4IhSWQ&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 14: Visualizing and Understanding",
+    "url": "https://www.youtube.com/watch?v=G1hGwHVykDU&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 9: Detection, Segmentation, Visualization, and Understanding",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_9.pdf",
+    "kind": "reading",
+    "local": "dl-detection.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "DETR: End-to-End Object Detection with Transformers (Yannic Kilcher)",
+    "url": "https://www.youtube.com/watch?v=T35ba_VXkMY",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 18: Videos",
+    "url": "https://www.youtube.com/watch?v=A9D6NXBJdwU&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 10: Video Understanding",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_10.pdf",
+    "kind": "reading",
+    "local": "dl-sequences.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 11: Large-Scale Distributed Training",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_11.pdf",
+    "kind": "reading",
+    "local": "dl-deployment.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 12: Self-Supervised Learning",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_12.pdf",
+    "kind": "reading",
+    "local": "dl-self-supervision.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "DINO: Emerging Properties in Self-Supervised Vision Transformers (Facebook AI Research Explained)",
+    "url": "https://www.youtube.com/watch?v=h3ij3F3cPIk",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Self-supervised Learning",
+    "url": "https://lilianweng.github.io/posts/2019-11-10-self-supervised/",
+    "kind": "reading",
+    "local": "dl-self-supervision.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Contrastive Learning",
+    "url": "https://lilianweng.github.io/posts/2021-05-31-contrastive/#moco--moco-v2",
+    "kind": "reading",
+    "local": "dl-self-supervision.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 19: Generative Models I",
+    "url": "https://www.youtube.com/watch?v=Q3HU2vEhD5Y&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 13: Generative Models (part 1)",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_13.pdf",
+    "kind": "reading",
+    "local": "dl-generative.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "ELBO — What & Why | Yunfan’s Blog",
+    "url": "https://yunfanj.com/blog/2021/01/11/ELBO.html",
+    "kind": "reading",
+    "local": "dl-generative.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 14: Generative Models (part 2)",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_14.pdf",
+    "kind": "reading",
+    "local": "dl-generative.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 17: 3D Vision",
+    "url": "https://www.youtube.com/watch?v=S1_nCdLUQQ8&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 15: 3D Vision",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_15.pdf",
+    "kind": "reading",
+    "local": "dl-3d.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Lecture 16: Vision and Language",
+    "url": "https://cs231n.stanford.edu/slides/2025/lecture_16.pdf",
+    "kind": "reading",
+    "local": "dl-vision-language.html"
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "OpenAI CLIP: ConnectingText and Images (Paper Explained)",
+    "url": "https://www.youtube.com/watch?v=T9XSU0pKX2E",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Deep Learning Training.docx",
+    "label": "Batch Normalization, Dropout, Convolutional Nets, Network Visualization, Image Captioning with RNNs",
+    "url": "https://cs231n.github.io/assignments2025/assignment2/",
+    "kind": "reading",
+    "local": "dl-cnns.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline - New 2025.docx",
+    "label": "https://www.tutorialspoint.com/unix/index.htm",
+    "url": "https://www.tutorialspoint.com/unix/index.htm",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline - New 2025.docx",
+    "label": "https://www.atlassiarrently checked out commit -- it's essentially what commit you're working on top of.n.com/git/tutorials/learn-git-with-bitbucket-cloud",
+    "url": "https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline - New 2025.docx",
+    "label": "https://www.udemy.com/course/docker-essentials/",
+    "url": "https://www.udemy.com/course/docker-essentials/",
+    "kind": "course",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline - New 2025.docx",
+    "label": "The Python Tutorial",
+    "url": "https://www.tutorialspoint.com/python/index.htm",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline - New 2025.docx",
+    "label": "https://docs.python-guide.org/writing/style/",
+    "url": "https://docs.python-guide.org/writing/style/",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline - New 2025.docx",
+    "label": "advanced Python training program",
+    "url": "https://docs.google.com/document/d/1plC1Xk7hPde-kOEtHHnGpXkBRWqvixFOvCCbVGhgVYY/edit?usp=sharing",
+    "kind": "retained-handout",
+    "local": "legacy-python.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline - New 2025.docx",
+    "label": "Python Numpy Tutorial (CS231n)",
+    "url": "http://cs231n.github.io/python-numpy-tutorial/",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline - New 2025.docx",
+    "label": "TutorialsPoint",
+    "url": "https://www.tutorialspoint.com/numpy/index.htm",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline - New 2025.docx",
+    "label": "100 Numpy Questions",
+    "url": "https://github.com/rougier/numpy-100",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline - New 2025.docx",
+    "label": "Boids simulation",
+    "url": "https://docs.google.com/document/d/1Ngbd31sq_GQ4oAFBFmNjsXrTNoFL9wPoDxiw7wqv6zs/edit#",
+    "kind": "retained-handout",
+    "local": "legacy-boids.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline - New 2025.docx",
+    "label": "Pandas Exercises",
+    "url": "https://github.com/guipsamora/pandas_exercises",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline - New 2025.docx",
+    "label": "TutorialsPoint",
+    "url": "https://www.tutorialspoint.com/python_pandas/index.htm",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline - New 2025.docx",
+    "label": "https://youtu.be/7EmboKQH8lM",
+    "url": "https://youtu.be/7EmboKQH8lM",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline - New 2025.docx",
+    "label": "https://youtu.be/2a_ytyt9sf8",
+    "url": "https://youtu.be/2a_ytyt9sf8",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline - New 2025.docx",
+    "label": "Shape Rendering",
+    "url": "https://docs.google.com/document/d/1mdw1ahKP9M3MbeGYcVxJhA5HC5nXHEZ2aio9RzqgFPk/",
+    "kind": "retained-handout",
+    "local": "legacy-shape-rendering.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline - New 2025.docx",
+    "label": "Udacity UD810 / CS4495 ",
+    "url": "https://docs.google.com/spreadsheets/d/1ecUGIyhYOfQPi3HPXb-7NndrLgpX_zgkwsqzfqHPaus/pubhtml",
+    "kind": "course",
+    "local": "cv.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline - New 2025.docx",
+    "label": "Udacity",
+    "url": "https://www.udacity.com/enrollment/ud810",
+    "kind": "course",
+    "local": "cv-filtering.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline - New 2025.docx",
+    "label": "https://docs.google.com/document/d/1pH0W2ayG0wFHTs-vXqah2udiYRUqgoeQ2I6sdTkqE_Q/edit?usp=sharing",
+    "url": "https://docs.google.com/document/d/1pH0W2ayG0wFHTs-vXqah2udiYRUqgoeQ2I6sdTkqE_Q/edit?usp=sharing",
+    "kind": "retained-handout",
+    "local": "legacy-ml.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline - New 2025.docx",
+    "label": "https://docs.google.com/document/d/10BH9a9M4lRILoVYEsoZvQ81LQmL1B6N-QkoefXt52Uk/edit?usp=sharing",
+    "url": "https://docs.google.com/document/d/10BH9a9M4lRILoVYEsoZvQ81LQmL1B6N-QkoefXt52Uk/edit?usp=sharing",
+    "kind": "retained-handout",
+    "local": "legacy-ml-additional.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline - New 2025.docx",
+    "label": "https://drive.google.com/drive/folders/1uXbVlgaL0kvrTS0cbbPZhMDXNXUu8Oed?usp=sharing",
+    "url": "https://drive.google.com/drive/folders/1uXbVlgaL0kvrTS0cbbPZhMDXNXUu8Oed?usp=sharing",
+    "kind": "exercise-or-data",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline - New 2025.docx",
+    "label": "https://drive.google.com/drive/folders/1hM7-LkPs8F97dNx1zQqpknPBnTACuoPa?usp=sharing",
+    "url": "https://drive.google.com/drive/folders/1hM7-LkPs8F97dNx1zQqpknPBnTACuoPa?usp=sharing",
+    "kind": "exercise-or-data",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline - New 2025.docx",
+    "label": "Neural Networks and Deep Learning",
+    "url": "http://neuralnetworksanddeeplearning.com",
+    "kind": "reading",
+    "local": "dl-training.html",
+    "also": [
+      "ml-probabilistic-survey.html",
+      "dl-training.html",
+      "dl-cnns.html",
+      "dl-generative.html"
+    ]
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline - New 2025.docx",
+    "label": "Lecture Videos",
+    "url": "https://www.youtube.com/playlist?list=PLqYmG7hTraZDNJre23vqCGIVpfZ_K2RZs",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline - New 2025.docx",
+    "label": "Course Homepage",
+    "url": "http://introtodeeplearning.com/",
+    "kind": "collection",
+    "local": "deep.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline - New 2025.docx",
+    "label": "Slides",
+    "url": "http://josh-tobin.com/assets/pdf/troubleshooting-deep-neural-networks-01-19.pdf",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline - New 2025.docx",
+    "label": "Video",
+    "url": "https://www.youtube.com/watch?v=XtCNNwDi9xg",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline - New 2025.docx",
+    "label": "Unsupervised Feature Learning and Deep Learning",
+    "url": "http://deeplearning.stanford.edu/tutorial/",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline - New 2025.docx",
+    "label": "Montreal AI",
+    "url": "https://montrealartificialintelligence.com/academy/",
+    "kind": "collection",
+    "local": "deep.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "https://www.tutorialspoint.com/unix/index.htm",
+    "url": "https://www.tutorialspoint.com/unix/index.htm",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "https://www.atlassiarrently checked out commit -- it's essentially what commit you're working on top of.n.com/git/tutorials/learn-git-with-bitbucket-cloud",
+    "url": "https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "https://www.udemy.com/course/docker-essentials/",
+    "url": "https://www.udemy.com/course/docker-essentials/",
+    "kind": "course",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "The Python Tutorial",
+    "url": "https://www.tutorialspoint.com/python/index.htm",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "https://docs.python-guide.org/writing/style/",
+    "url": "https://docs.python-guide.org/writing/style/",
+    "kind": "reading",
+    "local": "development-foundations.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "advanced Python training program",
+    "url": "https://docs.google.com/document/d/1plC1Xk7hPde-kOEtHHnGpXkBRWqvixFOvCCbVGhgVYY/edit?usp=sharing",
+    "kind": "retained-handout",
+    "local": "legacy-python.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "Python Numpy Tutorial (CS231n)",
+    "url": "http://cs231n.github.io/python-numpy-tutorial/",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "TutorialsPoint",
+    "url": "https://www.tutorialspoint.com/numpy/index.htm",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "100 Numpy Questions",
+    "url": "https://github.com/rougier/numpy-100",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "Boids simulation",
+    "url": "https://docs.google.com/document/d/1Ngbd31sq_GQ4oAFBFmNjsXrTNoFL9wPoDxiw7wqv6zs/edit#",
+    "kind": "retained-handout",
+    "local": "legacy-boids.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "Pandas Exercises",
+    "url": "https://github.com/guipsamora/pandas_exercises",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "TutorialsPoint",
+    "url": "https://www.tutorialspoint.com/python_pandas/index.htm",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "https://youtu.be/7EmboKQH8lM",
+    "url": "https://youtu.be/7EmboKQH8lM",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "https://youtu.be/2a_ytyt9sf8",
+    "url": "https://youtu.be/2a_ytyt9sf8",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "Shape Rendering",
+    "url": "https://docs.google.com/document/d/1mdw1ahKP9M3MbeGYcVxJhA5HC5nXHEZ2aio9RzqgFPk/",
+    "kind": "retained-handout",
+    "local": "legacy-shape-rendering.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "Udacity UD810 / CS4495 ",
+    "url": "https://docs.google.com/spreadsheets/d/1ecUGIyhYOfQPi3HPXb-7NndrLgpX_zgkwsqzfqHPaus/pubhtml",
+    "kind": "course",
+    "local": "cv.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "Udacity",
+    "url": "https://www.udacity.com/enrollment/ud810",
+    "kind": "course",
+    "local": "cv-filtering.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "https://docs.google.com/document/d/1pH0W2ayG0wFHTs-vXqah2udiYRUqgoeQ2I6sdTkqE_Q/edit?usp=sharing",
+    "url": "https://docs.google.com/document/d/1pH0W2ayG0wFHTs-vXqah2udiYRUqgoeQ2I6sdTkqE_Q/edit?usp=sharing",
+    "kind": "retained-handout",
+    "local": "legacy-ml.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "https://docs.google.com/document/d/10BH9a9M4lRILoVYEsoZvQ81LQmL1B6N-QkoefXt52Uk/edit?usp=sharing",
+    "url": "https://docs.google.com/document/d/10BH9a9M4lRILoVYEsoZvQ81LQmL1B6N-QkoefXt52Uk/edit?usp=sharing",
+    "kind": "retained-handout",
+    "local": "legacy-ml-additional.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "https://drive.google.com/drive/folders/1uXbVlgaL0kvrTS0cbbPZhMDXNXUu8Oed?usp=sharing",
+    "url": "https://drive.google.com/drive/folders/1uXbVlgaL0kvrTS0cbbPZhMDXNXUu8Oed?usp=sharing",
+    "kind": "exercise-or-data",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "https://drive.google.com/drive/folders/1hM7-LkPs8F97dNx1zQqpknPBnTACuoPa?usp=sharing",
+    "url": "https://drive.google.com/drive/folders/1hM7-LkPs8F97dNx1zQqpknPBnTACuoPa?usp=sharing",
+    "kind": "exercise-or-data",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "EECS498 ",
+    "url": "https://web.eecs.umich.edu/~justincj/teaching/eecs498/FA2019/",
+    "kind": "collection",
+    "local": "deep.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "2019 course version",
+    "url": "https://web.eecs.umich.edu/~justincj/teaching/eecs498/FA2019/schedule.html",
+    "kind": "collection",
+    "local": "deep.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "link",
+    "url": "https://www.dropbox.com/sh/t3rlt3ghbnxuvjn/AADOwhPkfxe8dQlOsLaygWqPa?dl=0",
+    "kind": "collection",
+    "local": "deep.html",
+    "note": "Archive notes collection; current topic explanations are local. Exact external archive contents were not fetched."
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "here",
+    "url": "https://www.youtube.com/watch?v=T-smYxIQGDw",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "ViT",
+    "url": "https://www.youtube.com/watch?v=TrdevFK_am4",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "DeTR",
+    "url": "https://www.youtube.com/watch?v=T35ba_VXkMY",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "DINO",
+    "url": "https://www.youtube.com/watch?v=h3ij3F3cPIk",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "CLIP",
+    "url": "https://www.youtube.com/watch?v=T9XSU0pKX2E",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "Self-supervised Learning",
+    "url": "https://lilianweng.github.io/posts/2019-11-10-self-supervised/",
+    "kind": "reading",
+    "local": "dl-self-supervision.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "Contrastive Learning",
+    "url": "https://lilianweng.github.io/posts/2021-05-31-contrastive/#moco--moco-v2",
+    "kind": "reading",
+    "local": "dl-self-supervision.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "Neural Networks and Deep Learning",
+    "url": "http://neuralnetworksanddeeplearning.com",
+    "kind": "reading",
+    "local": "dl-training.html",
+    "also": [
+      "ml-probabilistic-survey.html",
+      "dl-training.html",
+      "dl-cnns.html",
+      "dl-generative.html"
+    ]
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "Lecture Videos",
+    "url": "https://www.youtube.com/playlist?list=PLqYmG7hTraZDNJre23vqCGIVpfZ_K2RZs",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "Course Homepage",
+    "url": "http://introtodeeplearning.com/",
+    "kind": "collection",
+    "local": "deep.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "Slides",
+    "url": "http://josh-tobin.com/assets/pdf/troubleshooting-deep-neural-networks-01-19.pdf",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "Video",
+    "url": "https://www.youtube.com/watch?v=XtCNNwDi9xg",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "Unsupervised Feature Learning and Deep Learning",
+    "url": "http://deeplearning.stanford.edu/tutorial/",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "cv/For Shampooee/Training Program Outline.docx",
+    "label": "Montreal AI",
+    "url": "https://montrealartificialintelligence.com/academy/",
+    "kind": "collection",
+    "local": "deep.html"
+  },
+  {
+    "source": "cv/For Shampooer/Deep Learning Training - For Shampooer.docx",
+    "label": "https://twitter.com/ylecun/status/1274782757907030016",
+    "url": "https://twitter.com/ylecun/status/1274782757907030016",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "cv/For Shampooer/Deep Learning Training - For Shampooer.docx",
+    "label": "https://twitter.com/itayevron/status/1328421322821693441?s=08",
+    "url": "https://twitter.com/itayevron/status/1328421322821693441?s=08",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "cv/For Shampooer/Deep Learning Training - For Shampooer.docx",
+    "label": "https://github.com/Jaewan-Yun/optimizer-visualization",
+    "url": "https://github.com/Jaewan-Yun/optimizer-visualization",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "cv/For Shampooer/Deep Learning Training - For Shampooer.docx",
+    "label": "https://emiliendupont.github.io/2018/01/24/optimization-visualization/",
+    "url": "https://emiliendupont.github.io/2018/01/24/optimization-visualization/",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "cv/For Shampooer/Deep Learning Training - For Shampooer.docx",
+    "label": "http://cs.stanford.edu/people/karpathy/convnetjs/demo/classify2d.html",
+    "url": "http://cs.stanford.edu/people/karpathy/convnetjs/demo/classify2d.html",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "cv/For Shampooer/Deep Learning Training - For Shampooer.docx",
+    "label": "http://neuralnetworksanddeeplearning.com/chap4.html",
+    "url": "http://neuralnetworksanddeeplearning.com/chap4.html",
+    "kind": "reading",
+    "local": "dl-training.html",
+    "also": [
+      "ml-probabilistic-survey.html",
+      "dl-training.html",
+      "dl-cnns.html",
+      "dl-generative.html"
+    ]
+  },
+  {
+    "source": "cv/For Shampooer/Deep Learning Training - For Shampooer.docx",
+    "label": "https://www.youtube.com/watch?v=OioFONrSETc&ab_channel=YannicKilcher",
+    "url": "https://www.youtube.com/watch?v=OioFONrSETc&ab_channel=YannicKilcher",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooer/Deep Learning Training - For Shampooer.docx",
+    "label": "https://distill.pub/2019/computing-receptive-fields/",
+    "url": "https://distill.pub/2019/computing-receptive-fields/",
+    "kind": "reading",
+    "local": "dl-cnns.html"
+  },
+  {
+    "source": "cv/For Shampooer/Deep Learning Training - For Shampooer.docx",
+    "label": "wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Batch_normalization#Length-Direction_Decoupling",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "cv/For Shampooer/Deep Learning Training - For Shampooer.docx",
+    "label": "https://arxiv.org/abs/1411.4038",
+    "url": "https://arxiv.org/abs/1411.4038",
+    "kind": "reading",
+    "local": "dl-detection.html"
+  },
+  {
+    "source": "cv/For Shampooer/Deep Learning Training - For Shampooer.docx",
+    "label": "https://eli.thegreenplace.net/2016/the-softmax-function-and-its-derivative/",
+    "url": "https://eli.thegreenplace.net/2016/the-softmax-function-and-its-derivative/",
+    "kind": "reading",
+    "local": "dl-training.html"
+  },
+  {
+    "source": "cv/For Shampooer/Deep Learning Training - For Shampooer.docx",
+    "label": "Feldman's lecture",
+    "url": "https://www.youtube.com/watch?v=T-smYxIQGDw",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooer/Deep Learning Training - For Shampooer.docx",
+    "label": "https://www.youtube.com/watch?v=aircAruvnKk&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&ab_channel=3Blue1Brown",
+    "url": "https://www.youtube.com/watch?v=aircAruvnKk&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&ab_channel=3Blue1Brown",
+    "kind": "video",
+    "local": null
+  },
+  {
+    "source": "cv/For Shampooer/Papers/SSD.docx",
+    "label": "מאמר",
+    "url": "https://arxiv.org/pdf/2002.05274.pdf",
+    "kind": "reading",
+    "local": "dl-detection.html"
+  },
+  {
+    "source": "cv/For Shampooer/Papers/SSD.docx",
+    "label": "מאמר",
+    "url": "https://arxiv.org/abs/2002.04672",
+    "kind": "reading",
+    "local": "dl-detection.html"
+  },
+  {
+    "source": "cv/For Shampooer/Papers/The ArcFace Trilogy - Q&A.docx",
+    "label": "A Metric Learning Reality Check",
+    "url": "https://arxiv.org/abs/2003.08505",
+    "kind": "reading",
+    "local": "dl-self-supervision.html"
+  },
+  {
+    "source": "cv/For Shampooer/Papers/The ArcFace Trilogy - Q&A.docx",
+    "label": "https://kevinmusgrave.github.io/powerful-benchmarker/papers/mlrc/#examples-of-unfair-comparisons-in-metric-learning-papers",
+    "url": "https://kevinmusgrave.github.io/powerful-benchmarker/papers/mlrc/#examples-of-unfair-comparisons-in-metric-learning-papers",
+    "kind": "reading",
+    "local": "dl-self-supervision.html"
+  },
+  {
+    "source": "cv/Machine Learning/Additional Resources/ML Additional Readings.docx",
+    "label": "https://drive.google.com/drive/mobile/folders/16g08YIerCR2YX-NcgI8bzy7sRA3xIi7t/1eDhLME8aHhtO3EKo_7GvHMRb2fhJbA2M/1mdzE2StszermzZfFzTUgjJV1qbuQXX2M/1ylnpUb8tf455WDXD6VkhfkPlvRtogtLr?sort=13&direction=a",
+    "url": "https://drive.google.com/drive/mobile/folders/16g08YIerCR2YX-NcgI8bzy7sRA3xIi7t/1eDhLME8aHhtO3EKo_7GvHMRb2fhJbA2M/1mdzE2StszermzZfFzTUgjJV1qbuQXX2M/1ylnpUb8tf455WDXD6VkhfkPlvRtogtLr?sort=13&direction=a",
+    "kind": "course",
+    "local": "ml.html"
+  },
+  {
+    "source": "cv/Machine Learning/Additional Resources/ML Additional Readings.docx",
+    "label": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-2.pdf",
+    "url": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-2.pdf",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "cv/Machine Learning/Additional Resources/ML Additional Readings.docx",
+    "label": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-3.pdf",
+    "url": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-3.pdf",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "cv/Machine Learning/Additional Resources/ML Additional Readings.docx",
+    "label": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-5.pdf",
+    "url": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-5.pdf",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "cv/Machine Learning/Additional Resources/ML Additional Readings.docx",
+    "label": "https://ocw.mit.edu/courses/sloan-school-of-management/15-097-prediction-machine-learning-and-statistics-spring-2012/lecture-notes/MIT15_097S12_lec07.pdf",
+    "url": "https://ocw.mit.edu/courses/sloan-school-of-management/15-097-prediction-machine-learning-and-statistics-spring-2012/lecture-notes/MIT15_097S12_lec07.pdf",
+    "kind": "reading",
+    "local": "ml-generative-neighbors.html"
+  },
+  {
+    "source": "cv/Machine Learning/Additional Resources/ML Additional Readings.docx",
+    "label": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-6.pdf",
+    "url": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-6.pdf",
+    "kind": "reading",
+    "local": "ml-generative-neighbors.html"
+  },
+  {
+    "source": "cv/Machine Learning/Additional Resources/ML Additional Readings.docx",
+    "label": "https://sebastianraschka.com/pdf/lecture-notes/stat479fs18/02_knn_notes.pdf",
+    "url": "https://sebastianraschka.com/pdf/lecture-notes/stat479fs18/02_knn_notes.pdf",
+    "kind": "reading",
+    "local": "ml-generative-neighbors.html"
+  },
+  {
+    "source": "cv/Machine Learning/Additional Resources/ML Additional Readings.docx",
+    "label": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-7.pdf",
+    "url": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-7.pdf",
+    "kind": "reading",
+    "local": "ml-generative-neighbors.html"
+  },
+  {
+    "source": "cv/Machine Learning/Additional Resources/ML Additional Readings.docx",
+    "label": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/06_trees/06-trees__notes.pdf",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/06_trees/06-trees__notes.pdf",
+    "kind": "reading",
+    "local": "ml-trees-ensembles.html"
+  },
+  {
+    "source": "cv/Machine Learning/Additional Resources/ML Additional Readings.docx",
+    "label": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-9.pdf",
+    "url": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-9.pdf",
+    "kind": "reading",
+    "local": "ml-trees-ensembles.html"
+  },
+  {
+    "source": "cv/Machine Learning/Additional Resources/ML Additional Readings.docx",
+    "label": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-10.pdf",
+    "url": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-10.pdf",
+    "kind": "reading",
+    "local": "ml-trees-ensembles.html"
+  },
+  {
+    "source": "cv/Machine Learning/Additional Resources/ML Additional Readings.docx",
+    "label": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/07_ensembles/07-ensembles__notes.pdf",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/07_ensembles/07-ensembles__notes.pdf",
+    "kind": "reading",
+    "local": "ml-trees-ensembles.html"
+  },
+  {
+    "source": "cv/Machine Learning/Additional Resources/ML Additional Readings.docx",
+    "label": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-13.pdf",
+    "url": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-13.pdf",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "cv/Machine Learning/Additional Resources/ML Additional Readings.docx",
+    "label": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-14.pdf",
+    "url": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-14.pdf",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "cv/Machine Learning/Additional Resources/ML Additional Readings.docx",
+    "label": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-16.pdf",
+    "url": "http://www.ai.mit.edu/courses/6.867-f04/lectures/lecture-16.pdf",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "cv/Machine Learning/Additional Resources/ML Additional Readings.docx",
+    "label": "https://towardsdatascience.com/k-means-clustering-explained-4528df86a120",
+    "url": "https://towardsdatascience.com/k-means-clustering-explained-4528df86a120",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "cv/Machine Learning/Additional Resources/ML Additional Readings.docx",
+    "label": "https://towardsdatascience.com/dbscan-clustering-explained-97556a2ad556",
+    "url": "https://towardsdatascience.com/dbscan-clustering-explained-97556a2ad556",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "cv/Machine Learning/Additional Resources/ML Additional Readings.docx",
+    "label": "https://towardsdatascience.com/t-sne-clearly-explained-d84c537f53a",
+    "url": "https://towardsdatascience.com/t-sne-clearly-explained-d84c537f53a",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "cv/Machine Learning/Additional Resources/ML Additional Readings.docx",
+    "label": "https://distill.pub/2016/misread-tsne/",
+    "url": "https://distill.pub/2016/misread-tsne/",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "cv/Machine Learning/Additional Resources/ML Additional Readings.docx",
+    "label": "https://pair-code.github.io/understanding-umap/",
+    "url": "https://pair-code.github.io/understanding-umap/",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "cv/Machine Learning/Additional Resources/ML Additional Readings.docx",
+    "label": "http://www.r2d3.us/visual-intro-to-machine-learning-part-1/",
+    "url": "http://www.r2d3.us/visual-intro-to-machine-learning-part-1/",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "cv/Machine Learning/Additional Resources/ML Additional Readings.docx",
+    "label": "http://www.r2d3.us/visual-intro-to-machine-learning-part-2/",
+    "url": "http://www.r2d3.us/visual-intro-to-machine-learning-part-2/",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "cv/Machine Learning/Additional Resources/ML Additional Readings.docx",
+    "label": "http://scott.fortmann-roe.com/docs/BiasVariance.html",
+    "url": "http://scott.fortmann-roe.com/docs/BiasVariance.html",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Topics and Links.docx",
+    "label": "data",
+    "url": "https://drive.google.com/drive/folders/1hM7-LkPs8F97dNx1zQqpknPBnTACuoPa?usp=sharing",
+    "kind": "exercise-or-data",
+    "local": null
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Topics and Links.docx",
+    "label": "CS229 Notes 1: Supervised Learning and Discriminative Algorithms",
+    "url": "http://cs229.stanford.edu/notes2019fall/cs229-notes1.pdf",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Topics and Links.docx",
+    "label": "https://medium.com/datadriveninvestor/l1-l2-regularization-7f1b4fe948f2",
+    "url": "https://medium.com/datadriveninvestor/l1-l2-regularization-7f1b4fe948f2",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Topics and Links.docx",
+    "label": "https://bjlkeng.github.io/posts/probabilistic-interpretation-of-regularization/",
+    "url": "https://bjlkeng.github.io/posts/probabilistic-interpretation-of-regularization/",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Topics and Links.docx",
+    "label": "Overfitting/Underfitting, Bias, and Variance",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/08_model-eval-1/08-model-eval-1-intro__notes.pdf",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Topics and Links.docx",
+    "label": "Holdout Validation, Resampling, Bootstrapping ",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/09_eval2-ci/09-eval2-ci__notes.pdf",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Topics and Links.docx",
+    "label": "Model Selection and Cross Validation",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/10_eval3-cv/10-eval3-cv__notes.pdf",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Topics and Links.docx",
+    "label": "Statistical Tests",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/11_eval4-algo/11-eval4-algo__notes.pdf",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Topics and Links.docx",
+    "label": "Lecture Slides",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/12_eval5-metrics/12_eval5-metrics__slides.pdf",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Topics and Links.docx",
+    "label": "metric summary written ",
+    "url": "https://docs.google.com/document/u/0/d/1URUQiw9mPm9ZyVKfAxYYm6eeS_e66Q_HXvbBWKoOwSY/edit",
+    "kind": "retained-handout",
+    "local": "legacy-metrics.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Topics and Links.docx",
+    "label": "Feature Selection",
+    "url": "https://see.stanford.edu/materials/aimlcs229/cs229-notes5.pdf",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Topics and Links.docx",
+    "label": "CS229 Notes 2: Generative Algorithms",
+    "url": "http://cs229.stanford.edu/notes2019fall/cs229-notes2.pdf",
+    "kind": "reading",
+    "local": "ml-generative-neighbors.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Topics and Links.docx",
+    "label": "Lecture Notes",
+    "url": "https://sebastianraschka.com/pdf/lecture-notes/stat479fs18/02_knn_notes.pdf",
+    "kind": "reading",
+    "local": "ml-generative-neighbors.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Topics and Links.docx",
+    "label": "Lecture Notes CS229",
+    "url": "http://cs229.stanford.edu/notes2021fall/cs229-notes3.pdf",
+    "kind": "reading",
+    "local": "ml-generative-neighbors.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Topics and Links.docx",
+    "label": "Decision Trees ",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/06_trees/06-trees__notes.pdf",
+    "kind": "reading",
+    "local": "ml-trees-ensembles.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Topics and Links.docx",
+    "label": "Ensembling",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/07_ensembles/07-ensembles__notes.pdf",
+    "kind": "reading",
+    "local": "ml-trees-ensembles.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Topics and Links.docx",
+    "label": "Principal Component Analysis",
+    "url": "http://cs229.stanford.edu/notes2019fall/cs229-notes10.pdf",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Topics and Links.docx",
+    "label": "Clustering Algorithms Blog",
+    "url": "https://towardsdatascience.com/the-5-clustering-algorithms-data-scientists-need-to-know-a36d136ef68",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Topics and Links.docx",
+    "label": "GMM and EM",
+    "url": "https://towardsdatascience.com/expectation-maximization-for-gmms-explained-5636161577ca",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Topics and Links.docx",
+    "label": "Distill post on TSNE",
+    "url": "https://distill.pub/2016/misread-tsne/",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Topics and Links.docx",
+    "label": "post on UMAP",
+    "url": "https://pair-code.github.io/understanding-umap/",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Topics and Links.docx",
+    "label": "Visualizations with Seaborn tutorial",
+    "url": "https://github.com/rajivramanjani/UdemyPythonDSML/tree/master/06-Data-Visualization-with-Seaborn",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Training Program.docx",
+    "label": "https://drive.google.com/drive/folders/1hM7-LkPs8F97dNx1zQqpknPBnTACuoPa?usp=sharing",
+    "url": "https://drive.google.com/drive/folders/1hM7-LkPs8F97dNx1zQqpknPBnTACuoPa?usp=sharing",
+    "kind": "exercise-or-data",
+    "local": null
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Training Program.docx",
+    "label": "CS229 Notes 1: Supervised Learning and Discriminative Algorithms",
+    "url": "http://cs229.stanford.edu/notes2019fall/cs229-notes1.pdf",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Training Program.docx",
+    "label": "Overfitting/Underfitting, Bias, and Variance",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/08_model-eval-1/08-model-eval-1-intro__notes.pdf",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Training Program.docx",
+    "label": "Chapter 8 Bias–Variance Tradeoff | R for Statistical Learning",
+    "url": "https://daviddalpiaz.github.io/r4sl/biasvariance-tradeoff.html",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Training Program.docx",
+    "label": "Holdout Validation, Resampling, Bootstrapping ",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/09_eval2-ci/09-eval2-ci__notes.pdf",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Training Program.docx",
+    "label": "Model Selection and Cross Validation",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/10_eval3-cv/10-eval3-cv__notes.pdf",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Training Program.docx",
+    "label": "Statistical Tests",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/11_eval4-algo/11-eval4-algo__notes.pdf",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Training Program.docx",
+    "label": "Lecture Slides",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/12_eval5-metrics/12_eval5-metrics__slides.pdf",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Training Program.docx",
+    "label": "metric summary written ",
+    "url": "https://docs.google.com/document/u/0/d/1URUQiw9mPm9ZyVKfAxYYm6eeS_e66Q_HXvbBWKoOwSY/edit",
+    "kind": "retained-handout",
+    "local": "legacy-metrics.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Training Program.docx",
+    "label": "Feature Selection",
+    "url": "https://see.stanford.edu/materials/aimlcs229/cs229-notes5.pdf",
+    "kind": "reading",
+    "local": "ml-foundations.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Training Program.docx",
+    "label": "What is the difference between bootstrapping and cross-validation?",
+    "url": "https://datascience.stackexchange.com/questions/32264/what-is-the-difference-between-bootstrapping-and-cross-validation",
+    "kind": "reading",
+    "local": "ml-bias-validation.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Training Program.docx",
+    "label": "CS229 Notes 2: Generative Algorithms",
+    "url": "http://cs229.stanford.edu/notes2019fall/cs229-notes2.pdf",
+    "kind": "reading",
+    "local": "ml-generative-neighbors.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Training Program.docx",
+    "label": "Lecture Notes",
+    "url": "https://sebastianraschka.com/pdf/lecture-notes/stat479fs18/02_knn_notes.pdf",
+    "kind": "reading",
+    "local": "ml-generative-neighbors.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Training Program.docx",
+    "label": "CS229 Lecture Notes",
+    "url": "http://cs229.stanford.edu/notes2021fall/cs229-notes3.pdf",
+    "kind": "reading",
+    "local": "ml-generative-neighbors.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Training Program.docx",
+    "label": "Decision Trees ",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/06_trees/06-trees__notes.pdf",
+    "kind": "reading",
+    "local": "ml-trees-ensembles.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Training Program.docx",
+    "label": "Ensembling",
+    "url": "https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/07_ensembles/07-ensembles__notes.pdf",
+    "kind": "reading",
+    "local": "ml-trees-ensembles.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Training Program.docx",
+    "label": "Principal Component Analysis",
+    "url": "http://cs229.stanford.edu/notes2019fall/cs229-notes10.pdf",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Training Program.docx",
+    "label": "Clustering Algorithms Blog",
+    "url": "https://towardsdatascience.com/the-5-clustering-algorithms-data-scientists-need-to-know-a36d136ef68",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Training Program.docx",
+    "label": "GMM and EM",
+    "url": "https://towardsdatascience.com/expectation-maximization-for-gmms-explained-5636161577ca",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Training Program.docx",
+    "label": "Distill post on TSNE",
+    "url": "https://distill.pub/2016/misread-tsne/",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Training Program.docx",
+    "label": "post on UMAP",
+    "url": "https://pair-code.github.io/understanding-umap/",
+    "kind": "reading",
+    "local": "ml-unsupervised.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Training Program.docx",
+    "label": "Visualizations with Seaborn tutorial",
+    "url": "https://github.com/rajivramanjani/UdemyPythonDSML/tree/master/06-Data-Visualization-with-Seaborn",
+    "kind": "reading",
+    "local": "arrays-data.html"
+  },
+  {
+    "source": "cv/Machine Learning/Machine Learning Training Program.docx",
+    "label": "Shelter Animal Outcomes",
+    "url": "https://www.kaggle.com/c/shelter-animal-outcomes/overview",
+    "kind": "exercise-or-data",
+    "local": null
+  },
+  {
+    "source": "cv/Machine Learning/Metrics Summary.docx",
+    "label": "following blog",
+    "url": "https://developers.google.com/machine-learning/crash-course/classification/precision-and-recall#:~:text=all%20malignant%20tumors.-,Precision%20and%20Recall%3A%20A%20Tug%20of%20War,-To%20fully%20evaluate",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "cv/Machine Learning/Metrics Summary.docx",
+    "label": "https://adamyedidia.files.wordpress.com/2014/11/f_score.pdf",
+    "url": "https://adamyedidia.files.wordpress.com/2014/11/f_score.pdf",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "cv/Machine Learning/Metrics Summary.docx",
+    "label": "https://stats.stackexchange.com/a/7210",
+    "url": "https://stats.stackexchange.com/a/7210",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "cv/Machine Learning/Metrics Summary.docx",
+    "label": "https://www.cs.technion.ac.il/users/wwwb/cgi-bin/tr-get.cgi/2019/PHD/PHD-2019-09.pdf",
+    "url": "https://www.cs.technion.ac.il/users/wwwb/cgi-bin/tr-get.cgi/2019/PHD/PHD-2019-09.pdf",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "cv/Machine Learning/Metrics Summary.docx",
+    "label": "https://scikit-learn.org/stable/modules/model_evaluation.html#mean-absolute-error",
+    "url": "https://scikit-learn.org/stable/modules/model_evaluation.html#mean-absolute-error",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "cv/Machine Learning/Metrics Summary.docx",
+    "label": "https://scikit-learn.org/stable/modules/model_evaluation.html#mean-squared-error",
+    "url": "https://scikit-learn.org/stable/modules/model_evaluation.html#mean-squared-error",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "cv/Machine Learning/Metrics Summary.docx",
+    "label": "https://scikit-learn.org/stable/modules/model_evaluation.html#mean-absolute-percentage-error",
+    "url": "https://scikit-learn.org/stable/modules/model_evaluation.html#mean-absolute-percentage-error",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "cv/Machine Learning/Metrics Summary.docx",
+    "label": "https://twitter.com/capeandcode/status/1450666977236713480",
+    "url": "https://twitter.com/capeandcode/status/1450666977236713480",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "cv/Machine Learning/Metrics Summary.docx",
+    "label": "https://scikit-learn.org/stable/modules/model_evaluation.html#median-absolute-error",
+    "url": "https://scikit-learn.org/stable/modules/model_evaluation.html#median-absolute-error",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "cv/Machine Learning/Metrics Summary.docx",
+    "label": "https://queirozf.com/entries/evaluation-metrics-for-ranking-problems-introduction-and-examples",
+    "url": "https://queirozf.com/entries/evaluation-metrics-for-ranking-problems-introduction-and-examples",
+    "kind": "reading",
+    "local": "ml-metrics.html"
+  },
+  {
+    "source": "Machine Learning/Additional Resources/ml_primer.pdf (CV ZIP)",
+    "label": "A Machine Learning Primer — Mihail Eric (122 pages)",
+    "url": "https://drive.google.com/file/d/13_HENQfNwAG1dOlZHsy4De7wJbm9vNYx/view",
+    "kind": "reading",
+    "local": "ml-foundations.html",
+    "also": [
+      "ml-bias-validation.html",
+      "ml-generative-neighbors.html",
+      "ml-trees-ensembles.html",
+      "ml-metrics.html",
+      "ml-unsupervised.html",
+      "ml-advanced-learning.html",
+      "dl-training.html",
+      "dl-cnns.html",
+      "dl-sequences.html"
+    ],
+    "note": "The supplied PDF table of contents was inspected. Its subjects are explained locally; this is not a full-text mirror of the book."
+  }
+]

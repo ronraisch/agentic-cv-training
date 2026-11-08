@@ -1,9 +1,8 @@
 # Start here
 
-Begin with the manual Python exercise below; use the approved agent only after that exercise is reviewed. Start from the syllabus and the required-learning
-map; reading/video resources may live in Drive, while tasks and reproducible evidence live here.
+Begin with the manual Python exercise below; use the approved agent only after that exercise is reviewed. Start from [the training index](TRAINING_INDEX.md). Reading is available locally in HTML; videos keep their original links. Use the material to deepen understanding; reading completion is optional when you can answer the mentor’s questions yourself.
 
-1. Read [the short trainee guide](TRAINEE_GUIDE.md): all tasks, study/viewing, active hours,
+1. Open [the four-part training index](TRAINING_INDEX.md), then read [the short trainee guide](TRAINEE_GUIDE.md): all tasks, study/viewing, active hours,
    sessions and correction allowances are summarized there without needing Drive. Use
    [CURRICULUM.md](CURRICULUM.md) and [READING_AND_SESSIONS.md](READING_AND_SESSIONS.md) for details.
 2. Complete [stage 0](../labs/research/00-installations.md) with the mentor, in this order: VS Code installation, connection

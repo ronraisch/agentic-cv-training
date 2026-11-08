@@ -1,5 +1,8 @@
 # Video representations and consumer questions
 
+Full theory and original course links: [Deep syllabus](../syllabi/deep.md).
+This short lesson supplements that route; reading completion is optional when understanding is demonstrated.
+
 This task uses ordinary-camera video, not satellite video. Indoor/outdoor, road and sky-only
 questions refer to the camera view. Satellite GSD and off-nadir metadata are not video features.
 

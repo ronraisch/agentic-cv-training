@@ -1,5 +1,8 @@
 # Development in a research monorepo
 
+Full theory and original course links: [Development syllabus](../syllabi/development.md).
+This short lesson supplements that route; reading completion is optional when understanding is demonstrated.
+
 Read Python functions, imports, exceptions, context managers, iterators, mutation and classes.
 Use meaningful type hints; annotations do not enforce input validity at runtime. Know a practical
 decorator, dataclass and enum, not every decorator API by memory. For concurrency distinguish

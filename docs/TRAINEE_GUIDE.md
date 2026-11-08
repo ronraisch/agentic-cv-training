@@ -1,7 +1,7 @@
 # Trainee guide — syllabus at a glance
 
-Updated 1 November 2026. This is the short learner-facing overview; it is complete without Drive.
-[Detailed syllabus](CURRICULUM.md) · [Reading map](READING_AND_SESSIONS.md) ·
+Updated 8 November 2026. This is the short learner-facing overview; it is complete without Drive.
+[All four training parts](TRAINING_INDEX.md) · [Detailed syllabus](CURRICULUM.md) · [Reading map](READING_AND_SESSIONS.md) ·
 [Dataset catalog](DATASETS.md).
 
 ## Order and working rules
@@ -51,46 +51,40 @@ on independently checked frames split by source video. All tasks above are requi
 
 ## Study, lectures and viewing
 
-Required local reading is available in the repository. Read once, then apply it in the assignment;
-the times below are separate from the practical-work table.
+Use [one starting point](TRAINING_INDEX.md) for the four parts: Development, CV, ML and DL.
+Each stage syllabus links to local HTML reading, original videos, current exercises and mentor
+conversations. The shelf includes 27 explanatory chapters and complete historical learner handouts.
 
-| Block | Material and topics | Active study |
-|---|---|---:|
-| Development | [Development](lessons/01-development.md), [engineering](ENGINEERING.md), [agent work](AGENT_WORK.md), [team integration](TEAM_INTEGRATION.md): Python/data contracts, modularity, Git/debugger, stack and evidence | 8 h |
-| Classical CV | [CV lesson](lessons/02-classical-cv.md): filters, Hough, transforms, matching/RANSAC, warping and stitching | 6 h |
-| Evaluation and ML | [ML lesson](lessons/03-metrics-ml.md): metrics/splits, linear/logistic models, SVM, trees/boosting, calibration; PCA/clustering intuition | 7 h |
-| DL and open models | [Torch](lessons/04-torch.md), [clouds](lessons/05-clouds.md), [video](lessons/06-video.md), [open models](lessons/07-open-models.md): training/attention 3 h; clouds 45 min; video 75 min; embeddings/VLM/open-vocabulary models 2 h | 7 h |
-| **Total** | | **28 h** |
+**The reading is for you, not a required completion checklist.** If you understand the concepts
+and can answer the mentor's questions and explain an unseen example yourself, you can skip known
+material. Theory, videos and learning with your agent remain significant parts of onboarding.
+Use the reading during the exercises to deepen the ideas behind your choices.
 
-There is no mandatory full lecture playlist. Four one-hour windows cover:
-(1) Python/arrays and tracing a request; (2) Hough and image geometry;
-(3) metrics and grouped evaluation; (4) DL tensors/attention/video.
-Each uses up to 40 minutes of a mentor-selected relevant video plus 20 minutes of reflection,
-or a one-hour local exercise. Across all four: at most 2 h 40 min actual viewing + 1 h 20 min
-reflection, within the same 4 h allowance. The default is the local exercise until a video is assigned.
+| Part | Suggested study | Suggested viewing/reflection |
+|---|---:|---:|
+| [Development](syllabi/development.md) | 10–14 h | 3–5 h |
+| [CV](syllabi/cv.md) | 12–18 h | 8–12 h |
+| [ML](syllabi/ml.md) | 14–22 h | 3–5 h |
+| [DL](syllabi/deep.md) | 16–26 h | 18–28 h |
+| **Total first-pass range** | **52–80 h** | **32–50 h** |
 
-The existing source reference is selected Stanford CS231n 2025 material, chapters
-4, 5, 8, 9, 10, 12 and 16, not the entire course. Exact recordings and timestamps have not been
-selected/verified. Before assigning video, the mentor records its title, link, start/end and topic
-in the internal learning copy; it replaces one of the four windows and does not add hidden hours.
-A missing external video does not block learning: use the linked repository lesson.
+These are unmeasured estimates, not hard caps or required page/video counts. A full course route
+can take longer; existing understanding can shorten the route. The former 28-hour study plan and
+four short viewing windows are superseded. The stage pages retain the original course selections
+and legacy alternatives; there is no need to watch two courses explaining the same idea.
 
 ## Mentor sessions and corrections
 
-Reserve twelve windows across the program: normally six 45-minute concept teach-backs and six
-35-minute product/code reviews, totaling **8 h trainee attendance**. Two final 40-minute handover
-windows may replace the last 45/35 pair. Schedule around readiness, not assumed daily availability.
-Preparation for the trainee's explanation is inside the relevant study/work allocation.
+Use one foundations/application conversation and one deeper conversation for each of the four
+parts. The mentor continues asking theory questions from the existing material, including
+derivations, failure cases and gotchas. Only the first session starts with a quick basic check.
+Explain a new example yourself, without the agent answering for you. Bring concise evidence from
+your exercise and an unresolved question. A gap triggers targeted study and a follow-up check.
 
-The first teach-back starts with a 10-minute basic check. Use the remainder for manual Python
-review or, once ready, the Matt Pocock skill explanation. Later meetings focus on reasoning,
-counterexamples and decisions. Bring a small evidence packet; explain a new example without an agent.
-The mentor samples the actual work and can ask for a small change performed by you.
-
-After each review, record the requested correction and resolve it from the table's **24 h total
-correction allowance**. Unused allowance stays available; a retake uses this allowance, not a new
-unbudgeted project. Mentor preparation/asynchronous review is **4 h separately**, making 12 h
-mentor effort in total; those 4 h are not trainee attendance or active work.
+Eight suggested 45-minute conversations use 6 h contact. Reserve another 2 h from the existing
+8 h contact allocation for targeted product/code review and final handover, with 4 h mentor
+preparation separately. Schedule extra time explicitly when needed. The exercise table already
+includes 24 h feedback corrections; do not double-count them as new implementation time.
 
 ## Total time and waiting
 
@@ -98,28 +92,20 @@ mentor effort in total; those 4 h are not trainee attendance or active work.
 |---|---:|
 | Practical work | 184 |
 | Feedback corrections | 24 |
-| Required study | 28 |
-| Viewing/local-exercise windows | 4 |
-| Active research discussions with agent | 12 |
-| Trainee attendance at mentor sessions | 8 |
-| **Planned active trainee total** | **260** |
-| Access/remediation contingency, used only when needed | 16 |
-| Mentor prep capacity previously reserved in trainee schedule; not trainee work | 4 |
-| **Conservative scheduling envelope** | **280** |
+| Theory study and derivations | 52–80 |
+| Viewing/reflection | 32–50 |
+| Active research learning with agent | 12 |
+| Mentor attendance | 8 |
+| **First-pass planned active trainee total** | **312–358** |
+| Access/remediation contingency | 16 |
+| Separately reserved mentor prep; not trainee work | 4 |
+| **Conservative scheduling envelope** | **332–378** |
 
-The previous seven-week label describes 280 scheduled hours, not seven measured weeks or 280 h
-of net trainee effort. Calendar completion depends on actual active effort, mentor windows,
-compute and what can overlap; revise estimates after the first cohort.
-
-Agent generation, image builds, downloads/transfers, GPU inference/training and queue waits are
-recorded as **unattended elapsed time separately** when no active attention is required. No fixed
-wait estimate is claimed before the actual model, hardware and batch are known. Start with a small
-batch, measure throughput and estimate the remaining run. Overlap independent study/work when
-possible; count trainee time once. Monitoring, reviewing output and diagnosing failures are active.
-
-For each assignment record: active work, feedback corrections, unattended waiting and elapsed
-start/end. An agent working for 40 minutes while you do another assignment is not 40 minutes of
-your work on both tasks. A blocked resource may still extend the calendar even with zero active work.
+These estimates replace the previous 260/280 h totals, which assumed a narrower theory route.
+They are not a measured calendar forecast. Unattended agent generation, builds, transfers,
+inference/training and queue waits are recorded separately when no active attention is needed.
+Reading during an unattended job counts as study once, not simultaneously as implementation.
+Record actual active work, corrections, study/viewing, unattended waiting and elapsed start/end.
 
 ## Completion
 

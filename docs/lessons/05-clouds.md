@@ -1,5 +1,8 @@
 # Cloud segmentation as an operational decision
 
+Full theory and original course links: [Deep syllabus](../syllabi/deep.md).
+This short lesson supplements that route; reading completion is optional when understanding is demonstrated.
+
 The consumer wants to avoid object-detector work where imagery is unusable. A cloud mask does not
 mean there are no objects. Define thick/thin clouds, shadows, haze, snow, no-data and partial cover,
 and whether output is a mask, probability map or tile decision. A skipped area is unobserved.

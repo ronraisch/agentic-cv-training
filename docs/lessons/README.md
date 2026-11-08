@@ -1,8 +1,9 @@
 # Local learning route
 
-Use [READING_AND_SESSIONS](../READING_AND_SESSIONS.md) for required concepts, source substitutions
-and time caps. These original local chapters provide an offline route; Drive may hold selected
-readings/videos. Do not consume both routes as cumulative requirements.
+Start at [the four-part training index](../TRAINING_INDEX.md) for the full topic map, local HTML
+reading, original course videos and current exercises. Reading is a resource: a learner who can
+answer the mentor's questions and explain a new example can skip already understood pages.
+The short lessons below are practical supplements to that restored theory route.
 
 | Block | Local chapters |
 |---|---|

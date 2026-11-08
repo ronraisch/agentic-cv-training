@@ -1,5 +1,8 @@
 # Classical CV for plates and airborne imagery
 
+Full theory and original course links: [Cv syllabus](../syllabi/cv.md).
+This short lesson supplements that route; reading completion is optional when understanding is demonstrated.
+
 ## Filtering and coordinates
 
 An image has channel order, dtype, range and spatial meaning. RGB and BGR are different; uint8

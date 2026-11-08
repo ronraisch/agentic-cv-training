@@ -1,0 +1,137 @@
+[
+  {
+    "slug": "development-foundations",
+    "title": "Linux, Git, containers and Python foundations",
+    "stage": "development"
+  },
+  {
+    "slug": "python-tools",
+    "title": "Types, decorators, concurrency and interactive experiments",
+    "stage": "development"
+  },
+  {
+    "slug": "arrays-data",
+    "title": "NumPy, Pandas, data contracts and visual exploration",
+    "stage": "development"
+  },
+  {
+    "slug": "cv-filtering",
+    "title": "Signals, filters, edges and Fourier analysis",
+    "stage": "cv"
+  },
+  {
+    "slug": "cv-geometry",
+    "title": "Hough voting, cameras, stereo and projective geometry",
+    "stage": "cv"
+  },
+  {
+    "slug": "cv-matching-motion",
+    "title": "Features, RANSAC, warping, optical flow and tracking",
+    "stage": "cv"
+  },
+  {
+    "slug": "ml-foundations",
+    "title": "Learning paradigms, probability, estimation and linear models",
+    "stage": "ml"
+  },
+  {
+    "slug": "ml-bias-validation",
+    "title": "Bias, variance, dataset shift and trustworthy validation",
+    "stage": "ml"
+  },
+  {
+    "slug": "ml-metrics",
+    "title": "Classification, detection, regression, ranking and selective prediction",
+    "stage": "ml"
+  },
+  {
+    "slug": "ml-generative-neighbors",
+    "title": "Naive Bayes, Gaussian discriminants, KNN and kernels",
+    "stage": "ml"
+  },
+  {
+    "slug": "ml-trees-ensembles",
+    "title": "Trees, forests, AdaBoost, gradient boosting and model combination",
+    "stage": "ml"
+  },
+  {
+    "slug": "ml-unsupervised",
+    "title": "PCA, clustering, EM/GMM, t-SNE and UMAP",
+    "stage": "ml"
+  },
+  {
+    "slug": "dl-training",
+    "title": "Neural networks, backpropagation, optimization and reliable training",
+    "stage": "deep"
+  },
+  {
+    "slug": "dl-cnns",
+    "title": "CNNs, receptive fields and efficient architecture families",
+    "stage": "deep"
+  },
+  {
+    "slug": "dl-sequences",
+    "title": "RNNs, LSTMs, temporal models and video understanding",
+    "stage": "deep"
+  },
+  {
+    "slug": "dl-attention",
+    "title": "Tokens, attention, Transformers and vision Transformers",
+    "stage": "deep"
+  },
+  {
+    "slug": "dl-detection",
+    "title": "Detection, segmentation, OCR and the retained paper families",
+    "stage": "deep"
+  },
+  {
+    "slug": "dl-self-supervision",
+    "title": "Self-supervision, contrastive learning, DINO and transferable embeddings",
+    "stage": "deep"
+  },
+  {
+    "slug": "dl-generative",
+    "title": "Autoencoders, VAEs, ELBO, GANs and diffusion",
+    "stage": "deep"
+  },
+  {
+    "slug": "dl-3d",
+    "title": "3D vision, depth, reconstruction and learned scene representations",
+    "stage": "deep"
+  },
+  {
+    "slug": "dl-vision-language",
+    "title": "CLIP, VLMs, open-vocabulary detection and open-model use",
+    "stage": "deep"
+  },
+  {
+    "slug": "dl-retrieval",
+    "title": "Vector search, quantization, RAG and retrieval evaluation",
+    "stage": "deep"
+  },
+  {
+    "slug": "dl-deployment",
+    "title": "Transfer learning, LoRA, quantization, compilation and parallel execution",
+    "stage": "deep"
+  },
+  {
+    "slug": "ml-advanced-learning",
+    "title": "Retained advanced topics: learning setups, ranking and recommendation",
+    "stage": "ml"
+  },
+  {
+    "slug": "ml-probabilistic-survey",
+    "title": "Retained survey: GLMs, Gaussian processes, graphical models and other learning",
+    "stage": "ml"
+  },
+  {
+    "slug": "development-interfaces",
+    "title": "HTTP, SQL, services and application boundaries",
+    "stage": "development"
+  },
+  {
+    "slug": "development-cpp",
+    "title": "Archived edge route: C/C++, ownership, builds and binary networks",
+    "stage": "development"
+  }
+]

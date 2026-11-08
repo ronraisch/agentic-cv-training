@@ -1,5 +1,8 @@
 # Embeddings, VLMs and open-vocabulary detection
 
+Full theory and original course links: [Deep syllabus](../syllabi/deep.md).
+This short lesson supplements that route; reading completion is optional when understanding is demonstrated.
+
 Required before the Part 4 video baseline. Allow two hours of study/self-check within the existing
 seven-hour DL block and one hour of probing within the existing 19-hour video baseline allocation.
 This replaces repeated representation introductions; it is not another model-training project.

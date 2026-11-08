@@ -1,5 +1,8 @@
 # Evaluation and classical ML
 
+Full theory and original course links: [Ml syllabus](../syllabi/ml.md).
+This short lesson supplements that route; reading completion is optional when understanding is demonstrated.
+
 ## One valid experiment
 
 Define the target, sampling unit, grouped splits, baseline and metric before tuning. Frames and

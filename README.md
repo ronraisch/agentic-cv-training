@@ -6,9 +6,15 @@ working baseline, then implement the assigned product request and demonstrate it
 
 ## Trainee syllabus
 
-Read [the concise trainee guide](docs/TRAINEE_GUIDE.md) for the full sequence, study/viewing,
-manual-work requirements and separate estimates for active exercises, sessions and corrections.
-No Drive access is needed to understand the syllabus.
+Start at [the training index](docs/TRAINING_INDEX.md): **Development · CV · ML · Deep Learning**.
+Each part has its own syllabus, local HTML theory, original video links and current exercises.
+After cloning, open [the formatted reading home](docs/reading/index.html) in a browser; on GitHub,
+use the linked Markdown syllabi. The reading is optional when you can answer the mentor's
+questions and explain the concepts yourself. Theory and viewing remain substantial parts of learning.
+
+See [the practical trainee guide](docs/TRAINEE_GUIDE.md) for manual-work boundaries and active effort,
+sessions and corrections. Original Drive materials are preserved; [source coverage](docs/reading/sources.html)
+records the migration and any unresolved internal reading.
 
 ## First run
 
@@ -51,13 +57,13 @@ uv run --no-sync python tools/preflight.py --scope starter
 · [Preflight scope](docs/PREFLIGHT.md) · [Verification practice](docs/PITFALLS.md)
 
 The ordinary-camera video task is distinct from the satellite/airborne image assignments.
-Budget: 260 planned active trainee hours; a conservative 280-hour scheduling envelope, including the manual Python
-capstone and mandatory [SAM2 service deployment](labs/research/01b-sam2-service.md), with 16 buffer
-hours and 4 hours reserved for mentor preparation. Total recurring mentor effort is 12 hours,
-including 8 hours trainee attendance already counted in the active total. Unattended agent/compute
-waiting is tracked separately; seven calendar weeks is not a measured forecast. The DL block also requires
-[RabbitMQ/SAM3 batch pseudo-labeling and detector training](labs/research/05b-rabbitmq-sam3-detector.md). External libraries/data/models are transferred and approved before the cohort; learners
-are not expected to rebuild the team's infrastructure.
+Planning range: 312–358 active trainee hours, with a 332–378 h scheduling envelope including
+16 h contingency and 4 h separately reserved mentor preparation. This replaces the older reduced
+study estimate; actual learning time depends on prior knowledge and chosen viewing depth.
+Practical work remains 208 h including feedback corrections. The DL block requires
+[RabbitMQ/SAM3 batch pseudo-labeling and detector training](labs/research/05b-rabbitmq-sam3-detector.md).
+External libraries/data/models are transferred and approved before the cohort; learners are not
+expected to rebuild the team's infrastructure. Unattended compute/agent waiting is tracked separately.
 
 For an executable CNN localization baseline, see [the local detector](docs/DETECTOR.md).
 It includes offline training, saved-weight inference and held-out box/class/presence evaluation.

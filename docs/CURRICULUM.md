@@ -1,6 +1,6 @@
 # Researcher syllabus — active effort and scheduling envelope
 
-Start with [the concise trainee guide](TRAINEE_GUIDE.md), which separates active work,
+Start with [the training index](TRAINING_INDEX.md), then [the concise trainee guide](TRAINEE_GUIDE.md), which separates active work,
 feedback corrections, mentor attendance and unattended waiting.
 
 The teaching scenario covers two domains: remote sensing (satellite and airborne imagery) and
@@ -16,9 +16,12 @@ code generation, except for the first SAM2 service setup, which must be complete
 Keep Python/array/data contracts, evidence discipline, image geometry, evaluation, classical ML,
 training/inference fundamentals, embeddings, generative VLMs, open-vocabulary detection,
 open-model usage, video/time and customer-facing decisions.
-Choose one learning route per concept. Do not watch both Stanford 2025 and Michigan 2019, read
-several introductory blogs and then repeat the same explanation in a mentor session.
-See [the reading plan](READING_AND_SESSIONS.md) for exact local sections and substitutions.
+Preserve the subjects from the old development, CV, ML and DL programs. Each has a
+[stage syllabus](TRAINING_INDEX.md) with local HTML reading and original video links.
+The material is optional as a reading route: understanding and the ability to answer the mentor's
+questions are expected. Keep learning theory while implementing with the agent. The previous
+selective reduction of Naive Bayes, EM/GMM, bias topics, generative models and 3D is superseded.
+Avoid duplicated explanations when a learner already understands the concept.
 
 | Part | Practical assignment |
 |---|---|
@@ -37,41 +40,32 @@ extension. Cloud work is an eight-hour proposal, not another full training proje
 a frozen detector and prepared data. The [SAM2 service assignment](../labs/research/01b-sam2-service.md) is mandatory after polygon support.
 EfficientDet/RF-DETR assignments remain outside the required route.
 
-Before Part 4, complete [the open-model introduction](lessons/07-open-models.md): two study hours
-inside the existing seven-hour DL block and a one-hour intuition probe inside the 19-hour video
-baseline portion of its 34-hour project. The probe does not add a detector-training project.
+Before Part 4, use [the DL syllabus](syllabi/deep.md), including training, representations,
+embeddings, VLMs and open-vocabulary detection. The existing open-model intuition probe remains
+inside the video baseline project; the restored reading does not add another detector project.
 
 ## Trainee time budget
 
-The conservative schedule reserves 280 hours. This comprises 260 hours of planned active trainee
-effort, 16 hours contingency and 4 hours previously reserved for mentor preparation (not trainee work).
-It is not a measured seven-week completion forecast. SAM2 adds 16 hours and the mandatory
-RabbitMQ/SAM3 detector pipeline adds 24 hours to the previous 240-hour plan. Retain the
-remaining 16-hour buffer. These are planning estimates, not measured cohort times. Unattended agent/compute waiting is
-recorded separately; no fixed saving from AI is assumed.
+The practical assignments retain **208 h**: 184 h active implementation and 24 h feedback
+corrections. The restored theory route suggests 52–80 h study and 32–50 h viewing/reflection,
+plus 12 h active agent learning discussions and 8 h mentor attendance. This gives a first-pass
+**312–358 h active trainee planning range**. With the existing 16 h contingency and 4 h separately
+reserved mentor preparation, the conservative scheduling envelope becomes **332–378 h**.
 
-| Week | Focus | Core study | Video or substitute | Project work | Research with agent | Mentor contact/prep budget | Buffer | Total |
-|---|---|---:|---:|---:|---:|---:|---:|---:|
-| 1 | Setup and manual Python; agent hours only after capstone review | 5 | 1 | 30 | 2 | 2 | 0 | 40 |
-| 2 | Python review, OMP/skills, labeling and geometry | 6 | 1 | 27 | 2 | 2 | 2 | 40 |
-| 3 | LPR, stitching and LPR evaluation | 5 | 1 | 26 | 2 | 2 | 4 | 40 |
-| 4 | Tracklets, rescoring and evaluation | 5 | 0 | 27 | 2 | 2 | 4 | 40 |
-| 5 | Cloud proposal and video baseline | 5 | 1 | 27 | 2 | 2 | 3 | 40 |
-| 6 | Video requirements and handover | 2 | 0 | 31 | 2 | 2 | 3 | 40 |
-| Added allocation | SAM2 service, scheduled after polygon support; shift later work accordingly | 0 | 0 | 16 | 0 | 0 | 0 | 16 |
-| Added DL allocation | RabbitMQ/SAM3 pseudo-labels and detector training, before handover | 0 | 0 | 24 | 0 | 0 | 0 | 24 |
-| **Total** | | **28** | **4** | **208** | **12** | **12** | **16** | **280** |
+These are unmeasured planning estimates, not a promise of completion time or a limit on learning.
+Full course viewing may exceed them. Familiar learners can skip already understood reading;
+novices may need extra study. Record actual work, corrections, study/viewing and unattended
+waiting separately; overlap counts once. The former 260/280 h totals and four short media windows
+are superseded, because they assumed reduced theory breadth.
 
-The mentor column reserves capacity conservatively: preparation/review time does not require
-trainee attendance, but those hours are not double-booked with a separate trainee task. Contact
-may be shorter. Use any released trainee time for remediation or reflection, not more requirements.
-
-Study includes targeted code reading and self-checks. Four media windows each allow up to
-40 minutes of video and 20 minutes of pauses/reflection, or one hour of the local text exercise.
-There is no requirement to watch a full external lecture. Time spent discussing research with an
-agent is explicitly funded: two hours weekly, additional to implementation time. Waiting for a
-training job while reading counts once. Ordinary debugging belongs to project work; the remaining buffer
-covers access, transfer, queues and unusual setup failures.
+| Category | Active trainee hours |
+|---|---:|
+| Practical work including feedback corrections | 208 |
+| Theory study and derivations | 52–80 |
+| Viewing and reflection | 32–50 |
+| Active research learning with agent | 12 |
+| Mentor attendance | 8 |
+| **Planned active total** | **312–358** |
 
 ### Project allocations
 
@@ -98,11 +92,10 @@ Trainee preparation stays inside study/project allocations; do not count it agai
 | **Total** | **208** |
 
 These include implementation, tests, experiments and evidence. Their placement within a week may
-move to follow readiness and mentor windows. The manual Python capstone uses 24 hours of the former 40-hour buffer, leaving 16 hours;
-SAM2 adds 16 project hours and RabbitMQ/SAM3 adds 24, bringing the plan to 280 hours.
-The 24-hour DL estimate includes implementation and review; record unattended batch/training
-runtime separately and overlap it only where compute and dependencies permit. No full CS231n assignments, Kaggle leaderboard target or duplicate
-Python exercise bank is added on top. The legacy shapes/parser exercise is this single capstone.
+move to follow readiness and mentor windows. Keep the 16 h access/remediation contingency. The SAM2 and RabbitMQ/SAM3 assignments remain
+mandatory and are already included in 208 project hours. The restored reading and videos are
+counted separately above. Historical full CS231n assignments, Kaggle score targets and optional
+Python exercise banks are retained as references rather than added as mandatory projects.
 For the exact required selection from older labs 06/07/09 and the time it replaces, use
 [the embedded practice map](SKILLS_STAGE0.md#required-practice-inside-existing-assignments).
 The required SAM2 service supersedes any earlier optional SAM wording.
@@ -111,22 +104,16 @@ substitutes them for existing work.
 
 ## Mentor availability
 
-Plan two windows a week: typically 45 minutes of teach-back and 35 minutes of product/review,
-plus 40 minutes of preparation/asynchronous review. This is 12 total recurring mentor hours across the original six-week blocks; the added work uses those
-existing review windows. This does not assume an additional mentor week.
-Week 1 uses a 45-minute first session: 10 minutes of basic understanding, 30 minutes of manual-code review or, after capstone completion, skill
-teach-back and 5 minutes of next steps, plus a separate 35-minute setup/product window.
-The final handover uses two separate 40-minute handover/defense windows and 40 minutes of prep/review.
-Never assume a daily meeting; leave product questions in a concise queue and record decisions.
-The existing weekly 15-minute team-lead check-in is folded into a review window if required,
-not scheduled as an extra meeting. One person holding both roles still has the same total budget.
+Use two concept conversations for each of the four parts: one foundations/application session
+and one deeper discussion, with theory questions throughout. Eight suggested 45-minute sessions
+use 6 h contact, leaving 2 h from the existing 8 h attendance budget for targeted reviews and
+handover. Reserve 4 h mentor preparation separately. Schedule around readiness and record extra
+time explicitly if needed. No daily meeting is assumed.
 
-For both trainee and mentor: the first SAM2 service setup is a hands-on exercise without coding
-agents generating or executing its setup. Follow [the manual setup boundary and mentor guidance](../labs/research/01b-sam2-service.md#first-service-hands-on-ownership).
-The mentor guides; the trainee writes, runs, debugs and explains the deployment personally.
-
-The trainee teaches the concept; the mentor asks discriminating questions. Do not replay slides.
-Unresolved topics become a bounded independent-learning task followed by one new check.
+Use [the session guidance](READING_AND_SESSIONS.md#two-conversations-for-each-part) and the
+existing mentor theory banks. The trainee explains a new example; the mentor probes assumptions,
+derivations and errors. Reading completion is not assessed. Keep first-service setup manual as
+specified in [the SAM2 assignment](../labs/research/01b-sam2-service.md#first-service-hands-on-ownership).
 
 ## Completion and fallback
 

@@ -1,11 +1,24 @@
-# Sources and scope
+# Sources and preservation
 
-The curriculum is original teaching material adapted to the current Drive sources with the user's
-authorization. Original documents remain unchanged. Required reading can live in Drive or local
-text; public web references are optional and require approved internal copies/substitutes.
+[Full migration coverage](reading/sources.html) · [Link inventory](reading/source-map.json)
+· [Training index](TRAINING_INDEX.md)
 
-The selected reading is linked below. Videos were not watched end-to-end and runtime savings
-have not been empirically measured.
+The 8 November 2026 migration reviewed current learner handouts, mentor subject references,
+archived outlines, developer reading material and Word documents throughout the original CV ZIP.
+The local shelf provides original explanatory chapters and complete learner-handout conversions.
+Reading links in those handouts lead to local material; videos retain their original URLs.
+Duplicates are consolidated in the topic route and retained in provenance. Original Drive files
+are unchanged. Mentor question banks remain with the mentor and are not copied into learner pages.
+
+Third-party article/PDF subjects are explained in original text rather than represented as
+verbatim full-text mirrors. The coverage table distinguishes this from preserved team handouts
+and records internal items whose exact source contents were not supplied. Do not claim those
+unidentified internal books/papers/tool guides have been fully migrated.
+
+## Earlier reference register
+
+The reference list below predates the restored reading shelf and remains useful provenance.
+Video recordings were not watched end to end and runtime savings have not been measured.
 
 ## Primary technical references
 
@@ -20,9 +33,9 @@ have not been empirically measured.
 | [GitLab job logs](https://docs.gitlab.com/ci/jobs/job_logs/) | Minimal pipeline/job/log navigation |
 | [uv CLI](https://docs.astral.sh/uv/reference/cli/) | Locked internal environments and cache/offline distinction |
 
-Stanford CS231n 2025 is the current course identified by the source documents. Selected source
-sections, not the entire course, are retained. The live schedule page did not load during this
-revision; no exact video timestamps or current lecture durations are claimed.
+The current theory map retains CS231n 2025 lectures 1–16 and their subject coverage, with the
+historical survey/skip choices documented in [the DL syllabus](syllabi/deep.md).
+Exact URLs are retained from the source documents; no current duration or timestamp claim is made.
 
 ## Matt Pocock skill sources
 
