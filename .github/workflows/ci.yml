@@ -11,6 +11,7 @@ jobs:
       - run: uv sync --extra dev --extra mcp --locked
       - run: uv run ruff check .
       - run: uv run python tools/check_reading.py
+      - run: uv run python tools/render_reading_markdown.py --check
       - run: uv run pytest
       - run: uv run python tools/preflight.py --scope starter
       - run: uv run --no-sync researchlab-demo smoke --root artifacts/baseline-check

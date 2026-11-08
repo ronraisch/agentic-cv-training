@@ -11,17 +11,17 @@ is not a substitute for understanding.
 
 | Part | Syllabus | Local reading shelf | Practical work |
 |---|---|---|---|
-| 1. Development | [Development syllabus](syllabi/development.md) | [HTML route](reading/development.html) | Setup, manual Python, polygons, first SAM2 service |
-| 2. CV | [CV syllabus](syllabi/cv.md) | [HTML route](reading/cv.html) | LPR rectification and two-image stitching |
-| 3. ML | [ML syllabus](syllabi/ml.md) | [HTML route](reading/ml.html) | LPR evaluation, motion classification and detection rescoring |
-| 4. Deep Learning | [DL syllabus](syllabi/deep.md) | [HTML route](reading/deep.html) | Cloud proposal, ordinary-camera video, RabbitMQ/SAM3, detector and handover |
+| 1. Development | [Development syllabus](syllabi/development.md) | [Reading route](reading/development.md) | Setup, manual Python, polygons, first SAM2 service |
+| 2. CV | [CV syllabus](syllabi/cv.md) | [Reading route](reading/cv.md) | LPR rectification and two-image stitching |
+| 3. ML | [ML syllabus](syllabi/ml.md) | [Reading route](reading/ml.md) | LPR evaluation, motion classification and detection rescoring |
+| 4. Deep Learning | [DL syllabus](syllabi/deep.md) | [Reading route](reading/deep.md) | Cloud proposal, ordinary-camera video, RabbitMQ/SAM3, detector and handover |
 
 ## Open the reading
 
-After cloning the repository, open [docs/reading/index.html](reading/index.html) in a browser.
-The pages, styles and included handout images work offline; no build, server, external font or
-JavaScript dependency is required. GitHub shows HTML as source, so use the Markdown syllabi
-above for browsing on GitHub and open a local clone for formatted reading.
+Open [the reading home](reading/index.md) directly on GitHub. All stage and chapter links use
+rendered Markdown, including local images, tables and equations. No clone or download is needed.
+For the offline browser edition, open `docs/reading/index.html` in a local clone. HTML files
+are source files on GitHub; their `.md` companions are the readable GitHub edition.
 
 The shelf contains 27 original explanatory chapters and 12 complete historical learner handouts
 converted to HTML. New chapters consolidate duplicate explanations and cover the previously
@@ -30,7 +30,7 @@ models and 3D. Historical handouts retain their full text, with reading links re
 explanations. Their old assignment and scheduling instructions are historical; current required
 work is in the stage syllabi and linked labs.
 
-[Source coverage](reading/sources.html) maps the original links to local destinations and records
+[Source coverage](reading/sources.md) maps the original links to local destinations and records
 unresolved internal resources. [The machine-readable inventory](reading/source-map.json) retains
 occurrence-level provenance. Original Drive documents are preserved. Videos retain their source
 URLs; data/exercise acquisition references remain external where appropriate.

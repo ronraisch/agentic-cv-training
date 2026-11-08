@@ -8,12 +8,13 @@ working baseline, then implement the assigned product request and demonstrate it
 
 Start at [the training index](docs/TRAINING_INDEX.md): **Development · CV · ML · Deep Learning**.
 Each part has its own syllabus, local HTML theory, original video links and current exercises.
-After cloning, open [the formatted reading home](docs/reading/index.html) in a browser; on GitHub,
-use the linked Markdown syllabi. The reading is optional when you can answer the mentor's
+Read [the formatted reading home](docs/reading/index.md) directly on GitHub, with all
+chapters and syllabi linked as rendered Markdown. HTML remains available for local browser reading.
+The reading is optional when you can answer the mentor's
 questions and explain the concepts yourself. Theory and viewing remain substantial parts of learning.
 
 See [the practical trainee guide](docs/TRAINEE_GUIDE.md) for manual-work boundaries and active effort,
-sessions and corrections. Original Drive materials are preserved; [source coverage](docs/reading/sources.html)
+sessions and corrections. Original Drive materials are preserved; [source coverage](docs/reading/sources.md)
 records the migration and any unresolved internal reading.
 
 ## First run

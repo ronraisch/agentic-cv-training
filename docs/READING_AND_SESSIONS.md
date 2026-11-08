@@ -57,7 +57,7 @@ check. Practical correctness and conceptual understanding are recorded separatel
 
 ## Material preservation
 
-The [source coverage table](reading/sources.html) maps original article/PDF subjects to local
+The [source coverage table](reading/sources.md) maps original article/PDF subjects to local
 chapters and preserves complete learner handouts. These chapters are original explanatory text,
 not verbatim copies of third-party publications. Source links remain as provenance; reading does
 not depend on opening them. Video/course and data acquisition references retain external URLs.

@@ -5,7 +5,7 @@ Allow approximately three working days (24 hours including review), rather than 
 
 ## Source and scope
 
-Use the [preserved original Shape Rendering assignment](../../docs/reading/legacy-shape-rendering.html),
+Use the [preserved original Shape Rendering assignment](../../docs/reading/legacy-shape-rendering.md),
 converted from the archived original Word handout. Its text and included figures are local;
 it specifies the parser, shapes and expected drawings. The old live-document URL could not be
 read during migration, so this is the supplied archive copy rather than a claim about an unseen

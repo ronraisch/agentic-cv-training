@@ -1,6 +1,6 @@
 # Sources and preservation
 
-[Full migration coverage](reading/sources.html) · [Link inventory](reading/source-map.json)
+[Full migration coverage](reading/sources.md) · [Link inventory](reading/source-map.json)
 · [Training index](TRAINING_INDEX.md)
 
 The 8 November 2026 migration reviewed current learner handouts, mentor subject references,
