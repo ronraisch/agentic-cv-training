@@ -2,9 +2,50 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-**Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
+## Change a value. Keep the attention.
 
-### On this page
+A query gives three tokens weights 0.1, 0.7 and 0.2. With scalar values 1, 5 and 0, the output is 3.6.
+
+![Change a value. Keep the attention. Key/value A: 0.1; Key/value B: 0.7; Key/value C: 0.2](assets/dl-attention-toy.svg)
+
+| Notice | Interpret | Check |
+| --- | --- | --- |
+| Q and K choose weights | V carries the content | 0.1×1 + 0.7×5 + 0.2×0 = 3.6 |
+
+<details>
+<summary>Reveal the catch</summary>
+
+Changing V changes the output without changing these weights. Changing K can change the weights.
+
+</details>
+
+### In code: Keep weights fixed; change the content
+
+```python
+import numpy as np
+
+weights = np.array([0.1, 0.7, 0.2])
+values = np.array([1.0, 5.0, 0.0])
+print(round(float(weights @ values), 2))
+values[1] = 2.0
+print(round(float(weights @ values), 2))
+```
+
+**Expected output:**
+
+```text
+3.6
+1.5
+```
+
+This isolates the weighted-sum step after Q and K have produced attention weights. A full attention layer also computes projections, scores, scaling and softmax.
+
+**Try it in 60 seconds:** Change only the middle value to 2. Compute the new output before running code.
+
+Read for understanding, not page completion. Skip what you can already explain.
+
+<details>
+<summary>Jump to a concept</summary>
 
 - [Tokens and embeddings](#tokens-and-embeddings)
 
@@ -17,6 +58,8 @@
 - [What attention does not prove](#what-attention-does-not-prove)
 
 - [A useful manual example](#a-useful-manual-example)
+
+</details>
 
 ## Tokens and embeddings
 
@@ -48,7 +91,8 @@ An attention heatmap is a pattern of aggregation, not an automatic causal explan
 
 Create three two-dimensional keys and a single query, compute the three dot products and softmax weights, then form a weighted sum of values. Change only one value: weights stay fixed but content changes. Change a key: the weights change. Ask your agent to construct a masking bug, then locate it with dimensions and a toy sequence. Bring the hand calculation and a trace through the actual model to the mentor.
 
-### Original source references and provenance
+<details>
+<summary>Original source references and provenance</summary>
 
 Original teaching text covering the cited topics, not a verbatim mirror. These references are provenance; no external reading is required to use this chapter.
 
@@ -59,3 +103,5 @@ Original teaching text covering the cited topics, not a verbatim mirror. These r
 - [https://jalammar.github.io/illustrated-word2vec/](https://jalammar.github.io/illustrated-word2vec/)
 
 - [https://lilianweng.github.io/posts/2018-06-24-attention/](https://lilianweng.github.io/posts/2018-06-24-attention/)
+
+</details>

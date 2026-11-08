@@ -2,9 +2,29 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-**Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
+## Same frames. Opposite action.
 
-### On this page
+An opening door and a closing door can contain the same frames in reverse order. Averaging frame features can erase the difference.
+
+![Same frames. Opposite action. Closed; Half open; Open](assets/dl-sequences-toy.svg)
+
+| Notice | Interpret | Check |
+| --- | --- | --- |
+| Forward: opening | Reverse: closing | Average: same unordered evidence |
+
+<details>
+<summary>Reveal the catch</summary>
+
+Time order is part of the input, not decoration around an image model.
+
+</details>
+
+**Try it in 60 seconds:** Reverse a clip. Which baseline predictions should change, and which cannot?
+
+Read for understanding, not page completion. Skip what you can already explain.
+
+<details>
+<summary>Jump to a concept</summary>
 
 - [Time changes the task](#time-changes-the-task)
 
@@ -17,6 +37,8 @@
 - [Pseudo-labels and teacher models](#pseudo-labels-and-teacher-models)
 
 - [Connection to this program](#connection-to-this-program)
+
+</details>
 
 ## Time changes the task
 
@@ -48,7 +70,8 @@ A strong teacher can generate candidate annotations at scale, but its errors bec
 
 The ordinary-camera assignment is separate from satellite/airborne imagery. Build a bounded clip baseline, then respond to staged product changes and identify which assumptions break. In the RabbitMQ/SAM3 project, verify retries and durable outputs before scaling a batch, then train one selected detector. Use the agent to challenge your sampling and event definitions; demonstrate the resulting behavior yourself on a new clip.
 
-### Original source references and provenance
+<details>
+<summary>Original source references and provenance</summary>
 
 Original teaching text covering the cited topics, not a verbatim mirror. These references are provenance; no external reading is required to use this chapter.
 
@@ -57,3 +80,5 @@ Original teaching text covering the cited topics, not a verbatim mirror. These r
 - [https://cs231n.stanford.edu/slides/2025/lecture_10.pdf](https://cs231n.stanford.edu/slides/2025/lecture_10.pdf)
 
 - [https://cs231n.stanford.edu/slides/2025/lecture_7.pdf](https://cs231n.stanford.edu/slides/2025/lecture_7.pdf)
+
+</details>

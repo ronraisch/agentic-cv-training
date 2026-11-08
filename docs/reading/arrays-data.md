@@ -2,9 +2,48 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-**Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
+## The code runs. The wrong axis wins.
 
-### On this page
+Three objects, three features: subtracting a length-three mean works either way. A square matrix can hide a broadcasting bug.
+
+![The code runs. The wrong axis wins. Objects × features; Feature means; Try a 2 × 3 input](assets/arrays-data-toy.svg)
+
+| Notice | Interpret | Check |
+| --- | --- | --- |
+| (3, 3) hides the mistake | (3,) aligns on the right | A non-square case exposes it |
+
+<details>
+<summary>Reveal the catch</summary>
+
+A valid shape is not necessarily the intended operation. Give each axis a meaning.
+
+</details>
+
+### In code: Make the axis explicit
+
+```python
+import numpy as np
+
+x = np.array([[1, 10, 100], [3, 30, 300]])
+feature_means = x.mean(axis=0, keepdims=True)
+centered = x - feature_means
+print(centered.tolist())
+```
+
+**Expected output:**
+
+```text
+[[-1.0, -10.0, -100.0], [1.0, 10.0, 100.0]]
+```
+
+Keeping the mean as (1, 3) makes the intended feature axis visible.
+
+**Try it in 60 seconds:** Write two normalizations and test them on [[1,10,100],[3,30,300]].
+
+Read for understanding, not page completion. Skip what you can already explain.
+
+<details>
+<summary>Jump to a concept</summary>
 
 - [Arrays describe both values and layout](#arrays-describe-both-values-and-layout)
 
@@ -17,6 +56,8 @@
 - [EDA and useful visualizations](#eda-and-useful-visualizations)
 
 - [Retained practice routes](#retained-practice-routes)
+
+</details>
 
 ## Arrays describe both values and layout
 
@@ -48,7 +89,8 @@ For an experiment comparison, show effect size and uncertainty alongside the agg
 
 The legacy NumPy selection was: 1–31 except 2, 4, 5, 23, 27, 28, 31; then 35, 37–40, 45, 46, 50; then 52–55, 58, 59, 61, 64, 65, 70–72, 74, 75, 83, 89. Use those exercises as remediation if useful, with no requirement to repeat an already understood concept. The Pandas route selected one dataset from sections 1–5 and optionally the Titanic exploration. Boids illustrates interacting agents, vectorized pairwise distances and update-order effects. The current application exercises supply the default practical setting; these historical exercises remain available through the source map.
 
-### Original source references and provenance
+<details>
+<summary>Original source references and provenance</summary>
 
 Original teaching text covering the cited topics, not a verbatim mirror. These references are provenance; no external reading is required to use this chapter.
 
@@ -81,3 +123,5 @@ Original teaching text covering the cited topics, not a verbatim mirror. These r
 - [https://www.tutorialspoint.com/python_pandas/index.htm](https://www.tutorialspoint.com/python_pandas/index.htm)
 
 - [https://www.tutorialspoint.com/python_pandas/python_pandas_indexing_and_selecting_data.htm](https://www.tutorialspoint.com/python_pandas/python_pandas_indexing_and_selecting_data.htm)
+
+</details>

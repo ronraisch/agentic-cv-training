@@ -2,9 +2,48 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-**Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
+## One weight. No mystery gradients.
 
-### On this page
+Let x=2, w=3 and target=4. The prediction is 6, the loss (6−4)²/2 is 2, and dL/dw is 4.
+
+![One weight. No mystery gradients. x=2, w=3; Prediction=6; Loss=2; gradient=4](assets/dl-training-toy.svg)
+
+| Notice | Interpret | Check |
+| --- | --- | --- |
+| Error: 2 | Gradient: error × x | Rate 0.1 → new w=2.6 |
+
+<details>
+<summary>Reveal the catch</summary>
+
+Backpropagation is the chain rule with bookkeeping. Verify a tiny case before trusting a large graph.
+
+</details>
+
+### In code: One actual update
+
+```python
+x, target, w = 2.0, 4.0, 3.0
+prediction = w * x
+gradient = (prediction - target) * x
+w -= 0.1 * gradient
+new_loss = 0.5 * (w * x - target) ** 2
+print(round(w, 2), round(new_loss, 2))
+```
+
+**Expected output:**
+
+```text
+2.6 0.72
+```
+
+The original loss was 2. This update reduces it to 0.72; a different learning rate need not improve it.
+
+**Try it in 60 seconds:** Compute the new prediction and loss after that single update.
+
+Read for understanding, not page completion. Skip what you can already explain.
+
+<details>
+<summary>Jump to a concept</summary>
 
 - [Layers and representational capacity](#layers-and-representational-capacity)
 
@@ -21,6 +60,8 @@
 - [Learn while debugging](#learn-while-debugging)
 
 - [Softmax derivatives and label conventions](#softmax-derivatives-and-label-conventions)
+
+</details>
 
 ## Layers and representational capacity
 
@@ -60,7 +101,8 @@ Ask the agent for a falsifiable diagnosis rather than a list of generic tips. Ch
 
 For s_i=exp(z_i)/sum_j exp(z_j), the Jacobian is ds_i/dz_j=s_i(delta_ij-s_j). With a one-hot target and cross entropy, the logit gradient simplifies to s−y. Subtracting the maximum logit before exponentiating preserves probabilities and improves numerical stability. A softmax assumes mutually exclusive alternatives, whereas independent binary labels need a different likelihood. Verify that target indices and class order survive dataset export and checkpoint loading.
 
-### Original source references and provenance
+<details>
+<summary>Original source references and provenance</summary>
 
 Original teaching text covering the cited topics, not a verbatim mirror. These references are provenance; no external reading is required to use this chapter.
 
@@ -99,3 +141,5 @@ Original teaching text covering the cited topics, not a verbatim mirror. These r
 - [https://www.cs.toronto.edu/~urtasun/courses/CSC411_Fall16/05_nn.pdf](https://www.cs.toronto.edu/~urtasun/courses/CSC411_Fall16/05_nn.pdf)
 
 - [https://yassin01.medium.com/adam-vs-adamw-understanding-weight-decay-and-its-impact-on-model-performance-b7414f0af8a1](https://yassin01.medium.com/adam-vs-adamw-understanding-weight-decay-and-its-impact-on-model-performance-b7414f0af8a1)
+
+</details>

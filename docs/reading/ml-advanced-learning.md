@@ -2,9 +2,29 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-**Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
+## You can label only three more images.
 
-### On this page
+Choose three nearly identical uncertain crops, or cover three different failure groups? Active learning spends a budget; uncertainty alone need not spend it well.
+
+![You can label only three more images. Three near-duplicates; Three distinct groups; Same label budget](assets/ml-advanced-learning-toy.svg)
+
+| Notice | Interpret | Check |
+| --- | --- | --- |
+| Uncertainty can repeat itself | Diversity adds coverage | Keep a random audit |
+
+<details>
+<summary>Reveal the catch</summary>
+
+Limited supervision changes how you collect evidence as well as how you fit a model.
+
+</details>
+
+**Try it in 60 seconds:** Pick a tiny candidate pool and justify your next three labels before seeing their answers.
+
+Read for understanding, not page completion. Skip what you can already explain.
+
+<details>
+<summary>Jump to a concept</summary>
 
 - [Choose the target structure](#choose-the-target-structure)
 
@@ -17,6 +37,8 @@
 - [Multiple inputs, outputs and losses](#multiple-inputs-outputs-and-losses)
 
 - [How to use this extension](#how-to-use-this-extension)
+
+</details>
 
 ## Choose the target structure
 
@@ -46,8 +68,11 @@ Combining image, metadata and text can improve predictions but also introduces m
 
 The older hundred-page syllabus listed these topics as breadth. Keep them available for explanations and mentor-selected follow-up without adding every historical notebook as a mandatory assignment. Use the present motion/rescoring/retrieval tasks to illustrate one setup. Ask the agent to compare an active-learning policy with random selection, or a pairwise ranking loss with a classifier, and identify a tiny counterexample that changes the preferred choice. Personally verify the example and explain which assumptions matter.
 
-### Original source references and provenance
+<details>
+<summary>Original source references and provenance</summary>
 
 Original teaching text covering the cited topics, not a verbatim mirror. These references are provenance; no external reading is required to use this chapter.
 
 - [https://file.ai100.com.cn/files/file-code/original/cd136ebe-0e34-4e43-966b-224acff83005/100MLBOOK/The+Hundred-Page+Machine+Learning+Book.pdf](https://file.ai100.com.cn/files/file-code/original/cd136ebe-0e34-4e43-966b-224acff83005/100MLBOOK/The+Hundred-Page+Machine+Learning+Book.pdf)
+
+</details>

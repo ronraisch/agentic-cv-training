@@ -2,9 +2,29 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-**Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
+## It works on my pod. Why not yours?
 
-### On this page
+Your polygon parser works in VS Code and fails inside a container. The code is identical. Before changing Python, follow the paths.
+
+![It works on my pod. Why not yours? VS Code: ./data; Container: /app; Missing mount](assets/development-foundations-toy.svg)
+
+| Notice | Interpret | Check |
+| --- | --- | --- |
+| Same file name | Different working directory | Different file |
+
+<details>
+<summary>Reveal the catch</summary>
+
+The environment is an input too. A Git commit alone does not include your data or interpreter.
+
+</details>
+
+**Try it in 60 seconds:** Run the same input from a different working directory. Which assumption breaks?
+
+Read for understanding, not page completion. Skip what you can already explain.
+
+<details>
+<summary>Jump to a concept</summary>
 
 - [From an experiment to a reproducible program](#from-an-experiment-to-a-reproducible-program)
 
@@ -17,6 +37,8 @@
 - [Environments, Docker and deployment](#environments-docker-and-deployment)
 
 - [Connect this to your work](#connect-this-to-your-work)
+
+</details>
 
 ## From an experiment to a reproducible program
 
@@ -44,13 +66,16 @@ Use exceptions for failed operations with useful context. A broad exception hand
 
 A virtual environment isolates Python packages. Pip installs packages; uv manages environments and resolved dependencies. Conda is another environment/package system that appeared in the legacy material; this project's supported route is uv. Select the actual pod interpreter in VS Code and inspect where imports come from. A lockfile makes dependency selection repeatable; it does not include datasets or pretrained weights.
 
-A Docker image is a layered filesystem and execution specification. A container is an instance with its own running processes and writable layer. Mount persistent data explicitly: deleting a container can remove unmounted results. Build context determines what a Dockerfile can copy. A published port and a process listening on the expected interface are both needed for access. Compose describes connected services for local work; an OpenShift Deployment manages replicas, a Service provides an internal address and a Route exposes the chosen service. Check readiness, requests, logs and a real response instead of equating an accepted manifest with a working deployment.
+A Docker image is a layered filesystem and execution specification. A container is an instance with its own running processes and writable layer. Mount persistent data explicitly: deleting a container can remove unmounted results.
+
+Build context determines what a Dockerfile can copy. A published port and a process listening on the expected interface are both needed for access. Compose describes connected services for local work; an OpenShift Deployment manages replicas, a Service provides an internal address and a Route exposes the chosen service. Check readiness, requests, logs and a real response instead of equating an accepted manifest with a working deployment.
 
 ## Connect this to your work
 
 In the manual shape-rendering capstone, trace one input through parsing, validation, geometry and rendering. Make a new input yourself and predict its output before running it. Later, build the first SAM2 service manually as specified in its assignment. Use agent explanations after the manual boundaries allow them, but personally demonstrate the execution path and explain the change.
 
-### Original source references and provenance
+<details>
+<summary>Original source references and provenance</summary>
 
 Original teaching text covering the cited topics, not a verbatim mirror. These references are provenance; no external reading is required to use this chapter.
 
@@ -69,3 +94,5 @@ Original teaching text covering the cited topics, not a verbatim mirror. These r
 - [https://www.tutorialspoint.com/python/index.htm](https://www.tutorialspoint.com/python/index.htm)
 
 - [https://www.tutorialspoint.com/unix/index.htm](https://www.tutorialspoint.com/unix/index.htm)
+
+</details>

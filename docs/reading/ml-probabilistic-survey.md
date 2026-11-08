@@ -2,9 +2,29 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-**Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
+## Two curves agree exactly where you looked.
 
-### On this page
+Two functions fit three observations and disagree elsewhere. A prior or kernel expresses which unseen behaviours your model considers plausible.
+
+![Two curves agree exactly where you looked. Observed points; Plausible function A; Plausible function B](assets/ml-probabilistic-survey-toy.svg)
+
+| Notice | Interpret | Check |
+| --- | --- | --- |
+| Fit does not settle extrapolation | Assumptions shape uncertainty | Inspect where data is absent |
+
+<details>
+<summary>Reveal the catch</summary>
+
+Probabilistic models make assumptions explicit; their confidence is conditional on those assumptions.
+
+</details>
+
+**Try it in 60 seconds:** Change a smoothness assumption and sketch how predictions between observations change.
+
+Read for understanding, not page completion. Skip what you can already explain.
+
+<details>
+<summary>Jump to a concept</summary>
 
 - [Generalized linear models](#generalized-linear-models)
 
@@ -19,6 +39,8 @@
 - [Reinforcement and evolutionary learning](#reinforcement-and-evolutionary-learning)
 
 - [Appropriate depth](#appropriate-depth)
+
+</details>
 
 ## Generalized linear models
 

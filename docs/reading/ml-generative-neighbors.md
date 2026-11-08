@@ -2,9 +2,29 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-**Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
+## Copy a feature. Double the confidence?
 
-### On this page
+A Naive Bayes model sees “large vehicle” and an exact duplicate of that feature. It may count the same evidence twice.
+
+![Copy a feature. Double the confidence? Original evidence; Duplicated feature; Overconfident score](assets/ml-generative-neighbors-toy.svg)
+
+| Notice | Interpret | Check |
+| --- | --- | --- |
+| Conditional independence matters | KNN depends on distance | SVM depends on margin/scale |
+
+<details>
+<summary>Reveal the catch</summary>
+
+A strong assumption can save data—or manufacture certainty when it is wrong.
+
+</details>
+
+**Try it in 60 seconds:** Duplicate one feature, then compare predictions and calibration before and after.
+
+Read for understanding, not page completion. Skip what you can already explain.
+
+<details>
+<summary>Jump to a concept</summary>
 
 - [Modeling a class versus modeling its boundary](#modeling-a-class-versus-modeling-its-boundary)
 
@@ -19,6 +39,8 @@
 - [Support vector machines](#support-vector-machines)
 
 - [In the current assignments](#in-the-current-assignments)
+
+</details>
 
 ## Modeling a class versus modeling its boundary
 
@@ -54,7 +76,8 @@ Training a kernel SVM can require a large pairwise kernel structure, and inferen
 
 Compare a scaled linear model, KNN and an SVM on the same grouped tracklet split. Ask your agent to explain each model's inductive assumptions and derive one prediction manually. Preserve the fitted preprocessing and the exact model together. A comparison where each model sees a different test population cannot establish which method is better.
 
-### Original source references and provenance
+<details>
+<summary>Original source references and provenance</summary>
 
 Original teaching text covering the cited topics, not a verbatim mirror. These references are provenance; no external reading is required to use this chapter.
 
@@ -71,3 +94,5 @@ Original teaching text covering the cited topics, not a verbatim mirror. These r
 - [https://ocw.mit.edu/courses/sloan-school-of-management/15-097-prediction-machine-learning-and-statistics-spring-2012/lecture-notes/MIT15_097S12_lec07.pdf](https://ocw.mit.edu/courses/sloan-school-of-management/15-097-prediction-machine-learning-and-statistics-spring-2012/lecture-notes/MIT15_097S12_lec07.pdf)
 
 - [https://sebastianraschka.com/pdf/lecture-notes/stat479fs18/02_knn_notes.pdf](https://sebastianraschka.com/pdf/lecture-notes/stat479fs18/02_knn_notes.pdf)
+
+</details>

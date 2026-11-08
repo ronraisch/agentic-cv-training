@@ -2,9 +2,48 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-**Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
+## A cleaner image can lose the plate.
 
-### On this page
+One bright pixel may be noise. A three-pixel stroke may be a character. Smoothing treats both as high-frequency structure.
+
+![A cleaner image can lose the plate. Raw patch; Box average; Less noise; less detail](assets/cv-filtering-toy.svg)
+
+| Notice | Interpret | Check |
+| --- | --- | --- |
+| Single bright pixel | Average over neighbours | Check OCR, not just appearance |
+
+<details>
+<summary>Reveal the catch</summary>
+
+The prettiest preprocessing is not always the best input to the next model.
+
+</details>
+
+### In code: One bright pixel becomes three weaker pixels
+
+```python
+import numpy as np
+
+signal = np.array([0, 0, 0, 9, 0, 0, 0], dtype=float)
+kernel = np.ones(3) / 3
+smoothed = np.convolve(signal, kernel, mode="same")
+print(smoothed.tolist())
+```
+
+**Expected output:**
+
+```text
+[0.0, 0.0, 3.0, 3.0, 3.0, 0.0, 0.0]
+```
+
+This is a 1D analogue of image smoothing: the peak shrinks and spreads. Whether that peak is noise or useful detail depends on the task.
+
+**Try it in 60 seconds:** Blur a plate with two kernel sizes. Inspect strokes before comparing recognition.
+
+Read for understanding, not page completion. Skip what you can already explain.
+
+<details>
+<summary>Jump to a concept</summary>
 
 - [An image is a sampled signal](#an-image-is-a-sampled-signal)
 
@@ -17,6 +56,8 @@
 - [Pyramids and sampling](#pyramids-and-sampling)
 
 - [Apply and explain](#apply-and-explain)
+
+</details>
 
 ## An image is a sampled signal
 
@@ -48,8 +89,11 @@ Downsampling without limiting frequencies can cause aliasing: different signals 
 
 On one image, compare box and Gaussian smoothing, Sobel and Canny, and smooth versus hard frequency cutoffs. Keep pixel scaling and display limits fixed. Test an impulse and a constant image before interpreting a natural image. In the LPR task, connect each preprocessing operation to the plate geometry and recognition result. A cleaner-looking edge map can still reduce downstream accuracy.
 
-### Original source references and provenance
+<details>
+<summary>Original source references and provenance</summary>
 
 Original teaching text covering the cited topics, not a verbatim mirror. These references are provenance; no external reading is required to use this chapter.
 
 - [https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_tutorials.html](https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_tutorials.html)
+
+</details>

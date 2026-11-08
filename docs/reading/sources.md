@@ -4,7 +4,8 @@
 
 **Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
 
-### On this page
+<details>
+<summary>On this page</summary>
 
 - [Preserved learner handouts](#preserved-learner-handouts)
 
@@ -13,6 +14,8 @@
 - [Link-by-link destinations](#link-by-link-destinations)
 
 - [Items without hyperlinks](#items-without-hyperlinks)
+
+</details>
 
 The inventory was extracted from current learner documents, mentor references, earlier program outlines, the developer reading primer and all Word documents in the Computer Vision Training ZIP. It records embedded hyperlink targets as well as visible URLs. Duplicate source URLs share a destination; occurrence-level provenance remains in [source-map.json](source-map.json).
 

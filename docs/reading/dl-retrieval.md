@@ -2,9 +2,29 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-**Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
+## Perfect neighbours. Wrong answers.
 
-### On this page
+An exact index returns the nearest vectors flawlessly. If the embedding groups images by snow rather than vehicles, retrieval is still wrong for the user.
+
+![Perfect neighbours. Wrong answers. Exact neighbours; Semantic relevance; Different evaluations](assets/dl-retrieval-toy.svg)
+
+| Notice | Interpret | Check |
+| --- | --- | --- |
+| Index recall: search fidelity | Task recall: useful results | Inspect images behind vectors |
+
+<details>
+<summary>Reveal the catch</summary>
+
+Debug the index and the representation separately. One metric cannot diagnose both.
+
+</details>
+
+**Try it in 60 seconds:** Compare exact and approximate neighbours, then judge the relevance of both lists.
+
+Read for understanding, not page completion. Skip what you can already explain.
+
+<details>
+<summary>Jump to a concept</summary>
 
 - [Retrieval is a system of interfaces](#retrieval-is-a-system-of-interfaces)
 
@@ -19,6 +39,8 @@
 - [Learning from feedback](#learning-from-feedback)
 
 - [One small demonstration](#one-small-demonstration)
+
+</details>
 
 ## Retrieval is a system of interfaces
 
@@ -52,7 +74,8 @@ A user accepting or rejecting results gives sparse, biased feedback: they see on
 
 Create an exact search baseline on a few hundred approved vectors, compress or approximate it and compare each query's top neighbors. Display both rank changes and corresponding images/text. Ask the agent for a case where high index recall coexists with poor semantic relevance, then construct and explain that case yourself.
 
-### Original source references and provenance
+<details>
+<summary>Original source references and provenance</summary>
 
 Original teaching text covering the cited topics, not a verbatim mirror. These references are provenance; no external reading is required to use this chapter.
 
@@ -63,3 +86,5 @@ Original teaching text covering the cited topics, not a verbatim mirror. These r
 - [https://www.pinecone.io/learn/series/faiss/faiss-tutorial/](https://www.pinecone.io/learn/series/faiss/faiss-tutorial/)
 
 - [https://www.pinecone.io/learn/series/faiss/vector-indexes/](https://www.pinecone.io/learn/series/faiss/vector-indexes/)
+
+</details>

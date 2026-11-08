@@ -2,9 +2,29 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-**Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
+## “Red car” wins. There is no red car.
 
-### On this page
+A whole-image score ranks “red car” above “bicycle.” Those are relative candidates; a winning phrase need not describe an object actually present.
+
+![“Red car” wins. There is no red car. “Red car”: 0.31; “Bicycle”: 0.28; Neither may be present](assets/dl-vision-language-toy.svg)
+
+| Notice | Interpret | Check |
+| --- | --- | --- |
+| Scores are illustrative similarities | Candidate wording matters | Localize and verify evidence |
+
+<details>
+<summary>Reveal the catch</summary>
+
+The highest score is a ranking result, not a calibrated existence claim.
+
+</details>
+
+**Try it in 60 seconds:** Add an absent-but-plausible candidate and inspect the actual image region.
+
+Read for understanding, not page completion. Skip what you can already explain.
+
+<details>
+<summary>Jump to a concept</summary>
 
 - [Two ways to connect text and images](#two-ways-to-connect-text-and-images)
 
@@ -17,6 +37,8 @@
 - [Using an open model responsibly in an experiment](#using-an-open-model-responsibly-in-an-experiment)
 
 - [Intuition probe](#intuition-probe)
+
+</details>
 
 ## Two ways to connect text and images
 
@@ -48,8 +70,11 @@ Benchmark the whole path: preprocessing, tiling/cropping, GPU execution, merging
 
 On a small approved image set, compare whole-image text similarity, crop similarity and text-conditioned localization for a known present object and a plausible absent one. Include a tiny object and a confusing category. Before running, predict which mechanism should fail. Ask the agent to challenge your explanation, then personally show the outputs and distinguish observed behavior from inferred causes.
 
-### Original source references and provenance
+<details>
+<summary>Original source references and provenance</summary>
 
 Original teaching text covering the cited topics, not a verbatim mirror. These references are provenance; no external reading is required to use this chapter.
 
 - [https://cs231n.stanford.edu/slides/2025/lecture_16.pdf](https://cs231n.stanford.edu/slides/2025/lecture_16.pdf)
+
+</details>

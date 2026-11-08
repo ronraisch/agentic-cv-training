@@ -2,9 +2,29 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-**Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
+## Two owners. One allocation. Trouble.
 
-### On this page
+Copy an owning raw pointer and both objects still point at the same allocation. If both destructors delete it, the second deletion is invalid.
+
+![Two owners. One allocation. Trouble. Owner A; One allocation; Owner B](assets/development-cpp-toy.svg)
+
+| Notice | Interpret | Check |
+| --- | --- | --- |
+| Copying an address ≠ copying data | Exclusive ownership: unique_ptr | Borrowing requires valid lifetime |
+
+<details>
+<summary>Reveal the catch</summary>
+
+Ownership is a promise about lifetime, not just an address in memory.
+
+</details>
+
+**Try it in 60 seconds:** Explain which object owns a resource after a move, and which views can outlive it.
+
+Read for understanding, not page completion. Skip what you can already explain.
+
+<details>
+<summary>Jump to a concept</summary>
 
 - [Why retain this route](#why-retain-this-route)
 
@@ -19,6 +39,8 @@
 - [Binary neural networks](#binary-neural-networks)
 
 - [Practice without changing the core track](#practice-without-changing-the-core-track)
+
+</details>
 
 ## Why retain this route
 
@@ -54,7 +76,8 @@ Binarized-network methods constrain some weights and activations to binary value
 
 For an edge-role extension, select a small ownership example and a multi-file build. Deliberately change a header, inspect rebuilt targets and compare a clean run. If optimizing inference, verify outputs after compiler/precision changes. The old Snake, QR-reader and GEMM exercises remain historical choices; they are not appended to the current required work.
 
-### Original source references and provenance
+<details>
+<summary>Original source references and provenance</summary>
 
 Original teaching text covering the cited topics, not a verbatim mirror. These references are provenance; no external reading is required to use this chapter.
 
@@ -101,3 +124,5 @@ Original teaching text covering the cited topics, not a verbatim mirror. These r
 - [https://www.learn-c.org/](https://www.learn-c.org/)
 
 - [https://www.tutorialspoint.com/makefile/why_makefile.htm](https://www.tutorialspoint.com/makefile/why_makefile.htm)
+
+</details>

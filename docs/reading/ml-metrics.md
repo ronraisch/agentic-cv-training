@@ -2,9 +2,48 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-**Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
+## 98% accurate. Still drowning in alerts.
 
-### On this page
+In 1,000 cases there are 10 real positives. Your model finds 8 and raises 20 false alarms. The accuracy looks great. The alert inbox disagrees.
+
+![98% accurate. Still drowning in alerts. 8 correct alerts; 20 false alerts; 2 missed positives](assets/ml-metrics-toy.svg)
+
+| Notice | Interpret | Check |
+| --- | --- | --- |
+| Precision: 8 / 28 ≈ 29% | Recall: 8 / 10 = 80% | Accuracy: 978 / 1000 = 97.8% |
+
+<details>
+<summary>Reveal the catch</summary>
+
+The useful denominator depends on whose problem you are solving.
+
+</details>
+
+### In code: The alert inbox in six lines
+
+```python
+tp, fp, fn = 8, 20, 2
+precision = tp / (tp + fp)
+recall = tp / (tp + fn)
+print(round(precision, 3))
+print(round(recall, 3))
+```
+
+**Expected output:**
+
+```text
+0.286
+0.8
+```
+
+The denominators encode two different questions: how useful are the alerts, and how many real positives did we find? These toy denominators are nonzero.
+
+**Try it in 60 seconds:** Would you prefer 9 true alerts and 90 false alerts? State the operational cost first.
+
+Read for understanding, not page completion. Skip what you can already explain.
+
+<details>
+<summary>Jump to a concept</summary>
 
 - [Begin with the decision unit](#begin-with-the-decision-unit)
 
@@ -21,6 +60,8 @@
 - [Ranking and retrieval](#ranking-and-retrieval)
 
 - [One hand calculation](#one-hand-calculation)
+
+</details>
 
 ## Begin with the decision unit
 
@@ -62,7 +103,8 @@ Precision@K is relevant results among K returned, while recall@K divides retriev
 
 For relevance [1,0,1,0] with two relevant items in total, precision@2=1/2, recall@2=1/2, AP=(1+2/3)/2=5/6 and reciprocal rank=1. Now insert an irrelevant first result and recompute. Use such a tiny case to verify the evaluator before trusting thousands of boxes or retrieval results. In the rescorer task, show both the full PR comparison and the actual alert policy chosen on validation data.
 
-### Original source references and provenance
+<details>
+<summary>Original source references and provenance</summary>
 
 Original teaching text covering the cited topics, not a verbatim mirror. These references are provenance; no external reading is required to use this chapter.
 
@@ -95,3 +137,5 @@ Original teaching text covering the cited topics, not a verbatim mirror. These r
 - [https://twitter.com/capeandcode/status/1450666977236713480](https://twitter.com/capeandcode/status/1450666977236713480)
 
 - [https://www.cs.technion.ac.il/users/wwwb/cgi-bin/tr-get.cgi/2019/PHD/PHD-2019-09.pdf](https://www.cs.technion.ac.il/users/wwwb/cgi-bin/tr-get.cgi/2019/PHD/PHD-2019-09.pdf)
+
+</details>

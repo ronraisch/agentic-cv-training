@@ -1,5 +1,9 @@
 # Research training — one starting point
 
+![A toy alert inbox: eight correct alerts, twenty false alerts and two missed objects](reading/assets/reading-home.svg)
+
+**Start with a mystery:** [Why is 98% accuracy disappointing?](reading/ml-metrics.md) · [Why do roofs drift?](reading/cv-geometry.md) · [Why does reversing a clip matter?](reading/dl-sequences.md)
+
 The program has four parts. Each syllabus links to local theory, the relevant course videos,
 current exercises and mentor conversations. Active materials are in English.
 

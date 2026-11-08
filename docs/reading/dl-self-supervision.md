@@ -2,9 +2,29 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-**Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
+## Two views of the same image. Same object?
 
-### On this page
+A wide crop contains a tiny truck. The second augmentation crops it away. The pair is “positive,” but the semantic evidence changed.
+
+![Two views of the same image. Same object? Wide image; Object crop; Background-only crop](assets/dl-self-supervision-toy.svg)
+
+| Notice | Interpret | Check |
+| --- | --- | --- |
+| View identity is the label | Augmentation defines invariance | Cropping can remove the target |
+
+<details>
+<summary>Reveal the catch</summary>
+
+A self-supervised objective learns the relationships you supply, not the task you silently intended.
+
+</details>
+
+**Try it in 60 seconds:** Inspect ten actual augmentation pairs at the scale of your smallest objects.
+
+Read for understanding, not page completion. Skip what you can already explain.
+
+<details>
+<summary>Jump to a concept</summary>
 
 - [The training signal defines useful invariance](#the-training-signal-defines-useful-invariance)
 
@@ -17,6 +37,8 @@
 - [Few-shot and feedback](#few-shot-and-feedback)
 
 - [Apply during the project](#apply-during-the-project)
+
+</details>
 
 ## The training signal defines useful invariance
 
@@ -48,7 +70,8 @@ A prototype averages support embeddings for a class. A linear/SVM head can learn
 
 Use one frozen encoder to retrieve examples from a held-out set and display both nearest matches and failures. Change only crop context or resolution and inspect what moves. Ask the agent to predict which invariances are helpful for vehicles and which might hide an attribute such as color. Explain the observed results to the mentor with actual examples, and distinguish representation quality from detector proposal recall.
 
-### Original source references and provenance
+<details>
+<summary>Original source references and provenance</summary>
 
 Original teaching text covering the cited topics, not a verbatim mirror. These references are provenance; no external reading is required to use this chapter.
 
@@ -61,3 +84,5 @@ Original teaching text covering the cited topics, not a verbatim mirror. These r
 - [https://lilianweng.github.io/posts/2019-11-10-self-supervised/](https://lilianweng.github.io/posts/2019-11-10-self-supervised/)
 
 - [https://lilianweng.github.io/posts/2021-05-31-contrastive/#moco--moco-v2](https://lilianweng.github.io/posts/2021-05-31-contrastive/#moco--moco-v2)
+
+</details>

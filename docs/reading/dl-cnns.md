@@ -2,9 +2,29 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-**Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
+## Three small filters see one bigger patch.
 
-### On this page
+Stack three stride-one 3×3 convolutions. A final output can depend on a 7×7 input region, not just the final 3×3 window.
+
+![Three small filters see one bigger patch. First layer: 3×3; Second: 5×5; Third: 7×7](assets/dl-cnns-toy.svg)
+
+| Notice | Interpret | Check |
+| --- | --- | --- |
+| Start r=1, j=1 | Each 3×3 adds 2j | Stride changes the jump |
+
+<details>
+<summary>Reveal the catch</summary>
+
+Theoretical access is not equal influence. A tiny object can still disappear in a coarse feature map.
+
+</details>
+
+**Try it in 60 seconds:** Insert a stride-two layer and recompute the receptive field and sampling jump.
+
+Read for understanding, not page completion. Skip what you can already explain.
+
+<details>
+<summary>Jump to a concept</summary>
 
 - [Convolution as a learned local operator](#convolution-as-a-learned-local-operator)
 
@@ -17,6 +37,8 @@
 - [Dense outputs and multiscale features](#dense-outputs-and-multiscale-features)
 
 - [What visual evidence establishes](#what-visual-evidence-establishes)
+
+</details>
 
 ## Convolution as a learned local operator
 
@@ -46,7 +68,8 @@ FCN turns classification-style computation into spatial predictions with learned
 
 Activation maps show where a model responds; saliency/gradient maps show sensitivity under a chosen calculation. Neither is automatically a causal explanation. Compare changed inputs, occluded regions and known failure cases. In the cloud-segmentation proposal, specify spectral bands, cloud/shadow definitions and cross-scene evaluation. A pretty mask on a handpicked scene is useful for understanding, while held-out measurements establish generalization.
 
-### Original source references and provenance
+<details>
+<summary>Original source references and provenance</summary>
 
 Original teaching text covering the cited topics, not a verbatim mirror. These references are provenance; no external reading is required to use this chapter.
 
@@ -59,3 +82,5 @@ Original teaching text covering the cited topics, not a verbatim mirror. These r
 - [https://cs231n.stanford.edu/slides/2025/lecture_6.pdf](https://cs231n.stanford.edu/slides/2025/lecture_6.pdf)
 
 - [https://distill.pub/2019/computing-receptive-fields/](https://distill.pub/2019/computing-receptive-fields/)
+
+</details>

@@ -2,9 +2,29 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-**Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
+## The prettiest cluster might be a sensor.
 
-### On this page
+Your embedding plot has two beautiful islands. One contains bright images; the other contains dark images. Both contain trucks and cars.
+
+![The prettiest cluster might be a sensor. Appearance axis; Semantic labels; Two competing structures](assets/ml-unsupervised-toy.svg)
+
+| Notice | Interpret | Check |
+| --- | --- | --- |
+| High variance: illumination | Useful class signal: smaller | A cluster is not a class |
+
+<details>
+<summary>Reveal the catch</summary>
+
+PCA preserves variance; a visualization preserves selected relationships. Neither knows your operational labels.
+
+</details>
+
+**Try it in 60 seconds:** Colour one projection by class, then by sensor. Which story survives?
+
+Read for understanding, not page completion. Skip what you can already explain.
+
+<details>
+<summary>Jump to a concept</summary>
 
 - [Structure depends on representation](#structure-depends-on-representation)
 
@@ -19,6 +39,8 @@
 - [Nonlinear visualization](#nonlinear-visualization)
 
 - [Outliers and practical interpretation](#outliers-and-practical-interpretation)
+
+</details>
 
 ## Structure depends on representation
 
@@ -56,7 +78,8 @@ UMAP constructs a weighted neighborhood graph and optimizes a low-dimensional re
 
 An anomaly is unusual relative to a reference distribution, not necessarily an error or threat. Density models, one-class methods and reconstruction residuals reveal different notions of unusualness. A new legitimate sensor can look anomalous while an adversarially plausible failure appears normal. In the proposal-retrieval workflow, show nearest examples for each discovered group, audit noise points and record the sampling design. Ask your agent for a plausible alternative explanation for each cluster, then test it on metadata and held-out inputs.
 
-### Original source references and provenance
+<details>
+<summary>Original source references and provenance</summary>
 
 Original teaching text covering the cited topics, not a verbatim mirror. These references are provenance; no external reading is required to use this chapter.
 
@@ -95,3 +118,5 @@ Original teaching text covering the cited topics, not a verbatim mirror. These r
 - [https://www.geeksforgeeks.org/machine-learning/ml-expectation-maximization-algorithm/](https://www.geeksforgeeks.org/machine-learning/ml-expectation-maximization-algorithm/)
 
 - [https://www.kaggle.com/code/vipulgandhi/spectral-clustering-detailed-explanation](https://www.kaggle.com/code/vipulgandhi/spectral-clustering-detailed-explanation)
+
+</details>

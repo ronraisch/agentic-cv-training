@@ -2,9 +2,29 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-**Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
+## A straight line can bend.
 
-### On this page
+Fit y = 1 + 2x². Is this a linear model? It is linear in its fitted coefficients, even though the curve bends in x.
+
+![A straight line can bend. x; x²; y = 1 + 2x²](assets/ml-foundations-toy.svg)
+
+| Notice | Interpret | Check |
+| --- | --- | --- |
+| 0 → 0 → 1 | 1 → 1 → 3 | 2 → 4 → 9 |
+
+<details>
+<summary>Reveal the catch</summary>
+
+The representation changes the question the learner can answer.
+
+</details>
+
+**Try it in 60 seconds:** Compare fitting x with fitting [x, x²]. Keep the held-out inputs identical.
+
+Read for understanding, not page completion. Skip what you can already explain.
+
+<details>
+<summary>Jump to a concept</summary>
 
 - [Define the task and the data-generating process](#define-the-task-and-the-data-generating-process)
 
@@ -17,6 +37,8 @@
 - [Dimensionality and feature choices](#dimensionality-and-feature-choices)
 
 - [Connect to your experiment](#connect-to-your-experiment)
+
+</details>
 
 ## Define the task and the data-generating process
 
@@ -50,7 +72,8 @@ In high dimensions, a fixed number of observations covers a tiny fraction of the
 
 For tracklet motion, define the target and decision unit, derive candidate velocity/shape features, and build a simple linear baseline. Explain which feature encodes actual motion and which may identify a camera or collection session. Ask your agent for a counterexample where a seemingly helpful feature becomes leakage, then test it yourself.
 
-### Original source references and provenance
+<details>
+<summary>Original source references and provenance</summary>
 
 Original teaching text covering the cited topics, not a verbatim mirror. These references are provenance; no external reading is required to use this chapter.
 
@@ -93,3 +116,5 @@ Original teaching text covering the cited topics, not a verbatim mirror. These r
 - [https://www.geeksforgeeks.org/machine-learning/difference-between-supervised-and-unsupervised-learning/](https://www.geeksforgeeks.org/machine-learning/difference-between-supervised-and-unsupervised-learning/)
 
 - [https://www.ibm.com/think/topics/machine-learning-types](https://www.ibm.com/think/topics/machine-learning-types)
+
+</details>

@@ -2,9 +2,29 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-**Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
+## The classifier never saw the missing truck.
 
-### On this page
+Eight objects are visible, but only three usable proposals reach the head. Even a perfect head cannot classify the other five.
+
+![The classifier never saw the missing truck. 8 visible objects; 3 usable proposals; Recall ceiling: 3/8](assets/dl-detection-toy.svg)
+
+| Notice | Interpret | Check |
+| --- | --- | --- |
+| Proposal recall first | Classification second | Merging can remove more |
+
+<details>
+<summary>Reveal the catch</summary>
+
+Separate proposal misses, class errors and postprocessing losses before choosing a bigger backbone.
+
+</details>
+
+**Try it in 60 seconds:** Trace one missed object through resize, proposals, scores and NMS.
+
+Read for understanding, not page completion. Skip what you can already explain.
+
+<details>
+<summary>Jump to a concept</summary>
 
 - [Outputs determine the formulation](#outputs-determine-the-formulation)
 
@@ -23,6 +43,8 @@
 - [Angular-margin detail](#angular-margin-detail)
 
 - [Missing labels and fair paper comparisons](#missing-labels-and-fair-paper-comparisons)
+
+</details>
 
 ## Outputs determine the formulation
 
@@ -64,7 +86,8 @@ For normalized geometry, SphereFace introduces a multiplicative angular margin, 
 
 Background Recalibration Loss and positive-unlabeled detection investigate training when unannotated objects would otherwise be treated as negatives. Their motivation is to reduce harmful background supervision; applying either requires its stated assumptions and implementation. A Metric Learning Reality Check highlights how training/evaluation protocol differences can distort comparisons. When comparing losses, control backbone, preprocessing, split, tuning budget and retrieval convention before attributing a gain to the loss.
 
-### Original source references and provenance
+<details>
+<summary>Original source references and provenance</summary>
 
 Original teaching text covering the cited topics, not a verbatim mirror. These references are provenance; no external reading is required to use this chapter.
 
@@ -77,3 +100,5 @@ Original teaching text covering the cited topics, not a verbatim mirror. These r
 - [https://cs231n.stanford.edu/slides/2025/lecture_9.pdf](https://cs231n.stanford.edu/slides/2025/lecture_9.pdf)
 
 - [https://medium.com/analytics-vidhya/image-classification-vs-object-detection-vs-image-segmentation-f36db85fe81](https://medium.com/analytics-vidhya/image-classification-vs-object-detection-vs-image-segmentation-f36db85fe81)
+
+</details>

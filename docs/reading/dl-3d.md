@@ -2,9 +2,29 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-**Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
+## One pixel of disparity can matter a lot.
 
-### On this page
+Take focal length f=100 pixels and baseline B=1 metre. Disparity 10 gives depth 10 m; disparity 9 gives about 11.1 m.
+
+![One pixel of disparity can matter a lot. d=10 → Z=10 m; d=9 → Z≈11.1 m; Z=fB/d](assets/dl-3d-toy.svg)
+
+| Notice | Interpret | Check |
+| --- | --- | --- |
+| Same one-pixel change | Different depth uncertainty | Calibration and units matter |
+
+<details>
+<summary>Reveal the catch</summary>
+
+Depth is inferred through geometry and assumptions. Small image errors can become large world errors.
+
+</details>
+
+**Try it in 60 seconds:** Repeat the calculation at disparities 2 and 1. Why is the depth change larger?
+
+Read for understanding, not page completion. Skip what you can already explain.
+
+<details>
+<summary>Jump to a concept</summary>
 
 - [Geometry before architecture](#geometry-before-architecture)
 
@@ -17,6 +37,8 @@
 - [Data and evaluation](#data-and-evaluation)
 
 - [Connection to airborne imagery](#connection-to-airborne-imagery)
+
+</details>
 
 ## Geometry before architecture
 
@@ -46,8 +68,11 @@ Buildings and elevated structures produce viewpoint-dependent displacement. A pl
 
 The old 3D lecture remains in the course map. No separate reconstruction project is required by this syllabus. Ask the agent to explain the geometric ambiguity of one image and then demonstrate it using two different 3D configurations that produce similar projections. Bring that example to the mentor instead of only listing model names.
 
-### Original source references and provenance
+<details>
+<summary>Original source references and provenance</summary>
 
 Original teaching text covering the cited topics, not a verbatim mirror. These references are provenance; no external reading is required to use this chapter.
 
 - [https://cs231n.stanford.edu/slides/2025/lecture_15.pdf](https://cs231n.stanford.edu/slides/2025/lecture_15.pdf)
+
+</details>

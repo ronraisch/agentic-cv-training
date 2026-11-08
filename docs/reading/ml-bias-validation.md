@@ -2,9 +2,29 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-**Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
+## Your model recognizes the camera.
 
-### On this page
+Split neighbouring frames randomly and every camera appears in training and test. A background shortcut can masquerade as motion understanding.
+
+![Your model recognizes the camera. Random frame split; Camera shortcut; Split by source](assets/ml-bias-validation-toy.svg)
+
+| Notice | Interpret | Check |
+| --- | --- | --- |
+| Same video on both sides | Looks like generalization | New videos are the real test |
+
+<details>
+<summary>Reveal the catch</summary>
+
+A harder, honest test can be more useful than a spectacular leaked score.
+
+</details>
+
+**Try it in 60 seconds:** Colour samples by source video before splitting. Which colours appear on both sides?
+
+Read for understanding, not page completion. Skip what you can already explain.
+
+<details>
+<summary>Jump to a concept</summary>
 
 - [Three meanings of bias](#three-meanings-of-bias)
 
@@ -20,6 +40,8 @@
 
 - [During the project](#during-the-project)
 
+</details>
+
 ## Three meanings of bias
 
 An additive model intercept is sometimes called a bias. Statistical estimation bias describes a systematic difference between an estimator's expectation and its target. Dataset and human biases concern how observations, labels and decisions represent the intended population. These are distinct ideas: reducing model approximation bias does not fix a biased sample or a biased labeling policy.
@@ -30,7 +52,9 @@ For squared-error regression, expected prediction error can be decomposed into s
 
 ## How datasets acquire bias
 
-Reporting bias arises when recorded events differ from actual frequencies: a log of reported incidents omits unreported ones. Historical bias carries earlier inequities or policies into labels. Automation bias is undue trust in an automated suggestion; annotators accepting every SAM mask can reinforce its systematic misses. Selection bias comes from who or what is sampled. Coverage bias leaves parts of the target population out; nonresponse bias reflects who fails to provide data; sampling bias reflects a nonrepresentative collection process. Group attribution bias generalizes properties of individuals to groups or assumes group averages describe each individual. Implicit assumptions can influence category definitions and ambiguous labels.
+Reporting bias arises when recorded events differ from actual frequencies: a log of reported incidents omits unreported ones. Historical bias carries earlier inequities or policies into labels. Automation bias is undue trust in an automated suggestion; annotators accepting every SAM mask can reinforce its systematic misses.
+
+Selection bias comes from who or what is sampled. Coverage bias leaves parts of the target population out; nonresponse bias reflects who fails to provide data; sampling bias reflects a nonrepresentative collection process. Group attribution bias generalizes properties of individuals to groups or assumes group averages describe each individual. Implicit assumptions can influence category definitions and ambiguous labels.
 
 For imagery, imagine a vehicle dataset collected only in clear weather and labeled from detector proposals. It underrepresents clouds and occlusion, and objects missed by the proposal model may never be reviewed. Add random spatial audits rather than inspecting predictions alone. Record sensor, geography, time and annotation protocol so performance can be stratified. A balanced class count does not guarantee representative nuisance conditions or equivalent label quality.
 
@@ -54,7 +78,8 @@ For an independent Bernoulli proportion p estimated from n trials, the rough sta
 
 Have the agent propose three splits and try to falsify each with a leakage example. Write a short audit of the chosen split and manually trace a few sample IDs through it. Bring to the mentor a failure that survives a better split, not just the highest score from an easier split.
 
-### Original source references and provenance
+<details>
+<summary>Original source references and provenance</summary>
 
 Original teaching text covering the cited topics, not a verbatim mirror. These references are provenance; no external reading is required to use this chapter.
 
@@ -87,3 +112,5 @@ Original teaching text covering the cited topics, not a verbatim mirror. These r
 - [https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/11_eval4-algo/11-eval4-algo__notes.pdf](https://github.com/rasbt/stat479-machine-learning-fs19/blob/master/11_eval4-algo/11-eval4-algo__notes.pdf)
 
 - [https://medium.com/data-science/understanding-the-bias-variance-tradeoff-165e6942b229](https://medium.com/data-science/understanding-the-bias-variance-tradeoff-165e6942b229)
+
+</details>

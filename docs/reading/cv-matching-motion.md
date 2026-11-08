@@ -2,9 +2,29 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-**Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
+## Twenty confident matches. One wrong wall.
 
-### On this page
+A facade has identical windows. Many descriptor matches look excellent, but they all shift the building by one window.
+
+![Twenty confident matches. One wrong wall. Image A; Candidate matches; Image B](assets/cv-matching-motion-toy.svg)
+
+| Notice | Interpret | Check |
+| --- | --- | --- |
+| Appearance can repeat | Geometry tests consistency | Check spatial coverage |
+
+<details>
+<summary>Reveal the catch</summary>
+
+An inlier is consistent with a model, not a certificate of ground truth.
+
+</details>
+
+**Try it in 60 seconds:** Add one distinctive corner. Does it expose the repeated-window mistake?
+
+Read for understanding, not page completion. Skip what you can already explain.
+
+<details>
+<summary>Jump to a concept</summary>
 
 - [Choose points that constrain motion](#choose-points-that-constrain-motion)
 
@@ -17,6 +37,8 @@
 - [Optical flow from local evidence](#optical-flow-from-local-evidence)
 
 - [From flow to tracks and scene understanding](#from-flow-to-tracks-and-scene-understanding)
+
+</details>
 
 ## Choose points that constrain motion
 

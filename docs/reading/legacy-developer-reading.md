@@ -4,7 +4,8 @@
 
 **Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
 
-### On this page
+<details>
+<summary>On this page</summary>
 
 - [Reading & Viewing Materials](#reading-amp-viewing-materials)
 
@@ -19,6 +20,8 @@
 - [E. Retrieval & Applied LLM Systems](#e-retrieval-amp-applied-llm-systems)
 
 - [F. Training, Deployment & Optimization](#f-training-deployment-amp-optimization)
+
+</details>
 
 **Historical handout, preserved in full.** This records the older learner text; historical schedules and instructions to complete every reading or old assignment are superseded by the stage syllabus above. Reading links now point to local explanations. Video links retain their source destinations. The current required exercises are linked from the stage syllabus.
 

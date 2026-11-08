@@ -2,9 +2,50 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-**Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
+## Saved. Crashed. Delivered again.
 
-### On this page
+A worker saves its prediction, crashes before acknowledging, then receives the same job again. What stops a duplicate result?
+
+![Saved. Crashed. Delivered again. Save output; Crash before ACK; Same job redelivered](assets/development-interfaces-toy.svg)
+
+| Notice | Interpret | Check |
+| --- | --- | --- |
+| ACK first risks lost work | Save first permits retries | Stable IDs support idempotency |
+
+<details>
+<summary>Reveal the catch</summary>
+
+Reliable systems plan for the gap between two operations, not only the happy path.
+
+</details>
+
+### In code: Replay one job ID
+
+```python
+outputs = {}
+
+def save_once(job_id, prediction):
+    return outputs.setdefault(job_id, prediction)
+
+save_once("frame-7", {"cars": 1})
+save_once("frame-7", {"cars": 1})  # Redelivery, same identity.
+print(len(outputs))
+```
+
+**Expected output:**
+
+```text
+1
+```
+
+This single-process, in-memory toy illustrates stable identity only. A real worker also needs durable, atomic storage and a deliberate acknowledgement policy.
+
+**Try it in 60 seconds:** Replay the same job ID twice and inspect durable output and consumer behaviour.
+
+Read for understanding, not page completion. Skip what you can already explain.
+
+<details>
+<summary>Jump to a concept</summary>
 
 - [Requests are explicit interfaces](#requests-are-explicit-interfaces)
 
@@ -15,6 +56,8 @@
 - [Research interfaces](#research-interfaces)
 
 - [Learning path](#learning-path)
+
+</details>
 
 ## Requests are explicit interfaces
 

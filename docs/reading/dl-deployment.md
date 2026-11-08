@@ -2,9 +2,29 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-**Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
+## Make inference twice as fast. Save 5 ms.
 
-### On this page
+A request spends 25 ms preprocessing, 10 ms in the model and 65 ms postprocessing. Halving model time changes 100 ms to 95 ms.
+
+![Make inference twice as fast. Save 5 ms. Preprocess: 25 ms; Model: 10 ms; Postprocess: 65 ms](assets/dl-deployment-toy.svg)
+
+| Notice | Interpret | Check |
+| --- | --- | --- |
+| Model after optimization: 5 ms | New total: 95 ms | Toy timings, not a benchmark |
+
+<details>
+<summary>Reveal the catch</summary>
+
+Optimize the measured end-to-end bottleneck, not the most fashionable stage.
+
+</details>
+
+**Try it in 60 seconds:** What happens if you halve postprocessing instead? Include waiting and batching in a real run.
+
+Read for understanding, not page completion. Skip what you can already explain.
+
+<details>
+<summary>Jump to a concept</summary>
 
 - [Adapt only what the task needs](#adapt-only-what-the-task-needs)
 
@@ -17,6 +37,8 @@
 - [Distributed execution](#distributed-execution)
 
 - [Production handover](#production-handover)
+
+</details>
 
 ## Adapt only what the task needs
 
@@ -50,7 +72,8 @@ The final deliverable is an inference-only notebook that loads inputs, preproces
 
 Use your agent to propose optimizations one at a time. Accept one only after measured end-to-end savings and preserved task behavior under the agreed tolerance. Bring the tradeoff table, a new input and the reloaded artifact to the mentor.
 
-### Original source references and provenance
+<details>
+<summary>Original source references and provenance</summary>
 
 Original teaching text covering the cited topics, not a verbatim mirror. These references are provenance; no external reading is required to use this chapter.
 
@@ -69,3 +92,5 @@ Original teaching text covering the cited topics, not a verbatim mirror. These r
 - [https://medium.com/geekculture/ai-compilers-ae28afbc4907](https://medium.com/geekculture/ai-compilers-ae28afbc4907)
 
 - [https://www.ultralytics.com/glossary/inference-latency](https://www.ultralytics.com/glossary/inference-latency)
+
+</details>

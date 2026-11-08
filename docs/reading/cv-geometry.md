@@ -2,9 +2,29 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-**Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
+## Why do roads align but roofs drift?
 
-### On this page
+Two airborne images share the same buildings. One homography aligns the road perfectly, yet roof edges remain doubled.
+
+![Why do roads align but roofs drift? View A; One planar warp; View B](assets/cv-geometry-toy.svg)
+
+| Notice | Interpret | Check |
+| --- | --- | --- |
+| Road: near the fitted plane | Roof: elevated surface | Translation creates parallax |
+
+<details>
+<summary>Reveal the catch</summary>
+
+More RANSAC iterations cannot make a single plane describe every depth.
+
+</details>
+
+**Try it in 60 seconds:** Draw a road point and a roof point viewed from two camera positions.
+
+Read for understanding, not page completion. Skip what you can already explain.
+
+<details>
+<summary>Jump to a concept</summary>
 
 - [Voting for a geometric explanation](#voting-for-a-geometric-explanation)
 
@@ -15,6 +35,8 @@
 - [Stereo and epipolar geometry](#stereo-and-epipolar-geometry)
 
 - [Reason about an actual pair](#reason-about-an-actual-pair)
+
+</details>
 
 ## Voting for a geometric explanation
 

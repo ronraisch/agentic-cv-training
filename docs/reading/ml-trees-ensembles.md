@@ -2,9 +2,29 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-**Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
+## Three models, one shared blind spot.
 
-### On this page
+Three truck classifiers agree on easy cases. All three miss cement trucks. Majority voting cannot invent the missing expertise.
+
+![Three models, one shared blind spot. Model A: misses; Model B: misses; Model C: misses](assets/ml-trees-ensembles-toy.svg)
+
+| Notice | Interpret | Check |
+| --- | --- | --- |
+| Agreement is not truth | Correlated errors remain | Inspect useful disagreements |
+
+<details>
+<summary>Reveal the catch</summary>
+
+An ensemble benefits from complementary useful errors, not merely more model names.
+
+</details>
+
+**Try it in 60 seconds:** Find a case on which models disagree. Is the dissenting model actually right?
+
+Read for understanding, not page completion. Skip what you can already explain.
+
+<details>
+<summary>Jump to a concept</summary>
 
 - [A tree partitions feature space](#a-tree-partitions-feature-space)
 
@@ -17,6 +37,8 @@
 - [Voting, blending and stacking](#voting-blending-and-stacking)
 
 - [Learn while implementing](#learn-while-implementing)
+
+</details>
 
 ## A tree partitions feature space
 
@@ -52,7 +74,8 @@ Measure the cost of the whole ensemble, including all feature extractors, prepro
 
 Have the agent propose a shallow tree, a forest and one boosted model. Keep a table of validation operating points, training time, inference cost and representative disagreements. Use the mentor discussion to explain which errors improve, why a hard slice remains difficult and whether a simpler model meets the actual requirement.
 
-### Original source references and provenance
+<details>
+<summary>Original source references and provenance</summary>
 
 Original teaching text covering the cited topics, not a verbatim mirror. These references are provenance; no external reading is required to use this chapter.
 
@@ -73,3 +96,5 @@ Original teaching text covering the cited topics, not a verbatim mirror. These r
 - [https://medium.com/@abhishekjainindore24/different-types-of-ensemble-techniques-bagging-boosting-stacking-voting-blending-b04355a03c93](https://medium.com/@abhishekjainindore24/different-types-of-ensemble-techniques-bagging-boosting-stacking-voting-blending-b04355a03c93)
 
 - [https://www.nvidia.com/en-eu/glossary/xgboost/](https://www.nvidia.com/en-eu/glossary/xgboost/)
+
+</details>

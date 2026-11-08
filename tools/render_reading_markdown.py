@@ -88,7 +88,12 @@ def render(node):
         return ''
     if tag in {'h1', 'h2', 'h3', 'h4'}:
         return '\n\n' + '#' * int(tag[1]) + ' ' + content.strip() + '\n\n'
-    if tag in {'p', 'div', 'section', 'details', 'ul', 'ol'}:
+    if tag == 'details':
+        summary = next((c for c in node.children if isinstance(c, Node) and c.tag == 'summary'), None)
+        label = ''.join(render(c) for c in summary.children) if summary else 'More'
+        body = ''.join(render(c) for c in node.children if c is not summary).strip()
+        return '\n\n<details>\n<summary>' + label + '</summary>\n\n' + body + '\n\n</details>\n\n'
+    if tag in {'p', 'div', 'section', 'ul', 'ol'}:
         return '\n\n' + content.strip() + '\n\n'
     if tag == 'summary':
         return '\n\n### ' + content.strip() + '\n\n'
@@ -101,7 +106,10 @@ def render(node):
     if tag in {'em', 'i'}:
         return '*' + content + '*'
     if tag == 'pre':
-        return '\n\n```text\n' + content.strip('`\n') + '\n```\n\n'
+        code = next((c for c in node.children if isinstance(c, Node) and c.tag == 'code'), None)
+        language = 'python' if code and 'language-python' in code.attrs.get('class', '') else 'text'
+        raw = ''.join(render(c) for c in code.children) if code else content
+        return '\n\n```' + language + '\n' + raw.strip('`\n') + '\n```\n\n'
     if tag == 'code':
         return '`' + content + '`'
     if tag == 'a':

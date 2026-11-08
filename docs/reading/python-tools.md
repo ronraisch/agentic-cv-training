@@ -2,9 +2,29 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-**Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
+## Four workers. Four times faster?
 
-### On this page
+You have four images to fetch and four expensive Python computations. Would you use the same worker pool for both?
+
+![Four workers. Four times faster? One worker; Four workers; Scheduling overhead](assets/python-tools-toy.svg)
+
+| Notice | Interpret | Check |
+| --- | --- | --- |
+| I/O can overlap | Python CPU work may need processes | Tiny jobs can get slower |
+
+<details>
+<summary>Reveal the catch</summary>
+
+Parallelism has a bill: startup, copying and coordination. Count it before celebrating speed.
+
+</details>
+
+**Try it in 60 seconds:** Benchmark a tiny job and a heavy job; predict when the winner changes.
+
+Read for understanding, not page completion. Skip what you can already explain.
+
+<details>
+<summary>Jump to a concept</summary>
 
 - [Type information is a contract to check](#type-information-is-a-contract-to-check)
 
@@ -18,6 +38,8 @@
 
 - [Try with your agent](#try-with-your-agent)
 
+</details>
+
 ## Type information is a contract to check
 
 Annotate parameters and returned values to communicate intended objects. A type such as `dict[str, list[float]]` conveys more than `dict`. An annotation does not automatically reject a runtime value; a type checker and explicit boundary validation play different roles. Use an Enum when values represent a closed vocabulary, such as processing states, to prevent silently accepting misspelled strings. A dataclass expresses a record and can generate initialization and comparison methods. A frozen dataclass prevents assignment to fields but does not recursively freeze a list stored in a field.
@@ -26,7 +48,9 @@ Annotate parameters and returned values to communicate intended objects. A type 
 
 A decorator takes a function or class and returns its replacement. For a timing decorator, capture the start time, invoke the wrapped function and report elapsed time in a finally block, preserving its result and exception. Use `functools.wraps` so names and documentation remain inspectable. A decorator that consumes an iterator before returning it can change behavior even if its printed output looks useful.
 
-`lru_cache` stores return values for recently used hashable arguments. It suits deterministic computations whose results fit in memory. It can produce stale results when the function reads a changing file or model behind an unchanged path, and cached mutable return values can be modified by callers. Include artifact identity in a cache key when relevant. A property exposes computed or validated attribute access. A static method is a namespaced function without implicit instance/class input; a class method receives the class and is useful for alternate constructors. Single dispatch chooses an implementation by the first argument's runtime type. Use these for an actual design need, not to make simple code look advanced.
+`lru_cache` stores return values for recently used hashable arguments. It suits deterministic computations whose results fit in memory. It can produce stale results when the function reads a changing file or model behind an unchanged path, and cached mutable return values can be modified by callers. Include artifact identity in a cache key when relevant.
+
+A property exposes computed or validated attribute access. A static method is a namespaced function without implicit instance/class input; a class method receives the class and is useful for alternate constructors. Single dispatch chooses an implementation by the first argument's runtime type. Use these for an actual design need, not to make simple code look advanced.
 
 ## Concurrency starts with the bottleneck
 
@@ -48,7 +72,8 @@ An interactive app should expose the workload, input size and worker count, then
 
 After the manual capstone review, ask for two implementations of a bounded worker pipeline and a hypothesis about which will be faster. Before running, identify serialization, I/O and shared-state costs. Verify the prediction with your own benchmark. Bring the surprising result to the mentor, along with an explanation you can defend without generated prose.
 
-### Original source references and provenance
+<details>
+<summary>Original source references and provenance</summary>
 
 Original teaching text covering the cited topics, not a verbatim mirror. These references are provenance; no external reading is required to use this chapter.
 
@@ -81,3 +106,5 @@ Original teaching text covering the cited topics, not a verbatim mirror. These r
 - [https://www.programiz.com/python-programming/decorator](https://www.programiz.com/python-programming/decorator)
 
 - [https://www.programiz.com/python-programming/property](https://www.programiz.com/python-programming/property)
+
+</details>

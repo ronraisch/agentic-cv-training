@@ -4,7 +4,8 @@
 
 **Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
 
-### On this page
+<details>
+<summary>On this page</summary>
 
 - [Learning route and expected understanding](#learning-route-and-expected-understanding)
 
@@ -15,6 +16,8 @@
 - [Mentor conversations](#mentor-conversations)
 
 - [Original learner material](#original-learner-material)
+
+</details>
 
 ## Learning route and expected understanding
 
