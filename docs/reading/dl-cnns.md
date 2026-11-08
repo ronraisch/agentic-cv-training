@@ -2,26 +2,15 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## Three small filters see one bigger patch.
+## How three small convolutions see a larger region
 
-Stack three stride-one 3×3 convolutions. A final output can depend on a 7×7 input region, not just the final 3×3 window.
+Three stride-one 3×3 convolutions give a final output a theoretical 7×7 receptive field. The last layer reads nearby features, but those features already contain information from their own neighbours.
 
 ![Three small filters see one bigger patch. First layer: 3×3; Second: 5×5; Third: 7×7](assets/dl-cnns-toy.svg)
 
-| Notice | Interpret | Check |
-| --- | --- | --- |
-| Start r=1, j=1 | Each 3×3 adds 2j | Stride changes the jump |
+This matters for small objects. A deep feature may have access to a large input region while being sampled on a coarse grid. Access to the object does not guarantee that its detail survives resizing, downsampling or the learned computation.
 
-<details>
-<summary>Reveal the catch</summary>
-
-Theoretical access is not equal influence. A tiny object can still disappear in a coarse feature map.
-
-</details>
-
-**Try it in 60 seconds:** Insert a stride-two layer and recompute the receptive field and sampling jump.
-
-Read for understanding, not page completion. Skip what you can already explain.
+Kernel size, stride and feature scale describe different aspects of this process. Keeping them separate helps explain both localization behaviour and compute cost.
 
 <details>
 <summary>Jump to a concept</summary>

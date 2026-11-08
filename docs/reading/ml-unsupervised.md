@@ -2,26 +2,15 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## The prettiest cluster might be a sensor.
+## Two clusters, two possible explanations
 
-Your embedding plot has two beautiful islands. One contains bright images; the other contains dark images. Both contain trucks and cars.
+An embedding plot separates a dataset into two attractive islands. Looking at the images reveals that one island is bright and the other dark; both contain cars and trucks. The grouping is real, but it may not reflect the distinction we wanted.
 
 ![The prettiest cluster might be a sensor. Appearance axis; Semantic labels; Two competing structures](assets/ml-unsupervised-toy.svg)
 
-| Notice | Interpret | Check |
-| --- | --- | --- |
-| High variance: illumination | Useful class signal: smaller | A cluster is not a class |
+Unsupervised methods organize the representation and relationships we give them. PCA favours high-variance directions, while clustering and nonlinear visualizations impose other criteria. Colouring the same plot by class, sensor and collection time can reveal which structure each method has captured.
 
-<details>
-<summary>Reveal the catch</summary>
-
-PCA preserves variance; a visualization preserves selected relationships. Neither knows your operational labels.
-
-</details>
-
-**Try it in 60 seconds:** Colour one projection by class, then by sensor. Which story survives?
-
-Read for understanding, not page completion. Skip what you can already explain.
+That makes representation, scaling and distance part of the explanation, rather than details to choose after seeing the plot.
 
 <details>
 <summary>Jump to a concept</summary>

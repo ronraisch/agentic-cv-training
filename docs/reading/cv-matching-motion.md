@@ -2,26 +2,15 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## Twenty confident matches. One wrong wall.
+## Matching a building with repeated windows
 
-A facade has identical windows. Many descriptor matches look excellent, but they all shift the building by one window.
+A facade contains many nearly identical windows. A descriptor can match the appearance of one window very well while choosing the neighbouring window in the second image. If several matches make the same mistake, they can support a coherent but shifted alignment.
 
 ![Twenty confident matches. One wrong wall. Image A; Candidate matches; Image B](assets/cv-matching-motion-toy.svg)
 
-| Notice | Interpret | Check |
-| --- | --- | --- |
-| Appearance can repeat | Geometry tests consistency | Check spatial coverage |
+Geometric agreement is useful evidence, but it is agreement with a chosen model. It helps to inspect where the supporting matches lie and whether they include distinctive parts of the scene. A single unusual corner can expose an ambiguity that many repeated windows cannot.
 
-<details>
-<summary>Reveal the catch</summary>
-
-An inlier is consistent with a model, not a certificate of ground truth.
-
-</details>
-
-**Try it in 60 seconds:** Add one distinctive corner. Does it expose the repeated-window mistake?
-
-Read for understanding, not page completion. Skip what you can already explain.
+Feature selection, descriptor matching and robust estimation address different parts of this problem; none replaces the others.
 
 <details>
 <summary>Jump to a concept</summary>

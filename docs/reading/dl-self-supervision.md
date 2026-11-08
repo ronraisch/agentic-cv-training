@@ -2,26 +2,15 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## Two views of the same image. Same object?
+## What two augmented views have in common
 
-A wide crop contains a tiny truck. The second augmentation crops it away. The pair is “positive,” but the semantic evidence changed.
+A wide image contains a tiny truck. One augmented crop includes it; another contains only the surrounding background. The training process still treats these as related views of the same source image.
 
 ![Two views of the same image. Same object? Wide image; Object crop; Background-only crop](assets/dl-self-supervision-toy.svg)
 
-| Notice | Interpret | Check |
-| --- | --- | --- |
-| View identity is the label | Augmentation defines invariance | Cropping can remove the target |
+That supervision can be useful, but it does not explicitly say that the truck must survive in both views. The transformations help define which differences the representation learns to ignore. At small object scales, inspecting actual crop pairs can reveal a mismatch between the pretraining task and the downstream task.
 
-<details>
-<summary>Reveal the catch</summary>
-
-A self-supervised objective learns the relationships you supply, not the task you silently intended.
-
-</details>
-
-**Try it in 60 seconds:** Inspect ten actual augmentation pairs at the scale of your smallest objects.
-
-Read for understanding, not page completion. Skip what you can already explain.
+Contrastive and teacher–student objectives build on such relationships, with additional mechanisms needed to avoid trivial representations.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -36,7 +25,7 @@ Read for understanding, not page completion. Skip what you can already explain.
 
 - [Few-shot and feedback](#few-shot-and-feedback)
 
-- [Apply during the project](#apply-during-the-project)
+- [Inspecting an embedding at object scale](#inspecting-an-embedding-at-object-scale)
 
 </details>
 
@@ -66,9 +55,9 @@ For vector comparison, cosine similarity normalizes direction while Euclidean di
 
 A prototype averages support embeddings for a class. A linear/SVM head can learn a boundary from positive and negative feedback. A Mahalanobis score accounts for covariance, but few supports make a full covariance unstable; shrinkage or shared covariance assumptions can help. Tune such choices without leaking query labels. Report uncertainty and inspect confusing negatives rather than treating a high similarity as a verified semantic label.
 
-## Apply during the project
+## Inspecting an embedding at object scale
 
-Use one frozen encoder to retrieve examples from a held-out set and display both nearest matches and failures. Change only crop context or resolution and inspect what moves. Ask the agent to predict which invariances are helpful for vehicles and which might hide an attribute such as color. Explain the observed results to the mentor with actual examples, and distinguish representation quality from detector proposal recall.
+With a frozen encoder, changing only the crop context or resize policy isolates a small but important part of the retrieval system. The nearest images show whether the representation follows the object, the background or an attribute such as colour. Proposal recall remains a separate limit: a good embedding cannot retrieve a crop the detector never produced.
 
 <details>
 <summary>Original source references and provenance</summary>

@@ -2,26 +2,15 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## Perfect neighbours. Wrong answers.
+## A correct nearest-neighbour search can return irrelevant images
 
-An exact index returns the nearest vectors flawlessly. If the embedding groups images by snow rather than vehicles, retrieval is still wrong for the user.
+Suppose the embedding places snowy scenes close together. An exact index returns those neighbours perfectly, but the user wanted other images of the same vehicle type. The search calculation is correct; the representation is emphasizing a different relationship.
 
 ![Perfect neighbours. Wrong answers. Exact neighbours; Semantic relevance; Different evaluations](assets/dl-retrieval-toy.svg)
 
-| Notice | Interpret | Check |
-| --- | --- | --- |
-| Index recall: search fidelity | Task recall: useful results | Inspect images behind vectors |
+There are consequently two evaluations to keep apart. Index recall measures whether an approximate index recovers the exact neighbours. Task relevance measures whether those neighbours answer the user’s query. Improving one does not automatically improve the other.
 
-<details>
-<summary>Reveal the catch</summary>
-
-Debug the index and the representation separately. One metric cannot diagnose both.
-
-</details>
-
-**Try it in 60 seconds:** Compare exact and approximate neighbours, then judge the relevance of both lists.
-
-Read for understanding, not page completion. Skip what you can already explain.
+A retrieval system also depends on ingestion, filters, model versions and downstream consumers, so those boundaries belong in the diagnosis.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -38,7 +27,7 @@ Read for understanding, not page completion. Skip what you can already explain.
 
 - [Learning from feedback](#learning-from-feedback)
 
-- [One small demonstration](#one-small-demonstration)
+- [Locating the source of a retrieval error](#locating-the-source-of-a-retrieval-error)
 
 </details>
 
@@ -70,9 +59,9 @@ Use the metrics chapter for precision/recall@K, mAP, MRR, NDCG and hit rate. Def
 
 A user accepting or rejecting results gives sparse, biased feedback: they see only what was retrieved. Train a small classifier or reranker if appropriate, but keep random audits and independent query evaluation so missed groups remain visible. Preserve old and new experiment results to compare recall, alert burden and compute simultaneously. Repeatedly optimizing on the same clicked examples can overfit user behavior rather than improve the underlying retrieval task.
 
-## One small demonstration
+## Locating the source of a retrieval error
 
-Create an exact search baseline on a few hundred approved vectors, compress or approximate it and compare each query's top neighbors. Display both rank changes and corresponding images/text. Ask the agent for a case where high index recall coexists with poor semantic relevance, then construct and explain that case yourself.
+Exact search over a small approved vector set provides a reference for an approximate or compressed index. A changed rank can then be attributed to the search approximation, while irrelevant exact neighbours point back toward the representation or task definition. Displaying the underlying images or text makes that distinction visible.
 
 <details>
 <summary>Original source references and provenance</summary>

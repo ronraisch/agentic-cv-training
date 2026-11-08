@@ -2,26 +2,15 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## Two curves agree exactly where you looked.
+## What a model assumes between observations
 
-Two functions fit three observations and disagree elsewhere. A prior or kernel expresses which unseen behaviours your model considers plausible.
+Three observations can be consistent with more than one function. The figure shows two functions that pass through the same points but behave differently elsewhere. Fitting those points alone does not choose how the prediction should continue.
 
 ![Two curves agree exactly where you looked. Observed points; Plausible function A; Plausible function B](assets/ml-probabilistic-survey-toy.svg)
 
-| Notice | Interpret | Check |
-| --- | --- | --- |
-| Fit does not settle extrapolation | Assumptions shape uncertainty | Inspect where data is absent |
+A prior or covariance kernel expresses preferences over the unobserved behaviour. Predictive uncertainty is then conditional on those assumptions as well as the observations. This is a useful way to approach probabilistic models: ask what distribution they describe and which dependencies they assume.
 
-<details>
-<summary>Reveal the catch</summary>
-
-Probabilistic models make assumptions explicit; their confidence is conditional on those assumptions.
-
-</details>
-
-**Try it in 60 seconds:** Change a smoothness assumption and sketch how predictions between observations change.
-
-Read for understanding, not page completion. Skip what you can already explain.
+The following survey introduces several ways to express those choices and perform inference under them.
 
 <details>
 <summary>Jump to a concept</summary>

@@ -2,26 +2,15 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## A straight line can bend.
+## A curved prediction from a linear model
 
-Fit y = 1 + 2x². Is this a linear model? It is linear in its fitted coefficients, even though the curve bends in x.
+Suppose the observations follow `y = 1 + 2x²`. A straight line in x misses the bend. Give the model the feature x², however, and the same relationship becomes a weighted sum of known features.
 
 ![A straight line can bend. x; x²; y = 1 + 2x²](assets/ml-foundations-toy.svg)
 
-| Notice | Interpret | Check |
-| --- | --- | --- |
-| 0 → 0 → 1 | 1 → 1 → 3 | 2 → 4 → 9 |
+The model is still linear in its fitted coefficients. Its prediction need not be a straight line in the original input. This distinction is useful when building motion features for tracklets: changing the representation changes what even a simple classifier or regressor can express.
 
-<details>
-<summary>Reveal the catch</summary>
-
-The representation changes the question the learner can answer.
-
-</details>
-
-**Try it in 60 seconds:** Compare fitting x with fitting [x, x²]. Keep the held-out inputs identical.
-
-Read for understanding, not page completion. Skip what you can already explain.
+From there, the next questions are how to estimate the coefficients, which assumptions justify the loss and how to assess predictions on new data.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -36,7 +25,7 @@ Read for understanding, not page completion. Skip what you can already explain.
 
 - [Dimensionality and feature choices](#dimensionality-and-feature-choices)
 
-- [Connect to your experiment](#connect-to-your-experiment)
+- [Choosing features for tracklet motion](#choosing-features-for-tracklet-motion)
 
 </details>
 
@@ -68,9 +57,9 @@ Numerically stable implementations operate on logits rather than explicitly taki
 
 In high dimensions, a fixed number of observations covers a tiny fraction of the possible input space. Distances can become less discriminating and irrelevant features can overwhelm useful ones. Domain features, regularization, more representative data and learned embeddings can help, but each changes assumptions. Feature selection uses labels when evaluating predictive usefulness, so it belongs inside the cross-validation pipeline. A feature selected using all labels leaks information even if the final estimator is fitted only on a training subset.
 
-## Connect to your experiment
+## Choosing features for tracklet motion
 
-For tracklet motion, define the target and decision unit, derive candidate velocity/shape features, and build a simple linear baseline. Explain which feature encodes actual motion and which may identify a camera or collection session. Ask your agent for a counterexample where a seemingly helpful feature becomes leakage, then test it yourself.
+A tracklet gives a sequence of positions and shapes from which to derive motion features. Velocity may describe the target behaviour; a camera-specific size range may identify the collection source instead. Comparing the same features on a grouped video split helps separate those effects. A simple linear baseline is useful here because its inputs and decisions are easier to inspect.
 
 <details>
 <summary>Original source references and provenance</summary>

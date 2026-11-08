@@ -2,26 +2,15 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## Four workers. Four times faster?
+## Choosing workers for the work you actually have
 
-You have four images to fetch and four expensive Python computations. Would you use the same worker pool for both?
+Suppose a batch has four images to fetch and four CPU-heavy Python calculations to perform. Both contain four independent tasks, but they spend their time differently. The downloads wait for I/O; the calculations keep the interpreter busy.
 
 ![Four workers. Four times faster? One worker; Four workers; Scheduling overhead](assets/python-tools-toy.svg)
 
-| Notice | Interpret | Check |
-| --- | --- | --- |
-| I/O can overlap | Python CPU work may need processes | Tiny jobs can get slower |
+Threads can overlap those waits. In a standard GIL-enabled CPython build, processes are usually the more relevant option for parallel CPU-heavy Python work. They also introduce startup and data-transfer costs, which can outweigh the benefit for small tasks.
 
-<details>
-<summary>Reveal the catch</summary>
-
-Parallelism has a bill: startup, copying and coordination. Count it before celebrating speed.
-
-</details>
-
-**Try it in 60 seconds:** Benchmark a tiny job and a heavy job; predict when the winner changes.
-
-Read for understanding, not page completion. Skip what you can already explain.
+A useful comparison therefore measures the same outputs across several task sizes. That distinction also explains why caching, decorators and queues need clear contracts rather than just convenient syntax.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -36,7 +25,7 @@ Read for understanding, not page completion. Skip what you can already explain.
 
 - [Streamlit and clear experiment controls](#streamlit-and-clear-experiment-controls)
 
-- [Try with your agent](#try-with-your-agent)
+- [Making a concurrency comparison useful](#making-a-concurrency-comparison-useful)
 
 </details>
 
@@ -68,9 +57,9 @@ For the later RabbitMQ exercise, a broker acknowledgment says which delivery can
 
 An interactive app should expose the workload, input size and worker count, then display outputs and timing together. Streamlit commonly reruns an app script when a widget changes; persistent session state and caching need deliberate choices. Separate the benchmark function from UI code so it can be called from a script and checked independently. Plot timing against workload size and label the axis as latency or total elapsed time. Keep a long computation from silently rerunning on every UI edit. This legacy exercise remains a learning option; it does not replace the current required capstone.
 
-## Try with your agent
+## Making a concurrency comparison useful
 
-After the manual capstone review, ask for two implementations of a bounded worker pipeline and a hypothesis about which will be faster. Before running, identify serialization, I/O and shared-state costs. Verify the prediction with your own benchmark. Bring the surprising result to the mentor, along with an explanation you can defend without generated prose.
+A bounded image-processing pipeline makes a useful comparison because its costs can be separated: reading files, transferring data and doing computation. Timing only the worker function misses the cost of feeding it. Comparing several task sizes, with identical checked outputs, shows where concurrency begins to pay for itself.
 
 <details>
 <summary>Original source references and provenance</summary>

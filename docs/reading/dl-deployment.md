@@ -2,26 +2,15 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## Make inference twice as fast. Save 5 ms.
+## Where an inference request spends its time
 
-A request spends 25 ms preprocessing, 10 ms in the model and 65 ms postprocessing. Halving model time changes 100 ms to 95 ms.
+Consider a request with illustrative timings of 25 ms for preprocessing, 10 ms in the model and 65 ms for postprocessing. Halving model time reduces the total from 100 to 95 ms.
 
 ![Make inference twice as fast. Save 5 ms. Preprocess: 25 ms; Model: 10 ms; Postprocess: 65 ms](assets/dl-deployment-toy.svg)
 
-| Notice | Interpret | Check |
-| --- | --- | --- |
-| Model after optimization: 5 ms | New total: 95 ms | Toy timings, not a benchmark |
+The model did become twice as fast, but the user sees only a five-millisecond improvement. Reducing the 65 ms stage has more room to help this workload. Batching, data transfer and queueing can change the picture again, which is why the whole request needs measuring.
 
-<details>
-<summary>Reveal the catch</summary>
-
-Optimize the measured end-to-end bottleneck, not the most fashionable stage.
-
-</details>
-
-**Try it in 60 seconds:** What happens if you halve postprocessing instead? Include waiting and batching in a real run.
-
-Read for understanding, not page completion. Skip what you can already explain.
+Quantization, compilation and adaptation techniques are useful tools once we know which constraint we need to change.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -70,7 +59,7 @@ A distributed sampler must avoid unintentionally duplicating or omitting example
 
 The final deliverable is an inference-only notebook that loads inputs, preprocesses, constructs/loads the model, predicts, postprocesses and writes outputs using declared packages. Demonstrate it from a fresh process and compare to the verified research path on representative and edge cases. Keep a separate validation entry point for output comparisons and dataset checks. Document observed limitations and missing assets explicitly; do not hide a model download inside inference.
 
-Use your agent to propose optimizations one at a time. Accept one only after measured end-to-end savings and preserved task behavior under the agreed tolerance. Bring the tradeoff table, a new input and the reloaded artifact to the mentor.
+An optimization is useful when the complete inference path becomes cheaper while retaining the agreed behaviour on representative inputs and edge cases. Reloading the saved artifact in a fresh process checks that the delivered system includes the change. The comparison needs both the measured savings and any remaining limits.
 
 <details>
 <summary>Original source references and provenance</summary>

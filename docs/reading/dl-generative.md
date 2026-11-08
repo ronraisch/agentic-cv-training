@@ -2,26 +2,15 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## Sharper does not mean truer.
+## A plausible reconstruction may still invent a letter
 
-A blurry crop could contain either of two letter shapes. A generator can commit to a crisp answer without recovering new measured evidence.
+A blurred crop might be consistent with either a P or an R. A generative model can produce a crisp version of one letter, but the visual improvement does not establish which letter the sensor originally observed.
 
 ![Sharper does not mean truer. Ambiguous input; Possible reconstruction A; Possible reconstruction B](assets/dl-generative-toy.svg)
 
-| Notice | Interpret | Check |
-| --- | --- | --- |
-| Both can look plausible | A sample is a hypothesis | Check identity and geometry |
+The output reflects both the input and the model’s learned assumptions about plausible images. That is useful in synthesis and some restoration settings. In OCR, identification or remote-sensing measurement, the distinction between inferred detail and observed evidence may be essential.
 
-<details>
-<summary>Reveal the catch</summary>
-
-A convincing output and a faithful observation are different claims.
-
-</details>
-
-**Try it in 60 seconds:** Show two plausible restorations and explain what the input cannot resolve.
-
-Read for understanding, not page completion. Skip what you can already explain.
+Autoencoders, VAEs, GANs and diffusion models make different choices about how to learn and use such image distributions.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -36,7 +25,7 @@ Read for understanding, not page completion. Skip what you can already explain.
 
 - [Autoregressive and diffusion models](#autoregressive-and-diffusion-models)
 
-- [Retained depth and current work](#retained-depth-and-current-work)
+- [Where this material fits](#where-this-material-fits)
 
 </details>
 
@@ -66,9 +55,9 @@ An autoregressive model factors a joint distribution into ordered conditional pr
 
 Conditioning with text, masks or images changes which distribution is modeled. Guidance can strengthen conditioning while reducing diversity or increasing artifacts. Evaluate on held-out conditions and check whether identity, geometry or small objects are preserved. A sharpened image can look more detailed while inventing structure.
 
-## Retained depth and current work
+## Where this material fits
 
-The legacy program included generative-model lectures and an optional ELBO explanation; the diffusion assignment itself was marked skippable. These concepts remain available here without introducing another required training project. Use the agent to derive the VAE bound or contrast two GAN objectives, then personally explain which evidence would make generated imagery unsuitable for a measurement task. The mentor can probe that reasoning even when no generator is trained.
+The generative-model lectures and optional ELBO explanation remain part of the reading route; the historical diffusion implementation remains optional. For the current tasks, the important distinction is what a reconstruction preserves and what it infers. That provides a concrete reason to understand the model objectives even without training a generator.
 
 <details>
 <summary>Original source references and provenance</summary>

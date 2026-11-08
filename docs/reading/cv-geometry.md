@@ -2,26 +2,15 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## Why do roads align but roofs drift?
+## When one warp aligns the road but misses the roof
 
-Two airborne images share the same buildings. One homography aligns the road perfectly, yet roof edges remain doubled.
+Two airborne images show the same street from different viewpoints. After fitting a homography, road markings overlap neatly while building roofs remain doubled. This can look like a poor fit even when the estimated road alignment is correct.
 
 ![Why do roads align but roofs drift? View A; One planar warp; View B](assets/cv-geometry-toy.svg)
 
-| Notice | Interpret | Check |
-| --- | --- | --- |
-| Road: near the fitted plane | Roof: elevated surface | Translation creates parallax |
+A homography can describe the relationship between views of one plane. An elevated roof lies on a different surface; camera translation can shift it differently through parallax. More iterations cannot make that single planar model describe arbitrary scene depth.
 
-<details>
-<summary>Reveal the catch</summary>
-
-More RANSAC iterations cannot make a single plane describe every depth.
-
-</details>
-
-**Try it in 60 seconds:** Draw a road point and a roof point viewed from two camera positions.
-
-Read for understanding, not page completion. Skip what you can already explain.
+This is why transformation families and camera geometry matter when choosing what to fit, before worrying about the optimizer.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -34,7 +23,7 @@ Read for understanding, not page completion. Skip what you can already explain.
 
 - [Stereo and epipolar geometry](#stereo-and-epipolar-geometry)
 
-- [Reason about an actual pair](#reason-about-an-actual-pair)
+- [Reading an airborne alignment](#reading-an-airborne-alignment)
 
 </details>
 
@@ -62,6 +51,6 @@ Two cameras observe the same 3D point along two rays. The plane through that poi
 
 In a rectified ideal pair, disparity is inversely proportional to depth: `Z = f B / d` for compatible units and conventions. Small disparity errors at long distance create large depth errors. Occlusion, repeated textures and non-Lambertian surfaces make matching difficult. A larger matching window reduces noise but crosses depth boundaries; a smaller window preserves detail but lacks evidence.
 
-## Reason about an actual pair
+## Reading an airborne alignment
 
-For the two-airborne-image stitching task, declare coordinate direction and the surface assumptions before fitting. Plot correspondences across the full overlap and inspect reprojection errors on held-out matches. If tall buildings align differently from roads, consider parallax before increasing RANSAC iterations. An image warp may be visually smooth while still being geographically wrong.
+An unblended overlay can be more informative than a finished panorama. In the two-image stitching assignment, residuals distributed across the overlap help distinguish a local matching failure from a global model mismatch. Roads and roofs behaving differently suggest parallax; a uniformly reversed displacement suggests checking the transform direction. The same visual symptom can therefore lead to very different repairs.

@@ -2,26 +2,15 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## Same frames. Opposite action.
+## The same frames can describe opening or closing
 
-An opening door and a closing door can contain the same frames in reverse order. Averaging frame features can erase the difference.
+A clip shows a door moving from closed to open. Reverse the frames and it shows the opposite action. The individual appearances are unchanged; only their order differs.
 
 ![Same frames. Opposite action. Closed; Half open; Open](assets/dl-sequences-toy.svg)
 
-| Notice | Interpret | Check |
-| --- | --- | --- |
-| Forward: opening | Reverse: closing | Average: same unordered evidence |
+A baseline that averages independent frame embeddings loses that order. It may recognize the door or the scene very well while lacking the information needed to distinguish these two actions. Temporal models provide ways to preserve or combine evidence across time, each with its own assumptions.
 
-<details>
-<summary>Reveal the catch</summary>
-
-Time order is part of the input, not decoration around an image model.
-
-</details>
-
-**Try it in 60 seconds:** Reverse a clip. Which baseline predictions should change, and which cannot?
-
-Read for understanding, not page completion. Skip what you can already explain.
+The useful starting point is therefore the temporal information the output requires: order, motion, duration or context.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -36,7 +25,7 @@ Read for understanding, not page completion. Skip what you can already explain.
 
 - [Pseudo-labels and teacher models](#pseudo-labels-and-teacher-models)
 
-- [Connection to this program](#connection-to-this-program)
+- [From clip classification to a working video path](#from-clip-classification-to-a-working-video-path)
 
 </details>
 
@@ -66,9 +55,9 @@ For tracklets, consider identity switches, missing detections and camera motion.
 
 A strong teacher can generate candidate annotations at scale, but its errors become training data. Audit randomly selected frames as well as high-confidence proposals so missed objects become visible. Keep teacher identity, prompt, confidence filters and export geometry with the dataset version. Do not evaluate on the same unverified pseudo-labels used for training. Measure the student on independently checked frames from held-out videos.
 
-## Connection to this program
+## From clip classification to a working video path
 
-The ordinary-camera assignment is separate from satellite/airborne imagery. Build a bounded clip baseline, then respond to staged product changes and identify which assumptions break. In the RabbitMQ/SAM3 project, verify retries and durable outputs before scaling a batch, then train one selected detector. Use the agent to challenge your sampling and event definitions; demonstrate the resulting behavior yourself on a new clip.
+The ordinary-camera project introduces temporal decisions separately from the satellite and airborne tasks. Its baseline gives a concrete place to examine sampling and event definitions. The RabbitMQ/SAM3 exercise adds batch processing and pseudo-labels, where durable outputs and independently checked, source-separated evaluation frames matter as much as model training.
 
 <details>
 <summary>Original source references and provenance</summary>

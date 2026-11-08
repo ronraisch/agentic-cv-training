@@ -2,33 +2,18 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## Pick a mystery. Follow the evidence.
-
-![Toy alert inbox: eight correct alerts, twenty false alerts, two missed positives](assets/reading-home.svg)
-
-These are the same ideas you will use when a model looks brilliant, a pipeline breaks, or a result feels too good.
-
-| Start with a real frustration | Investigate |
-| --- | --- |
-| [98% accurate. Why is the alert inbox useless?](ml-metrics.md) | The useful denominator depends on whose problem you are solving. |
-| [Roads align. Why do roofs still drift?](cv-geometry.md) | More RANSAC iterations cannot make a single plane describe every depth. |
-| [Same frames. How can the action be opposite?](dl-sequences.md) | Time order is part of the input, not decoration around an image model. |
-| [Twice as fast a model. Only 5 ms saved?](dl-deployment.md) | Optimize the measured end-to-end bottleneck, not the most fashionable stage. |
-
-Choose a case, make a prediction, then use the theory to explain what happens. All examples are synthetic teaching cases.
-
 **Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
 
 <details>
 <summary>On this page</summary>
 
-- [[1 · Development](development.md)](#1-development)
+- [](#1-development)[1 · Development](development.md)
 
-- [[2 · Classical computer vision](cv.md)](#2-classical-computer-vision)
+- [](#2-classical-computer-vision)[2 · Classical computer vision](cv.md)
 
-- [[3 · Machine learning and evaluation](ml.md)](#3-machine-learning-and-evaluation)
+- [](#3-machine-learning-and-evaluation)[3 · Machine learning and evaluation](ml.md)
 
-- [[4 · Deep learning, open models and video](deep.md)](#4-deep-learning-open-models-and-video)
+- [](#4-deep-learning-open-models-and-video)[4 · Deep learning, open models and video](deep.md)
 
 - [How the parts connect](#how-the-parts-connect)
 

@@ -2,24 +2,13 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## Change a value. Keep the attention.
+## Separating where attention looks from what it reads
 
-A query gives three tokens weights 0.1, 0.7 and 0.2. With scalar values 1, 5 and 0, the output is 3.6.
+Suppose attention has assigned three input positions weights of 0.1, 0.7 and 0.2. Their scalar values are 1, 5 and 0. The weighted sum is 3.6.
 
 ![Change a value. Keep the attention. Key/value A: 0.1; Key/value B: 0.7; Key/value C: 0.2](assets/dl-attention-toy.svg)
 
-| Notice | Interpret | Check |
-| --- | --- | --- |
-| Q and K choose weights | V carries the content | 0.1×1 + 0.7×5 + 0.2×0 = 3.6 |
-
-<details>
-<summary>Reveal the catch</summary>
-
-Changing V changes the output without changing these weights. Changing K can change the weights.
-
-</details>
-
-### In code: Keep weights fixed; change the content
+Now change only the middle value from 5 to 2. With those weights unchanged, the result becomes 1.5. The example separates two jobs inside attention: queries and keys determine the weights, while values supply the content being combined.
 
 ```python
 import numpy as np
@@ -31,18 +20,14 @@ values[1] = 2.0
 print(round(float(weights @ values), 2))
 ```
 
-**Expected output:**
+This prints:
 
 ```text
 3.6
 1.5
 ```
 
-This isolates the weighted-sum step after Q and K have produced attention weights. A full attention layer also computes projections, scores, scaling and softmax.
-
-**Try it in 60 seconds:** Change only the middle value to 2. Compute the new output before running code.
-
-Read for understanding, not page completion. Skip what you can already explain.
+This small weighted sum is the last step of attention. The rest of the layer explains how the model learns the projections and produces the weights.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -57,29 +42,29 @@ Read for understanding, not page completion. Skip what you can already explain.
 
 - [What attention does not prove](#what-attention-does-not-prove)
 
-- [A useful manual example](#a-useful-manual-example)
+- [Seeing a mask change the computation](#seeing-a-mask-change-the-computation)
 
 </details>
 
 ## Tokens and embeddings
 
-A tokenizer maps input into discrete units with IDs. Text tokens can be subwords or byte-based pieces, not necessarily whole words. Token count affects sequence length and cost; unusual strings and languages can tokenize differently. An embedding table maps IDs to learned vectors. Word2vec learns word representations from context prediction/discrimination; the objective shapes which similarities the vectors preserve. A static word embedding does not by itself resolve every context-dependent meaning.
+Before the model can compare positions, it needs a representation for each input unit. A text tokenizer assigns IDs to units that may be subwords or byte-based pieces rather than whole words. A learned embedding table turns those IDs into vectors. This also explains why text length in characters is not the same as sequence length: unusual strings and different languages may produce different token counts. Word2vec provides an earlier example of learning vectors through context prediction or discrimination; its training objective determines which similarities are useful, and its static word vectors do not resolve every context-dependent meaning.
 
 ## Attention from shapes
 
-For input tokens X with shape N-by-d, learned projections create Q, K and V. Scaled dot-product attention is `softmax(Q K^T / sqrt(d_k) + mask) V`. Q and K determine which items interact; V carries the aggregated content. In self-attention they are projected from the same token sequence, not generally equal tensors. In cross-attention, queries come from the sequence being updated and keys/values from a separate memory. For a translation decoder, its current states query the encoder's representation.
+In a full attention layer, the weights in the opening example are computed from the input. For N token vectors collected in X, learned projections produce queries Q, keys K and values V. The operation is `softmax(Q K^T / sqrt(d_k) + mask) V`. The Q–K comparison produces a weight for each available position; multiplying by V combines the content at those positions. Self-attention creates all three projections from the same sequence, but they are generally different tensors. Cross-attention uses a separate memory for keys and values: a translation decoder, for example, queries the encoder’s representation.
 
-The scaling is applied before softmax to moderate score variance under common initialization assumptions. Scaling after softmax changes output magnitude instead of the distribution's sharpness. A causal mask blocks future positions. A padding mask blocks absent tokens. A broadcasted mask with the wrong axis can allow forbidden information while producing the expected output shape.
+The division by sqrt(d_k) happens before softmax. Under common initialization assumptions it moderates the growth in score variance as key dimension increases, helping avoid an excessively sharp distribution. Multiplying the result after softmax would change its magnitude rather than serve the same purpose. Masks change which positions are available: a causal mask excludes future positions, while a padding mask excludes absent tokens. A mask broadcast along the wrong axis can leave the output shape unchanged while letting forbidden information through.
 
 ## Order, heads and architecture
 
-Without positional information, ordinary self-attention is permutation equivariant: permuting input tokens permutes corresponding outputs. An aggregate pooled representation may then be invariant. Absolute/relative positions or rotary schemes supply order or geometry in different ways. Multihead attention learns several projections and attention maps; it permits distinct relationships but does not guarantee every head learns a unique interpretable role.
+The comparisons alone do not tell the model where a token appeared. Ordinary self-attention without positional information is permutation equivariant: rearranging the inputs rearranges the corresponding outputs. Pooling can then produce an invariant summary. Absolute or relative positions, including rotary schemes, introduce order or geometry in different ways. Multiple heads allow different learned projections and interaction maps, although that does not guarantee a distinct interpretable role for every head.
 
 A Transformer block also includes feedforward layers, residual connections and normalization. An encoder typically permits bidirectional context. An autoregressive decoder uses causal attention, and an encoder-decoder architecture additionally connects decoder queries to encoder memory. “Decoder” names an architectural role and does not mean every decoder performs text generation. A DETR decoder produces object representations through a related but task-specific design.
 
 ## Vision Transformers
 
-A ViT turns patches into tokens and processes them with attention. Patch size controls sequence length and the granularity of direct input tokens. A class token or pooling summarizes the image for classification; dense tasks may consume spatial tokens. Doubling both image dimensions at fixed patch size roughly quadruples token count and can multiply full attention's pairwise score work by about sixteen. Memory and practical kernels also matter.
+For an image, patches can play the role of tokens. A Vision Transformer projects each patch into a vector and applies attention to the resulting sequence. A class token or pooling can summarize the image; a dense task can instead use the spatial tokens. Patch size therefore affects both sequence length and the detail directly represented by each input token. Doubling image height and width at fixed patch size gives roughly four times as many tokens, and the pairwise score work in full attention can grow by about sixteen times. Actual memory and latency also depend on the implementation.
 
 Changing resolution changes the spatial token grid and may require positional adaptation. Padding, interpolation and windowing rules must match the implementation. Swin uses local windows, shifted interaction patterns and hierarchical feature scales to reduce cost and build multiscale representations. CNNs encode stronger local weight-sharing structure; ViTs offer flexible long-range interaction. Data, pretraining and compute determine the actual tradeoff.
 
@@ -87,9 +72,9 @@ Changing resolution changes the spatial token grid and may require positional ad
 
 An attention heatmap is a pattern of aggregation, not an automatic causal explanation or a segmentation mask. Global receptive access does not guarantee a tiny object remains detectable after patchification and preprocessing. Model output can attend to context shortcuts. Evaluate controlled occlusions and example-level behavior if making interpretability claims.
 
-## A useful manual example
+## Seeing a mask change the computation
 
-Create three two-dimensional keys and a single query, compute the three dot products and softmax weights, then form a weighted sum of values. Change only one value: weights stay fixed but content changes. Change a key: the weights change. Ask your agent to construct a masking bug, then locate it with dimensions and a toy sequence. Bring the hand calculation and a trace through the actual model to the mentor.
+To inspect attention beyond the weighted sum, use one query and three short key vectors. Compute their dot products, scale them and apply softmax, then compare the weighted values. Masking one key should remove its contribution and redistribute the remaining weights. This small calculation is also a practical way to detect an axis error that a larger model’s output shape would not reveal.
 
 <details>
 <summary>Original source references and provenance</summary>

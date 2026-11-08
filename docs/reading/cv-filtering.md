@@ -2,24 +2,13 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## A cleaner image can lose the plate.
+## Smoothing a plate changes the evidence
 
-One bright pixel may be noise. A three-pixel stroke may be a character. Smoothing treats both as high-frequency structure.
+A bright pixel in a dark region may be sensor noise. A thin bright stroke may be part of a licence-plate character. A smoothing filter does not know the difference: it combines neighbouring intensities in both cases.
 
 ![A cleaner image can lose the plate. Raw patch; Box average; Less noise; less detail](assets/cv-filtering-toy.svg)
 
-| Notice | Interpret | Check |
-| --- | --- | --- |
-| Single bright pixel | Average over neighbours | Check OCR, not just appearance |
-
-<details>
-<summary>Reveal the catch</summary>
-
-The prettiest preprocessing is not always the best input to the next model.
-
-</details>
-
-### In code: One bright pixel becomes three weaker pixels
+In the illustration, a narrow peak spreads across neighbouring positions and becomes weaker. That may help a noisy image, but the same effect can remove detail needed by OCR. A smoother-looking crop is therefore only an intermediate result; the recognition result still needs checking.
 
 ```python
 import numpy as np
@@ -30,17 +19,15 @@ smoothed = np.convolve(signal, kernel, mode="same")
 print(smoothed.tolist())
 ```
 
-**Expected output:**
+This prints:
 
 ```text
 [0.0, 0.0, 3.0, 3.0, 3.0, 0.0, 0.0]
 ```
 
-This is a 1D analogue of image smoothing: the peak shrinks and spreads. Whether that peak is noise or useful detail depends on the task.
+The one-dimensional signal makes the averaging visible without image-display settings.
 
-**Try it in 60 seconds:** Blur a plate with two kernel sizes. Inspect strokes before comparing recognition.
-
-Read for understanding, not page completion. Skip what you can already explain.
+The filter definitions below explain how much information is mixed, where it comes from and what happens near an image boundary.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -55,7 +42,7 @@ Read for understanding, not page completion. Skip what you can already explain.
 
 - [Pyramids and sampling](#pyramids-and-sampling)
 
-- [Apply and explain](#apply-and-explain)
+- [Choosing a filter for the LPR path](#choosing-a-filter-for-the-lpr-path)
 
 </details>
 
@@ -85,9 +72,9 @@ Convolution in space corresponds to multiplication in frequency. A discrete FFT 
 
 Downsampling without limiting frequencies can cause aliasing: different signals become indistinguishable at the lower sampling rate. A Gaussian pyramid smooths and downsamples repeatedly. A Laplacian pyramid stores differences between a level and an expanded coarse estimate; together with the coarse residual it supports reconstruction and multiscale blending. Upsampling creates more samples, not new measured detail. Bilinear interpolation is useful for continuous intensities; nearest-neighbor is often appropriate for categorical segmentation labels.
 
-## Apply and explain
+## Choosing a filter for the LPR path
 
-On one image, compare box and Gaussian smoothing, Sobel and Canny, and smooth versus hard frequency cutoffs. Keep pixel scaling and display limits fixed. Test an impulse and a constant image before interpreting a natural image. In the LPR task, connect each preprocessing operation to the plate geometry and recognition result. A cleaner-looking edge map can still reduce downstream accuracy.
+For LPR preprocessing, edge quality matters through its effect on geometry and recognition. An impulse image makes the kernel’s behaviour easy to see; a constant image exposes boundary effects. On real plate crops, a fixed display scale then helps distinguish actual changes from a plotting adjustment. The final comparison belongs at the recognizer output, with examples of characters that improved or became harder to read.
 
 <details>
 <summary>Original source references and provenance</summary>

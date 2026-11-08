@@ -2,24 +2,13 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## 98% accurate. Still drowning in alerts.
+## What 97.8% accuracy looks like in an alert inbox
 
-In 1,000 cases there are 10 real positives. Your model finds 8 and raises 20 false alarms. The accuracy looks great. The alert inbox disagrees.
+Imagine 1,000 cases containing ten real positives. The system finds eight, misses two and raises twenty false alarms. It makes 978 correct decisions overall, so its accuracy is 97.8%.
 
 ![98% accurate. Still drowning in alerts. 8 correct alerts; 20 false alerts; 2 missed positives](assets/ml-metrics-toy.svg)
 
-| Notice | Interpret | Check |
-| --- | --- | --- |
-| Precision: 8 / 28 ≈ 29% | Recall: 8 / 10 = 80% | Accuracy: 978 / 1000 = 97.8% |
-
-<details>
-<summary>Reveal the catch</summary>
-
-The useful denominator depends on whose problem you are solving.
-
-</details>
-
-### In code: The alert inbox in six lines
+Someone reviewing its 28 alerts sees a different picture: only eight are useful. Precision is about 29%, while recall is 80%. Both describe this system correctly; they answer different operational questions. A reviewer may care about alert workload, while an analyst searching for rare objects may care more about misses.
 
 ```python
 tp, fp, fn = 8, 20, 2
@@ -29,7 +18,7 @@ print(round(precision, 3))
 print(round(recall, 3))
 ```
 
-**Expected output:**
+This prints:
 
 ```text
 0.286
@@ -38,9 +27,7 @@ print(round(recall, 3))
 
 The denominators encode two different questions: how useful are the alerts, and how many real positives did we find? These toy denominators are nonzero.
 
-**Try it in 60 seconds:** Would you prefer 9 true alerts and 90 false alerts? State the operational cost first.
-
-Read for understanding, not page completion. Skip what you can already explain.
+Choosing a metric starts with deciding which decisions and costs the evaluation should represent.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -65,7 +52,7 @@ Read for understanding, not page completion. Skip what you can already explain.
 
 ## Begin with the decision unit
 
-A metric evaluates a defined set of decisions. A classification example, a predicted box, an image, a track and an event are different units. Specify labels, matching policy, excluded cases and denominators before computing. An evaluation that silently drops failed samples can reward a broken pipeline. Report their count and handle them according to the declared protocol.
+The alert example treats each case as one binary decision. Detection changes that unit: one image may contain many objects and many proposed boxes. Video can change it again, because the useful output may be a track or an event rather than a frame. Before comparing numbers, the evaluation needs to say which of these decisions it counts, how predictions match labels and which cases are excluded. Failed samples matter too: silently dropping them can make a broken pipeline look better.
 
 ## Confusion counts and operating points
 
@@ -75,7 +62,7 @@ If there are 10 positives among 1,000 cases and a model reports 8 TP and 20 FP, 
 
 ## Curves, prevalence and aggregation
 
-A ROC curve plots TPR against FPR as the threshold varies. ROC AUC measures ranking behavior across positive/negative pairs, not calibration or performance at a specific threshold. A PR curve plots precision against recall. Its no-skill precision baseline depends on positive prevalence; two PR scores on different populations are not directly interchangeable. PR is often revealing for rare positives, but the correct choice follows the application and designated positive class.
+One threshold gives one operating point, like the 28 alerts in the example. Sweeping the threshold gives a broader picture. A ROC curve plots true-positive rate against false-positive rate; ROC AUC summarizes ranking across positive/negative pairs. It does not describe probability calibration or guarantee a useful point at the required false-alarm budget. A precision–recall curve focuses on the yield and coverage of positive predictions. Its baseline depends on positive prevalence, so PR scores from different populations need care when compared.
 
 Lowering a threshold cannot reduce recall for a fixed score list, while precision need not change monotonically at every step. Average precision sums precision weighted by recall increments under one common convention. Trapezoidal PR area, interpolated AP and detection benchmark AP may differ. Record the implementation and tie handling. Macro averaging gives each class equal weight, micro averaging aggregates counts and support weighting weights class metrics. Support-weighted precision is generally not equal to micro precision. Show per-class counts as well as averages.
 
@@ -87,9 +74,9 @@ For segmentation, pixel IoU and Dice summarize set overlap; boundary metrics and
 
 ## Selective prediction and calibration
 
-An uncertainty score can decide when to abstain. Coverage is the fraction accepted; risk is the average loss among accepted cases. At full coverage, classification risk is the overall error rate, not accuracy. At zero coverage the conditional error is undefined; a plotting convention may place a zero there but it is not measured performance. Sweep the acceptance threshold to compare risk-coverage curves. A good ordering places more errors among rejected cases; no monotonic improvement is guaranteed for an arbitrary uncertainty score.
+Sometimes the right output is to abstain and send a difficult case for review. An uncertainty score can rank cases for that policy. Coverage measures the fraction accepted; risk measures average loss on those accepted cases. At full coverage, classification risk is the overall error rate. At zero coverage there are no accepted cases, so conditional error is undefined even if a plot uses zero as a display convention. Varying the acceptance threshold gives a risk–coverage curve; whether rejecting more cases helps depends on how well the score orders actual errors.
 
-Calibration asks whether predicted probabilities agree with observed frequencies. Reliability plots, Brier score and log loss inspect different aspects; binning affects reliability diagrams and expected calibration error. A model can rank perfectly and be miscalibrated. Fit probability calibration on separate or cross-fitted data and recheck after distribution shift.
+If a downstream decision uses a score as a probability, ranking is only part of the story. Calibration asks whether predicted probabilities agree with observed frequencies. Reliability plots compare the two directly, while Brier score and log loss assess related aspects of probability predictions. Binning affects reliability diagrams and expected calibration error. A model can rank every positive above every negative while still assigning poor probabilities, so calibration needs separate or cross-fitted data and another check after distribution shift.
 
 ## Regression
 

@@ -2,26 +2,15 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## Your model recognizes the camera.
+## When the test set contains a familiar background
 
-Split neighbouring frames randomly and every camera appears in training and test. A background shortcut can masquerade as motion understanding.
+A motion classifier performs well after frames are split randomly into training and test sets. But neighbouring frames share backgrounds, camera properties and often the same moving objects. Recognizing those details can make the task easier than recognizing motion in a new video.
 
 ![Your model recognizes the camera. Random frame split; Camera shortcut; Split by source](assets/ml-bias-validation-toy.svg)
 
-| Notice | Interpret | Check |
-| --- | --- | --- |
-| Same video on both sides | Looks like generalization | New videos are the real test |
+A source-grouped split asks a different question: can the system handle videos it has not already encountered? A lower score on that split can reveal a limitation hidden by the random split. The appropriate split depends on what will actually be new at deployment.
 
-<details>
-<summary>Reveal the catch</summary>
-
-A harder, honest test can be more useful than a spectacular leaked score.
-
-</details>
-
-**Try it in 60 seconds:** Colour samples by source video before splitting. Which colours appear on both sides?
-
-Read for understanding, not page completion. Skip what you can already explain.
+This is one way data collection and evaluation shape apparent performance. It also helps separate dataset bias from the statistical bias–variance discussion.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -38,13 +27,13 @@ Read for understanding, not page completion. Skip what you can already explain.
 
 - [Uncertainty and comparison](#uncertainty-and-comparison)
 
-- [During the project](#during-the-project)
+- [What an honest comparison leaves visible](#what-an-honest-comparison-leaves-visible)
 
 </details>
 
 ## Three meanings of bias
 
-An additive model intercept is sometimes called a bias. Statistical estimation bias describes a systematic difference between an estimator's expectation and its target. Dataset and human biases concern how observations, labels and decisions represent the intended population. These are distinct ideas: reducing model approximation bias does not fix a biased sample or a biased labeling policy.
+The word bias describes several different things in this discussion. A model can have an additive intercept called a bias. An estimator can have statistical bias, meaning its expectation differs systematically from the quantity being estimated. A dataset can also reflect biased collection, labels or human decisions. These meanings should stay separate: fitting a more flexible model may reduce approximation bias without making the collected sample more representative.
 
 ## Bias and variance in prediction
 
@@ -64,19 +53,19 @@ Covariate shift changes P(x), label/prior shift changes P(y), and concept shift 
 
 ## Split by the actual independence unit
 
-Training fits parameters, validation chooses models and policies, and a final held-out test estimates the chosen system's performance. Split videos, donors, sessions, geographic neighborhoods or time periods according to the intended deployment. Randomly splitting near-duplicate tiles or neighboring frames leaks scene information. Perform imputation, normalization, feature selection and calibration within each training fold. Use nested cross-validation if reporting performance after substantial hyperparameter search with no separate untouched test set.
+Once the intended deployment is clear, the data can be divided around it. Training fits parameters; validation guides model and policy choices; a final held-out test estimates the selected system’s performance. A new-camera deployment, a future-time deployment and a new-geography deployment can require different splits. Near-duplicate tiles and neighbouring frames are particularly easy ways to share scene information across a nominal boundary. Imputation, scaling, feature selection and calibration belong inside the training folds too. If extensive tuning consumes the available evaluation data, nested cross-validation can separate selection from performance estimation.
 
 Stratification preserves class proportions but does not enforce group independence. A temporal split asks about future data and may legitimately expose distribution shift. The same benchmark can become an implicit validation set through repeated manual decisions. Keep an independent final check and record what influenced model selection.
 
 ## Uncertainty and comparison
 
-A bootstrap resamples observed units with replacement to estimate variability. If frames are correlated, bootstrap videos or sessions rather than individual frames. Cross-validation estimates generalization under a split design and supports model selection; it is not the same operation as bootstrapping. Compare two systems on the same held-out units and report paired differences, effect sizes and uncertainty. A small p-value is not a large practical improvement, and repeated unplanned testing increases false discoveries.
+A split tells us what population a result is testing; uncertainty asks how much the result might vary across samples from that population. A bootstrap approximates this by resampling observed units with replacement. For correlated frames, the relevant units may be videos or sessions rather than individual frames. Cross-validation serves a different role: estimating performance and supporting model selection under a chosen split design. Neither procedure repairs a sampling design that does not represent deployment.
 
 For an independent Bernoulli proportion p estimated from n trials, the rough standard error is `sqrt(p(1-p)/n)`. This approximation can be poor for small n or rare events; use suitable intervals and report counts. Zero misses among n positives does not prove perfect recall. Correlation reduces effective sample size. Decide test-set size from the precision needed around the operating point, not from a fixed percentage of the whole dataset.
 
-## During the project
+## What an honest comparison leaves visible
 
-Have the agent propose three splits and try to falsify each with a leakage example. Write a short audit of the chosen split and manually trace a few sample IDs through it. Bring to the mentor a failure that survives a better split, not just the highest score from an easier split.
+A split audit can be small: inspect the source IDs of a few examples on each side, check how preprocessing was fitted and look for overlapping scenes. The resulting evaluation may be less flattering, but its failures are more informative. They describe what the system still struggles with when familiar context no longer helps it.
 
 <details>
 <summary>Original source references and provenance</summary>

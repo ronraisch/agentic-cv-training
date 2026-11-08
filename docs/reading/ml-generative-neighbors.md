@@ -2,26 +2,15 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## Copy a feature. Double the confidence?
+## What happens when the same evidence appears twice
 
-A Naive Bayes model sees “large vehicle” and an exact duplicate of that feature. It may count the same evidence twice.
+A classifier uses one feature indicating that a vehicle is large. Someone adds a second column containing exactly the same feature. The dataset now has two columns, but it has gained no new observation.
 
 ![Copy a feature. Double the confidence? Original evidence; Duplicated feature; Overconfident score](assets/ml-generative-neighbors-toy.svg)
 
-| Notice | Interpret | Check |
-| --- | --- | --- |
-| Conditional independence matters | KNN depends on distance | SVM depends on margin/scale |
+A Naive Bayes model may nevertheless count both likelihood contributions because it assumes feature independence conditional on the class. Its confidence can change even though the evidence did not. KNN and SVM are affected by representation changes too, through their distances and margins.
 
-<details>
-<summary>Reveal the catch</summary>
-
-A strong assumption can save data—or manufacture certainty when it is wrong.
-
-</details>
-
-**Try it in 60 seconds:** Duplicate one feature, then compare predictions and calibration before and after.
-
-Read for understanding, not page completion. Skip what you can already explain.
+Comparing these methods is easier when their assumptions are attached to concrete feature choices rather than only to model names.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -38,7 +27,7 @@ Read for understanding, not page completion. Skip what you can already explain.
 
 - [Support vector machines](#support-vector-machines)
 
-- [In the current assignments](#in-the-current-assignments)
+- [Comparing models on the same motion task](#comparing-models-on-the-same-motion-task)
 
 </details>
 
@@ -72,9 +61,9 @@ A soft-margin linear SVM minimizes a weight penalty plus hinge-loss/slack costs.
 
 Training a kernel SVM can require a large pairwise kernel structure, and inference depends on the number of support vectors. A linear classifier on a frozen embedding can be much cheaper. SVM scores are not probabilities by definition. A neural network's universal approximation result and an RBF model's expressiveness do not guarantee sample efficiency, reliable optimization or affordable inference. Choose using representative data, actual compute and verified generalization.
 
-## In the current assignments
+## Comparing models on the same motion task
 
-Compare a scaled linear model, KNN and an SVM on the same grouped tracklet split. Ask your agent to explain each model's inductive assumptions and derive one prediction manually. Preserve the fitted preprocessing and the exact model together. A comparison where each model sees a different test population cannot establish which method is better.
+A scaled linear model, KNN and an SVM provide three different views of the tracklet features. Keeping the grouped split and evaluation policy fixed makes their disagreements interpretable. Saving preprocessing with the fitted model is equally important: otherwise a change in feature scaling can be mistaken for a change in model quality.
 
 <details>
 <summary>Original source references and provenance</summary>

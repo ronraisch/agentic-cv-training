@@ -2,26 +2,15 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## Two owners. One allocation. Trouble.
+## Copying an address does not copy ownership
 
-Copy an owning raw pointer and both objects still point at the same allocation. If both destructors delete it, the second deletion is invalid.
+Two objects hold the same raw pointer to one allocation. If both believe they own it and both destructors delete it, the second deletion is invalid. Copying the address was easy; deciding what the copy means was the important design question.
 
 ![Two owners. One allocation. Trouble. Owner A; One allocation; Owner B](assets/development-cpp-toy.svg)
 
-| Notice | Interpret | Check |
-| --- | --- | --- |
-| Copying an address ≠ copying data | Exclusive ownership: unique_ptr | Borrowing requires valid lifetime |
+C++ ownership tools make that decision more explicit. Exclusive ownership, shared ownership and a borrowed view carry different lifetime expectations. A view can remain a valid address value after the object it referred to has already been destroyed.
 
-<details>
-<summary>Reveal the catch</summary>
-
-Ownership is a promise about lifetime, not just an address in memory.
-
-</details>
-
-**Try it in 60 seconds:** Explain which object owns a resource after a move, and which views can outlive it.
-
-Read for understanding, not page completion. Skip what you can already explain.
+This archived edge-computing route uses those ideas to connect program behaviour with resource management, builds and runtime efficiency.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -38,7 +27,7 @@ Read for understanding, not page completion. Skip what you can already explain.
 
 - [Binary neural networks](#binary-neural-networks)
 
-- [Practice without changing the core track](#practice-without-changing-the-core-track)
+- [Following a small C++ build](#following-a-small-c-build)
 
 </details>
 
@@ -72,9 +61,9 @@ A linker map shows placement and contributions of symbols/sections, useful for d
 
 Binarized-network methods constrain some weights and activations to binary values, enabling compact storage and potentially efficient bitwise operations. Training commonly keeps higher-precision latent weights and uses surrogate gradients around non-differentiable quantization. The benefit depends on supported operations, packing and hardware; a binary model is not automatically faster on every GPU. First/last layers may use different precision. Compare accuracy, memory and actual end-to-end latency under the chosen implementation.
 
-## Practice without changing the core track
+## Following a small C++ build
 
-For an edge-role extension, select a small ownership example and a multi-file build. Deliberately change a header, inspect rebuilt targets and compare a clean run. If optimizing inference, verify outputs after compiler/precision changes. The old Snake, QR-reader and GEMM exercises remain historical choices; they are not appended to the current required work.
+For an edge-role extension, a small multi-file program is enough to expose ownership and build dependencies. Changing a header should rebuild the affected targets; a clean rebuild checks whether the incremental build was hiding stale objects. Compiler or precision changes then need output comparisons as well as timing. The historical Snake, QR-reader and GEMM exercises remain options for that route.
 
 <details>
 <summary>Original source references and provenance</summary>

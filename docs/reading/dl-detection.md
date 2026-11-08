@@ -2,26 +2,15 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## The classifier never saw the missing truck.
+## Finding the stage that lost an object
 
-Eight objects are visible, but only three usable proposals reach the head. Even a perfect head cannot classify the other five.
+Eight objects are visible in an image, but only three usable proposals reach the classifier. Even a perfect classifier at that point can recover at most three of the eight objects in this toy example.
 
 ![The classifier never saw the missing truck. 8 visible objects; 3 usable proposals; Recall ceiling: 3/8](assets/dl-detection-toy.svg)
 
-| Notice | Interpret | Check |
-| --- | --- | --- |
-| Proposal recall first | Classification second | Merging can remove more |
+The missed detections need to be traced through the pipeline: resizing may erase detail, proposal generation may miss the object, classification may reject it, or postprocessing may suppress it. These causes call for different changes. Increasing classifier capacity addresses only some of them.
 
-<details>
-<summary>Reveal the catch</summary>
-
-Separate proposal misses, class errors and postprocessing losses before choosing a bigger backbone.
-
-</details>
-
-**Try it in 60 seconds:** Trace one missed object through resize, proposals, scores and NMS.
-
-Read for understanding, not page completion. Skip what you can already explain.
+The detection architectures below distribute those responsibilities differently, which is more useful to understand than their names alone.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -38,7 +27,7 @@ Read for understanding, not page completion. Skip what you can already explain.
 
 - [Faces and embeddings](#faces-and-embeddings)
 
-- [Compare papers through a real case](#compare-papers-through-a-real-case)
+- [Comparing detectors through the same scene](#comparing-detectors-through-the-same-scene)
 
 - [Angular-margin detail](#angular-margin-detail)
 
@@ -74,9 +63,9 @@ FCN replaces fixed classification outputs with spatial predictions. U-Net adds s
 
 RetinaFace is a face-localization/landmark-oriented detector. SphereFace and ArcFace train identity embeddings with angular-margin objectives on normalized feature/weight geometry, using different margin formulations. Their scores do not by themselves establish a universal verification threshold across populations and cameras. Evaluate genuine/impostor pairs or retrieval under independent identities and acquisition conditions. ArcFace's training classes and the identities evaluated at deployment play different roles.
 
-## Compare papers through a real case
+## Comparing detectors through the same scene
 
-For each family, state input, output, proposal mechanism, spatial scales, training supervision, inference merging and dominant cost. Then trace a tiny crowded scene through it. The point is to explain what changes when objects become small, crowded, rotated or partially labeled. Ask the agent to compare two architectures under the same input resolution, checkpoint and dataset split; verify the model's actual implementation rather than repeating a paper title.
+A small, crowded scene is a useful common reference for detector papers. It makes proposal limits, feature resolution, matching and suppression visible in the same setting. An architecture comparison becomes more informative when it explains where one particular object is lost and what extra computation would be needed to preserve it.
 
 ## Angular-margin detail
 

@@ -2,24 +2,13 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## The code runs. The wrong axis wins.
+## A square array can hide a normalization bug
 
-Three objects, three features: subtracting a length-three mean works either way. A square matrix can hide a broadcasting bug.
+Consider two objects described by three features: `[[1,10,100],[3,30,300]]`. To centre each feature, subtract its mean across objects. The means are `[2,20,200]`, so the two centred rows should be `[-1,-10,-100]` and `[1,10,100]`.
 
 ![The code runs. The wrong axis wins. Objects × features; Feature means; Try a 2 × 3 input](assets/arrays-data-toy.svg)
 
-| Notice | Interpret | Check |
-| --- | --- | --- |
-| (3, 3) hides the mistake | (3,) aligns on the right | A non-square case exposes it |
-
-<details>
-<summary>Reveal the catch</summary>
-
-A valid shape is not necessarily the intended operation. Give each axis a meaning.
-
-</details>
-
-### In code: Make the axis explicit
+With three objects and three features, an incorrectly oriented operation may still run because both axes have length three. This two-by-three example makes the roles of the axes visible. The goal is to check what the operation means, not merely whether NumPy accepts it.
 
 ```python
 import numpy as np
@@ -30,7 +19,7 @@ centered = x - feature_means
 print(centered.tolist())
 ```
 
-**Expected output:**
+This prints:
 
 ```text
 [[-1.0, -10.0, -100.0], [1.0, 10.0, 100.0]]
@@ -38,9 +27,7 @@ print(centered.tolist())
 
 Keeping the mean as (1, 3) makes the intended feature axis visible.
 
-**Try it in 60 seconds:** Write two normalizations and test them on [[1,10,100],[3,30,300]].
-
-Read for understanding, not page completion. Skip what you can already explain.
+Shapes, dtypes and indexing become much easier to reason about once every axis has a named role.
 
 <details>
 <summary>Jump to a concept</summary>

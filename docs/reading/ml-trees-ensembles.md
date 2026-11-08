@@ -2,26 +2,15 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## Three models, one shared blind spot.
+## What an ensemble can learn from disagreement
 
-Three truck classifiers agree on easy cases. All three miss cement trucks. Majority voting cannot invent the missing expertise.
+Three truck classifiers agree on most easy examples. They also all miss cement trucks. Combining their votes does not recover a category that none of them recognizes.
 
 ![Three models, one shared blind spot. Model A: misses; Model B: misses; Model C: misses](assets/ml-trees-ensembles-toy.svg)
 
-| Notice | Interpret | Check |
-| --- | --- | --- |
-| Agreement is not truth | Correlated errors remain | Inspect useful disagreements |
+An ensemble is more useful when its members make different, informative errors. For example, a model that handles unusual truck shapes may correct mistakes made by a model that is otherwise stronger. The gain depends on those particular disagreements and their frequency in the target data.
 
-<details>
-<summary>Reveal the catch</summary>
-
-An ensemble benefits from complementary useful errors, not merely more model names.
-
-</details>
-
-**Try it in 60 seconds:** Find a case on which models disagree. Is the dissenting model actually right?
-
-Read for understanding, not page completion. Skip what you can already explain.
+Bagging, random forests and boosting create and combine predictors in different ways. Their value becomes clearer when we examine what each member contributes.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -36,7 +25,7 @@ Read for understanding, not page completion. Skip what you can already explain.
 
 - [Voting, blending and stacking](#voting-blending-and-stacking)
 
-- [Learn while implementing](#learn-while-implementing)
+- [What a useful comparison shows](#what-a-useful-comparison-shows)
 
 </details>
 
@@ -70,9 +59,9 @@ Hard voting combines class decisions; soft voting averages scores/probabilities 
 
 Measure the cost of the whole ensemble, including all feature extractors, preprocessing, model loads and output merging. A second model is worthwhile only if its gain at the relevant operating point justifies the latency, memory and maintenance. In detection rescoring, distinguish changing scores from adding proposals: a rescorer cannot recover an object absent from the frozen detector's candidate set.
 
-## Learn while implementing
+## What a useful comparison shows
 
-Have the agent propose a shallow tree, a forest and one boosted model. Keep a table of validation operating points, training time, inference cost and representative disagreements. Use the mentor discussion to explain which errors improve, why a hard slice remains difficult and whether a simpler model meets the actual requirement.
+For the rescorer, a small comparison can include a shallow tree, a forest and one boosted model. Their operating points, runtime and disagreement examples explain more than a single winner. The frozen detector also sets a boundary on the experiment: changing scores may improve which candidates survive, but cannot recover an object that never entered the candidate set.
 
 <details>
 <summary>Original source references and provenance</summary>

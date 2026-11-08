@@ -6,8 +6,6 @@ working baseline, then implement the assigned product request and demonstrate it
 
 ## Trainee syllabus
 
-![A toy alert inbox: eight correct alerts, twenty false alerts and two missed objects](docs/reading/assets/reading-home.svg)
-
 Start at [the training index](docs/TRAINING_INDEX.md): **Development · CV · ML · Deep Learning**.
 Each part has its own syllabus, local HTML theory, original video links and current exercises.
 Read [the formatted reading home](docs/reading/index.md) directly on GitHub, with all

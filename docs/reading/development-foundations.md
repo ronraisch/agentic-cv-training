@@ -2,26 +2,15 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## It works on my pod. Why not yours?
+## When the same code runs in a different environment
 
-Your polygon parser works in VS Code and fails inside a container. The code is identical. Before changing Python, follow the paths.
+The shape parser runs correctly from VS Code. Inside the container, it fails to find its input. Nothing in the parser changed: `./data` now refers to a different directory, and the file may not be mounted there at all.
 
 ![It works on my pod. Why not yours? VS Code: ./data; Container: /app; Missing mount](assets/development-foundations-toy.svg)
 
-| Notice | Interpret | Check |
-| --- | --- | --- |
-| Same file name | Different working directory | Different file |
+This is an easy failure to misdiagnose as a Python problem. The program depends on more than its source files: its working directory, interpreter, packages and mounted data all affect what it does. Reproducing the run means making those dependencies explicit.
 
-<details>
-<summary>Reveal the catch</summary>
-
-The environment is an input too. A Git commit alone does not include your data or interpreter.
-
-</details>
-
-**Try it in 60 seconds:** Run the same input from a different working directory. Which assumption breaks?
-
-Read for understanding, not page completion. Skip what you can already explain.
+Following one input from the terminal into the container gives the Linux, Git and environment concepts below a concrete purpose.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -36,7 +25,7 @@ Read for understanding, not page completion. Skip what you can already explain.
 
 - [Environments, Docker and deployment](#environments-docker-and-deployment)
 
-- [Connect this to your work](#connect-this-to-your-work)
+- [Following the shape parser through a real run](#following-the-shape-parser-through-a-real-run)
 
 </details>
 
@@ -70,9 +59,9 @@ A Docker image is a layered filesystem and execution specification. A container 
 
 Build context determines what a Dockerfile can copy. A published port and a process listening on the expected interface are both needed for access. Compose describes connected services for local work; an OpenShift Deployment manages replicas, a Service provides an internal address and a Route exposes the chosen service. Check readiness, requests, logs and a real response instead of equating an accepted manifest with a working deployment.
 
-## Connect this to your work
+## Following the shape parser through a real run
 
-In the manual shape-rendering capstone, trace one input through parsing, validation, geometry and rendering. Make a new input yourself and predict its output before running it. Later, build the first SAM2 service manually as specified in its assignment. Use agent explanations after the manual boundaries allow them, but personally demonstrate the execution path and explain the change.
+The shape-rendering capstone provides a small version of the same problem: a file is parsed, validated, turned into geometry and rendered. Running a new valid input and a malformed input reveals whether those responsibilities are actually separated. The later SAM2 service adds a container and network boundary around similar application logic. The assignments retain their manual-work requirements; understanding the path is the common thread.
 
 <details>
 <summary>Original source references and provenance</summary>

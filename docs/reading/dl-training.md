@@ -2,24 +2,13 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## One weight. No mystery gradients.
+## Following one weight through a training step
 
-Let x=2, w=3 and target=4. The prediction is 6, the loss (6−4)²/2 is 2, and dL/dw is 4.
+A small network is easier to inspect than a large one, so start with a single weight: prediction `w × x`. With x=2, w=3 and target=4, it predicts 6. The squared-error loss divided by two is 2.
 
 ![One weight. No mystery gradients. x=2, w=3; Prediction=6; Loss=2; gradient=4](assets/dl-training-toy.svg)
 
-| Notice | Interpret | Check |
-| --- | --- | --- |
-| Error: 2 | Gradient: error × x | Rate 0.1 → new w=2.6 |
-
-<details>
-<summary>Reveal the catch</summary>
-
-Backpropagation is the chain rule with bookkeeping. Verify a tiny case before trusting a large graph.
-
-</details>
-
-### In code: One actual update
+The derivative with respect to w is `(prediction − target) × x`, which is 4 here. A learning rate of 0.1 changes w to 2.6, giving a prediction of 5.2 and a loss of 0.72. Every part of this update can be checked by hand.
 
 ```python
 x, target, w = 2.0, 4.0, 3.0
@@ -30,17 +19,13 @@ new_loss = 0.5 * (w * x - target) ** 2
 print(round(w, 2), round(new_loss, 2))
 ```
 
-**Expected output:**
+This prints:
 
 ```text
 2.6 0.72
 ```
 
-The original loss was 2. This update reduces it to 0.72; a different learning rate need not improve it.
-
-**Try it in 60 seconds:** Compute the new prediction and loss after that single update.
-
-Read for understanding, not page completion. Skip what you can already explain.
+A larger network applies the same chain rule through many operations. The practical difficulty is tracking the right values, shapes and state.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -57,7 +42,7 @@ Read for understanding, not page completion. Skip what you can already explain.
 
 - [Checkpoint and operational evidence](#checkpoint-and-operational-evidence)
 
-- [Learn while debugging](#learn-while-debugging)
+- [Turning a training failure into a specific question](#turning-a-training-failure-into-a-specific-question)
 
 - [Softmax derivatives and label conventions](#softmax-derivatives-and-label-conventions)
 
@@ -93,9 +78,9 @@ Overfit a tiny clean subset as a diagnostic, inspect label and tensor shapes, ve
 
 Save architecture/config identity, model weights, preprocessing and label mapping. A resumable checkpoint also needs optimizer/scheduler and relevant state. Reload in a fresh process, run a new input and compare outputs with an appropriate tolerance. Do not confuse a Python object still resident in memory with a successful load. For the inference-only handover notebook, preserve all necessary preprocessing, construction, checkpoint loading and postprocessing without importing project internals.
 
-## Learn while debugging
+## Turning a training failure into a specific question
 
-Ask the agent for a falsifiable diagnosis rather than a list of generic tips. Change one controlled factor, show gradients or outputs that support the explanation and retain an error case. Before the mentor session, explain one backward path and one production inference path yourself. “The code uses PyTorch” does not establish that the chosen loss, weights or mode actually reach the executed consumer.
+A useful diagnosis predicts something observable. If gradients are disconnected, particular parameters should fail to change; if inference uses the wrong checkpoint, reloading the selected artifact should alter the prediction path. Testing one such claim on a tiny input makes the next change easier to justify. A list of general training tips rarely identifies which of these failures occurred.
 
 ## Softmax derivatives and label conventions
 

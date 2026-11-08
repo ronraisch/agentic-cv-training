@@ -2,24 +2,13 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## Saved. Crashed. Delivered again.
+## Handling a job that arrives a second time
 
-A worker saves its prediction, crashes before acknowledging, then receives the same job again. What stops a duplicate result?
+A worker saves a prediction, then crashes before acknowledging its job. The broker later delivers that job again. Saving first protected the result, but it also left a window in which the same work can be repeated.
 
 ![Saved. Crashed. Delivered again. Save output; Crash before ACK; Same job redelivered](assets/development-interfaces-toy.svg)
 
-| Notice | Interpret | Check |
-| --- | --- | --- |
-| ACK first risks lost work | Save first permits retries | Stable IDs support idempotency |
-
-<details>
-<summary>Reveal the catch</summary>
-
-Reliable systems plan for the gap between two operations, not only the happy path.
-
-</details>
-
-### In code: Replay one job ID
+A stable job ID lets the system recognize that repeat. The tiny example below stores one result under that identity. A real implementation also needs durable storage, atomic operations and a policy for conflicting outputs; an in-memory dictionary does not provide those guarantees.
 
 ```python
 outputs = {}
@@ -32,17 +21,13 @@ save_once("frame-7", {"cars": 1})  # Redelivery, same identity.
 print(len(outputs))
 ```
 
-**Expected output:**
+This prints:
 
 ```text
 1
 ```
 
-This single-process, in-memory toy illustrates stable identity only. A real worker also needs durable, atomic storage and a deliberate acknowledgement policy.
-
-**Try it in 60 seconds:** Replay the same job ID twice and inspect durable output and consumer behaviour.
-
-Read for understanding, not page completion. Skip what you can already explain.
+HTTP, database transactions and queue acknowledgements each cover a different boundary. Recovery depends on how the application connects them.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -55,7 +40,7 @@ Read for understanding, not page completion. Skip what you can already explain.
 
 - [Research interfaces](#research-interfaces)
 
-- [Learning path](#learning-path)
+- [Connecting the service boundaries](#connecting-the-service-boundaries)
 
 </details>
 
@@ -79,6 +64,6 @@ A service boundary should expose a meaningful operation with versioned inputs/ou
 
 A component contract includes data formats, units, label order, supported shapes and relevant numerical behavior. Keep experiment changes within authorized components and compare alternatives on the same held-out population. Preserve checkpoints/configurations and visual evidence for multiple runs so tradeoffs remain inspectable. A single “best” score can conceal better recall at a slightly larger compute cost or a severe failure on one camera.
 
-## Learning path
+## Connecting the service boundaries
 
-The archived developer outline named HTTP/requests and SQL but left their exercises undefined. These explanations retain those topics without inventing an old assignment. The active SAM2 and RabbitMQ exercises provide concrete service boundaries. Ask the agent for a failure between saving an output and acknowledging its job; draw the possible states and implement a bounded recovery check. During the mentor discussion, show exactly which persisted record and response establish successful completion.
+The SAM2 and RabbitMQ assignments give these interfaces a concrete setting: a request becomes model work, an output is persisted and another component consumes it. The archived HTTP/SQL outline did not specify separate exercises. In the active projects, following one result across these boundaries reveals what has actually completed and what could still be repeated after a failure.

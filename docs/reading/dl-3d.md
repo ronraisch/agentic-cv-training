@@ -2,26 +2,15 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## One pixel of disparity can matter a lot.
+## How a small disparity error changes depth
 
-Take focal length f=100 pixels and baseline B=1 metre. Disparity 10 gives depth 10 m; disparity 9 gives about 11.1 m.
+In an ideal rectified stereo pair, depth follows `Z = fB/d`. With a focal length of 100 pixels and a one-metre baseline, a disparity of ten pixels corresponds to ten metres. A disparity of nine pixels corresponds to about 11.1 metres.
 
 ![One pixel of disparity can matter a lot. d=10 → Z=10 m; d=9 → Z≈11.1 m; Z=fB/d](assets/dl-3d-toy.svg)
 
-| Notice | Interpret | Check |
-| --- | --- | --- |
-| Same one-pixel change | Different depth uncertainty | Calibration and units matter |
+The same one-pixel change matters much more at smaller disparities: changing two pixels to one changes the inferred depth from 50 to 100 metres. A visually small matching error can therefore become a large error in world coordinates.
 
-<details>
-<summary>Reveal the catch</summary>
-
-Depth is inferred through geometry and assumptions. Small image errors can become large world errors.
-
-</details>
-
-**Try it in 60 seconds:** Repeat the calculation at disparities 2 and 1. Why is the depth change larger?
-
-Read for understanding, not page completion. Skip what you can already explain.
+Calibration, viewpoint and the chosen scene representation determine what can be inferred from the images and how reliable that inference is.
 
 <details>
 <summary>Jump to a concept</summary>

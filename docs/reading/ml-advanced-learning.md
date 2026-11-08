@@ -2,26 +2,15 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## You can label only three more images.
+## Choosing the next few examples to label
 
-Choose three nearly identical uncertain crops, or cover three different failure groups? Active learning spends a budget; uncertainty alone need not spend it well.
+You have time to label three more images. The three most uncertain predictions are almost identical crops from one video; other candidates cover several different failure groups. Choosing solely by uncertainty may spend the whole budget on nearly the same case.
 
 ![You can label only three more images. Three near-duplicates; Three distinct groups; Same label budget](assets/ml-advanced-learning-toy.svg)
 
-| Notice | Interpret | Check |
-| --- | --- | --- |
-| Uncertainty can repeat itself | Diversity adds coverage | Keep a random audit |
+Active learning treats the choice of observations as part of the learning process. Diversity, representativeness and the cost of annotation can matter alongside uncertainty. A small random audit remains useful because a model can be confidently wrong in a region it never asks anyone to label.
 
-<details>
-<summary>Reveal the catch</summary>
-
-Limited supervision changes how you collect evidence as well as how you fit a model.
-
-</details>
-
-**Try it in 60 seconds:** Pick a tiny candidate pool and justify your next three labels before seeing their answers.
-
-Read for understanding, not page completion. Skip what you can already explain.
+The learning setups below make different assumptions about which labels and relationships are available.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -36,7 +25,7 @@ Read for understanding, not page completion. Skip what you can already explain.
 
 - [Multiple inputs, outputs and losses](#multiple-inputs-outputs-and-losses)
 
-- [How to use this extension](#how-to-use-this-extension)
+- [Reading the broader learning setups](#reading-the-broader-learning-setups)
 
 </details>
 
@@ -64,9 +53,9 @@ Market-basket analysis finds co-occurring items. Support measures how often an i
 
 Combining image, metadata and text can improve predictions but also introduces missingness, synchronization and leakage risks. A multi-task network shares some parameters and has task-specific outputs. Loss weights, sampling frequencies and gradient scales determine which task dominates. Apparent regularization from auxiliary supervision can disappear if the auxiliary target leaks the main answer. Evaluate each output and relevant subgroups, not only a weighted training objective.
 
-## How to use this extension
+## Reading the broader learning setups
 
-The older hundred-page syllabus listed these topics as breadth. Keep them available for explanations and mentor-selected follow-up without adding every historical notebook as a mandatory assignment. Use the present motion/rescoring/retrieval tasks to illustrate one setup. Ask the agent to compare an active-learning policy with random selection, or a pairwise ranking loss with a classifier, and identify a tiny counterexample that changes the preferred choice. Personally verify the example and explain which assumptions matter.
+The older broad syllabus included these topics without making each one a separate project. They remain useful vocabulary for choices that arise in motion classification, rescoring and retrieval. For a role-specific extension, the useful depth is enough to explain the supervision available, the method’s main assumption and a case in which that assumption fails.
 
 <details>
 <summary>Original source references and provenance</summary>
