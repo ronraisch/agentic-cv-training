@@ -52,4 +52,4 @@ Use its shared introduction instead of repeating the representation basics here.
 In the DL/video block, complete [RabbitMQ, SAM3 pseudo-labels and detector training](../../labs/research/05b-rabbitmq-sam3-detector.md).
 Explain pseudo-label uncertainty, video-level data splits, mask-to-box contracts and independent
 evaluation, alongside acknowledgment/redelivery, idempotent outputs and bounded GPU concurrency.
-This has its own 24-hour project allocation; it does not add another seven-hour study block.
+This has its own 24-hour project allocation; record it separately from the DL study estimate.

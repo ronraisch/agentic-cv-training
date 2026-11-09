@@ -63,3 +63,31 @@ not verbatim copies of third-party publications. Source links remain as provenan
 not depend on opening them. Video/course and data acquisition references retain external URLs.
 Exact unidentified internal resources are recorded as unresolved rather than invented.
 Original Drive files remain unchanged; mentor question-bank text is not copied into learner pages.
+
+
+## First-pass readiness by lab
+
+Use the lab's start card to obtain the first fixture. Try the prompt aloud before adding reading.
+Bring one answer and one checked result to the first relevant mentor session. For the deeper
+session, bring a new input or counterexample and explain which claim the evidence supports.
+The lab's start card identifies any approval needed before continuing.
+
+| Lab | Read first | Try before the meeting |
+| --- | --- | --- |
+| Setup | [Required setup order](GETTING_STARTED_INTERNAL.md#required-setup-order) | Which interpreter does the attached debugger use? Show it at a breakpoint. |
+| Manual Python | [Python modularity example](WORKED_EXAMPLES.md#python-modularity) and [shape handout](reading/legacy-shape-rendering.md) | If only the input format changes, which responsibilities should stay the same? |
+| Polygons and SAM2 | [Trace one image from request to response](reading/development-interfaces.md#trace-one-image-from-request-to-response) | Where would you verify a record after reload? What would you inspect after a health check passes but inference fails? |
+| Classical CV | [Plate rectification](lessons/02-classical-cv.md#hough-and-plate-rectification) and [stitching](lessons/02-classical-cv.md#stitching-exactly-two-images) | Follow one coordinate through each transform and say where it is expressed. |
+| ML | [Split by the actual independence unit](reading/ml-bias-validation.md#split-by-the-actual-independence-unit) and [worked tables](WORKED_EXAMPLES.md#ml-evaluation) | Which rows enter the metric and which group must stay together? |
+| Clouds and video | [Cloud and video examples](WORKED_EXAMPLES.md#deep-learning-and-video) and [open-model outputs](lessons/07-open-models.md#three-tools-three-output-contracts) | Name one downstream effect of a false cloud mask and one clip where sampling changes the answer. |
+| RabbitMQ and SAM3 | [Redelivery](reading/development-interfaces.md#handling-a-job-that-arrives-a-second-time) | Predict what survives a crash between saving and acknowledgement. |
+| Handover | [Notebook contract](../labs/research/06-handover.md#prepare-the-handover) | Name the exact files a peer needs and one output they can compare with the service. |
+
+## Check the route before a cohort starts
+
+Ask someone with introductory academic programming experience and someone with research ML
+experience to walk through the route independently. Give each a first fixture and one seeded
+failure. Record where they can locate the reading, reproduce the first output, diagnose the
+failure and say what to bring to review. Record every point where a mentor had to supply an
+instruction that could live in the repo. Have a mentor with internal access check the actual
+Peanuach and OpenShift paths, permissions, fixture availability and deployment evidence separately.
