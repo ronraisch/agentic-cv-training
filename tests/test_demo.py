@@ -74,7 +74,7 @@ def test_labeling_api_save_reload_and_loaded_model(tmp_path):
             return json.load(response)
     try:
         with urlopen(base, timeout=5) as response:
-            assert b"Peanuach labeling" in response.read()
+            assert b"Remote Sensing labeling" in response.read()
         with urlopen(base+"/api/image?id=image-000", timeout=5) as response:
             assert response.read().startswith(b"\x89PNG")
         record = get("/api/annotations?id=image-000")

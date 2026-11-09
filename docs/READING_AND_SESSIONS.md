@@ -90,4 +90,4 @@ experience to walk through the route independently. Give each a first fixture an
 failure. Record where they can locate the reading, reproduce the first output, diagnose the
 failure and say what to bring to review. Record every point where a mentor had to supply an
 instruction that could live in the repo. Have a mentor with internal access check the actual
-Peanuach and OpenShift paths, permissions, fixture availability and deployment evidence separately.
+Remote Sensing and OpenShift paths, permissions, fixture availability and deployment evidence separately.

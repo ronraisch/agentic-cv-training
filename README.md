@@ -1,8 +1,7 @@
-# Peanuach research workspace
+# Remote Sensing and Computer Vision Onboarding
 
-Labeling, image geometry and ordinary-camera video in one Python workspace. Start with the
-working baseline, then implement the assigned product request and demonstrate its effects.
-
+Training for research engineers working with remote sensing imagery and ordinary-camera video.
+[Start here](docs/START_HERE.md) for the onboarding sequence.
 
 ## Trainee syllabus
 
@@ -17,44 +16,9 @@ See [the practical trainee guide](docs/TRAINEE_GUIDE.md) for manual-work boundar
 sessions and corrections. Original Drive materials are preserved; [source coverage](docs/reading/sources.md)
 records the migration and any unresolved internal reading.
 
-New team member? Start with the [onboarding route](docs/START_HERE.md).
-
 ## First run
 
-These commands exercise the local ResearchLab demo. The polygon assignment uses the internal Peanuach checkout.
-
-Install the approved environment using [offline setup](docs/OFFLINE_SETUP.md). For a connected
-public development workstation only, the locked installation is:
-
-```bash
-uv sync --extra dev --extra mcp --locked
-```
-
-Then run without dependency resolution or downloads:
-
-```bash
-uv run --no-sync researchlab-demo prepare --root data/local-demo
-uv run --no-sync researchlab-demo train --root data/local-demo
-uv run --no-sync researchlab-demo evaluate --root data/local-demo
-uv run --no-sync researchlab-demo predict --root data/local-demo --sample video-030
-uv run --no-sync researchlab-demo serve --root data/local-demo
-```
-
-Open the loopback URL printed by the server. Draw rectangles, save and reload annotations.
-Training reads the persisted records. The selected artifact is loaded for prediction; use its
-reported SHA-256 to trace a response to the saved model. The same commands can use an approved
-local data bundle conforming to [the data contracts](docs/DATA_FORMATS.md).
-
-The included procedural fixture requires no dataset download or external weights. It exercises
-real CPU optimization, artifact persistence and inference, and does not establish accuracy on
-real cameras. For real assignments use the prepared [dataset bundles](docs/DATASETS.md).
-Missing packages, files or model artifacts must stop with a path, recovery action and setup link.
-
-```bash
-uv run --no-sync researchlab-demo smoke --root artifacts/baseline-check
-uv run --no-sync pytest
-uv run --no-sync python tools/preflight.py --scope starter
-```
+See the [local ResearchLab demo](docs/BASELINE.md#run-the-demo) for commands and expected output.
 
 [Start here](docs/START_HERE.md) · [Syllabus](docs/CURRICULUM.md)
 · [Required learning](docs/READING_AND_SESSIONS.md) · [System map](docs/SYSTEM_MAP.md)

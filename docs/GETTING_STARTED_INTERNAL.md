@@ -141,7 +141,7 @@ For the starter, expect a fixture JSON report, application smoke/tooling tests a
 plus rejection of an invalid limit. An intentional invalid-input error in that check is expected.
 A green smoke suite verifies its named path, not all behavior or internal integrations.
 Record the actual revision and compare with mentor-provided outputs if the baseline changes.
-For the prepared Peanuach system also demonstrate UI/API/save/reload on its known fixture.
+For the prepared Remote Sensing system also demonstrate UI/API/save/reload on its known fixture.
 If that system has not been prepared, mark the corresponding gate blocked.
 
 ## Docker and Artifactory
@@ -219,7 +219,7 @@ runner administration and an advanced YAML/CI course are not required.
 - Internal clone/revision and correct VS Code interpreter/debugger.
 - Approved dependency environment and restartable Jupyter kernel.
 - Matt Pocock catalog skimmed, selected skills practiced and installation/activation evidence checked.
-- Known code/MCP and Peanuach fixture, with actual output and evidence scope.
+- Known code/MCP and Remote Sensing fixture, with actual output and evidence scope.
 - Internal image runs; teaching route returns the expected artifact/output.
 - Persistence survives a teaching restart.
 - Confluence page can be found and opened; MR/job log can be located.

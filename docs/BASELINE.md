@@ -1,9 +1,45 @@
 # Working baseline
 
-From the approved environment, run the [README commands](../README.md#first-run). The procedural
-bundle contains 60 RGB images with rectangle annotations and 36 short RGB frame sequences.
+The procedural bundle contains 60 RGB images with rectangle annotations and 36 short RGB frame sequences.
 Its split/group manifest is deterministic and training, validation and test groups are separate.
 This small fixture exercises the full path without an internet connection or external weights.
+
+## Run the demo
+
+Install the approved environment using [offline setup](OFFLINE_SETUP.md). For a connected
+public development workstation only, the locked installation is:
+
+```bash
+uv sync --extra dev --extra mcp --locked
+```
+
+Then run without dependency resolution or downloads:
+
+```bash
+uv run --no-sync researchlab-demo prepare --root data/local-demo
+uv run --no-sync researchlab-demo train --root data/local-demo
+uv run --no-sync researchlab-demo evaluate --root data/local-demo
+uv run --no-sync researchlab-demo predict --root data/local-demo --sample video-030
+uv run --no-sync researchlab-demo serve --root data/local-demo
+```
+
+Open the loopback URL printed by the server. Draw rectangles, save and reload annotations.
+Training reads the persisted records. The selected artifact is loaded for prediction; use its
+reported SHA-256 to trace a response to the saved model. The same commands can use an approved
+local data bundle conforming to [the data contracts](DATA_FORMATS.md).
+
+The included procedural fixture requires no dataset download or external weights. It exercises
+real CPU optimization, artifact persistence and inference, and does not establish accuracy on
+real cameras. For real assignments use the prepared [dataset bundles](DATASETS.md).
+Missing packages, files or model artifacts must stop with a path, recovery action and setup link.
+
+```bash
+uv run --no-sync researchlab-demo smoke --root artifacts/baseline-check
+uv run --no-sync pytest
+uv run --no-sync python tools/preflight.py --scope starter
+```
+
+## What the commands do
 
 `prepare` writes arrays, a SHA-256 manifest and the initial SQLite annotation store. It refuses an
 unrecognized existing directory and reuses a valid bundle without overwriting edited annotations.

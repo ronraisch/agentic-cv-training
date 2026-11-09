@@ -23,7 +23,7 @@ Follow the [required setup order](GETTING_STARTED_INTERNAL.md#required-setup-ord
 personal-pod connection, then OMP/local LLM, before skill activation. The mentor provides the
 internal OMP installation recipe and exact served model ID; no per-trainee model server is assumed.
 
-Use uv for Python. The existing public ResearchLab lock is not the full Peanuach environment.
+Use uv for Python. The existing public ResearchLab lock is not the full Remote Sensing environment.
 `--offline` is a cache check, not an Artifactory connection fix. Transfer only missing items with
 versions, hashes, platform, transitive dependencies, weights/config/caches, fixtures and licenses.
 Public-download snippets inside upstream skills do not override the internal environment policy.
