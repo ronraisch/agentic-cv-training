@@ -2,15 +2,7 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## Copying an address does not copy ownership
-
-Two objects hold the same raw pointer to one allocation. If both believe they own it and both destructors delete it, the second deletion is invalid. Copying the address was easy; deciding what the copy means was the important design question.
-
-![Two owners. One allocation. Trouble. Owner A; One allocation; Owner B](assets/development-cpp-toy.svg)
-
-C++ ownership tools make that decision more explicit. Exclusive ownership, shared ownership and a borrowed view carry different lifetime expectations. A view can remain a valid address value after the object it referred to has already been destroyed.
-
-This archived edge-computing route uses those ideas to connect program behaviour with resource management, builds and runtime efficiency.
+A program reads an image into memory and hands the image buffer to another part of the code. Someone must decide when that memory can be released. In C++, ownership and lifetime make this decision visible. The same edge-computing setting also makes builds, dependencies and representation costs worth inspecting.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -46,6 +38,22 @@ An array is a contiguous sequence; a pointer stores an address. An array can dec
 RAII binds resource lifetime to object lifetime, so destruction releases the resource even during exceptions. A unique pointer represents exclusive ownership; a shared pointer uses shared ownership and reference counting; a weak pointer observes shared ownership without extending it. Cycles of strong shared pointers can retain objects indefinitely. Raw pointers and references can be useful nonowning views when lifetime is clear.
 
 Copying an owning raw pointer without a policy can lead to double deletion. The historical “Big Two” rule discussed designing copying and destruction together; modern code also considers move operations and usually favors the rule of zero by delegating resources to standard types. Move transfers or reuses resources under a type's defined semantics; it is not a promise that every moved-from object is empty. Standard containers and smart pointers reduce bespoke ownership code.
+
+### Decide who keeps an image buffer alive
+
+A decoder allocates a buffer and returns it to a caller. The caller hands a read-only view to a feature extractor. If the extractor uses the view only during that call, the caller can retain ownership. If the extractor queues asynchronous work and keeps the view, the buffer must stay alive until that work finishes. A view that still contains an address does not prove that the underlying object is available.
+
+One design transfers exclusive ownership to the queued work. Another makes a copy, which can be reasonable when the data is small. Shared ownership can work if several consumers genuinely need independent lifetimes, at the cost of less obvious release timing. Pick a representation that expresses which component can keep the data and for how long. The right question to ask at review is when the memory can be released, and what proves every consumer is finished.
+
+## Copying an address does not copy ownership
+
+Two objects hold the same raw pointer to one allocation. If both believe they own it and both destructors delete it, the second deletion is invalid. Copying the address was easy; deciding what the copy means was the important design question.
+
+![Two owners. One allocation. Trouble. Owner A; One allocation; Owner B](assets/development-cpp-toy.svg)
+
+C++ ownership tools make that decision more explicit. Exclusive ownership, shared ownership and a borrowed view carry different lifetime expectations. A view can remain a valid address value after the object it referred to has already been destroyed.
+
+This archived edge-computing route uses those ideas to connect program behaviour with resource management, builds and runtime efficiency.
 
 ## Modern language features
 

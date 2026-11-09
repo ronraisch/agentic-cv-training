@@ -2,15 +2,7 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## Choosing workers for the work you actually have
-
-Suppose a batch has four images to fetch and four CPU-heavy Python calculations to perform. Both contain four independent tasks, but they spend their time differently. The downloads wait for I/O; the calculations keep the interpreter busy.
-
-![Four workers. Four times faster? One worker; Four workers; Scheduling overhead](assets/python-tools-toy.svg)
-
-Threads can overlap those waits. In a standard GIL-enabled CPython build, processes are usually the more relevant option for parallel CPU-heavy Python work. They also introduce startup and data-transfer costs, which can outweigh the benefit for small tasks.
-
-A useful comparison therefore measures the same outputs across several task sizes. That distinction also explains why caching, decorators and queues need clear contracts rather than just convenient syntax.
+A script that processes one image is easy to follow. Once it runs thousands of jobs, it also needs a clear interface, a way to keep track of failures and a reason for any added concurrency. Start by describing what a function accepts and returns. Then consider which surrounding work can be shared, cached or run at the same time.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -41,11 +33,27 @@ A decorator takes a function or class and returns its replacement. For a timing 
 
 A property exposes computed or validated attribute access. A static method is a namespaced function without implicit instance/class input; a class method receives the class and is useful for alternate constructors. Single dispatch chooses an implementation by the first argument's runtime type. Use these for an actual design need, not to make simple code look advanced.
 
+### Separate the operation from the measurement
+
+Suppose two functions perform image decoding and resizing. You want a duration for each call. A decorator can wrap each function with the same timing logic while leaving the decoding and resizing bodies focused on their work. The wrapper still needs to pass through arguments, return the original result and preserve raised exceptions. Otherwise adding a measurement can change the behaviour it is meant to observe.
+
+Now imagine measuring a cached function. Timing outside the cache measures the experience of its caller, including fast hits. Timing only the underlying function measures the work performed on misses. Both measurements can be useful, but they describe different paths. A cache key also has to include information that affects the result. If a function reads a file by name and the file is overwritten, a key based only on that name can return an old result. This is the same interface question as typing, with a different kind of contract.
+
 ## Concurrency starts with the bottleneck
 
 Concurrency means tasks can make progress over overlapping time; parallelism means work executes simultaneously. In a standard GIL-enabled CPython build, multiple threads do not usually accelerate CPU-heavy Python bytecode. They can overlap blocking I/O. Native numerical code may release the GIL and run its own threads, so a Python thread benchmark does not characterize every NumPy workload. Separate processes have independent interpreters and can parallelize Python computation, but require startup, serialization and data-transfer costs.
 
 Compare a loop, map, a process pool and a thread pool on three workloads: squaring many numbers, a substantial numerical approximation, and reading/writing independent temporary files. Map alone is an iteration interface, not a promise of parallel execution. Make the jobs large enough to amortize scheduling costs; very small squares often run faster serially. Warm up where needed, repeat runs, check identical outputs and report workload size and worker count. Do not credit a faster function that did less work.
+
+## Choosing workers for the work you actually have
+
+Suppose a batch has four images to fetch and four CPU-heavy Python calculations to perform. Both contain four independent tasks, but they spend their time differently. The downloads wait for I/O; the calculations keep the interpreter busy.
+
+![Four workers. Four times faster? One worker; Four workers; Scheduling overhead](assets/python-tools-toy.svg)
+
+Threads can overlap those waits. In a standard GIL-enabled CPython build, processes are usually the more relevant option for parallel CPU-heavy Python work. They also introduce startup and data-transfer costs, which can outweigh the benefit for small tasks.
+
+A useful comparison therefore measures the same outputs across several task sizes. That distinction also explains why caching, decorators and queues need clear contracts rather than just convenient syntax.
 
 ## Queues and failure
 

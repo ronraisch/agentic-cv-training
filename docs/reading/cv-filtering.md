@@ -2,32 +2,7 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## Smoothing a plate changes the evidence
-
-A bright pixel in a dark region may be sensor noise. A thin bright stroke may be part of a licence-plate character. A smoothing filter does not know the difference: it combines neighbouring intensities in both cases.
-
-![A cleaner image can lose the plate. Raw patch; Box average; Less noise; less detail](assets/cv-filtering-toy.svg)
-
-In the illustration, a narrow peak spreads across neighbouring positions and becomes weaker. That may help a noisy image, but the same effect can remove detail needed by OCR. A smoother-looking crop is therefore only an intermediate result; the recognition result still needs checking.
-
-```python
-import numpy as np
-
-signal = np.array([0, 0, 0, 9, 0, 0, 0], dtype=float)
-kernel = np.ones(3) / 3
-smoothed = np.convolve(signal, kernel, mode="same")
-print(smoothed.tolist())
-```
-
-This prints:
-
-```text
-[0.0, 0.0, 3.0, 3.0, 3.0, 0.0, 0.0]
-```
-
-The one-dimensional signal makes the averaging visible without image-display settings.
-
-The filter definitions below explain how much information is mixed, where it comes from and what happens near an image boundary.
+A camera turns a scene into a grid of pixel values. A bright spot on a dark patch may come from a real detail or from noise. A filter changes a pixel using other pixels around it, so the rule that combines them determines which details survive.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -55,6 +30,41 @@ An image samples a scene after optics, sensor response and processing. Resolutio
 A normalized box filter averages a neighborhood. A Gaussian gives more weight to nearby pixels and controls smoothing with sigma. Increasing sigma reduces fine detail and suppresses high-frequency noise. Kernel support must be large enough to represent the selected Gaussian; truncation and renormalization affect its behavior. Specify boundary padding: zero padding can create a dark edge, reflection synthesizes different neighboring values and valid filtering shrinks the result.
 
 A separable two-dimensional kernel is an outer product of two one-dimensional kernels. Apply a horizontal filter and then a vertical one. A K-by-K filter then needs roughly 2K rather than K squared operations per pixel, ignoring constants and memory costs. Exact separability means rank one; the leading singular vectors give a rank-one approximation when it is not exact. A Gaussian is separable. Normalizing a kernel to sum to one preserves constant regions away from boundaries.
+
+### Calculate one filtered pixel
+
+Take a one-dimensional row of intensities `[0, 0, 9, 0, 0]`. A three-position average gives equal weight to the centre and its two neighbours. The value at the peak becomes `(0 + 9 + 0) / 3 = 3`. Each immediate neighbour also becomes 3 because its window includes the original peak. The intensity is spread out across nearby positions. The code example shows the same operation with extra zero positions on the sides.
+
+Now replace the row by a step, such as `[0, 0, 9, 9, 9]`. At the transition, an averaging window contains both dark and bright samples, so the edge gets less sharp. Inside a constant region the average preserves the original value as long as the weights sum to one and the window stays inside that region. Near the image boundary the padding convention decides what samples the filter sees.
+
+For an LPR crop, evaluate the impact on the recognizer as well as the filtered pixels. Smoothing may make a noisy background more stable and also erase a narrow stroke. An edge detector applied after smoothing inherits both changes.
+
+## Smoothing a plate changes the evidence
+
+A bright pixel in a dark region may be sensor noise. A thin bright stroke may be part of a licence-plate character. A smoothing filter does not know the difference: it combines neighbouring intensities in both cases.
+
+![A cleaner image can lose the plate. Raw patch; Box average; Less noise; less detail](assets/cv-filtering-toy.svg)
+
+In the illustration, a narrow peak spreads across neighbouring positions and becomes weaker. That may help a noisy image, but the same effect can remove detail needed by OCR. A smoother-looking crop is therefore only an intermediate result; the recognition result still needs checking.
+
+```python
+import numpy as np
+
+signal = np.array([0, 0, 0, 9, 0, 0, 0], dtype=float)
+kernel = np.ones(3) / 3
+smoothed = np.convolve(signal, kernel, mode="same")
+print(smoothed.tolist())
+```
+
+This prints:
+
+```text
+[0.0, 0.0, 3.0, 3.0, 3.0, 0.0, 0.0]
+```
+
+The one-dimensional signal makes the averaging visible without image-display settings.
+
+The filter definitions below explain how much information is mixed, where it comes from and what happens near an image boundary.
 
 ## Template matching and edge detection
 

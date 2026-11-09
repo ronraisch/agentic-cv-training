@@ -2,15 +2,7 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## What an ensemble can learn from disagreement
-
-Three truck classifiers agree on most easy examples. They also all miss cement trucks. Combining their votes does not recover a category that none of them recognizes.
-
-![Three models, one shared blind spot. Model A: misses; Model B: misses; Model C: misses](assets/ml-trees-ensembles-toy.svg)
-
-An ensemble is more useful when its members make different, informative errors. For example, a model that handles unusual truck shapes may correct mistakes made by a model that is otherwise stronger. The gain depends on those particular disagreements and their frequency in the target data.
-
-Bagging, random forests and boosting create and combine predictors in different ways. Their value becomes clearer when we examine what each member contributes.
+Suppose a detector has proposed many vehicle boxes. For each box you have a score, an estimated size and a label saying whether the box is correct. A decision tree learns a sequence of questions about those features. Combining several trees can change the stability and errors of the resulting predictions. Start with one split so that the combination has something concrete to build on.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -35,6 +27,12 @@ A decision tree recursively chooses a feature and threshold to split observation
 
 A deep tree can memorize small data changes. Missing-value routing and categorical-feature handling depend on the implementation and must match inference. Impurity-based importance can favor high-cardinality features and does not establish causality. Permutation importance on independent data asks how predictions suffer when a feature is disrupted, but correlated features can share or hide their importance. Feature selection and importance-driven redesign can leak validation information if repeated without a fresh evaluation plan.
 
+### Work through the first split
+
+Suppose six detector candidates have scores 0.2, 0.3, 0.4, 0.6, 0.7 and 0.9. Their correctness labels are false, false, true, false, true and true. The root contains three of each label. A split at score 0.5 puts two false and one true on the left, and one false and two true on the right. Each child is more concentrated in one label than the root. A tree can test another feature, such as object size, separately inside each child.
+
+Gini impurity uses `1 − Σ pᵢ²`, where the probabilities are observed class proportions in the node. The root has impurity 0.5. Both children have impurity `1 − (2/3)² − (1/3)² = 4/9`, so this split lowers weighted impurity by about 0.056. A fitting algorithm evaluates candidate splits and chooses one according to its criterion. It may find a better threshold than this example. A small leaf can appear very pure by chance, which is why depth and leaf-size limits are useful model settings.
+
 ## Bagging and random forests
 
 Bagging trains models on bootstrap samples and averages their predictions. Averaging reduces variance when errors are not perfectly correlated. A random forest additionally samples candidate features at splits to diversify trees. More trees often stabilize the average but increase memory and inference cost. Out-of-bag predictions use trees that did not train on a given row, providing an internal diagnostic; they do not repair leakage between correlated rows or a mismatch with the deployment population.
@@ -47,6 +45,12 @@ Boosting adds weak predictors sequentially, each addressing shortcomings of the 
 
 Gradient boosting fits each new learner to a negative gradient of the chosen loss with respect to current predictions. For squared loss this resembles fitting residuals. For logistic classification, the gradient is computed in score space and is not simply a hard-label mistake indicator. Learning rate, tree complexity and number of rounds jointly control capacity. Early stopping chooses a round using validation data, making that validation set part of model selection.
 
+### What does the next tree learn?
+
+For a simple regression example, imagine predicting prices 100, 120 and 180 for three observations. Start by predicting their mean, about 133.3, for all three. The residuals are about −33.3, −13.3 and +46.7. A small tree can group some of those residuals and predict a correction for each group. Adding a fraction of its output moves the ensemble in a direction that reduces squared loss.
+
+The second tree is trained on a problem defined by the current model's errors. With another loss, the corrections are based on the corresponding negative gradient, rather than necessarily the raw residual. This explains how gradient boosting differs from a forest trained by sampling independent trees and averaging them. The learning rate controls the size of each correction. A small rate usually requires more rounds, and validation-based stopping is one way to choose how long to keep adding trees.
+
 ## XGBoost and LightGBM
 
 XGBoost combines regularized tree boosting with efficient split search, missing-value handling and first/second-order loss information in common objectives. LightGBM emphasizes histogram-based training and leaf-wise tree growth, with techniques intended to reduce work on large datasets. Leaf-wise growth can expand a highly profitable branch deeply, so limiting leaves, depth and minimum data per leaf matters on small datasets. These are different implementations of related ideas, not universal speed or accuracy rankings.
@@ -58,6 +62,16 @@ Compare wall time and memory under your data size and hardware, using consistent
 Hard voting combines class decisions; soft voting averages scores/probabilities whose interpretation and calibration need attention. Blending fits a combination on a held-out subset. Stacking learns a meta-model from out-of-fold base-model predictions so it sees predictions made without training on those same targets. Training a meta-model on in-sample base predictions encourages it to trust overfit behavior. Group boundaries apply to the folds of every layer.
 
 Measure the cost of the whole ensemble, including all feature extractors, preprocessing, model loads and output merging. A second model is worthwhile only if its gain at the relevant operating point justifies the latency, memory and maintenance. In detection rescoring, distinguish changing scores from adding proposals: a rescorer cannot recover an object absent from the frozen detector's candidate set.
+
+## What an ensemble can learn from disagreement
+
+Three truck classifiers agree on most easy examples. They also all miss cement trucks. Combining their votes does not recover a category that none of them recognizes.
+
+![Three models, one shared blind spot. Model A: misses; Model B: misses; Model C: misses](assets/ml-trees-ensembles-toy.svg)
+
+An ensemble is more useful when its members make different, informative errors. For example, a model that handles unusual truck shapes may correct mistakes made by a model that is otherwise stronger. The gain depends on those particular disagreements and their frequency in the target data.
+
+Bagging, random forests and boosting create and combine predictors in different ways. Their value becomes clearer when we examine what each member contributes.
 
 ## What a useful comparison shows
 

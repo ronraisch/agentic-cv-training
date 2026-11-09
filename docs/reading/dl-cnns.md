@@ -2,15 +2,7 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## How three small convolutions see a larger region
-
-Three stride-one 3×3 convolutions give a final output a theoretical 7×7 receptive field. The last layer reads nearby features, but those features already contain information from their own neighbours.
-
-![Three small filters see one bigger patch. First layer: 3×3; Second: 5×5; Third: 7×7](assets/dl-cnns-toy.svg)
-
-This matters for small objects. A deep feature may have access to a large input region while being sampled on a coarse grid. Access to the object does not guarantee that its detail survives resizing, downsampling or the learned computation.
-
-Kernel size, stride and feature scale describe different aspects of this process. Keeping them separate helps explain both localization behaviour and compute cost.
+An image is a grid of numbers. A useful pattern, such as a bright edge or a wheel-shaped region, can occur at many positions in that grid. A convolution applies the same learned local calculation at different positions. Stacking those calculations changes how far each output can see and how densely outputs are sampled.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -33,11 +25,29 @@ Kernel size, stride and feature scale describe different aspects of this process
 
 A convolutional layer shares local weights across positions, giving an inductive preference for local, translation-related patterns. Many software layers compute cross-correlation under the name convolution. With input height H, padding P, dilation D, kernel K and stride S, output height is `floor((H+2P-D(K-1)-1)/S)+1`. Compute width similarly. For groups=1, the parameter count is K_h K_w C_in C_out plus optional biases. Activation storage and memory traffic can dominate cost even when parameter count is modest.
 
+### One edge detector applied across a row
+
+Take the row `[1, 1, 4, 4]` and a two-position filter with weights `[-1, 1]`, applied in the order commonly used by neural network layers. With stride one and no padding, it computes differences on the three adjacent pairs. The outputs are 0, 3 and 0. The same weights detect a rise wherever it occurs, which is the basic idea behind sharing a filter across positions.
+
+In two dimensions, the local calculation covers a patch of rows and columns and can combine information across channels. A learned filter can respond to a pattern more complicated than a simple difference. The output remains a grid. Padding changes which values the filter sees at the border, and stride changes how far the filter moves between outputs. With stride two, the toy row would use the first and third adjacent pairs and skip the rise between the middle two values.
+
+Stacking layers extends the set of input positions that can influence a final output. It also changes how often those outputs are sampled, especially when a layer increases stride. These are the two quantities tracked in the receptive-field calculation.
+
 ## Receptive field
 
 Track the effective sampling jump j and receptive field r: start j=1,r=1, then update `r_new = r + (K-1) D j` and `j_new = j S`. Three stride-one 3-by-3 layers give a 7-by-7 theoretical receptive field. With equal channel counts, their convolution weights total 27C squared versus 49C squared for one 7-by-7 layer, plus more nonlinearities and intermediate activations. The theoretical field says which input could influence a feature, not how much each pixel actually influences it.
 
 For VGG-16, apply the recurrence separately to every convolution and pool, rather than assuming pooling adds no receptive field. With 3-by-3 stride-one padded convolutions and 2-by-2 stride-two pools, the receptive field after pool5 is 212 pixels with a jump of 32. Counting after conv5_3 gives 196 instead. State exactly which output is measured. For L identical stride-S, dilation-one convolutions, r is `1+(K-1) sum_{i=0}^{L-1} S^i`; when S=1 this becomes 1+L(K-1).
+
+## How three small convolutions see a larger region
+
+Three stride-one 3×3 convolutions give a final output a theoretical 7×7 receptive field. The last layer reads nearby features, but those features already contain information from their own neighbours.
+
+![Three small filters see one bigger patch. First layer: 3×3; Second: 5×5; Third: 7×7](assets/dl-cnns-toy.svg)
+
+This matters for small objects. A deep feature may have access to a large input region while being sampled on a coarse grid. Access to the object does not guarantee that its detail survives resizing, downsampling or the learned computation.
+
+Kernel size, stride and feature scale describe different aspects of this process. Keeping them separate helps explain both localization behaviour and compute cost.
 
 ## Fully connected and fully convolutional
 

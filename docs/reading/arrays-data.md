@@ -2,32 +2,7 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## A square array can hide a normalization bug
-
-Consider two objects described by three features: `[[1,10,100],[3,30,300]]`. To centre each feature, subtract its mean across objects. The means are `[2,20,200]`, so the two centred rows should be `[-1,-10,-100]` and `[1,10,100]`.
-
-![The code runs. The wrong axis wins. Objects × features; Feature means; Try a 2 × 3 input](assets/arrays-data-toy.svg)
-
-With three objects and three features, an incorrectly oriented operation may still run because both axes have length three. This two-by-three example makes the roles of the axes visible. The goal is to check what the operation means, not merely whether NumPy accepts it.
-
-```python
-import numpy as np
-
-x = np.array([[1, 10, 100], [3, 30, 300]])
-feature_means = x.mean(axis=0, keepdims=True)
-centered = x - feature_means
-print(centered.tolist())
-```
-
-This prints:
-
-```text
-[[-1.0, -10.0, -100.0], [1.0, 10.0, 100.0]]
-```
-
-Keeping the mean as (1, 3) makes the intended feature axis visible.
-
-Shapes, dtypes and indexing become much easier to reason about once every axis has a named role.
+Imagine a table with one row per tracked vehicle and three measurements per row. Before computing an average, decide whether you want an average for each vehicle or for each measurement across vehicles. The same array can answer either question. Shapes, axes and row identifiers make that decision explicit.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -56,6 +31,33 @@ Basic slices often return views. If `b = a[:, :3]`, editing b may change a. Adva
 
 Broadcasting aligns shapes from the right. Dimensions are compatible if they are equal or one is 1. For an N-by-D feature matrix, a length-D mean can be subtracted per feature. A length-N vector is not automatically a column of sample weights: reshape it to N-by-1. With N equal to D, the wrong operation may run successfully and normalize the wrong axis. Design a non-square counterexample. Vectorized code moves loops into efficient implementations, but materializing N-by-N distances can use far more memory than chunked computation.
 
+## A square array can hide a normalization bug
+
+Consider two objects described by three features: `[[1,10,100],[3,30,300]]`. To centre each feature, subtract its mean across objects. The means are `[2,20,200]`, so the two centred rows should be `[-1,-10,-100]` and `[1,10,100]`.
+
+![The code runs. The wrong axis wins. Objects × features; Feature means; Try a 2 × 3 input](assets/arrays-data-toy.svg)
+
+With three objects and three features, an incorrectly oriented operation may still run because both axes have length three. This two-by-three example makes the roles of the axes visible. The goal is to check what the operation means, not merely whether NumPy accepts it.
+
+```python
+import numpy as np
+
+x = np.array([[1, 10, 100], [3, 30, 300]])
+feature_means = x.mean(axis=0, keepdims=True)
+centered = x - feature_means
+print(centered.tolist())
+```
+
+This prints:
+
+```text
+[[-1.0, -10.0, -100.0], [1.0, 10.0, 100.0]]
+```
+
+Keeping the mean as (1, 3) makes the intended feature axis visible.
+
+Shapes, dtypes and indexing become much easier to reason about once every axis has a named role.
+
 ## Numerical work needs scale and stability
 
 Floating-point sums depend on order and precision; compare with tolerances justified by scale, not exact equality by default. Normalize features using statistics fitted only on training data and reuse those values at validation/inference. Protect zero denominators explicitly and report degenerate inputs. If every pixel in a patch is constant, normalized correlation has no defined variance normalization; returning a perfect score would invent evidence.
@@ -65,6 +67,14 @@ Floating-point sums depend on order and precision; compare with tolerances justi
 A DataFrame pairs columns with row labels. Operations align on index labels, which can silently reorder or introduce missing values. Use `loc` for label-oriented selection and `iloc` for positions. A merge can multiply rows when keys are not unique. Before joining predictions and labels, assert expected key uniqueness and use merge validation; inspect unmatched IDs. Grouping by source video or acquisition session is different from grouping by class and is essential when creating independent evaluation sets.
 
 Missingness carries information. Distinguish absent measurements, failed parsing and a genuine zero. Choose imputation based on the data-generating process; fit its parameters on training data. A date parsed in the wrong timezone can change a cohort or temporal split. Persist schema and units and verify that saving and reloading preserve intended meaning.
+
+### Attach predictions to records by identity
+
+Suppose an inference batch contains frames 101, 102 and 103. A downstream operation sorts predictions by confidence, giving order 103, 101, 102. If you append the ground-truth labels as a plain list in the original order, the row counts still match. The evaluation now compares three predictions with the wrong frames.
+
+A DataFrame can align values by index or join records on an explicit key. Use a stable frame identifier and check the expected relationship before joining. For one prediction per frame, duplicate IDs deserve investigation. For detections, many rows per frame may be normal, so you need the appropriate frame and detection identity for the task. Also check unmatched rows. A join that silently discards frames with no prediction can make a detector appear more complete than it is.
+
+This is a useful companion to the array example. Shape checks catch many mistakes about axes. They cannot tell whether one row still refers to the same real example after sorting or filtering.
 
 ## EDA and useful visualizations
 

@@ -2,32 +2,7 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## Handling a job that arrives a second time
-
-A worker saves a prediction, then crashes before acknowledging its job. The broker later delivers that job again. Saving first protected the result, but it also left a window in which the same work can be repeated.
-
-![Saved. Crashed. Delivered again. Save output; Crash before ACK; Same job redelivered](assets/development-interfaces-toy.svg)
-
-A stable job ID lets the system recognize that repeat. The tiny example below stores one result under that identity. A real implementation also needs durable storage, atomic operations and a policy for conflicting outputs; an in-memory dictionary does not provide those guarantees.
-
-```python
-outputs = {}
-
-def save_once(job_id, prediction):
-    return outputs.setdefault(job_id, prediction)
-
-save_once("frame-7", {"cars": 1})
-save_once("frame-7", {"cars": 1})  # Redelivery, same identity.
-print(len(outputs))
-```
-
-This prints:
-
-```text
-1
-```
-
-HTTP, database transactions and queue acknowledgements each cover a different boundary. Recovery depends on how the application connects them.
+A labeling request crosses several boundaries. A client sends an image reference, a worker runs the model and a store saves the result. The user needs to retrieve the correct annotation even if a worker restarts partway through. Each boundary has its own success condition, which becomes easier to understand if we follow one job all the way through.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -56,9 +31,44 @@ A relational table stores rows with declared columns and constraints. A primary 
 
 An index can accelerate selected access patterns but costs storage and write work. Query plans reveal what is actually scanned. A transaction groups operations that must succeed or fail together; isolation defines interactions with concurrent changes. Saving a prediction and marking a task complete in separate unprotected operations can leave contradictory state after a crash. Files and a broker may not share a single database transaction, so design recovery using stable IDs and explicit states.
 
+### Trace one annotation through a retry
+
+A request for frame 7 creates job J and returns a response. A network timeout leaves the client unsure whether the request reached the server. When the client retries, a stable request key gives the server a way to look up the existing job. Reusing that identity also makes it possible to trace a later worker result back to the original request.
+
+Now suppose the worker saves the result, then crashes before acknowledging the job. On redelivery the worker may run inference again. If the persistent result store enforces one result per job and the write is atomic, the committed result remains unambiguous. A plain read followed by an insert can race with another worker, which is why the database constraint and transaction matter.
+
+Keep status and result separate when inspecting failures. An HTTP response accepting work establishes that the request reached the application. A saved result establishes that work reached the store. A consumer successfully loading the result establishes the next boundary.
+
 ## Services, queues and state
 
 A service boundary should expose a meaningful operation with versioned inputs/outputs. Separate pure model prediction from transport and persistence so the same computation can be checked locally and through the actual consumer. A queue buffers jobs; a worker converts jobs into durable outputs. Define retryable errors, terminal errors and how partial results are recognized. A completed job is supported by a saved/reloaded artifact and a consumer check, not simply an in-memory flag.
+
+## Handling a job that arrives a second time
+
+A worker saves a prediction, then crashes before acknowledging its job. The broker later delivers that job again. Saving first protected the result, but it also left a window in which the same work can be repeated.
+
+![Saved. Crashed. Delivered again. Save output; Crash before ACK; Same job redelivered](assets/development-interfaces-toy.svg)
+
+A stable job ID lets the system recognize that repeat. The tiny example below stores one result under that identity. A real implementation also needs durable storage, atomic operations and a policy for conflicting outputs; an in-memory dictionary does not provide those guarantees.
+
+```python
+outputs = {}
+
+def save_once(job_id, prediction):
+    return outputs.setdefault(job_id, prediction)
+
+save_once("frame-7", {"cars": 1})
+save_once("frame-7", {"cars": 1})  # Redelivery, same identity.
+print(len(outputs))
+```
+
+This prints:
+
+```text
+1
+```
+
+HTTP, database transactions and queue acknowledgements each cover a different boundary. Recovery depends on how the application connects them.
 
 ## Research interfaces
 

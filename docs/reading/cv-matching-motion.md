@@ -2,15 +2,7 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## Matching a building with repeated windows
-
-A facade contains many nearly identical windows. A descriptor can match the appearance of one window very well while choosing the neighbouring window in the second image. If several matches make the same mistake, they can support a coherent but shifted alignment.
-
-![Twenty confident matches. One wrong wall. Image A; Candidate matches; Image B](assets/cv-matching-motion-toy.svg)
-
-Geometric agreement is useful evidence, but it is agreement with a chosen model. It helps to inspect where the supporting matches lie and whether they include distinctive parts of the scene. A single unusual corner can expose an ambiguity that many repeated windows cannot.
-
-Feature selection, descriptor matching and robust estimation address different parts of this problem; none replaces the others.
+To stitch two images, find small regions that appear in both and decide which regions correspond. To estimate motion between frames, ask a similar question at a smaller time interval. A feature is a location or measurement chosen for comparison. The strength of the local image pattern, the match and the geometric agreement each provide different evidence.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -39,11 +31,29 @@ Adding a constant to intensity leaves derivatives unchanged; multiplying intensi
 
 Nearest-descriptor matching compares local appearances. A small absolute distance is insufficient if many candidates are equally similar. A nearest/second-nearest distance ratio rejects ambiguous matches; mutual matching checks agreement in both directions. Neither proves geometric correctness. Repeated windows on a building may produce numerous internally consistent but wrong matches.
 
+## Matching a building with repeated windows
+
+A facade contains many nearly identical windows. A descriptor can match the appearance of one window very well while choosing the neighbouring window in the second image. If several matches make the same mistake, they can support a coherent but shifted alignment.
+
+![Twenty confident matches. One wrong wall. Image A; Candidate matches; Image B](assets/cv-matching-motion-toy.svg)
+
+Geometric agreement is useful evidence, but it is agreement with a chosen model. It helps to inspect where the supporting matches lie and whether they include distinctive parts of the scene. A single unusual corner can expose an ambiguity that many repeated windows cannot.
+
+Feature selection, descriptor matching and robust estimation address different parts of this problem; none replaces the others.
+
 ## RANSAC and model validity
 
 RANSAC repeatedly samples a minimal set, fits a model and counts geometrically consistent observations. If each sample independently has probability w of being an inlier, a minimal set has size s and the desired success probability is p, an idealized iteration count is `log(1-p) / log(1-w^s)`. Unknown inlier ratios and degeneracy complicate this estimate. The residual threshold sets what “consistent” means; too loose accepts wrong matches and too tight rejects noisy true matches. Refit on inliers and assess their spatial coverage.
 
 RANSAC rejects outliers relative to a model, not errors in the model family itself. A global homography cannot explain arbitrary depth parallax. Compare a simpler model when possible, and avoid reporting a successful fit based only on the number of inliers without examining where they lie.
+
+### Count agreement, then inspect where it occurs
+
+Suppose you have twenty candidate correspondences between images. Several are wrong because the same window pattern appears many times. RANSAC repeatedly samples a small set, fits a model from that set and scores the model using the remaining candidates as well. A match supports the model if its projected point falls close enough to the observed destination. The distance threshold says what counts as close.
+
+A model with fifteen inliers spread across the overlap can be better evidence than one with fifteen inliers all on a single wall. A dominant surface can support a valid local warp even when roofs and ground do not align together. After fitting, plot the inliers and residuals on the actual images. Inspect an unblended overlay to see which regions disagree before deciding whether the issue is a match, an estimated transform or a poor model family.
+
+In optical flow, the local evidence is smaller. A patch with only a vertical edge can constrain sideways motion, while motion along the edge may leave its image unchanged. A corner provides intensity change in two directions. This is why the positions chosen for tracking affect what can be inferred about motion.
 
 ## Warping and blending
 

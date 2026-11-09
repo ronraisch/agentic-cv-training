@@ -2,15 +2,7 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## The same frames can describe opening or closing
-
-A clip shows a door moving from closed to open. Reverse the frames and it shows the opposite action. The individual appearances are unchanged; only their order differs.
-
-![Same frames. Opposite action. Closed; Half open; Open](assets/dl-sequences-toy.svg)
-
-A baseline that averages independent frame embeddings loses that order. It may recognize the door or the scene very well while lacking the information needed to distinguish these two actions. Temporal models provide ways to preserve or combine evidence across time, each with its own assumptions.
-
-The useful starting point is therefore the temporal information the output requires: order, motion, duration or context.
+A video is a sequence of frames. A frame classifier can answer a question about one picture. A clip model also has to decide what information to preserve across time. Average appearance is enough for some questions, while direction, duration and order are essential for others.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -33,6 +25,16 @@ The useful starting point is therefore the temporal information the output requi
 
 A frame model sees appearance at one time. A video model may need action order, duration, motion and interactions. A sequence has timestamps, sampling rate and possibly gaps. Uniformly taking every tenth frame means a different temporal interval at different frame rates. Define whether the output is per clip, per frame, per track or an event with start/end boundaries.
 
+## The same frames can describe opening or closing
+
+A clip shows a door moving from closed to open. Reverse the frames and it shows the opposite action. The individual appearances are unchanged; only their order differs.
+
+![Same frames. Opposite action. Closed; Half open; Open](assets/dl-sequences-toy.svg)
+
+A baseline that averages independent frame embeddings loses that order. It may recognize the door or the scene very well while lacking the information needed to distinguish these two actions. Temporal models provide ways to preserve or combine evidence across time, each with its own assumptions.
+
+The useful starting point is therefore the temporal information the output requires: order, motion, duration or context.
+
 ## Recurrent state
 
 A basic recurrent network updates `h_t = phi(W_x x_t + W_h h_(t-1) + b)`. The hidden state summarizes earlier inputs. Backpropagation through time multiplies derivatives along temporal paths; repeated contraction can make gradients vanish and expansion can make them explode. Clipping limits excessive gradient norms but does not create missing long-term information.
@@ -44,6 +46,14 @@ A bidirectional network uses past and future context. It is appropriate for a co
 ## Video representations
 
 A frame encoder with temporal pooling is a simple baseline. It can recognize static context but may discard order: opening and closing a door can have similar pooled features. A 3D convolution filters across space and time, while factorized spatial/temporal layers trade capacity and cost. Two-stream approaches combine appearance and motion representations such as optical flow, whose preprocessing has its own failure modes and compute. Temporal attention can connect distant frames but requires explicit timing/position and can be expensive with many spatial tokens.
+
+### What information does the clip representation keep?
+
+Consider two three-frame clips with a tracked position sequence `[0, 1, 2]` and `[2, 1, 0]`. Both have mean position 1. If the task asks whether an object appears near the centre on average, that feature can be useful. If it asks which way the object moves, the first-to-last difference distinguishes the clips immediately. A model cannot recover order from an average that discarded it.
+
+Frame sampling can remove evidence even before the model combines it. If an object is visible for only one of ten frames, a sampler taking every fifth frame may miss it. Increasing the sampling rate can improve coverage and increase compute. Preserve timestamps so that the same number of frames is not silently treated as the same duration when clips have different frame rates.
+
+In an evaluation, compare clips on which order matters with clips on which appearance alone suffices. A strong average-frame baseline on a road-presence question does not tell you whether it can recognize an action. Split by source video before sampling clips to keep related frames together.
 
 ## Sampling and realistic evaluation
 

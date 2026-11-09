@@ -2,15 +2,7 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## Where an inference request spends its time
-
-Consider a request with illustrative timings of 25 ms for preprocessing, 10 ms in the model and 65 ms for postprocessing. Halving model time reduces the total from 100 to 95 ms.
-
-![Make inference twice as fast. Save 5 ms. Preprocess: 25 ms; Model: 10 ms; Postprocess: 65 ms](assets/dl-deployment-toy.svg)
-
-The model did become twice as fast, but the user sees only a five-millisecond improvement. Reducing the 65 ms stage has more room to help this workload. Batching, data transfer and queueing can change the picture again, which is why the whole request needs measuring.
-
-Quantization, compilation and adaptation techniques are useful tools once we know which constraint we need to change.
+An inference request starts before the model runs and ends after a usable result has been returned. It can involve decoding an image, moving data, running the model and merging predictions. Knowing where time and memory are spent helps you choose which change to evaluate.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -35,9 +27,35 @@ Transfer learning reuses a pretrained representation. A frozen encoder plus a tr
 
 LoRA parameterizes a weight update as a low-rank product, often `Delta W = scale * B A`, training the smaller matrices while keeping the base weight fixed. Rank limits the update family. Adapter location, scaling and initialization matter. Fewer trainable weights can reduce optimizer state without eliminating the base model's inference memory or forward cost. If merging an adapter into weights, verify that the resulting predictions match under the intended precision.
 
+### Choose which parameters you need to change
+
+Suppose an encoder already produces useful vehicle embeddings, and you receive labels for a small set of categories. A linear head on frozen embeddings is a reasonable first comparison. You can train the head without updating the encoder and can cache the embeddings when preprocessing and encoder weights stay fixed. If the errors show that the needed distinctions are absent from those features, updating part of the encoder may help.
+
+Low-rank adaptation changes a selected weight matrix by adding a product of two smaller matrices. For a d-by-d weight and rank r, a pair of factors has 2dr entries instead of d². With d = 512 and r = 8, that is 8,192 trainable entries for the update rather than 262,144 entries for the original matrix. The base weights still need to be available. The parameter count of the update is therefore a statement about what is trained or stored as an adapter. It does not by itself establish inference speed or total training memory.
+
+Compare a frozen head and an adapted model on the same independent sources. Report which layers were trainable, what data they used and how the resulting artifacts are loaded in the consumer.
+
 ## Latency, throughput and memory
 
 Latency measures time for a request; throughput measures completed work per unit time. Batching may improve throughput while increasing the time an individual request waits. Measure preprocessing, transfer, model forward, decoding and output merging separately and end to end. Synchronize asynchronous GPU work correctly for timing. Record warm-up, batch/shape distribution, hardware, precision and memory peaks. A FLOP estimate is not a latency measurement.
+
+### Measure one request before changing one component
+
+Suppose an image arrives, is decoded and tiled, passes through an encoder and then has its overlapping detections merged. Record a wall-clock duration around the whole path and separate timings for stages that you can measure reliably. Device work can be asynchronous. A timer around the Python call alone may measure submission rather than execution if the work is still running after the call returns.
+
+Run representative image sizes and record warm-up conditions, batch sizes and queueing. A batch can increase images processed per second while making an individual request wait for the batch to fill. Throughput and latency therefore answer different questions. Memory also needs its own measurement because a larger batch may improve throughput until it exceeds the device budget.
+
+Once the slow stage is known, compare a single change with the same inputs and output-quality criteria. For example, a faster encoder may have little effect when merging dominates. A change in tiling can speed both stages and still harm recall of tiny objects. Measure the tradeoff that the application would actually experience.
+
+## Where an inference request spends its time
+
+Consider a request with illustrative timings of 25 ms for preprocessing, 10 ms in the model and 65 ms for postprocessing. Halving model time reduces the total from 100 to 95 ms.
+
+![Make inference twice as fast. Save 5 ms. Preprocess: 25 ms; Model: 10 ms; Postprocess: 65 ms](assets/dl-deployment-toy.svg)
+
+The model did become twice as fast, but the user sees only a five-millisecond improvement. Reducing the 65 ms stage has more room to help this workload. Batching, data transfer and queueing can change the picture again, which is why the whole request needs measuring.
+
+Quantization, compilation and adaptation techniques are useful tools once we know which constraint we need to change.
 
 ## Quantization, pruning and distillation
 

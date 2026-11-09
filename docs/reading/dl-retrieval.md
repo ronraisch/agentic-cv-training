@@ -2,15 +2,7 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## A correct nearest-neighbour search can return irrelevant images
-
-Suppose the embedding places snowy scenes close together. An exact index returns those neighbours perfectly, but the user wanted other images of the same vehicle type. The search calculation is correct; the representation is emphasizing a different relationship.
-
-![Perfect neighbours. Wrong answers. Exact neighbours; Semantic relevance; Different evaluations](assets/dl-retrieval-toy.svg)
-
-There are consequently two evaluations to keep apart. Index recall measures whether an approximate index recovers the exact neighbours. Task relevance measures whether those neighbours answer the user’s query. Improving one does not automatically improve the other.
-
-A retrieval system also depends on ingestion, filters, model versions and downstream consumers, so those boundaries belong in the diagnosis.
+A user wants examples of trucks similar to the one in a selected crop. A model converts each crop to a vector. A search index then uses a distance rule to return nearby vectors. The model, the search implementation and the user’s idea of similarity can each affect the returned images.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -40,6 +32,24 @@ A query is encoded into the same space as indexed items, neighbors are found, me
 Exact search computes all relevant distances and ranks them. Approximate nearest-neighbor structures reduce work or memory while allowing some true neighbors to be missed. Graph indices route through connected candidate neighborhoods; inverted-file indices partition coarse regions and search a selected subset. Faiss supplies several implementations; it is not a single approximation method. More search effort commonly improves recall at additional latency.
 
 Measure index recall against exact search on a bounded sample, separately from semantic relevance against task labels. An exact neighbor can be semantically wrong because the embedding is poor; an approximate miss can hide an otherwise useful match. Metadata filters can interact with index search and return too few results. Evaluate filtered queries, index updates and deletion consistency, not just an unfiltered static benchmark.
+
+### Separate search error from representation error
+
+For one query crop, suppose the exact nearest candidates are A, B and C. An approximate index returns A, B and D. At three results, it recovered two of the three exact neighbours. If C and D are both irrelevant to the user, this loss of index recall may have no task impact on this query. If C is the only relevant example, the same index difference matters much more.
+
+Conversely, if A, B and C all match the snowy background instead of vehicle type, an exact index reproduces the wrong notion of similarity perfectly. Start with exact search on a small set, inspect retrieved images and define relevance independently of the embedding. Then change the approximation settings and measure what they cost in task quality, latency and memory.
+
+Metadata constraints can also change the eligible candidates. If a query asks for crops from a specific sensor, compare systems against an exact baseline over that same eligible collection. A filter applied after a very short candidate list can leave too few results even when valid matches exist elsewhere in the index.
+
+## A correct nearest-neighbour search can return irrelevant images
+
+Suppose the embedding places snowy scenes close together. An exact index returns those neighbours perfectly, but the user wanted other images of the same vehicle type. The search calculation is correct; the representation is emphasizing a different relationship.
+
+![Perfect neighbours. Wrong answers. Exact neighbours; Semantic relevance; Different evaluations](assets/dl-retrieval-toy.svg)
+
+There are consequently two evaluations to keep apart. Index recall measures whether an approximate index recovers the exact neighbours. Task relevance measures whether those neighbours answer the user’s query. Improving one does not automatically improve the other.
+
+A retrieval system also depends on ingestion, filters, model versions and downstream consumers, so those boundaries belong in the diagnosis.
 
 ## Vector quantization
 

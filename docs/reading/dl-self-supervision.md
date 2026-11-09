@@ -2,15 +2,7 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## What two augmented views have in common
-
-A wide image contains a tiny truck. One augmented crop includes it; another contains only the surrounding background. The training process still treats these as related views of the same source image.
-
-![Two views of the same image. Same object? Wide image; Object crop; Background-only crop](assets/dl-self-supervision-toy.svg)
-
-That supervision can be useful, but it does not explicitly say that the truck must survive in both views. The transformations help define which differences the representation learns to ignore. At small object scales, inspecting actual crop pairs can reveal a mismatch between the pretraining task and the downstream task.
-
-Contrastive and teacher–student objectives build on such relationships, with additional mechanisms needed to avoid trivial representations.
+A collection of images can be useful even if nobody has labelled which objects appear in each image. The images themselves supply relationships, such as two crops of the same photo. A learning objective can use those relationships to train a representation that will later be tested on a task with its own labels.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -33,11 +25,29 @@ Contrastive and teacher–student objectives build on such relationships, with a
 
 Self-supervision creates a learning target from the observations. Two transformed views of one image may be a positive pair, a masked patch may be a reconstruction target, or one model's output may supervise another view. The chosen transformations define what the representation should ignore. Cropping can remove the object of interest, and color invariance can be harmful if color is the operational attribute. Pretraining is not automatically neutral with respect to the downstream task.
 
+## What two augmented views have in common
+
+A wide image contains a tiny truck. One augmented crop includes it; another contains only the surrounding background. The training process still treats these as related views of the same source image.
+
+![Two views of the same image. Same object? Wide image; Object crop; Background-only crop](assets/dl-self-supervision-toy.svg)
+
+That supervision can be useful, but it does not explicitly say that the truck must survive in both views. The transformations help define which differences the representation learns to ignore. At small object scales, inspecting actual crop pairs can reveal a mismatch between the pretraining task and the downstream task.
+
+Contrastive and teacher–student objectives build on such relationships, with additional mechanisms needed to avoid trivial representations.
+
 ## Contrastive and triplet objectives
 
 Contrastive learning encourages related views to have similar representations and distinguishes them from negatives. An InfoNCE-style objective classifies a positive among candidates using similarity divided by temperature. Temperature affects how sharply differences are weighted. Batch size, a memory queue and negative sampling change the comparison set. False negatives arise when two distinct samples depict the same semantic class, so instance discrimination need not align perfectly with category labels.
 
 A triplet loss such as `max(0, d(a,p)-d(a,n)+margin)` asks a positive to be closer to an anchor than a negative by a margin. Sampling easy triplets can produce zero loss without learning much; overly hard or mislabeled negatives can destabilize training. Normalization and distance choice determine scale. Compare random, semi-hard and hard mining on actual errors instead of assuming the hardest pair is always useful.
+
+### What does the training objective call similar?
+
+Take a crop of a red truck and two altered versions of it. One is brighter, while the other has been cropped so tightly that only a wheel remains. Treating both as positive views asks the representation to keep them close. That may help with illumination changes. It may also teach the model to consider a partial view similar even when important information about truck type is missing.
+
+Now take a second truck from a different image. In instance-level contrastive training it may be treated as a negative even though it shares the class you care about. The objective defines its own notion of similarity through view construction and sampling. To evaluate the result for vehicle retrieval, inspect actual returned crops and use independently defined relevance labels.
+
+A representation that maps everything to one vector would make positive pairs close, with no discrimination. This is the collapse problem. Contrastive negatives provide one way to oppose it. Teacher–student approaches use other design choices to shape and stabilize the target representations.
 
 ## Collapse and teacher/student learning
 

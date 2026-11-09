@@ -2,15 +2,7 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## Choosing the next few examples to label
-
-You have time to label three more images. The three most uncertain predictions are almost identical crops from one video; other candidates cover several different failure groups. Choosing solely by uncertainty may spend the whole budget on nearly the same case.
-
-![You can label only three more images. Three near-duplicates; Three distinct groups; Same label budget](assets/ml-advanced-learning-toy.svg)
-
-Active learning treats the choice of observations as part of the learning process. Diversity, representativeness and the cost of annotation can matter alongside uncertainty. A small random audit remains useful because a model can be confidently wrong in a region it never asks anyone to label.
-
-The learning setups below make different assumptions about which labels and relationships are available.
+Your model finds common trucks, but reviewed examples of cement trucks are scarce. You have to decide what to label, how to use the labels and what prediction the result should make. Those decisions change the learning setup even if you keep the same encoder. This chapter assumes the basic distinction between features, targets and fitted models. [ML foundations](ml-foundations.md)
 
 <details>
 <summary>Jump to a concept</summary>
@@ -38,6 +30,22 @@ Multiclass classification chooses among mutually exclusive labels. Multilabel cl
 Active learning chooses which examples to label next, often using uncertainty, diversity or expected gain. Uncertainty-only selection can oversample outliers and overlook confidently wrong regions. Evaluate label efficiency on independent data and retain random sampling as an audit. Semi-supervised learning combines labeled and unlabeled observations through assumptions such as smoothness, consistency or low-density class boundaries. Pseudo-label thresholds can reinforce existing biases; unlabeled data is not guaranteed to improve a misspecified task.
 
 One-shot/few-shot learning uses very few labeled supports for a new task or class. Meta-learning can optimize adaptation across tasks, while pretrained embeddings with prototypes are a simpler alternative. Zero-shot learning uses semantic descriptions or other transferable supervision without task-class examples in the declared adaptation set. Clarify whether “unseen” means unseen during a small adaptation run or unseen anywhere in pretraining. Test novel categories and acquisition conditions separately.
+
+### Choose three labels from a correlated pool
+
+Imagine six uncertain crops. Four are adjacent frames of the same cement truck, one is a partly occluded crane truck and one is an unusual road sign. If you label the three most uncertain frames and all belong to the same truck, the model receives repeated information about one object. If you use the three labels on separate groups, you can investigate a broader set of errors. That is useful when the goal is coverage of failure modes. If the deployment question is how one specific truck behaves over a sequence, the repeated frames can instead be useful evidence.
+
+Sampling strategy changes the distribution of reviewed data. Cases selected for uncertainty are not a representative estimate of overall error. Keep a separate random or deployment-matched audit for evaluation. Use the selected labels for training, and record the selection policy so any improvement can be interpreted.
+
+## Choosing the next few examples to label
+
+You have time to label three more images. The three most uncertain predictions are almost identical crops from one video; other candidates cover several different failure groups. Choosing solely by uncertainty may spend the whole budget on nearly the same case.
+
+![You can label only three more images. Three near-duplicates; Three distinct groups; Same label budget](assets/ml-advanced-learning-toy.svg)
+
+Active learning treats the choice of observations as part of the learning process. Diversity, representativeness and the cost of annotation can matter alongside uncertainty. A small random audit remains useful because a model can be confidently wrong in a region it never asks anyone to label.
+
+The learning setups below make different assumptions about which labels and relationships are available.
 
 ## One-class and anomaly detection
 

@@ -2,15 +2,7 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## When the best text match names an absent object
-
-An image encoder gives “red car” a higher similarity than “bicycle.” If these are the only candidates, red car wins. It may still be absent: the comparison ranks supplied descriptions rather than establishing that one must be true.
-
-![“Red car” wins. There is no red car. “Red car”: 0.31; “Bicycle”: 0.28; Neither may be present](assets/dl-vision-language-toy.svg)
-
-Candidate wording, scene context and crop scale can all affect the result. A whole-image score may reflect the general setting, while a detector or region-level comparison asks a more localized question. The scores are useful only in relation to the task and the way they were evaluated.
-
-This distinction helps separate dual-encoder matching, generative VLM answers and open-vocabulary localization.
+Suppose someone wants to search images using a phrase such as “red car near a roundabout.” A system may rank images by similarity to the phrase, answer a question about a selected image or return a region containing the object. These outputs require different evidence. Start with how an image and a phrase can be compared at all.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -33,11 +25,33 @@ This distinction helps separate dual-encoder matching, generative VLM answers an
 
 A dual encoder maps an image and text into a comparable embedding space. CLIP-style training contrasts matching image/text pairs against other pairs. At inference, candidate text labels or descriptions become vectors and similarity gives a relative ranking. A generative vision-language model conditions a language model on visual information and generates tokens. A fluent generated answer and a high embedding similarity are different signals; neither is a guarantee that the described object exists.
 
+### Use the output that matches the question
+
+Suppose you want to find images containing red cars. A dual encoder maps images and text into comparable vectors, so you can rank an image collection by similarity to the phrase “red car.” If you want the coordinates of each car, you need region-level evidence. A text-conditioned detector can score image regions against the phrase and return candidate boxes. If you want an answer about whether a car is near a roundabout, a generative model can produce a written response using image and text inputs.
+
+| Question | Typical output | What to check |
+| --- | --- | --- |
+| Which images look relevant? | Ranked images | Relevance of the returned images and missed small objects |
+| Where is each car? | Candidate boxes or masks | Matches to labelled objects and duplicate or missed detections |
+| Is a red car near the roundabout? | Generated answer | Whether the image supports the object, attribute and spatial relation |
+
+The same phrase can be used across these systems, but the evidence each one returns is different. Evaluate the result the user receives. A fluent answer about a scene and a box placed on the right instance require different checks.
+
 ## Zero-shot labels and prompts
 
 Zero-shot classification compares an image against text candidates without fitting a task-specific classifier on labeled examples from those classes. The candidate set, wording and context affect results. Softmax over candidate similarities normalizes relative scores within that set; adding another candidate can change probabilities without changing the image. It is not an object-presence probability calibrated for arbitrary deployment scenes.
 
 A whole-image embedding can respond to context while missing a tiny object. Proposal crops localize the comparison but depend on proposal recall and surrounding context. Few-shot supports can provide visual prototypes, and a linear head can adapt an embedding to a known task. Distinguish novel class labels from new instances of classes already seen in pretraining or task supervision.
+
+## When the best text match names an absent object
+
+An image encoder gives “red car” a higher similarity than “bicycle.” If these are the only candidates, red car wins. It may still be absent: the comparison ranks supplied descriptions rather than establishing that one must be true.
+
+![“Red car” wins. There is no red car. “Red car”: 0.31; “Bicycle”: 0.28; Neither may be present](assets/dl-vision-language-toy.svg)
+
+Candidate wording, scene context and crop scale can all affect the result. A whole-image score may reflect the general setting, while a detector or region-level comparison asks a more localized question. The scores are useful only in relation to the task and the way they were evaluated.
+
+This distinction helps separate dual-encoder matching, generative VLM answers and open-vocabulary localization.
 
 ## Open-vocabulary localization
 

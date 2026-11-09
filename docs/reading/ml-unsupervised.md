@@ -2,15 +2,7 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## Two clusters, two possible explanations
-
-An embedding plot separates a dataset into two attractive islands. Looking at the images reveals that one island is bright and the other dark; both contain cars and trucks. The grouping is real, but it may not reflect the distinction we wanted.
-
-![The prettiest cluster might be a sensor. Appearance axis; Semantic labels; Two competing structures](assets/ml-unsupervised-toy.svg)
-
-Unsupervised methods organize the representation and relationships we give them. PCA favours high-variance directions, while clustering and nonlinear visualizations impose other criteria. Colouring the same plot by class, sensor and collection time can reveal which structure each method has captured.
-
-That makes representation, scaling and distance part of the explanation, rather than details to choose after seeing the plot.
+You receive image crops without class labels. Each crop has been converted to a vector of measurements. Can you find related groups, compress the measurements or draw a map that helps you inspect the collection? Those are different goals. The geometry of the vectors determines what structure is available to each method.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -41,6 +33,12 @@ Center a training feature matrix, then compute its singular value decomposition.
 
 Standardization changes the optimization from raw units to scaled units. Whitening additionally rescales principal coordinates and can amplify low-variance noise. Select dimensionality with a stated objective and evaluate downstream consequences. Fit the mean, scaling and PCA only on the training portion of a predictive pipeline. A reconstruction check and a plot of variance versus dimension reveal different aspects of the approximation.
 
+### Which variation would the first component keep?
+
+Suppose you measure average brightness and aspect ratio on image crops. There are bright and dark captures of both cars and trucks. Brightness changes strongly across captures, while aspect ratio varies less but helps distinguish the vehicle types. If the variation in brightness dominates the representation, the first principal component can mostly describe lighting. Keeping only that component can discard useful shape information.
+
+PCA chooses directions by variance. It uses neither vehicle labels nor the downstream retrieval objective. Scaling the original measurements can change which direction explains the most variation. This is useful when the units are arbitrary, but it does not automatically make the resulting components semantic. Inspect how reconstruction error and task performance change with the number of components. For clustering, also inspect some real members of each cluster. An appealing scatter plot can make a sensor or collection effect easy to see, which is valuable even when it does not reveal object categories.
+
 ## K-means and hierarchical clustering
 
 K-means alternates assignment to the nearest center and center updates to cluster means, reducing within-cluster squared Euclidean distance. Initialization and K matter; multiple restarts help with local solutions. It prefers compact roughly isotropic groups and requires a convention for empty clusters. A small objective does not establish that the clusters match useful classes.
@@ -57,11 +55,27 @@ A Gaussian mixture models `p(x) = sum_k pi_k N(x|mu_k,Sigma_k)`, where nonnegati
 
 In a basic full-covariance update, each mean is a responsibility-weighted average and each covariance averages centered outer products. Under regular conditions, exact EM steps do not decrease training likelihood, but may converge to a local solution. An unconstrained component can collapse onto a data point with near-singular covariance; regularize covariance, constrain the family or monitor degeneracy. Component labels can permute without changing the distribution, so compare distributions or aligned components rather than raw numeric IDs. K-means and GMM assignments reflect different noise/shape assumptions.
 
+### Let a point belong partly to each group
+
+Suppose observed vehicle lengths have two broad concentrations, one near 4 m and one near 8 m. K-means assigns a 6 m observation to one centre, with some convention if distances tie. A Gaussian mixture can give it partial membership in both components. If both components have the same spread and weight, that midpoint has equal membership. A 4 m observation is more likely under the first component, with the strength of that preference depending on the spread.
+
+Expectation maximization alternates two operations. Given the current distributions, estimate how much each component explains each observation. Given those fractional memberships, refit the component means, spreads and weights. This resembles repeatedly reassigning and averaging in k-means, with fractional assignments and a richer model. Different starting points can produce different solutions. Compare the fit and inspect examples associated with each component before giving the groups names.
+
 ## Nonlinear visualization
 
 t-SNE emphasizes local neighbor relationships by matching probability distributions in high and low dimensions. Perplexity, learning rate, initialization and sample density affect its map. Visual cluster area is not population size or original variance, and distances between separated groups are not a calibrated semantic distance. Repeat with several settings before interpreting an apparent island.
 
 UMAP constructs a weighted neighborhood graph and optimizes a low-dimensional representation. Neighbor count and minimum distance change the local/global appearance. It can provide useful projections and transformations, but a clean picture remains a model output. Validate meaningful neighborhood structure in the original representation and with actual examples. Do not use a visually separated t-SNE figure as evidence that a classifier will generalize to new sensors.
+
+## Two clusters, two possible explanations
+
+An embedding plot separates a dataset into two attractive islands. Looking at the images reveals that one island is bright and the other dark; both contain cars and trucks. The grouping is real, but it may not reflect the distinction we wanted.
+
+![The prettiest cluster might be a sensor. Appearance axis; Semantic labels; Two competing structures](assets/ml-unsupervised-toy.svg)
+
+Unsupervised methods organize the representation and relationships we give them. PCA favours high-variance directions, while clustering and nonlinear visualizations impose other criteria. Colouring the same plot by class, sensor and collection time can reveal which structure each method has captured.
+
+That makes representation, scaling and distance part of the explanation, rather than details to choose after seeing the plot.
 
 ## Outliers and practical interpretation
 

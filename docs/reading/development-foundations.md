@@ -2,15 +2,7 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## When the same code runs in a different environment
-
-The shape parser runs correctly from VS Code. Inside the container, it fails to find its input. Nothing in the parser changed: `./data` now refers to a different directory, and the file may not be mounted there at all.
-
-![It works on my pod. Why not yours? VS Code: ./data; Container: /app; Missing mount](assets/development-foundations-toy.svg)
-
-This is an easy failure to misdiagnose as a Python problem. The program depends on more than its source files: its working directory, interpreter, packages and mounted data all affect what it does. Reproducing the run means making those dependencies explicit.
-
-Following one input from the terminal into the container gives the Linux, Git and environment concepts below a concrete purpose.
+You have a Python program that reads shapes from a file and writes an image. Another researcher checks out the same code and gets a file error. To reproduce the run, you need to identify the current directory, interpreter, packages and mounted data that surround the code. This chapter follows those pieces from a local process to a container.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -39,6 +31,14 @@ A filesystem contains directories and files addressed by absolute or relative pa
 
 A process has its own address space; a terminal is just one way to interact with it. A tmux or screen session lets a long-running terminal task survive a disconnected client, but does not make the task restart after a machine failure. Know how to inspect processes, interrupt a job, read logs and distinguish a running process from a completed result. Avoid treating missing output as evidence of success.
 
+### Follow a relative path across two launches
+
+Imagine a script at `/work/renderer/render.py` that opens `data/shape.json`. Launching it while the shell is in `/work/renderer` usually resolves that relative path to `/work/renderer/data/shape.json`. Launching the same script from `/tmp` resolves it under `/tmp`. The file containing the Python code has not moved. The process started with a different working directory.
+
+Before changing the parser, inspect the working directory, the exact input path, and the interpreter used to run the script. An explicit argument for the input path makes the interface easier to reproduce. A clear error can report the resolved path, which turns an apparently mysterious missing file into a question about what was provided to the process.
+
+The same reasoning extends to a pod. A path inside a container refers to its own view of the filesystem. A file on the developer machine is available to the process only if it was included or mounted through the environment. Check the path from inside the running process's environment.
+
 ## Git as an experiment record
 
 A commit records a tree of tracked files plus metadata and parent history. The working tree contains your current files; the staging area selects the next commit. A branch is a movable reference to a commit; HEAD identifies the current checkout. Inspect `git status` and `git diff` before staging, and inspect the staged diff before committing. A local commit is not yet a remote backup. Fetch updates your view of the remote; merging combines histories and may require resolving conflicting edits. Resolve a conflict by understanding the intended behavior on both sides, then rerun the relevant example.
@@ -58,6 +58,16 @@ A virtual environment isolates Python packages. Pip installs packages; uv manage
 A Docker image is a layered filesystem and execution specification. A container is an instance with its own running processes and writable layer. Mount persistent data explicitly: deleting a container can remove unmounted results.
 
 Build context determines what a Dockerfile can copy. A published port and a process listening on the expected interface are both needed for access. Compose describes connected services for local work; an OpenShift Deployment manages replicas, a Service provides an internal address and a Route exposes the chosen service. Check readiness, requests, logs and a real response instead of equating an accepted manifest with a working deployment.
+
+## When the same code runs in a different environment
+
+The shape parser runs correctly from VS Code. Inside the container, it fails to find its input. Nothing in the parser changed: `./data` now refers to a different directory, and the file may not be mounted there at all.
+
+![It works on my pod. Why not yours? VS Code: ./data; Container: /app; Missing mount](assets/development-foundations-toy.svg)
+
+This is an easy failure to misdiagnose as a Python problem. The program depends on more than its source files: its working directory, interpreter, packages and mounted data all affect what it does. Reproducing the run means making those dependencies explicit.
+
+Following one input from the terminal into the container gives the Linux, Git and environment concepts below a concrete purpose.
 
 ## Following the shape parser through a real run
 

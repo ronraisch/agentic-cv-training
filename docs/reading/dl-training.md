@@ -2,30 +2,7 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## Following one weight through a training step
-
-A small network is easier to inspect than a large one, so start with a single weight: prediction `w × x`. With x=2, w=3 and target=4, it predicts 6. The squared-error loss divided by two is 2.
-
-![One weight. No mystery gradients. x=2, w=3; Prediction=6; Loss=2; gradient=4](assets/dl-training-toy.svg)
-
-The derivative with respect to w is `(prediction − target) × x`, which is 4 here. A learning rate of 0.1 changes w to 2.6, giving a prediction of 5.2 and a loss of 0.72. Every part of this update can be checked by hand.
-
-```python
-x, target, w = 2.0, 4.0, 3.0
-prediction = w * x
-gradient = (prediction - target) * x
-w -= 0.1 * gradient
-new_loss = 0.5 * (w * x - target) ** 2
-print(round(w, 2), round(new_loss, 2))
-```
-
-This prints:
-
-```text
-2.6 0.72
-```
-
-A larger network applies the same chain rule through many operations. The practical difficulty is tracking the right values, shapes and state.
+A trainable model turns input values into a prediction. To change its predictions, we need adjustable numbers called weights, a way to measure error and a rule for updating the weights. The chapter builds this path from a single computation to a training loop that can be checked after a restart.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -58,6 +35,37 @@ A loss compares predictions to targets and defines the optimization objective. C
 
 A gradient check perturbs a parameter and compares the numerical change to the analytic derivative, using a small deterministic double-precision example where possible. Kinks, random dropout, state updates and a poor step size can invalidate a naive comparison. A detached tensor or non-differentiable path can quietly stop learning even though the loss still prints.
 
+### Follow the gradient across two operations
+
+Take one scalar input x = 2. First compute `z = w × x` with w = 3, then let the prediction be `z + b` with b = 0. A target of 4 gives an error of 2. Using half the squared error makes the derivative with respect to the prediction equal to that error. The derivative with respect to b is therefore 2, because a unit change in b changes the prediction by one unit. The derivative with respect to w is 4, because a unit change in w changes the prediction by two units.
+
+Backpropagation applies the chain rule from the loss back through these operations. It tells each parameter how a small change would affect the loss with other values fixed. A gradient does not specify how far to move. The optimizer applies its own update rule and learning rate. In the single-weight code example below, b is held fixed so one step is easy to calculate.
+
+## Following one weight through a training step
+
+A small network is easier to inspect than a large one, so start with a single weight: prediction `w × x`. With x=2, w=3 and target=4, it predicts 6. The squared-error loss divided by two is 2.
+
+![One weight. No mystery gradients. x=2, w=3; Prediction=6; Loss=2; gradient=4](assets/dl-training-toy.svg)
+
+The derivative with respect to w is `(prediction − target) × x`, which is 4 here. A learning rate of 0.1 changes w to 2.6, giving a prediction of 5.2 and a loss of 0.72. Every part of this update can be checked by hand.
+
+```python
+x, target, w = 2.0, 4.0, 3.0
+prediction = w * x
+gradient = (prediction - target) * x
+w -= 0.1 * gradient
+new_loss = 0.5 * (w * x - target) ** 2
+print(round(w, 2), round(new_loss, 2))
+```
+
+This prints:
+
+```text
+2.6 0.72
+```
+
+A larger network applies the same chain rule through many operations. The practical difficulty is tracking the right values, shapes and state.
+
 ## Optimization and regularization
 
 Minibatch SGD estimates gradients from subsets. Learning rate controls update size; momentum accumulates directional history; adaptive methods such as Adam scale updates using moment estimates. A schedule changes the rate over training. Batch size affects optimization noise, memory, iteration count and hardware efficiency, so “same epochs” does not necessarily mean the same experiment.
@@ -77,6 +85,12 @@ Overfit a tiny clean subset as a diagnostic, inspect label and tensor shapes, ve
 ## Checkpoint and operational evidence
 
 Save architecture/config identity, model weights, preprocessing and label mapping. A resumable checkpoint also needs optimizer/scheduler and relevant state. Reload in a fresh process, run a new input and compare outputs with an appropriate tolerance. Do not confuse a Python object still resident in memory with a successful load. For the inference-only handover notebook, preserve all necessary preprocessing, construction, checkpoint loading and postprocessing without importing project internals.
+
+### What should happen after a restart?
+
+Keep a small input whose preprocessing and prediction you can reproduce. Run it in evaluation mode before saving a checkpoint. Then load the checkpoint in a fresh process and run the same path. Matching the expected result checks more than reading a file successfully. It also checks that the model configuration and preprocessing were reconstructed and that the consumer actually uses the restored weights.
+
+Use a separate new input to exercise the intended interface. If continuing training is part of the experiment, optimizer state and schedule may matter as well. An inference checkpoint and a resume checkpoint answer different questions. Record which behaviour you verified.
 
 ## Turning a training failure into a specific question
 

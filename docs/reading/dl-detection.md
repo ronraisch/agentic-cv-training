@@ -2,15 +2,7 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## Finding the stage that lost an object
-
-Eight objects are visible in an image, but only three usable proposals reach the classifier. Even a perfect classifier at that point can recover at most three of the eight objects in this toy example.
-
-![The classifier never saw the missing truck. 8 visible objects; 3 usable proposals; Recall ceiling: 3/8](assets/dl-detection-toy.svg)
-
-The missed detections need to be traced through the pipeline: resizing may erase detail, proposal generation may miss the object, classification may reject it, or postprocessing may suppress it. These causes call for different changes. Increasing classifier capacity addresses only some of them.
-
-The detection architectures below distribute those responsibilities differently, which is more useful to understand than their names alone.
+A classifier can report that an image contains a car. A detector also reports where individual cars are. That extra requirement introduces candidate locations, box coordinates, training assignments and decisions about repeated predictions. Following one image through those stages makes it possible to compare architectures and diagnose misses.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -39,6 +31,24 @@ The detection architectures below distribute those responsibilities differently,
 
 Classification predicts labels for an image or crop. Detection predicts a variable set of localized objects. Semantic segmentation predicts a category per pixel; instance segmentation separates individual objects. Panoptic segmentation combines semantic coverage with instance identity for appropriate classes. A detector's class vocabulary, box parameterization and maximum output count are operational constraints. Record whether geometry is horizontal, oriented or mask-based.
 
+### Follow two neighbouring cars through the output
+
+An image-level classifier might answer that cars are present. A semantic segmentation model could mark car pixels, including pixels belonging to both cars. An instance segmentation model would also distinguish which pixels belong to each car. A bounding-box detector represents the cars by separate boxes, which can be enough for counting or for cropping candidates for another model.
+
+Now suppose one car is partly occluded and two predicted boxes overlap its neighbour. The task needs a definition of what counts as one instance, a geometry for representing it and a rule for matching predictions to labels. These choices affect both training and evaluation. For remote-sensing scenes, an oriented box may describe a tilted long vehicle more tightly than an axis-aligned box. The overlap calculation and labels should use the geometry the evaluation declares.
+
+When a detector misses one car, inspect the earliest stage at which its evidence disappears. A model can have enough capacity to classify a crop accurately and still never propose a usable crop in a dense scene.
+
+## Finding the stage that lost an object
+
+Eight objects are visible in an image, but only three usable proposals reach the classifier. Even a perfect classifier at that point can recover at most three of the eight objects in this toy example.
+
+![The classifier never saw the missing truck. 8 visible objects; 3 usable proposals; Recall ceiling: 3/8](assets/dl-detection-toy.svg)
+
+The missed detections need to be traced through the pipeline: resizing may erase detail, proposal generation may miss the object, classification may reject it, or postprocessing may suppress it. These causes call for different changes. Increasing classifier capacity addresses only some of them.
+
+The detection architectures below distribute those responsibilities differently, which is more useful to understand than their names alone.
+
 ## From R-CNN to shared features
 
 R-CNN classifies proposed crops using CNN features and separates stages for classification and localization. Its repeated crop computation is expensive. Fast R-CNN shares image feature computation and pools region features for classification and box regression. Faster R-CNN introduces a learned region-proposal network over shared features. Explain the proposal stage's recall separately from the final head: no later classifier can recover an object that never receives a usable proposal.
@@ -54,6 +64,14 @@ NMS suppresses overlapping lower-scored predictions under a specified overlap ru
 ## Set prediction with DETR
 
 DETR uses learned object queries, attention over image features and a matching-based training objective for a fixed set of output slots. Bipartite matching associates predictions with ground-truth objects; unmatched predictions learn a no-object outcome. Query count limits simultaneous outputs and feature stride affects small objects. Deformable attention samples selected feature locations across scales to improve efficiency and learning. The DINO detector line and the DINO self-supervised encoder line share a name but solve different problems.
+
+### Two objects and three predictions
+
+Suppose a training image has two labelled cars. A DETR-style head returns three candidate slots. The training assignment compares candidates with labels using costs that can include class and box terms. It chooses a one-to-one assignment, so two slots can be matched to the two objects and the remaining slot can be trained as no object. This assignment is made from all candidate–label pairs together. A slot that is individually a good match for both objects can only take one of them.
+
+Contrast this with a detector trained on dense locations. Several neighbouring locations may receive positive supervision for one object, with duplicate removal later during inference. The training assignment and the inference duplicate policy are therefore connected design choices. Inspect both before attributing a difference in crowded scenes to the backbone or class head.
+
+Candidate or query limits can also matter. If the model can emit at most three distinct objects, an image with four valid instances cannot have perfect recall under one-to-one evaluation. In tiled images, record this limit per tile and inspect whether the misses occur before or after merging across tiles.
 
 ## Dense masks and OCR
 

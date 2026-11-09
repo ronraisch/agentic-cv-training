@@ -2,32 +2,7 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## What 97.8% accuracy looks like in an alert inbox
-
-Imagine 1,000 cases containing ten real positives. The system finds eight, misses two and raises twenty false alarms. It makes 978 correct decisions overall, so its accuracy is 97.8%.
-
-![98% accurate. Still drowning in alerts. 8 correct alerts; 20 false alerts; 2 missed positives](assets/ml-metrics-toy.svg)
-
-Someone reviewing its 28 alerts sees a different picture: only eight are useful. Precision is about 29%, while recall is 80%. Both describe this system correctly; they answer different operational questions. A reviewer may care about alert workload, while an analyst searching for rare objects may care more about misses.
-
-```python
-tp, fp, fn = 8, 20, 2
-precision = tp / (tp + fp)
-recall = tp / (tp + fn)
-print(round(precision, 3))
-print(round(recall, 3))
-```
-
-This prints:
-
-```text
-0.286
-0.8
-```
-
-The denominators encode two different questions: how useful are the alerts, and how many real positives did we find? These toy denominators are nonzero.
-
-Choosing a metric starts with deciding which decisions and costs the evaluation should represent.
+An evaluation starts with decisions a system makes on examples whose outcomes we can check. An inbox filter decides which messages to flag. A detector returns boxes, which first have to be matched to objects. A price model gives a number, which we can compare with a sale. A useful metric summarizes the errors relevant to the decision.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -60,17 +35,62 @@ TP and TN are correct positive and negative predictions; FP and FN are the two e
 
 If there are 10 positives among 1,000 cases and a model reports 8 TP and 20 FP, recall is 0.8, precision is 8/28≈0.286 and FPR is 20/990≈0.0202. Accuracy is 0.978, which hides the poor yield among alerts. F1 is the harmonic mean 2PR/(P+R); F-beta weights recall by beta squared. These summaries omit true negatives and do not encode every operational cost. Select a threshold against a stated target, such as minimum recall with an acceptable number of alerts.
 
+## What 97.8% accuracy looks like in an alert inbox
+
+Imagine 1,000 cases containing ten real positives. The system finds eight, misses two and raises twenty false alarms. It makes 978 correct decisions overall, so its accuracy is 97.8%.
+
+![98% accurate. Still drowning in alerts. 8 correct alerts; 20 false alerts; 2 missed positives](assets/ml-metrics-toy.svg)
+
+Someone reviewing its 28 alerts sees a different picture: only eight are useful. Precision is about 29%, while recall is 80%. Both describe this system correctly; they answer different operational questions. A reviewer may care about alert workload, while an analyst searching for rare objects may care more about misses.
+
+```python
+tp, fp, fn = 8, 20, 2
+precision = tp / (tp + fp)
+recall = tp / (tp + fn)
+print(round(precision, 3))
+print(round(recall, 3))
+```
+
+This prints:
+
+```text
+0.286
+0.8
+```
+
+The denominators encode two different questions: how useful are the alerts, and how many real positives did we find? These toy denominators are nonzero.
+
+Choosing a metric starts with deciding which decisions and costs the evaluation should represent.
+
 ## Curves, prevalence and aggregation
 
 One threshold gives one operating point, like the 28 alerts in the example. Sweeping the threshold gives a broader picture. A ROC curve plots true-positive rate against false-positive rate; ROC AUC summarizes ranking across positive/negative pairs. It does not describe probability calibration or guarantee a useful point at the required false-alarm budget. A precision–recall curve focuses on the yield and coverage of positive predictions. Its baseline depends on positive prevalence, so PR scores from different populations need care when compared.
 
 Lowering a threshold cannot reduce recall for a fixed score list, while precision need not change monotonically at every step. Average precision sums precision weighted by recall increments under one common convention. Trapezoidal PR area, interpolated AP and detection benchmark AP may differ. Record the implementation and tie handling. Macro averaging gives each class equal weight, micro averaging aggregates counts and support weighting weights class metrics. Support-weighted precision is generally not equal to micro precision. Show per-class counts as well as averages.
 
+### Calculate two points on the same precision–recall curve
+
+Take five predictions sorted by descending score. Their labels in that order are positive, negative, positive, negative, positive. There are three positives in total. A threshold accepting only the highest score gets precision 1 and recall 1/3. A threshold accepting the top three gets two true positives and one false positive, so precision is 2/3 and recall is 2/3. Accepting all five gets precision 3/5 and recall 1. A threshold changes which predictions count as decisions while the ordering stays fixed.
+
+| Accepted predictions | True positives | False positives | Precision | Recall |
+| --- | --- | --- | --- | --- |
+| Top 1 | 1 | 0 | 1 | 1/3 |
+| Top 3 | 2 | 1 | 2/3 | 2/3 |
+| All 5 | 3 | 2 | 3/5 | 1 |
+
+Each additional positive increases recall by 1/3 here. Average precision with the step-wise convention is therefore `(1 + 2/3 + 3/5) / 3 ≈ 0.756`. Interpolated AP definitions used by detection benchmarks can differ. Reporting a number without its convention makes comparisons hard to reproduce.
+
 ## Detection and segmentation
 
 Intersection over union is intersection area divided by union area. Match detections to ground truth using a declared class and overlap rule, generally one-to-one, then accumulate TP/FP as confidence decreases. A second prediction of an already matched object is normally a duplicate FP. Detection has no obvious count of all background TN boxes, so generic binary FPR is not automatically meaningful. AP at IoU 0.5 and AP averaged over several IoUs answer different localization questions. Horizontal boxes, oriented boxes and masks require the appropriate overlap geometry.
 
 For segmentation, pixel IoU and Dice summarize set overlap; boundary metrics and object-level recall reveal other failure modes. A large background or large object can dominate a pooled metric. State whether averaging is per pixel, per image, per class or per instance. Incomplete annotation complicates FP counts and may need ignored regions or audited subsets.
+
+### One object can produce two detections
+
+Suppose an image has one labelled truck and two predictions of that truck. The first has score 0.9 and overlaps the label well. The second has score 0.8 and also overlaps it well. Under the usual one-to-one matching rule the first can claim the object and become a true positive. The second is a duplicate and counts as a false positive. Accepting both therefore gives precision 1/2 and recall 1 on this image. The geometry of the boxes and the ranking of their scores both affect the evaluation.
+
+Changing the overlap threshold can turn a candidate match into a miss. Changing the score threshold can remove the duplicate without changing overlap at all. These are two different knobs. When comparing a localization change, hold the matching rule fixed. When comparing rescoring, hold the detector outputs and matching geometry fixed and examine what the changed ordering does.
 
 ## Selective prediction and calibration
 

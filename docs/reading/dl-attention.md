@@ -2,32 +2,7 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## Separating where attention looks from what it reads
-
-Suppose attention has assigned three input positions weights of 0.1, 0.7 and 0.2. Their scalar values are 1, 5 and 0. The weighted sum is 3.6.
-
-![Change a value. Keep the attention. Key/value A: 0.1; Key/value B: 0.7; Key/value C: 0.2](assets/dl-attention-toy.svg)
-
-Now change only the middle value from 5 to 2. With those weights unchanged, the result becomes 1.5. The example separates two jobs inside attention: queries and keys determine the weights, while values supply the content being combined.
-
-```python
-import numpy as np
-
-weights = np.array([0.1, 0.7, 0.2])
-values = np.array([1.0, 5.0, 0.0])
-print(round(float(weights @ values), 2))
-values[1] = 2.0
-print(round(float(weights @ values), 2))
-```
-
-This prints:
-
-```text
-3.6
-1.5
-```
-
-This small weighted sum is the last step of attention. The rest of the layer explains how the model learns the projections and produces the weights.
+A model reading a sentence or a picture receives a collection of input units. A word may depend on another word far away, and one image patch may need context from another part of the scene. Attention computes a different weighted combination of available information for each position.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -56,6 +31,47 @@ In a full attention layer, the weights in the opening example are computed from 
 
 The division by sqrt(d_k) happens before softmax. Under common initialization assumptions it moderates the growth in score variance as key dimension increases, helping avoid an excessively sharp distribution. Multiplying the result after softmax would change its magnitude rather than serve the same purpose. Masks change which positions are available: a causal mask excludes future positions, while a padding mask excludes absent tokens. A mask broadcast along the wrong axis can leave the output shape unchanged while letting forbidden information through.
 
+### Build the weights before multiplying the values
+
+Start with one two-dimensional query `[1, 0]` and keys `[1, 0]`, `[0, 1]` and `[−1, 0]`. The dot products are 1, 0 and −1. After division by the square root of 2, softmax exponentiates the three scaled scores and divides each by their sum. This gives positive weights that add to one. The first position receives the most weight because its key aligns best with the query.
+
+Give the three positions scalar values of 10, 20 and 30. The output is the weighted sum of those numbers. Now mask the third position. Its weight becomes zero and the remaining weights are renormalized. The output can change even if the first two scores and all the values stay fixed, because the set competing for weight changed.
+
+| Change one part | What can change in the result |
+| --- | --- |
+| Change a key while keeping the query fixed | That position's score and the distribution across positions |
+| Change a value while keeping scores and masks fixed | The content of the sum, with the same weights |
+| Mask a position | Which positions contribute and how the remaining weights are normalized |
+
+In a real layer there are many queries, and the values are vectors. The same calculation runs for each query. Tracking the score matrix as query positions by key positions is especially helpful when constructing masks.
+
+## Separating where attention looks from what it reads
+
+Suppose attention has assigned three input positions weights of 0.1, 0.7 and 0.2. Their scalar values are 1, 5 and 0. The weighted sum is 3.6.
+
+![Change a value. Keep the attention. Key/value A: 0.1; Key/value B: 0.7; Key/value C: 0.2](assets/dl-attention-toy.svg)
+
+Now change only the middle value from 5 to 2. With those weights unchanged, the result becomes 1.5. The example separates two jobs inside attention: queries and keys determine the weights, while values supply the content being combined.
+
+```python
+import numpy as np
+
+weights = np.array([0.1, 0.7, 0.2])
+values = np.array([1.0, 5.0, 0.0])
+print(round(float(weights @ values), 2))
+values[1] = 2.0
+print(round(float(weights @ values), 2))
+```
+
+This prints:
+
+```text
+3.6
+1.5
+```
+
+This small weighted sum is the last step of attention. The rest of the layer explains how the model learns the projections and produces the weights.
+
 ## Order, heads and architecture
 
 The comparisons alone do not tell the model where a token appeared. Ordinary self-attention without positional information is permutation equivariant: rearranging the inputs rearranges the corresponding outputs. Pooling can then produce an invariant summary. Absolute or relative positions, including rotary schemes, introduce order or geometry in different ways. Multiple heads allow different learned projections and interaction maps, although that does not guarantee a distinct interpretable role for every head.
@@ -67,6 +83,12 @@ A Transformer block also includes feedforward layers, residual connections and n
 For an image, patches can play the role of tokens. A Vision Transformer projects each patch into a vector and applies attention to the resulting sequence. A class token or pooling can summarize the image; a dense task can instead use the spatial tokens. Patch size therefore affects both sequence length and the detail directly represented by each input token. Doubling image height and width at fixed patch size gives roughly four times as many tokens, and the pairwise score work in full attention can grow by about sixteen times. Actual memory and latency also depend on the implementation.
 
 Changing resolution changes the spatial token grid and may require positional adaptation. Padding, interpolation and windowing rules must match the implementation. Swin uses local windows, shifted interaction patterns and hierarchical feature scales to reduce cost and build multiscale representations. CNNs encode stronger local weight-sharing structure; ViTs offer flexible long-range interaction. Data, pretraining and compute determine the actual tradeoff.
+
+### How image size turns into a sequence length
+
+With non-overlapping 16-by-16 patches, a 224-by-224 image gives a 14-by-14 patch grid, or 196 patch tokens. Doubling both image dimensions gives a 28-by-28 grid, or 784 patch tokens. Ignoring special tokens, full attention compares about 38,416 pairs in the first case and 614,656 in the second. The number of tokens grows fourfold and the pair count grows sixteenfold. This calculation describes the number of score entries, rather than a measured runtime.
+
+The resolution can still be worthwhile if it preserves a small object that would disappear after resize. Decide what spatial evidence the downstream task needs, then measure the impact of resolution on quality, memory and throughput. Local windows and hierarchical stages change which pairs are compared and how information travels across the image.
 
 ## What attention does not prove
 

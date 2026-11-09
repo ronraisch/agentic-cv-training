@@ -2,15 +2,7 @@
 
 [All training](index.md) · [Source coverage](sources.md)
 
-## What a model assumes between observations
-
-Three observations can be consistent with more than one function. The figure shows two functions that pass through the same points but behave differently elsewhere. Fitting those points alone does not choose how the prediction should continue.
-
-![Two curves agree exactly where you looked. Observed points; Plausible function A; Plausible function B](assets/ml-probabilistic-survey-toy.svg)
-
-A prior or covariance kernel expresses preferences over the unobserved behaviour. Predictive uncertainty is then conditional on those assumptions as well as the observations. This is a useful way to approach probabilistic models: ask what distribution they describe and which dependencies they assume.
-
-The following survey introduces several ways to express those choices and perform inference under them.
+Suppose several functions explain the observations you collected. Their predictions may disagree where you have no data. A probabilistic model specifies how observations and unknown quantities relate, and an inference method uses that specification to update what you know. The examples below make different choices about the kind of quantity being predicted and how uncertainty is represented.
 
 <details>
 <summary>Jump to a concept</summary>
@@ -35,9 +27,25 @@ The following survey introduces several ways to express those choices and perfor
 
 A GLM combines a linear predictor, a link function and a response distribution from an exponential family. Linear Gaussian regression and logistic Bernoulli regression are familiar examples; Poisson regression models count-like responses under suitable assumptions. Link and distribution are separate choices. A linear predictor does not mean the expected response must be a straight line in raw input space. Overdispersion and zero inflation can invalidate a simple count model.
 
+### Use a model for the kind of observation you receive
+
+Consider predicting how many vehicles a camera will detect per minute. An unconstrained straight-line prediction can go below zero. A Poisson model with a log link uses a linear score for the log of the expected count, so exponentiating produces a positive mean. The link describes how features affect that mean. The Poisson assumption describes the distribution of counts around it. They are separate choices.
+
+Compare this with a binary observation such as whether any vehicle appears. Logistic regression maps a linear score into a probability of that event. It answers a different question and can lose useful information about whether there are two vehicles or twenty. Choose the observation and model together. For counts, compare empirical variability with what the Poisson assumption implies. If rush-hour bursts produce greater variability than expected, the uncertainty under that model can be too narrow even if the mean is useful.
+
 ## Gaussian processes
 
 A Gaussian process defines a distribution over functions through a mean and covariance kernel. Finite collections of function values have a joint Gaussian distribution. In regression, conditioning on observed inputs/targets yields a predictive mean and uncertainty under the chosen kernel/noise model. Kernel length scale encodes smoothness and relevance assumptions. Standard exact inference can require cubic-time matrix factorization and quadratic storage in observation count; sparse/approximate methods change this tradeoff. A narrow posterior from a misspecified kernel is not a universal guarantee of confidence.
+
+## What a model assumes between observations
+
+Three observations can be consistent with more than one function. The figure shows two functions that pass through the same points but behave differently elsewhere. Fitting those points alone does not choose how the prediction should continue.
+
+![Two curves agree exactly where you looked. Observed points; Plausible function A; Plausible function B](assets/ml-probabilistic-survey-toy.svg)
+
+A prior or covariance kernel expresses preferences over the unobserved behaviour. Predictive uncertainty is then conditional on those assumptions as well as the observations. This is a useful way to approach probabilistic models: ask what distribution they describe and which dependencies they assume.
+
+The following survey introduces several ways to express those choices and perform inference under them.
 
 ## Graphical models
 
@@ -46,6 +54,12 @@ Probabilistic graphical models express a joint distribution through factorizatio
 ## MCMC and approximate inference
 
 When a posterior is hard to normalize or integrate, Monte Carlo methods approximate expectations from samples. Markov chain Monte Carlo constructs dependent samples whose stationary distribution is the target under appropriate conditions. Burn-in, mixing, autocorrelation, multiple chains and effective sample size matter. A long chain stuck in one region is not equivalent to many independent posterior samples. Convergence diagnostics can identify some problems but cannot prove every aspect of inference is correct.
+
+### Why keeping many draws can still give little new evidence
+
+Suppose a posterior puts weight on two plausible explanations for a collection of observations. A sampling algorithm starts near one and proposes nearby parameter values. Many consecutive draws can look almost identical. If the chain rarely moves to the other region, a histogram of those draws can miss an important part of the posterior even when it contains thousands of samples.
+
+Multiple chains started in different places, traces over time and an estimate of effective sample size can help diagnose the problem. The practical idea is that correlated draws contain less independent information than their count suggests. Before trusting uncertainty from approximate inference, ask which regions were explored and whether the diagnostic is sensitive to the failure you care about.
 
 ## Topic modeling and latent factors
 
