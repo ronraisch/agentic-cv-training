@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Watch a decision boundary learn</title>
+<style>*{box-sizing:border-box}body{margin:0;background:#f4f3fb;color:#19243d;font:16px/1.55 system-ui,sans-serif}main{max-width:1100px;margin:auto;padding:36px 24px 64px}header{max-width:760px;margin-bottom:24px}.eyebrow{font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;color:#5c479c;font-weight:750}h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.06;margin:.18em 0 .35em}h2{font-size:1.12rem;margin:0 0 .6em}p{margin:.5em 0 1em}.layout{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(240px,1fr);gap:16px}.card{background:white;border:1px solid #ddd9ed;border-radius:18px;padding:18px;min-width:0}canvas{display:block;max-width:100%;height:auto;border-radius:9px;margin:auto;background:#f7f7fb}.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}label.field{display:grid;gap:4px;margin:0 0 12px}select,input,button{font:inherit}select,button,input[type=text]{min-height:42px;border:1px solid #bcb4d3;border-radius:8px;padding:7px 10px;background:white;color:inherit}button{cursor:pointer}button.primary,button[aria-pressed=true]{background:#56369b;color:white;border-color:#56369b}input[type=range]{width:100%;accent-color:#56369b}input[type=checkbox]{accent-color:#56369b}.hint{background:#eae3fb;padding:12px 15px;border-radius:10px;margin:16px 0 0}small,.muted{color:#4e5972}.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.88rem;margin-top:12px}.stat{font-variant-numeric:tabular-nums}.plots{display:grid;grid-template-columns:1fr 1fr;gap:10px}.plots figure{margin:0;min-width:0}.plots figcaption{font-size:.9rem;font-weight:650;margin-bottom:5px}pre{white-space:pre;overflow:auto;background:#19243d;color:#f4f1ff;padding:14px;border-radius:10px;font-size:.84rem}code{font-family:ui-monospace,monospace}table{width:100%;border-collapse:collapse;font-size:.89rem}th,td{text-align:left;padding:7px;border-bottom:1px solid #eeeaf6}td.num{text-align:right;font-variant-numeric:tabular-nums}meter{width:100%;accent-color:#56369b}details{margin-top:18px}summary{cursor:pointer;font-weight:650}@media(max-width:700px){main{padding:22px 12px}.layout{grid-template-columns:1fr}.card{padding:12px}}</style>
+</head>
+<body><main>
+<header><div class="eyebrow">Machine learning · Offline lab</div><h1>Watch a decision boundary learn</h1><p>Train a small classifier on two-dimensional points. The background shows its current probability for class 1. Dots are training examples and outlined squares are held-out examples.</p></header>
+<div class="layout">
+<section class="card"><h2>Prediction over the feature plane</h2>
+<canvas id="plot" width="420" height="420" aria-label="Classifier probability map with labelled training and held-out points"></canvas>
+<p class="muted"><small>Horizontal x and vertical y both range from −1 to +1.</small></p><div class="legend"><span>● Train</span><span>□ Held out</span><span>Blue = class 0</span><span>Orange = class 1</span></div>
+<p id="stats" class="stat"></p></section>
+<section class="card" aria-label="Model and training controls">
+<h2>Model controls</h2>
+<label class="field">Dataset<select id="dataset"><option value="ring">Circle</option><option value="xor">XOR quadrants</option><option value="line">Linear split</option></select></label>
+<label class="field">Hidden units<select id="width"><option value="0">0 · Logistic regression</option><option value="4" selected>4</option><option value="8">8</option><option value="16">16</option></select></label>
+<label class="field">Hidden activation<select id="activation"><option value="tanh">tanh</option><option value="relu">ReLU</option></select></label>
+<label class="field">Learning rate <output id="rateValue">0.10</output><input id="rate" type="range" min=".01" max=".5" step=".01" value=".10"></label>
+<label class="field">Label noise <output id="noiseValue">0%</output><input id="noise" type="range" min="0" max=".35" step=".05" value="0"></label>
+<label class="field"><span><input id="features" type="checkbox"> Add x², y² and xy features</span></label>
+<label class="field"><span><input id="heldout" type="checkbox" checked> Show held-out points</span></label>
+<div class="row"><button id="run" class="primary">Train</button><button id="step">25 updates</button><button id="reset">Reset</button></div>
+<p class="muted"><small>Changing the data, architecture or features resets the fit. The learning rate can change during training.</small></p>
+</section></div>
+<p class="hint"><strong>Compare two fits.</strong> On Circle, train with zero hidden units first. Then enable the squared features and train again. Which boundary can each representation express?</p>
+<details><summary>What is being trained?</summary><p>This lab uses seeded synthetic data, a sigmoid output and binary cross-entropy. Each update samples 24 training points and applies their average gradient. The held-out set is sampled independently and contributes only to the displayed evaluation. Both sets use the selected label-noise rate.</p></details>
+<noscript><p>Enable JavaScript in your local browser to use this lab.</p></noscript>
+</main>
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const canvas = $('plot'), ctx = canvas.getContext('2d');
+let train, test, model, rng, steps, frame = null;
+function seeded(seed) {
+  return () => {
+    seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
+    return seed / 4294967296;
+  };
+}
+function features(x, y) { return $('features').checked ? [x, y, x*x, y*y, x*y, 1] : [x, y, 1]; }
+function examples(count, seed) {
+  const random = seeded(seed), kind = $('dataset').value, noise = +$('noise').value;
+  return Array.from({length: count}, () => {
+    const x = 2*random()-1, y = 2*random()-1;
+    const label = Number(kind === 'ring' ? x*x+y*y < .36 : kind === 'xor' ? x*y > 0 : x+.45*y > 0);
+    return {x, y, z: features(x,y), label: random()<noise ? 1-label : label};
+  });
+}
+const dot = (a,b) => a.reduce((s,v,i) => s+v*b[i],0);
+const sigmoid = z => 1/(1+Math.exp(-Math.max(-50,Math.min(50,z))));
+function forward(z) {
+  const a = model.hidden.map(w => dot(w,z));
+  const h = a.map(v => model.relu ? Math.max(0,v) : Math.tanh(v));
+  const input = h.length ? [...h,1] : z;
+  return {a,h,input,p:sigmoid(dot(model.output,input))};
+}
+function update() {
+  const size = 24, rate = +$('rate').value / size;
+  const outGrad = model.output.map(() => 0);
+  const hiddenGrad = model.hidden.map(row => row.map(() => 0));
+  for (let i=0;i<size;i++) {
+    const point = train[Math.floor(rng()*train.length)];
+    const {p,a,h,input} = forward(point.z), error = p-point.label;
+    input.forEach((v,j) => outGrad[j] += error*v);
+    h.forEach((v,j) => {
+      const slope = model.relu ? Number(a[j]>0) : 1-v*v;
+      const gradient = error*model.output[j]*slope;
+      point.z.forEach((z,k) => hiddenGrad[j][k] += gradient*z);
+    });
+  }
+  model.output.forEach((v,j) => model.output[j] = v-rate*outGrad[j]);
+  model.hidden.forEach((row,j) => row.forEach((v,k) => row[k] = v-rate*hiddenGrad[j][k]));
+  steps++;
+}
+function evaluate(points) {
+  let right=0, loss=0;
+  for (const point of points) {
+    const p=forward(point.z).p;
+    right += Number(Number(p>=.5) === point.label);
+    loss -= Math.log(Math.max(1e-12, point.label ? p : 1-p));
+  }
+  return {accuracy:Math.round(100*right/points.length),loss:loss/points.length};
+}
+function draw() {
+  const side = canvas.width, cell=7;
+  for(let y=0;y<side;y+=cell) for(let x=0;x<side;x+=cell) {
+    const p=forward(features(2*(x+cell/2)/side-1,1-2*(y+cell/2)/side)).p;
+    ctx.fillStyle = 'rgb('+[Math.round(136+119*p),Math.round(171+10*p),Math.round(246-120*p)].join(',')+')';
+    ctx.fillRect(x,y,cell,cell);
+  }
+  ctx.strokeStyle='#ffffffaa';ctx.beginPath();ctx.moveTo(side/2,0);ctx.lineTo(side/2,side);ctx.moveTo(0,side/2);ctx.lineTo(side,side/2);ctx.stroke();
+  const plot = (points, square) => {
+    for (const pt of points) {
+      const x=(pt.x+1)*side/2, y=(1-pt.y)*side/2;
+      ctx.beginPath();
+      if(square)ctx.rect(x-3,y-3,6,6); else ctx.arc(x,y,3.3,0,Math.PI*2);
+      ctx.fillStyle=square?'#fff':pt.label?'#b74c10':'#174caa';
+      ctx.strokeStyle=square?(pt.label?'#b74c10':'#174caa'):'#fff';
+      ctx.lineWidth=square?1.6:1;
+      ctx.fill();ctx.stroke();
+    }
+  };
+  plot(train,false);
+  if($('heldout').checked)plot(test,true);
+  const a=evaluate(train),b=evaluate(test);
+  $('stats').textContent=steps+' updates · Train '+a.accuracy+'% / loss '+a.loss.toFixed(3)+' · Held out '+b.accuracy+'% / loss '+b.loss.toFixed(3);
+}
+function stop() {
+  if(frame!==null)cancelAnimationFrame(frame);
+  frame=null;$('run').textContent='Train';
+}
+function reset() {
+  stop();steps=0; rng=seeded(72);train=examples(144,329);test=examples(96,197);
+  const width=+$('width').value, dims=train[0].z.length;
+  const weights = n => Array.from({length:n},()=>.8*rng()-.4);
+  model={hidden:Array.from({length:width},()=>weights(dims)),output:weights(width?width+1:dims),relu:$('activation').value==='relu'};
+  $('activation').disabled=width===0;
+  $('noiseValue').textContent=Math.round(100*+$('noise').value)+'%';draw();
+}
+function tick() {
+  for(let i=0;i<8;i++)update();
+  draw();
+  if(steps>=5000){stop();return;}
+  frame=requestAnimationFrame(tick);
+}
+$('run').onclick=()=>{if(frame!==null){stop();return;} if(steps>=5000)reset(); $('run').textContent='Pause';frame=requestAnimationFrame(tick);};
+$('step').onclick=()=>{stop();for(let i=0;i<25;i++)update();draw();};
+$('reset').onclick=reset;
+for(const id of ['dataset','width','activation','noise','features']) $(id).onchange=reset;
+$('rate').oninput=()=>{$('rateValue').textContent=(+$('rate').value).toFixed(2);};
+$('heldout').onchange=draw;reset();
+</script>
+</body></html>

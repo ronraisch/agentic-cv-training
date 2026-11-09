@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Same task, three code designs</title>
+<style>*{box-sizing:border-box}body{margin:0;background:#f4f3fb;color:#19243d;font:16px/1.55 system-ui,sans-serif}main{max-width:1100px;margin:auto;padding:36px 24px 64px}header{max-width:760px;margin-bottom:24px}.eyebrow{font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;color:#5c479c;font-weight:750}h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.06;margin:.18em 0 .35em}h2{font-size:1.12rem;margin:0 0 .6em}p{margin:.5em 0 1em}.layout{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(240px,1fr);gap:16px}.card{background:white;border:1px solid #ddd9ed;border-radius:18px;padding:18px;min-width:0}canvas{display:block;max-width:100%;height:auto;border-radius:9px;margin:auto;background:#f7f7fb}.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}label.field{display:grid;gap:4px;margin:0 0 12px}select,input,button{font:inherit}select,button,input[type=text]{min-height:42px;border:1px solid #bcb4d3;border-radius:8px;padding:7px 10px;background:white;color:inherit}button{cursor:pointer}button.primary,button[aria-pressed=true]{background:#56369b;color:white;border-color:#56369b}input[type=range]{width:100%;accent-color:#56369b}input[type=checkbox]{accent-color:#56369b}.hint{background:#eae3fb;padding:12px 15px;border-radius:10px;margin:16px 0 0}small,.muted{color:#4e5972}.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.88rem;margin-top:12px}.stat{font-variant-numeric:tabular-nums}.plots{display:grid;grid-template-columns:1fr 1fr;gap:10px}.plots figure{margin:0;min-width:0}.plots figcaption{font-size:.9rem;font-weight:650;margin-bottom:5px}pre{white-space:pre;overflow:auto;background:#19243d;color:#f4f1ff;padding:14px;border-radius:10px;font-size:.84rem}code{font-family:ui-monospace,monospace}table{width:100%;border-collapse:collapse;font-size:.89rem}th,td{text-align:left;padding:7px;border-bottom:1px solid #eeeaf6}td.num{text-align:right;font-variant-numeric:tabular-nums}meter{width:100%;accent-color:#56369b}details{margin-top:18px}summary{cursor:pointer;font-weight:650}@media(max-width:700px){main{padding:22px 12px}.layout{grid-template-columns:1fr}.card{padding:12px}}</style>
+</head>
+<body><main>
+<header><div class="eyebrow">Development · Offline lab</div><h1>Same task, three code designs</h1><p>A sensor sends a comma-separated list of readings. Keep numeric readings that pass the selected threshold and return each one with its original position. Switch designs to see how each implementation splits up the work.</p></header>
+<div class="layout">
+<section class="card"><h2>Executable JavaScript</h2>
+<div class="row" role="group" aria-label="Code design">
+<button data-pattern="direct" aria-pressed="true">Direct function</button>
+<button data-pattern="strategy" aria-pressed="false">Strategy</button>
+<button data-pattern="pipeline" aria-pressed="false">Pipeline</button>
+</div><p id="designNote"></p><pre><code id="source"></code></pre></section>
+<section class="card"><h2>Run the same input</h2>
+<label class="field">Readings<input id="readings" type="text" maxlength="160" value="12, 21, bad, 20, , 33"></label>
+<label class="field">Threshold <output id="thresholdValue"></output><input id="threshold" type="range" min="0" max="50" value="20"></label>
+<label class="field">Acceptance rule<select id="rule"><option value="inclusive">At least the threshold</option><option value="strict">Above the threshold</option></select></label>
+<h2>Retained readings</h2><pre id="result" aria-live="polite"></pre><p id="comparison"></p>
+</section></div>
+<p class="hint"><strong>Compare responsibilities.</strong> Switch the acceptance rule and locate the code that decides whether to keep a reading. Then switch designs and see where that decision lives.</p>
+<details><summary>When each design helps</summary><p>A direct function keeps a short, stable task together. A strategy makes interchangeable decisions easy to select and test. A pipeline makes intermediate stages explicit when parsing, filtering and formatting change separately. The input and output contract is shared across the three examples.</p></details>
+<noscript><p>Enable JavaScript in your local browser to use this lab.</p></noscript>
+</main>
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+function direct(text, threshold, rule) {
+  const output = [];
+  for (const [index, part] of text.split(',').entries()) {
+    if (part.trim() === '') continue;
+    const value = Number(part);
+    if (!Number.isFinite(value)) continue;
+    const keep = rule === 'strict'
+      ? value > threshold
+      : value >= threshold;
+    if (keep) output.push({index, value});
+  }
+  return output;
+}
+function strategy(text, threshold, rule) {
+  const rules = {
+    strict: value => value > threshold,
+    inclusive: value => value >= threshold
+  };
+  const accepts = rules[rule];
+  return text.split(',')
+    .map((part, index) => ({
+      index, value: part.trim() === '' ? NaN : Number(part)
+    }))
+    .filter(({value}) => Number.isFinite(value) && accepts(value));
+}
+function pipeline(text, threshold, rule) {
+  const parse = raw => raw.split(',').map((part, index) => ({
+    index, value: part.trim() === '' ? NaN : Number(part)
+  }));
+  const dropInvalid = rows => rows.filter(({value}) => Number.isFinite(value));
+  const filter = rows => rows.filter(({value}) =>
+    rule === 'strict' ? value > threshold : value >= threshold
+  );
+  return [parse, dropInvalid, filter].reduce((rows, stage) => stage(rows), text);
+}
+const designs={direct,strategy,pipeline};
+const notes={
+  direct:'Parsing, validation and thresholding sit together in one loop. Read down the function to follow one input.',
+  strategy:'The rule is selected once from a registry. The filtering code calls the selected predicate for each valid reading.',
+  pipeline:'A reading passes through named parsing, validation and threshold stages. Each stage has a separate input and output.'
+};
+let active='direct';
+function draw() {
+  const threshold=+$('threshold').value;
+  const args=[$('readings').value,threshold,$('rule').value];
+  const results=Object.values(designs).map(fn=>JSON.stringify(fn(...args)));
+  const agrees=results.every(result=>result===results[0]);
+  const selected=designs[active](...args);
+  $('thresholdValue').textContent=threshold;
+  $('source').textContent=designs[active].toString();
+  $('designNote').textContent=notes[active];
+  $('result').textContent=selected.length ? selected.map(({index,value})=>'Index '+index+' → '+value).join(String.fromCharCode(10)) : 'No readings pass this rule.';
+  $('comparison').textContent=agrees?'All three implementations agree on this input.':'The implementations disagree on this input.';
+  document.querySelectorAll('[data-pattern]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.pattern===active)));
+}
+document.querySelectorAll('[data-pattern]').forEach(button=>button.onclick=()=>{active=button.dataset.pattern;draw();});
+for(const id of ['readings','threshold','rule']) $(id).oninput=draw;
+draw();
+</script>
+</body></html>

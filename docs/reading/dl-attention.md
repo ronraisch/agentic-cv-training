@@ -93,6 +93,8 @@ Q, K and the mask determine the weights. V supplies the content of the weighted 
 
 </details>
 
+Change a key or a value and compare the attention weights with the weighted output. [Attention map playground](../playgrounds/attention-map.html)
+
 ## Order, heads and architecture
 
 The comparisons alone do not tell the model where a token appeared. Ordinary self-attention without positional information is permutation equivariant: rearranging the inputs rearranges the corresponding outputs. Pooling can then produce an invariant summary. Absolute or relative positions, including rotary schemes, introduce order or geometry in different ways. Multiple heads allow different learned projections and interaction maps, although that does not guarantee a distinct interpretable role for every head.

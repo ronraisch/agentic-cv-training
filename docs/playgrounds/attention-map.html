@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Open up one attention head</title>
+<style>*{box-sizing:border-box}body{margin:0;background:#f4f3fb;color:#19243d;font:16px/1.55 system-ui,sans-serif}main{max-width:1100px;margin:auto;padding:36px 24px 64px}header{max-width:760px;margin-bottom:24px}.eyebrow{font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;color:#5c479c;font-weight:750}h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.06;margin:.18em 0 .35em}h2{font-size:1.12rem;margin:0 0 .6em}p{margin:.5em 0 1em}.layout{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(240px,1fr);gap:16px}.card{background:white;border:1px solid #ddd9ed;border-radius:18px;padding:18px;min-width:0}canvas{display:block;max-width:100%;height:auto;border-radius:9px;margin:auto;background:#f7f7fb}.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}label.field{display:grid;gap:4px;margin:0 0 12px}select,input,button{font:inherit}select,button,input[type=text]{min-height:42px;border:1px solid #bcb4d3;border-radius:8px;padding:7px 10px;background:white;color:inherit}button{cursor:pointer}button.primary,button[aria-pressed=true]{background:#56369b;color:white;border-color:#56369b}input[type=range]{width:100%;accent-color:#56369b}input[type=checkbox]{accent-color:#56369b}.hint{background:#eae3fb;padding:12px 15px;border-radius:10px;margin:16px 0 0}small,.muted{color:#4e5972}.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.88rem;margin-top:12px}.stat{font-variant-numeric:tabular-nums}.plots{display:grid;grid-template-columns:1fr 1fr;gap:10px}.plots figure{margin:0;min-width:0}.plots figcaption{font-size:.9rem;font-weight:650;margin-bottom:5px}pre{white-space:pre;overflow:auto;background:#19243d;color:#f4f1ff;padding:14px;border-radius:10px;font-size:.84rem}code{font-family:ui-monospace,monospace}table{width:100%;border-collapse:collapse;font-size:.89rem}th,td{text-align:left;padding:7px;border-bottom:1px solid #eeeaf6}td.num{text-align:right;font-variant-numeric:tabular-nums}meter{width:100%;accent-color:#56369b}details{margin-top:18px}summary{cursor:pointer;font-weight:650}@media(max-width:700px){main{padding:22px 12px}.layout{grid-template-columns:1fr}.card{padding:12px}th,td{padding:5px;font-size:.77rem;overflow-wrap:anywhere}}</style>
+</head>
+<body><main>
+<header><div class="eyebrow">Deep learning · Offline lab</div><h1>Open up one attention head</h1><p>Each row answers a different query. The columns are key positions. These four tokens use hand-set, two-dimensional vectors so you can check each operation by hand.</p></header>
+<div class="layout">
+<section class="card"><h2>Attention weights</h2>
+<table id="map" aria-label="Attention heatmap. Rows are queries and columns are keys."></table>
+<p id="result" class="stat" aria-live="polite"></p>
+<h2>Selected query calculation</h2><table id="calc" aria-label="Query scores, weights, values and weighted contributions"></table><details><summary>Query and key vectors</summary><table id="vectors" aria-label="Toy query and key vectors"></table></details></section>
+<section class="card"><h2>Change one input</h2>
+<label class="field">Inspect query<select id="query"><option value="0">The</option><option value="1">small</option><option value="2" selected>red</option><option value="3">car</option></select></label>
+<label class="field">Softmax temperature <output id="tempValue"></output><input id="temp" type="range" min=".2" max="3" value="1" step=".1"></label>
+<label class="field"><span><input id="causal" type="checkbox"> Causal mask</span></label>
+<label class="field">Scale the key for “car” <output id="keyValue"></output><input id="keyScale" type="range" min="0" max="2" value="1" step=".1"></label>
+<label class="field">Value at “car” <output id="valueValue"></output><input id="carValue" type="range" min="-3" max="6" value="3" step=".25"></label>
+<button id="reset">Reset settings</button></section></div>
+<p class="hint"><strong>Watch the two outputs separately.</strong> Change the value for “car”. The heatmap should stay fixed while the weighted output can change. Then change its key or turn on the mask.</p>
+<details><summary>Calculation</summary><p>For each row, compute the dot product of the query and each key. Divide by √2 and the chosen temperature, then apply softmax over eligible positions. With a causal mask, later positions have zero weight. Multiply each resulting weight by its scalar value and sum.</p></details>
+<noscript><p>Enable JavaScript in your local browser to use this lab.</p></noscript>
+</main>
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const tokens=['The','small','red','car'];
+const queries=[[.6,.1],[.1,1.4],[1.6,.3],[1.3,1]];
+const baseKeys=[[.4,.2],[0,1.6],[1.3,.1],[1.6,1.2]];
+const dot=(a,b)=>a.reduce((sum,x,i)=>sum+x*b[i],0);
+function row(index,keys,temperature,causal) {
+  const scores=keys.map((k,j)=>causal&&j>index ? -Infinity : dot(queries[index],k)/Math.sqrt(2)/temperature);
+  const max=Math.max(...scores), exp=scores.map(s=>Math.exp(s-max));
+  const total=exp.reduce((a,b)=>a+b,0);
+  return {scores,weights:exp.map(x=>x/total)};
+}
+function cell(row,text,header=false) {
+  const item=document.createElement(header?'th':'td');item.textContent=text;
+  row.append(item);return item;
+}
+function table(id,head) {
+  const target=$(id);target.replaceChildren();
+  const line=document.createElement('tr');head.forEach(x=>cell(line,x,true));target.append(line);
+  return target;
+}
+function draw() {
+  const idx=+$('query').value, scale=+$('keyScale').value, temp=+$('temp').value;
+  const keys=baseKeys.map((k,i)=>i===3?k.map(v=>v*scale):k);
+  const values=[0,1,2,+$('carValue').value];
+  const matrix=queries.map((_,i)=>row(i,keys,temp,$('causal').checked));
+  const map=table('map',['Query ↓ / Key →',...tokens]);
+  matrix.forEach(({weights},i)=>{
+    const line=document.createElement('tr');
+    cell(line,(i===idx?'→ ':'')+tokens[i],true);
+    weights.forEach((w,j)=>{
+      const blocked=$('causal').checked&&j>i;
+      const td=cell(line,blocked?'—':w.toFixed(3));
+      td.className='num';td.style.backgroundColor=blocked?'#f3f3f7':'rgba(115,80,195,'+(w*.46)+')';
+    });
+    map.append(line);
+  });
+  const vectors=table('vectors',['Token','Query vector','Key vector']);
+  tokens.forEach((name,i)=>{
+    const line=document.createElement('tr');
+    cell(line,name);
+    cell(line,'['+queries[i].join(', ')+']');
+    cell(line,'['+keys[i].map(x=>x.toFixed(2)).join(', ')+']');
+    vectors.append(line);
+  });
+  const {scores,weights}=matrix[idx], calc=table('calc',['Key','Logit','Weight','Value','Contribution']);
+  tokens.forEach((name,i)=>{
+    const line=document.createElement('tr');
+    cell(line,name);
+    [Number.isFinite(scores[i])?scores[i].toFixed(2):'masked',weights[i].toFixed(3),values[i],(weights[i]*values[i]).toFixed(3)]
+      .forEach(x=>cell(line,x).className='num');
+    calc.append(line);
+  });
+  $('result').textContent='Query “'+tokens[idx]+'” · weighted output '+dot(weights,values).toFixed(3)+' · weights sum to '+weights.reduce((a,b)=>a+b,0).toFixed(3);
+  $('tempValue').textContent=temp.toFixed(1);
+  $('keyValue').textContent=scale.toFixed(1)+'×';
+  $('valueValue').textContent=values[3].toFixed(2);
+}
+for(const id of ['query','temp','causal','keyScale','carValue']) $(id).oninput=draw;
+$('reset').onclick=()=>{$('query').value=2;$('temp').value=1;$('causal').checked=false;$('keyScale').value=1;$('carValue').value=3;draw();};
+draw();
+</script>
+</body></html>

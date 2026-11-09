@@ -109,6 +109,8 @@ Learning happens before and during implementation. Ask your agent to explain a d
 
 - [Archived edge route: C/C++, ownership, builds and binary networks](development-cpp.md)
 
+Experiment with decision boundaries, image filters, attention and code design in standalone pages. [Offline playgrounds](../playgrounds/README.md)
+
 ## Preservation and source coverage
 
 See [the link-by-link migration table](sources.md) and [the GitHub-friendly index](../TRAINING_INDEX.md). Reading lives in local HTML, videos retain external URLs, and original Drive files remain unchanged. The new explanatory chapters consolidate repeated introductions; the original learner handouts are also retained in full.

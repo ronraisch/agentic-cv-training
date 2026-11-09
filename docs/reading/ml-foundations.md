@@ -181,6 +181,8 @@ Training the score and choosing how to act on it are separate decisions. A mailb
 
 When exactly one of several classes applies, a softmax can turn their scores into a distribution and multiclass cross entropy can train the model. When several labels can apply to one input, independent sigmoid outputs can represent them separately. A video clip, for example, can show both a road and an outdoor scene. Treating those as mutually exclusive classes would encode the wrong task.
 
+Train a small classifier and compare which boundaries different features let it learn. [Decision boundaries playground](../playgrounds/decision-boundaries.html)
+
 ## Decide what a new example is similar to
 
 Fitting a line is one way to use past sales. Another is to keep the records and predict from nearby apartments. You could choose the three sales most similar in size and location and average their prices. That is an instance-based approach such as K-nearest neighbours. A model-based approach such as linear regression instead stores fitted parameters summarizing the observations. The two approaches use the same supervision, with different representations of what they learned.

@@ -87,6 +87,8 @@ The three equal weights are each 1/3, so the result is (0 + 9 + 0) / 3 = 3.
 
 </details>
 
+Change the blur radius and see which plate strokes survive an edge threshold. [Image filters playground](../playgrounds/image-filters.html)
+
 ## Template matching and edge detection
 
 Correlation can search for a known template, but raw intensity similarity changes with illumination. Zero-mean normalized correlation removes additive offsets and positive multiplicative contrast changes when both patches have nonzero variance. It does not create invariance to perspective, scale or occlusion. Large windows collect evidence but may mix multiple surfaces; small windows localize precisely but are noisy and ambiguous.

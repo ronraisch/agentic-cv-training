@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Find edges in a noisy plate</title>
+<style>*{box-sizing:border-box}body{margin:0;background:#f4f3fb;color:#19243d;font:16px/1.55 system-ui,sans-serif}main{max-width:1100px;margin:auto;padding:36px 24px 64px}header{max-width:760px;margin-bottom:24px}.eyebrow{font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;color:#5c479c;font-weight:750}h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.06;margin:.18em 0 .35em}h2{font-size:1.12rem;margin:0 0 .6em}p{margin:.5em 0 1em}.layout{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(240px,1fr);gap:16px}.card{background:white;border:1px solid #ddd9ed;border-radius:18px;padding:18px;min-width:0}canvas{display:block;max-width:100%;height:auto;border-radius:9px;margin:auto;background:#f7f7fb}.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}label.field{display:grid;gap:4px;margin:0 0 12px}select,input,button{font:inherit}select,button,input[type=text]{min-height:42px;border:1px solid #bcb4d3;border-radius:8px;padding:7px 10px;background:white;color:inherit}button{cursor:pointer}button.primary,button[aria-pressed=true]{background:#56369b;color:white;border-color:#56369b}input[type=range]{width:100%;accent-color:#56369b}input[type=checkbox]{accent-color:#56369b}.hint{background:#eae3fb;padding:12px 15px;border-radius:10px;margin:16px 0 0}small,.muted{color:#4e5972}.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.88rem;margin-top:12px}.stat{font-variant-numeric:tabular-nums}.plots{display:grid;grid-template-columns:1fr 1fr;gap:10px}.plots figure{margin:0;min-width:0}.plots figcaption{font-size:.9rem;font-weight:650;margin-bottom:5px}pre{white-space:pre;overflow:auto;background:#19243d;color:#f4f1ff;padding:14px;border-radius:10px;font-size:.84rem}code{font-family:ui-monospace,monospace}table{width:100%;border-collapse:collapse;font-size:.89rem}th,td{text-align:left;padding:7px;border-bottom:1px solid #eeeaf6}td.num{text-align:right;font-variant-numeric:tabular-nums}meter{width:100%;accent-color:#56369b}details{margin-top:18px}summary{cursor:pointer;font-weight:650}@media(max-width:700px){main{padding:22px 12px}.layout{grid-template-columns:1fr}.card{padding:12px}}</style>
+</head>
+<body><main>
+<header><div class="eyebrow">Computer vision · Offline lab</div><h1>Find edges in a noisy plate</h1><p>Use a synthetic greyscale plate to see how smoothing changes the evidence that an edge detector receives. Compare the same pixels before and after processing.</p></header>
+<div class="layout">
+<section class="card"><div class="plots">
+<figure><figcaption>Noisy input</figcaption><canvas id="input" width="240" height="160" aria-label="Synthetic plate with adjustable image noise"></canvas></figure>
+<figure><figcaption id="resultLabel">Thresholded edges</figcaption><canvas id="output" width="240" height="160" aria-label="Processed image from selected filter"></canvas></figure>
+</div><p id="stats" class="stat"></p></section>
+<section class="card"><h2>Processing controls</h2>
+<label class="field">Noise amplitude <output id="noiseValue"></output><input id="noise" type="range" min="0" max="100" value="32"></label>
+<label class="field">Box blur radius <output id="radiusValue"></output><input id="radius" type="range" min="0" max="8" value="1"></label>
+<label class="field">Edge threshold <output id="thresholdValue"></output><input id="threshold" type="range" min="5" max="160" value="38"></label>
+<label class="field">Show<select id="mode"><option value="mask">Thresholded edges</option><option value="sobel">Sobel gradient magnitude</option><option value="blur">Smoothed image</option></select></label>
+<button id="reset">Reset settings</button></section></div>
+<p class="hint"><strong>Keep noise fixed.</strong> Increase the blur radius until the speckle fades. Then inspect the narrow character strokes. Switch to gradient magnitude to see which responses the threshold will keep.</p>
+<details><summary>How the filter works</summary><p>The box filter averages a square neighbourhood, extending the nearest border value at image boundaries. Sobel estimates horizontal and vertical intensity changes from 3 × 3 neighbourhoods. The binary view marks pixels whose gradient magnitude, scaled by 1/4, meets the threshold. Edge count measures response density on this synthetic image.</p></details>
+<noscript><p>Enable JavaScript in your local browser to use this lab.</p></noscript>
+</main>
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const W=240,H=160;
+const input=$('input').getContext('2d'), output=$('output').getContext('2d');
+input.fillStyle='#353535';input.fillRect(0,0,W,H);
+input.save();input.translate(120,80);input.rotate(-.14);
+input.fillStyle='#dddddd';input.fillRect(-93,-37,186,74);
+input.strokeStyle='#777';input.lineWidth=2;input.strokeRect(-88,-32,176,64);
+input.fillStyle='#222';input.font='bold 37px monospace';input.textAlign='center';input.textBaseline='middle';
+input.fillText('AB 7421',0,1);
+input.fillRect(-77,20,153,2);input.restore();
+const original=input.getImageData(0,0,W,H).data;
+let seed=3289;
+const noise=Float32Array.from({length:W*H},()=>{
+  seed=(Math.imul(seed,1664525)+1013904223)>>>0;
+  return 2*seed/4294967296-1;
+});
+const clamp=(n,max)=>Math.max(0,Math.min(max,n));
+function pixel(arr,x,y){return arr[clamp(y,H-1)*W+clamp(x,W-1)];}
+function smooth(image,r) {
+  if(!r)return image;
+  const rows=new Float32Array(W*H), result=new Float32Array(W*H);
+  const size=2*r+1;
+  for(let y=0;y<H;y++)for(let x=0;x<W;x++){
+    let sum=0;for(let k=-r;k<=r;k++)sum+=pixel(image,x+k,y);
+    rows[y*W+x]=sum/size;
+  }
+  for(let y=0;y<H;y++)for(let x=0;x<W;x++){
+    let sum=0;for(let k=-r;k<=r;k++)sum+=pixel(rows,x,y+k);
+    result[y*W+x]=sum/size;
+  }
+  return result;
+}
+function sobel(image) {
+  const result=new Float32Array(W*H);
+  for(let y=0;y<H;y++)for(let x=0;x<W;x++){
+    const a=pixel(image,x-1,y-1), b=pixel(image,x,y-1), c=pixel(image,x+1,y-1);
+    const d=pixel(image,x-1,y), f=pixel(image,x+1,y);
+    const g=pixel(image,x-1,y+1), h=pixel(image,x,y+1), i=pixel(image,x+1,y+1);
+    result[y*W+x]=Math.hypot(c+2*f+i-a-2*d-g,g+2*h+i-a-2*b-c)/4;
+  }
+  return result;
+}
+function paint(ctx,values) {
+  const pixels=ctx.createImageData(W,H);
+  for(let i=0;i<values.length;i++){
+    const p=4*i;
+    pixels.data[p]=pixels.data[p+1]=pixels.data[p+2]=values[i];pixels.data[p+3]=255;
+  }
+  ctx.putImageData(pixels,0,0);
+}
+function draw() {
+  const amp=+$('noise').value, radius=+$('radius').value, threshold=+$('threshold').value, mode=$('mode').value;
+  const noisy=Float32Array.from(noise,(v,i)=>clamp(original[4*i]+amp*v,255));
+  const filtered=smooth(noisy,radius), gradient=sobel(filtered);
+  const mask=Uint8Array.from(gradient,v=>v>=threshold?255:0);
+  paint(input,noisy);paint(output,mode==='blur'?filtered:mode==='sobel'?gradient:mask);
+  $('noiseValue').textContent=amp;
+  $('radiusValue').textContent=radius+' px';
+  $('thresholdValue').textContent=threshold;
+  $('resultLabel').textContent=$('mode').selectedOptions[0].text;
+  const count=mask.reduce((total,v)=>total+Number(v>0),0);
+  $('stats').textContent='Thresholded response: '+count.toLocaleString()+' of '+(W*H).toLocaleString()+' pixels';
+}
+for(const id of ['noise','radius','threshold','mode']) $(id).oninput=draw;
+$('reset').onclick=()=>{$('noise').value=32;$('radius').value=1;$('threshold').value=38;$('mode').value='mask';draw();};
+draw();
+</script>
+</body></html>

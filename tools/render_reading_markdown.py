@@ -52,7 +52,12 @@ def walk(node):
 
 def local_link(url):
     parts = urlsplit(url)
-    if not parts.scheme and not parts.netloc and parts.path.endswith('.html'):
+    if (
+        not parts.scheme
+        and not parts.netloc
+        and parts.path.endswith('.html')
+        and not parts.path.startswith('../playgrounds/')
+    ):
         return urlunsplit(parts._replace(path=parts.path[:-5] + '.md'))
     return url
 

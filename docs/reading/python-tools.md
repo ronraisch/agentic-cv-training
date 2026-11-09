@@ -60,6 +60,8 @@ The filename can stay constant while the bytes change. Include an identity for t
 
 </details>
 
+Run the same sensor-reading task using a direct function, a strategy or a pipeline. [Design patterns playground](../playgrounds/design-patterns.html)
+
 ## Concurrency starts with the bottleneck
 
 Concurrency means tasks can make progress over overlapping time; parallelism means work executes simultaneously. In a standard GIL-enabled CPython build, multiple threads do not usually accelerate CPU-heavy Python bytecode. They can overlap blocking I/O. Native numerical code may release the GIL and run its own threads, so a Python thread benchmark does not characterize every NumPy workload. Separate processes have independent interpreters and can parallelize Python computation, but require startup, serialization and data-transfer costs.
