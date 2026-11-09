@@ -2,3 +2,7 @@
 .toy{margin:0 0 28px;padding:0 0 20px;border-bottom:2px solid #dce3ed}.toy h2{margin-top:.5em;font-size:1.7rem}.toy img{display:block;width:100%;margin:18px 0;border-radius:14px}.toy table{background:#fafbff}details{margin:18px 0}summary{cursor:pointer;color:#1558a2;font-weight:600}
 .equation{margin:1.25rem 0;padding:.65rem .85rem;background:#f5f8fc;border:1px solid #dce3ed;border-radius:8px;overflow-x:auto}
 .equation math{min-width:max-content;margin:auto}
+.paper-figure{margin:1.5rem 0 .75rem;border:1px solid #dce3ed;border-radius:12px;padding:clamp(.5rem,2vw,1.25rem);background:#fff}
+.paper-figure img{display:block;width:auto;max-width:100%;margin:auto;max-height:38rem;object-fit:contain}
+.paper-figure figcaption{margin:.75rem 0 0;color:#52647a;font-size:.9em}
+.figure-reading{margin:.5rem 0 1.5rem}

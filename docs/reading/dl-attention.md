@@ -149,9 +149,27 @@ Think of the encoder as preparing a searchable version of the source. The decode
 
 - **Look back at the source.** Decoder cross-attention forms its queries from the decoder states. Its keys and values come from the final encoder states. A decoder position preparing a color word can therefore combine evidence from source positions describing the color and the vehicle.
 
-- **Predict the next token.** A linear projection maps each final decoder vector to one logit per vocabulary entry. During training, token-level cross-entropy rewards the correct next token. At inference, a decoding rule chooses an output token from the logits, appends it and repeats until the end token or a length limit.
+- **Predict the next token.** A linear projection maps each final decoder vector to one raw score (logit) per vocabulary entry. During training, token-level cross-entropy rewards the correct next token. At inference, a decoding rule chooses an output token from the logits, appends it and repeats until the end token or a length limit.
 
 The original base model stacked six encoder layers and six decoder layers. The decoder has three sublayers in each layer: masked self-attention, source cross-attention and a position-wise feed-forward network. Each sublayer in the original used a residual addition followed by layer normalization. The addition gives the incoming representation a direct path, while normalization operates across the features of each token. Many later Transformers move the normalization before the sublayer.
+
+[![Original Transformer with encoder at left and decoder at right; encoder memory feeds decoder cross-attention.](assets/paper-figures/transformer-fig1.webp)](assets/paper-figures/transformer-fig1.webp)
+
+Original figure from [Vaswani et al., Attention Is All You Need (2017), Fig. 1](https://arxiv.org/html/1706.03762#S3.F1). Open the image for full size.
+
+<details>
+<summary>Read the figure</summary>
+
+Read from the bottom up. Find the arrow crossing from the encoder to the decoder. In the attention block it enters, where do the queries come from?
+
+<details>
+<summary>Show answer</summary>
+
+The decoder states provide the queries. The incoming encoder output provides the keys and values. The masked self-attention block below it reads the target prefix.
+
+</details>
+
+</details>
 
 ### What each piece contributes
 

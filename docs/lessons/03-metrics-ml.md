@@ -5,8 +5,9 @@ This short lesson supplements that route; reading completion is optional when un
 
 ## One valid experiment
 
-Define the target, sampling unit, grouped splits, baseline and metric before tuning. Frames and
-tracklets from one video, overlapping satellite tiles and images from one flight can be dependent.
+Define the target, sampling unit, grouped splits, baseline and metric before tuning. A **tracklet**
+is a short fragment of time-ordered observations linked to one apparent object. Several tracklets
+from the same video can be dependent, as can overlapping satellite tiles or images from one flight.
 Do not split only by rows. Fit preprocessing on training data; choose thresholds/hyperparameters
 on validation; evaluate the frozen decision on test. Preserve data/split hashes and model versions.
 
@@ -23,14 +24,14 @@ confusion, denominators and slices; define behavior for absent classes or zero d
 Threshold selection and calibration are distinct from ranking. A confident score is not automatically
 a probability. A metric does not encode the consumer's costs until an operating decision is defined.
 
-## Paired LPR evaluation
+## Paired license-plate recognition evaluation
 
 Hold the detector and recognizer fixed and compare identical examples with and without Hough
-rectification. Freeze text normalization. Report exact-plate match and CER: summed edit distances
+rectification. Freeze text normalization. Report exact-plate match and character error rate (CER): summed edit distances
 divided by summed ground-truth character counts, with an explicit empty-GT policy. Include failure,
 fallback, coverage and latency. Do not score only examples that rectified successfully.
 
-Separate evaluation on supplied plate ROIs from end-to-end evaluation including detector misses.
+Separate evaluation on supplied plate regions of interest (ROIs) from end-to-end evaluation including detector misses.
 Inspect helped and harmed examples by angle, size and lighting. If estimating uncertainty, resample
 independent vehicles/videos/flight groups rather than individual dependent frames. Few groups limit
 the conclusion; do not invent confidence. Preserve a locked final test set.
@@ -49,12 +50,12 @@ log does not prove that best_estimator was what the service loaded.
 
 ## Detection rescoring
 
-Freeze the detector and define correctness against independently annotated GT with a stated
-class/IoU one-to-one matching protocol. Do not use predicted classes/scores as truth. Use detections
+Freeze the detector and define correctness against independent ground-truth annotations. Use a one-to-one matching rule based on
+class and intersection over union (IoU), the overlap area divided by the union area. Do not use predicted classes/scores as truth. Use detections
 from groups held out from detector fitting or a planned out-of-fold procedure, and reserve an
 independent test for the combined decision. Rescoring cannot recover absent proposals.
 
-Candidate features include raw score, class, geometry, GSD, sensor, viewing angle and quality.
+Candidate features include raw score, class, geometry, ground sample distance (GSD, ground distance per image pixel), sensor, viewing angle and quality.
 Define angle convention, units and missing values. There is no universal rule that more vertical
 imagery is worse; test that hypothesis on this data. Pixels times GSD approximate a footprint only
 under suitable geometry. Axis-aligned boxes, clipping, partial objects and incorrect metadata can

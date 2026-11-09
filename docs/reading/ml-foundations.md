@@ -191,7 +191,7 @@ Similarity gets harder to define as features accumulate. With a fixed number of 
 
 ## Carry the same questions into tracklet motion
 
-A tracklet collects positions and shapes for one tracked object over time. You might turn those observations into features such as average speed and change in direction, then train a model to distinguish moving and stationary objects. The target should match the decision you want to make. If you need to decide after five frames, features computed from later frames are unavailable at that decision point.
+A **tracklet** is a short, time-ordered fragment of observations that a tracker has linked to one apparent object. For example, five boxes around the same car in five frames form one tracklet. Each observation can include a timestamp and box geometry. Gaps or tracking errors can split one car into several tracklets or join observations from different cars. You might turn those observations into features such as average speed and change in direction, then train a model to distinguish moving and stationary objects. The target should match the decision you want to make. If you need to decide after five frames, features computed from later frames are unavailable at that decision point.
 
 Apparent size can be useful, but it may also identify the camera instead of the motion. Evaluate on separated video sources to see how much of the prediction survives a change of scene. This brings the apartment example back to a practical research question. First define the input and target. Then choose the representation, fit a model and check whether the result transfers to the examples you actually care about.
 

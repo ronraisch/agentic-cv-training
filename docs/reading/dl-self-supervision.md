@@ -33,7 +33,7 @@ A wide image contains a tiny truck. One augmented crop includes it; another cont
 
 That supervision can be useful, but it does not explicitly say that the truck must survive in both views. The transformations help define which differences the representation learns to ignore. At small object scales, inspecting actual crop pairs can reveal a mismatch between the pretraining task and the downstream task.
 
-Contrastive and teacher–student objectives build on such relationships, with additional mechanisms needed to avoid trivial representations.
+Contrastive objectives use similar or dissimilar examples. In a teacher–student objective, a teacher model supplies a target output and the student learns to match it. Both approaches build on such relationships, with additional mechanisms needed to avoid trivial representations.
 
 ### Self-check
 
@@ -80,9 +80,27 @@ A representation that maps everything to one vector would make positive pairs cl
 
 ## Collapse and teacher/student learning
 
-If every input maps to the same vector, matching views becomes trivial but the representation is useless. Negative comparisons, normalization, stop-gradient, target transformations and architectural asymmetry are among the tools used to avoid collapse. Each method needs its own explanation; “it has a teacher” is not sufficient.
+If every input maps to the same vector, matching views becomes trivial but the representation is useless. Negative comparisons, normalization, stop-gradient (blocking backpropagation through a branch), target transformations and architectural asymmetry are among the tools used to avoid collapse. Each method needs its own explanation; “it has a teacher” is not sufficient.
 
 The self-supervised DINO family trains a student to match a teacher across views, with a teacher commonly updated from the student over time and output transformations controlling training. DINOv2 and DINOv3 extend the representation-learning line through different data, objectives and training refinements. Treat each checkpoint as a specific encoder with a defined patch size, output-token convention, normalization and license. Do not assume that a pooled classification vector and a dense patch feature map are interchangeable.
+
+[![Two views of one image enter DINO student and teacher branches; stop-gradient and an exponential moving average separate their updates.](assets/paper-figures/dino-fig2.webp)](assets/paper-figures/dino-fig2.webp)
+
+Original figure from [Caron et al., Emerging Properties in Self-Supervised Vision Transformers (2021), Fig. 2](https://arxiv.org/abs/2104.14294). Open the image for full size.
+
+<details>
+<summary>Read the figure</summary>
+
+Start at x and trace the two views. Which arrow updates the teacher, and what does “sg” block?
+
+<details>
+<summary>Show answer</summary>
+
+EMA, an exponential moving average of student weights, updates the teacher. Stop-gradient blocks backpropagation through the teacher target. The student learns from the loss comparing its output with that target.
+
+</details>
+
+</details>
 
 ### Self-check
 

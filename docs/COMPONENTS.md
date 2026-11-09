@@ -99,6 +99,10 @@ be recorded; a rescorer cannot recover objects absent from the candidate set.
 
 ## Tracklets for motion classification
 
+A **tracklet** is a short fragment of observations linked by a tracker to one apparent object.
+The command below exports frames, so assemble the observations for each tracklet by grouping
+detections by `(sequence_id, track_id)` and ordering them by timestamp.
+
 ```bash
 uv run --no-sync researchlab-components track --root .local/models \
   --video data/imported/video/sequence-a.mp4 --sequence-id sequence-a \

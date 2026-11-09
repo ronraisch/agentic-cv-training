@@ -72,6 +72,24 @@ Zero-shot classification compares an image against text candidates without fitti
 
 A whole-image embedding can respond to context while missing a tiny object. Proposal crops localize the comparison but depend on proposal recall and surrounding context. Few-shot supports can provide visual prototypes, and a linear head can adapt an embedding to a known task. Distinguish novel class labels from new instances of classes already seen in pretraining or task supervision.
 
+[![CLIP contrastive pretraining, text-derived classifier and zero-shot image scoring.](assets/paper-figures/clip-fig1.webp)](assets/paper-figures/clip-fig1.webp)
+
+Original figure from [Radford et al., Learning Transferable Visual Models From Natural Language Supervision (2021), Fig. 1](https://proceedings.mlr.press/v139/radford21a.html). Open the image for full size.
+
+<details>
+<summary>Read the figure</summary>
+
+In panel 1, identify which cells are the matched image–caption pairs. In panel 3, find what replaces the training captions when a new image is classified.
+
+<details>
+<summary>Show answer</summary>
+
+The matched pairs lie on the diagonal. At inference, the text encoder embeds prompts built from the candidate labels. The image embedding is compared with those prompt embeddings.
+
+</details>
+
+</details>
+
 ## When the best text match names an absent object
 
 An image encoder gives “red car” a higher similarity than “bicycle.” If these are the only candidates, red car wins. It may still be absent: the comparison ranks supplied descriptions rather than establishing that one must be true.

@@ -30,7 +30,25 @@ Flattening the *grid of patches* gives a sequence of 196 vectors. Add a learned 
 | Flatten patch pixels | 196 × 768 | RGB values from one patch |
 | Project and add position | 196 × D | Learned patch representation with location information |
 | Prepend class token and encode | 197 × D | One image summary and 196 contextualized patch vectors |
-| Read class token with the classification head | K | One logit per class in the output vector |
+| Read class token with the classification head | K | One raw score (logit) per class in the output vector |
+
+[![ViT patch projection, position embeddings, class token and Transformer encoder block.](assets/paper-figures/vit-fig1.webp)](assets/paper-figures/vit-fig1.webp)
+
+Original figure from [Dosovitskiy et al., An Image Is Worth 16×16 Words (2021), Fig. 1](https://arxiv.org/abs/2010.11929). Open the image for full size.
+
+<details>
+<summary>Read the figure</summary>
+
+Follow the patch marked 4 through the figure. Which token reaches the classification head, and why is it not one of the image patches?
+
+<details>
+<summary>Show answer</summary>
+
+Patch 4 becomes one position in the input sequence. The extra learned token marked 0 reads from the sequence through self-attention, and its final representation goes to the MLP head.
+
+</details>
+
+</details>
 
 ## What changed from translation?
 

@@ -27,7 +27,25 @@ In semantic segmentation, every pixel gets a category such as cloud, road or veh
 
 A CNN encoder trades spatial resolution for increasingly contextual features. A 256 × 256 image can produce a 16 × 16 deep map. The map might tell you which broad area is cloudy, but upsampling its predictions alone makes a smooth boundary from coarse evidence. A U-Net-style decoder upsamples the deep map and combines it with earlier, finer encoder features at matching resolutions. These skip connections let high-level context decide what to look for while finer features help locate edges.
 
-A final 1 × 1 convolution can produce one logit per class at each decoded location. For mutually exclusive labels, train with pixelwise cross-entropy on valid pixels and read the strongest class at each pixel. For a binary cloud mask, a single logit per pixel can be trained with binary cross-entropy and then thresholded. When mask labels are resized, use an operation that preserves class IDs. Interpolation is appropriate for continuous logits, while interpolating integer class IDs can invent labels.
+A final 1 × 1 convolution can produce one raw class score (logit) per class at each decoded location. For mutually exclusive labels, train with pixelwise cross-entropy on valid pixels and read the strongest class at each pixel. For a binary cloud mask, a single logit per pixel can be trained with binary cross-entropy and then thresholded. When mask labels are resized, use an operation that preserves class IDs. Interpolation is appropriate for continuous logits, while interpolating integer class IDs can invent labels.
+
+[![U-Net with a contracting path, expansive path and horizontal skip connections.](assets/paper-figures/unet-fig1.webp)](assets/paper-figures/unet-fig1.webp)
+
+Original figure from [Ronneberger et al., U-Net (2015), Fig. 1](https://arxiv.org/abs/1505.04597). Open the image for full size.
+
+<details>
+<summary>Read the figure</summary>
+
+Follow a long gray arrow and then follow the route through the bottom of the U. What does the gray route let the decoder recover?
+
+<details>
+<summary>Show answer</summary>
+
+The horizontal skip brings finer spatial features to the decoder. The long route contributes the deeper representation. This original U-Net crops the skip feature maps to align them with the decoder maps.
+
+</details>
+
+</details>
 
 ## ViT: keep the patch grid
 
@@ -44,6 +62,24 @@ $$
 For example, a mask embedding (2, −1) gives a logit of 1.8 against a pixel feature (1, 0.2) and −0.8 against (0.1, 1). The two locations receive different mask scores from the same query. Real models use more dimensions and many queries. During training, predictions are matched to labeled regions. Mask2Former also uses the current mask prediction to restrict where a query can read image features in later masked cross-attention. The class and mask predictions can be assembled differently for semantic, instance and panoptic output.
 
 The masks are spatial even though the query is one vector, because the calculation still has a different pixel embedding at every location. As with DETR, a CNN backbone and a Transformer decoder can belong to the same model.
+
+[![Mask2Former overview with pixel decoder, query decoder, class and mask predictions and a masked-attention block.](assets/paper-figures/mask2former-fig2.webp)](assets/paper-figures/mask2former-fig2.webp)
+
+Original figure from [Cheng et al., Masked-attention Mask Transformer (2022), Fig. 2](https://arxiv.org/abs/2112.01527). Open the image for full size.
+
+<details>
+<summary>Read the figure</summary>
+
+Find the class and mask branches at left. Now find the mask feeding back into masked attention at right. What does the feedback control?
+
+<details>
+<summary>Show answer</summary>
+
+A predicted foreground mask restricts which image positions the query can read in a subsequent cross-attention operation. The pixel decoder still supplies spatial features used to build the masks.
+
+</details>
+
+</details>
 
 ### Self-check
 

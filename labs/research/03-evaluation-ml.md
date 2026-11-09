@@ -2,7 +2,7 @@
 
 ## Goal and preparation
 
-Complete three comparisons: the LPR preprocessing change, a motion classifier and a detection
+Complete three comparisons: the license-plate recognition (LPR) preprocessing change, a motion classifier and a detection
 rescorer. A well-supported non-improvement is a valid result.
 
 Use [the ML syllabus](../../docs/syllabi/ml.md),
@@ -19,6 +19,11 @@ successfully rectified crops would answer a narrower question than whether the c
 
 ## Task 2: classify tracklet motion
 
+A **tracklet** is a short sequence of observations that the tracker links to one apparent object.
+For example, five boxes following the same car across five frames form one tracklet. In the
+supplied per-frame export, gather its observations by `(sequence_id, track_id)` and order them
+by timestamp. Check for gaps or switches to another object before computing motion features.
+
 Use [the supplied tracklet producer](../../docs/COMPONENTS.md#tracklets-for-motion-classification)
 or a documented frozen export. Acquire videos and label motion independently; implementing or
 retraining the detector/tracker is not part of this exercise.
@@ -33,7 +38,7 @@ Use [the vehicle prediction export](../../docs/COMPONENTS.md#vehicle-predictions
 with independent ground truth. Record the source-to-target class mapping and box representation.
 
 Learn a new score from the detector's original score and useful image/detection metadata.
-Physical size relative to GSD and viewing angle are hypotheses to test, not universal rules.
+Physical size relative to ground sample distance (GSD, ground distance per image pixel) and viewing angle are hypotheses to test, not universal rules.
 State whether the goal is better ranking, an operating threshold or probability calibration.
 
 Compare the raw score, a simple baseline and your learned model. Ablate the metadata so its

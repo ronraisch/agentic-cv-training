@@ -115,7 +115,25 @@ MobileNet uses depthwise spatial filtering followed by pointwise channel mixing 
 
 ## Dense outputs and multiscale features
 
-FCN turns classification-style computation into spatial predictions with learned or fixed upsampling. U-Net combines a downsampling path with upsampling and skip features to recover localization. FPN combines semantic deep features with higher-resolution maps for multiple scales. Interpolation creates a denser grid but does not restore measurements already discarded by a coarse feature extractor. For tiny objects, examine input resolution, stride, receptive field, feature fusion and target assignment together.
+A **fully convolutional network (FCN)** keeps predictions on a spatial grid and can enlarge that grid by upsampling. U-Net combines a downsampling path with an upsampling path and skip features taken directly from earlier layers. A **feature pyramid network (FPN)** combines deeper features with finer-resolution backbone maps. A **lateral connection** carries a backbone map sideways into the pyramid at the same grid resolution. Interpolation creates a denser grid but does not restore measurements already discarded by a coarse feature extractor. For tiny objects, examine input resolution, stride, receptive field, feature fusion and target assignment together.
+
+[![Feature Pyramid Network diagrams showing top-down connections and predictions from multiple pyramid levels.](assets/paper-figures/fpn-fig2.webp)](assets/paper-figures/fpn-fig2.webp)
+
+Original figure from [Lin et al., Feature Pyramid Networks for Object Detection (2017), Fig. 2](https://arxiv.org/abs/1612.03144). Open the image for full size.
+
+<details>
+<summary>Read the figure</summary>
+
+In the upper diagram, follow one horizontal arrow and one downward arrow into the right-hand stack. What does each path bring? Then count the prediction arrows in the lower panel.
+
+<details>
+<summary>Show answer</summary>
+
+A horizontal lateral connection brings a same-resolution map from the backbone. The downward path brings coarser information after upsampling. The lower panel has three prediction levels in this illustration.
+
+</details>
+
+</details>
 
 ## What visual evidence establishes
 

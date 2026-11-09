@@ -25,9 +25,27 @@ Anchor-based heads instead predict offsets from predefined boxes. A feature pyra
 
 ## DETR: let queries ask for objects
 
-Original DETR starts with a CNN feature map, projects and flattens it into spatial tokens, and supplies position information. A Transformer encoder contextualizes those image features. The decoder keeps a fixed number of object slots. Learned object-query embeddings distinguish those slots, and cross-attention lets each slot read spatial image features. Decoder self-attention lets slots exchange information. The resulting vector for each slot goes through two small heads, one for class logits including a no-object class, and one for normalized box coordinates.
+Original DETR starts with a CNN feature map, projects and flattens it into spatial tokens, and supplies position information. A Transformer encoder contextualizes those image features. The decoder keeps a fixed number of object slots. Learned object-query embeddings distinguish those slots, and cross-attention lets each slot read spatial image features. Decoder self-attention lets slots exchange information. The resulting vector for each slot goes through two small heads, one for raw class scores (logits), including a no-object class for slots that represent no detection, and one for normalized box coordinates.
 
 Take three prediction slots for two trucks. The training matcher considers the class and box costs for each slot–truck pair, and chooses a one-to-one assignment with the lowest total cost. Two slots receive object targets and the remaining slot learns no-object. When predicting on a new image there are no target boxes to match against. The model outputs its slot predictions and you read their class scores and boxes. The one-to-one training objective is what lets the original DETR omit NMS in its standard inference path.
+
+[![A CNN feature map feeds a Transformer encoder and decoder. Colored object queries become class-and-box or no-object outputs.](assets/paper-figures/detr-fig2.webp)](assets/paper-figures/detr-fig2.webp)
+
+Original figure from [Carion et al., End-to-End Object Detection with Transformers (2020), Fig. 2](https://arxiv.org/abs/2005.12872). Open the image for full size.
+
+<details>
+<summary>Read the figure</summary>
+
+Follow one colored object query from the bottom of the decoder to its prediction head. Where does the image enter, and what happens to an unused slot?
+
+<details>
+<summary>Show answer</summary>
+
+The image enters through the CNN and encoder on the left. The decoder reads that spatial memory. A slot can predict no object, as shown for two of the slots in the diagram.
+
+</details>
+
+</details>
 
 ### What changes across DETR variants?
 

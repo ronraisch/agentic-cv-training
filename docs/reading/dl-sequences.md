@@ -88,7 +88,7 @@ A mean depends on which vectors are included, and reversing their order leaves i
 
 Short clips can miss rare events; long clips increase context but mix irrelevant content. Sample using the deployment event duration, preserve actual timestamps and evaluate sensitivity to speed and gaps. Split by source video/session/camera as appropriate. Random frame splits reward memorizing backgrounds. Report latency from observed input to a decision, not just the model forward time. A clip-level score does not establish accurate event boundaries or stable online alerts.
 
-For tracklets, consider identity switches, missing detections and camera motion. For event systems, define when repeated detections become one event and how cooldown periods affect precision and recall. A person appearing in many adjacent frames should not count as dozens of independent successes. Include empty scenes, partial actions and camera transitions among qualitative cases.
+A **tracklet** is a short, time-ordered fragment of observations that a tracker has linked to one apparent object. An **identity switch** happens when the tracker begins following a different object under the same track ID. A missed detection can leave a gap or split the fragment. Camera motion can make a stationary object move in pixel coordinates. For event systems, define when repeated detections become one event and how cooldown periods affect precision and recall. A person appearing in many adjacent frames should not count as dozens of independent successes. Include empty scenes, partial actions and camera transitions among qualitative cases.
 
 ### Self-check
 

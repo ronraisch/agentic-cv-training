@@ -116,7 +116,7 @@ def render(node):
         label = ''.join(render(c) for c in summary.children) if summary else 'More'
         body = ''.join(render(c) for c in node.children if c is not summary).strip()
         return '\n\n<details>\n<summary>' + label + '</summary>\n\n' + body + '\n\n</details>\n\n'
-    if tag in {'p', 'div', 'section', 'ul', 'ol'}:
+    if tag in {'p', 'div', 'section', 'figure', 'figcaption', 'ul', 'ol'}:
         return '\n\n' + content.strip() + '\n\n'
     if tag == 'summary':
         return '\n\n### ' + content.strip() + '\n\n'
