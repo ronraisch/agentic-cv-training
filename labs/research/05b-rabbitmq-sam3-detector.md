@@ -2,7 +2,7 @@
 
 ## Start here
 
-Use the teaching namespace and approved worker, broker, model and data paths from the mentor. Start with three inspectable frames and verify one message can be followed to a saved output. Demonstrate recovery and audit a small label sample before scaling. See the [worked example](../../docs/WORKED_EXAMPLES.md#queue-to-training) before starting.
+Use the teaching namespace and approved worker, broker, model and data paths from the mentor. Start with three inspectable frames and verify one message can be followed to a saved output. Demonstrate recovery and audit a small label sample before scaling. If you get stuck, use the [worked example](../../docs/WORKED_EXAMPLES.md#queue-to-training).
 
 ## Goal and scope
 

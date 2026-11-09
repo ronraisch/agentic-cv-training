@@ -2,7 +2,7 @@
 
 ## Start here
 
-Use the internal Remote Sensing checkout. Get the revision, run command, access and a known image from the mentor. Create, save and reopen one existing rectangle and locate its downstream consumer. Bring this trace and open product questions to the mentor before implementing. See the [worked example](../../docs/WORKED_EXAMPLES.md#rectangle-and-service) before starting.
+Use the internal Remote Sensing checkout. Get the revision, run command, access and a known image from the mentor. Create, save and reopen one existing rectangle and locate its downstream consumer. Bring this trace and open product questions to the mentor before implementing. If you get stuck, use the [worked example](../../docs/WORKED_EXAMPLES.md#rectangle-and-service).
 
 ## The request
 

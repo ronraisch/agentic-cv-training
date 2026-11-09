@@ -2,7 +2,7 @@
 
 ## Start here
 
-Use approved sensor examples and public sources in your research workspace. Ask the mentor which bands are available and for one representative image with a cloud boundary. Inspect the bands, then agree on the two downstream error costs and the runtime measurement. See the [worked example](../../docs/WORKED_EXAMPLES.md#deep-learning-and-video) before starting.
+Use approved sensor examples and public sources in your research workspace. Ask the mentor which bands are available and for one representative image with a cloud boundary. Inspect the bands, then agree on the two downstream error costs and the runtime measurement. If you get stuck, use the [worked example](../../docs/WORKED_EXAMPLES.md#deep-learning-and-video).
 
 ## Goal
 

@@ -2,7 +2,7 @@
 
 ## Start here
 
-Use the assigned video checkout and mentor-approved ordinary-camera clips. Start with one clear and one borderline ten-second clip. Inspect timestamps and agree on the decision unit and when to abstain before choosing a model. Bring the baseline demo to the mentor before requesting continuation work. See the [worked example](../../docs/WORKED_EXAMPLES.md#deep-learning-and-video) before starting.
+Use the assigned video checkout and mentor-approved ordinary-camera clips. Start with one clear and one borderline ten-second clip. Inspect timestamps and agree on the decision unit and when to abstain before choosing a model. Bring the baseline demo to the mentor before requesting continuation work. If you get stuck, use the [worked example](../../docs/WORKED_EXAMPLES.md#deep-learning-and-video).
 
 ## The request
 

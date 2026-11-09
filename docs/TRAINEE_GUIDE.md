@@ -2,13 +2,12 @@
 
 When an idea is unclear, try the [agent explanation and teach-back routine](RESEARCH_WITH_AGENTS.md#when-you-get-stuck), then bring any remaining gap to your mentor.
 
-Updated 8 November 2026. This is the short learner-facing overview; it is complete without Drive.
 [All four training parts](TRAINING_INDEX.md) · [Detailed syllabus](CURRICULUM.md) · [Reading map](READING_AND_SESSIONS.md) ·
 [Dataset catalog](DATASETS.md).
 
 ## Order and working rules
 
-Start with VS Code, your own OpenShift pod and Python/uv through Artifactory. Do the legacy Python
+Start with VS Code, your own OpenShift pod and Python/uv through Artifactory. Do the Shape Rendering
 capstone manually before installing/updating/configuring OMP. After review, configure OMP with
 the approved local LLM and learn the selected Matt Pocock workflows.
 
@@ -28,12 +27,11 @@ These are initial planning estimates, not measured cohort results or promised AI
 “Work” includes design, prompting, reading agent output, implementation, debugging and verification.
 “Corrections” is a separate allowance for addressing mentor/review feedback; ordinary debugging
 belongs in work. Both columns count only time the trainee is actively engaged.
-The existing 208 project hours are split into 184 work + 24 corrections; nothing is added twice.
 
 | Assignment, in order | Work (h) | Corrections (h) | What you deliver |
 |---|---:|---:|---|
 | [Guided environment + OMP/skills](../labs/research/00-installations.md) | 6 | 0 | VS Code/pod, Python/Artifactory first; OMP only after Python review |
-| [Manual Python capstone](../labs/research/00-python-manual.md) | 22 | 2 | Legacy point/polygon parser and panda drawing; modularity |
+| [Manual Python capstone](../labs/research/00-python-manual.md) | 22 | 2 | XML shape parser and panda drawing; modularity |
 | [Labeling application](../labs/research/01-polygons.md) | 20 | 4 | Polygon support, persistence and consumer checks |
 | [First SAM2 service + GitLab CI/CD](../labs/research/01b-sam2-service.md) | 14 | 2 | Manual Docker/image/push, Deployment/Service/Route and build/push/deploy pipeline |
 | [LPR preprocessing](../labs/research/02-classical-cv.md) | 11 | 2 | Hough-based rectification |
@@ -54,8 +52,7 @@ on independently checked frames split by source video. All tasks above are requi
 ## Study, lectures and viewing
 
 Use [one starting point](TRAINING_INDEX.md) for the four parts: Development, CV, ML and DL.
-Each stage syllabus links to local HTML reading, original videos, current exercises and mentor
-conversations. The shelf includes 27 explanatory chapters and complete historical learner handouts.
+Each syllabus links to readings, videos, exercises and mentor conversations.
 
 **The reading is for you, not a required completion checklist.** If you understand the concepts
 and can answer the mentor's questions and explain an unseen example yourself, you can skip known
@@ -70,10 +67,7 @@ Use the reading during the exercises to deepen the ideas behind your choices.
 | [DL](syllabi/deep.md) | 16–26 h | 18–28 h |
 | **Total first-pass range** | **52–80 h** | **32–50 h** |
 
-These are unmeasured estimates, not hard caps or required page/video counts. A full course route
-can take longer; existing understanding can shorten the route. The former 28-hour study plan and
-four short viewing windows are superseded. The stage pages retain the original course selections
-and legacy alternatives; there is no need to watch two courses explaining the same idea.
+Adjust these estimates with your mentor based on prior knowledge and how much of each course you watch.
 
 ## Mentor sessions and corrections
 
@@ -103,8 +97,7 @@ includes 24 h feedback corrections; do not double-count them as new implementati
 | Separately reserved mentor prep; not trainee work | 4 |
 | **Conservative scheduling envelope** | **332–378** |
 
-These estimates replace the previous 260/280 h totals, which assumed a narrower theory route.
-They are not a measured calendar forecast. Unattended agent generation, builds, transfers,
+Unattended agent generation, builds, transfers,
 inference/training and queue waits are recorded separately when no active attention is needed.
 Reading during an unattended job counts as study once, not simultaneously as implementation.
 Record actual active work, corrections, study/viewing, unattended waiting and elapsed start/end.

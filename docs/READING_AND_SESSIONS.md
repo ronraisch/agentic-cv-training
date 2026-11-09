@@ -25,17 +25,7 @@ the Python capstone and the first SAM2 service setup.
 | Deep learning, open models and video | [DL](syllabi/deep.md) | 16–26 h | 18–28 h |
 | **First-pass planning range** | | **52–80 h** | **32–50 h** |
 
-These are initial planning ranges, not measured course runtimes, mandatory page quotas or hard
-caps. They replace the former 28-hour study plan and four short media windows, which did not
-represent the restored breadth. A novice watching every complete lecture may need more time;
-an experienced learner may need less. Record actual active study, viewing and reflection, and
-revise the plan with the mentor. Do not silently discard theory to fit the old time envelope.
-
-Retain UD810/CS4495 units 1,2,3,4,6,7A,9A,9B and Stanford CS231n 2025 lectures 1–16.
-The stage syllabi preserve their exact source links and the original skip/survey choices.
-Michigan 2019 is an alternative explanation for corresponding topics, not a second required
-course. Generative models, 3D and distributed training remain visible even when their first
-pass is survey depth. Distributed training is covered with deployment; historical reading is listed in the source archive.
+Adjust the estimates with your mentor based on prior knowledge. The syllabi link to the selected UD810/CS4495 units and Stanford CS231n lectures. Use Michigan 2019 as an alternative explanation where it helps.
 
 ## Two conversations for each part
 
@@ -55,16 +45,6 @@ Bring one concept you can explain, evidence from the exercise and one unresolved
 Explain an unseen example without the agent. A gap leads to targeted reading/viewing and another
 check. Practical correctness and conceptual understanding are recorded separately.
 
-## Material preservation
-
-The [source coverage table](reading/sources.md) maps original article/PDF subjects to local
-chapters and preserves complete learner handouts. These chapters are original explanatory text,
-not verbatim copies of third-party publications. Source links remain as provenance; reading does
-not depend on opening them. Video/course and data acquisition references retain external URLs.
-Exact unidentified internal resources are recorded as unresolved rather than invented.
-Original Drive files remain unchanged; mentor question-bank text is not copied into learner pages.
-
-
 ## First-pass readiness by lab
 
 Use the lab's start card to obtain the first fixture. Try the prompt aloud before adding reading.
@@ -72,7 +52,7 @@ Bring one answer and one checked result to the first relevant mentor session. Fo
 session, bring a new input or counterexample and explain which claim the evidence supports.
 The lab's start card identifies any approval needed before continuing.
 
-| Lab | Read first | Try before the meeting |
+| Lab | Reference if needed | Try before the meeting |
 | --- | --- | --- |
 | Setup | [Required setup order](GETTING_STARTED_INTERNAL.md#required-setup-order) | Which interpreter does the attached debugger use? Show it at a breakpoint. |
 | Manual Python | [Python modularity example](WORKED_EXAMPLES.md#python-modularity) and [shape handout](reading/legacy-shape-rendering.md) | If only the input format changes, which responsibilities should stay the same? |

@@ -2,7 +2,7 @@
 
 ## Start here
 
-Use the approved research checkout and the mentor-confirmed [CV fixture subset](../../docs/DATASETS.md#classical-cv-and-lpr-evaluation). Open one annotated plate image and one overlapping pair. Run raw LPR first and inspect the crop coordinates. Bring intermediate overlays and a failure case to the first review. See the [worked example](../../docs/WORKED_EXAMPLES.md#classical-cv) before starting.
+Use the approved research checkout and the mentor-confirmed [CV fixture subset](../../docs/DATASETS.md#classical-cv-and-lpr-evaluation). Open one annotated plate image and one overlapping pair. Run raw LPR first and inspect the crop coordinates. Bring intermediate overlays and a failure case to the first review. If you get stuck, use the [worked example](../../docs/WORKED_EXAMPLES.md#classical-cv).
 
 ## Goal and preparation
 
