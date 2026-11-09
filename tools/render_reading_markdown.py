@@ -136,7 +136,7 @@ def render(node):
     if tag == 'code':
         return '`' + content + '`'
     if tag == 'a':
-        return '[' + content.strip() + '](' + local_link(node.attrs.get('href', '')) + ')'
+        return '[' + content.strip() + '](' + local_link(node.attrs.get('href', '')) + ')' if content.strip() else ''
     if tag == 'img':
         return '![' + node.attrs.get('alt', 'Figure') + '](' + node.attrs.get('src', '') + ')'
     if tag == 'table':
@@ -162,7 +162,12 @@ def convert(path):
     nodes = list(walk(document.root))
     title = next(n for n in nodes if n.tag == 'h1')
     main = next(n for n in nodes if n.tag == 'main')
-    body = render(title) + '\n[All training](index.md) · [Source coverage](sources.md)\n\n' + render(main)
+    links = []
+    if path.stem != 'index':
+        links.append('[Chapter index](index.md)')
+    if path.stem != 'sources':
+        links.append('[Source coverage](sources.md)')
+    body = render(title) + '\n' + ' · '.join(links) + '\n\n' + render(main)
     return re.sub(r'\n{3,}', '\n\n', body).strip() + '\n'
 
 

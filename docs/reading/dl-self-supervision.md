@@ -1,6 +1,6 @@
 # Self-supervision, contrastive learning, DINO and transferable embeddings
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 A collection of images can be useful even if nobody has labelled which objects appear in each image. The images themselves supply relationships, such as two crops of the same photo. A learning objective can use those relationships to train a representation that will later be tested on a task with its own labels.
 

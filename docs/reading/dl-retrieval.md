@@ -1,6 +1,6 @@
 # Vector search, quantization, RAG and retrieval evaluation
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 A user wants examples of trucks similar to the one in a selected crop. A model converts each crop to a vector. A search index then uses a distance rule to return nearby vectors. The model, the search implementation and the user’s idea of similarity can each affect the returned images.
 

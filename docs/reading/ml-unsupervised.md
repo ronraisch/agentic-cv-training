@@ -1,6 +1,6 @@
 # PCA, clustering, EM/GMM, t-SNE and UMAP
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 You receive image crops without class labels. Each crop has been converted to a vector of measurements. Can you find related groups, compress the measurements or draw a map that helps you inspect the collection? Those are different goals. The geometry of the vectors determines what structure is available to each method.
 

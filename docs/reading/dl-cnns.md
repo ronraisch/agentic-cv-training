@@ -1,6 +1,6 @@
 # CNNs, receptive fields and efficient architecture families
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 An image is a grid of numbers. A useful pattern, such as a bright edge or a wheel-shaped region, can occur at many positions in that grid. A convolution applies the same learned local calculation at different positions. Stacking those calculations changes how far each output can see and how densely outputs are sampled.
 

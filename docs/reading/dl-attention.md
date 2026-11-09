@@ -1,6 +1,6 @@
 # The Transformer: from translation to self-attention
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 A model reading a sentence or a picture receives a collection of input units. A word may depend on another word far away, and one image patch may need context from another part of the scene. Attention computes a different weighted combination of available information for each position.
 

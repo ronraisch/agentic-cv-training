@@ -1,6 +1,6 @@
 # Vision Transformers: from image patches to features
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 A Transformer encoder reads a sequence of vectors. An image is a grid of pixels. The key move in *An Image is Worth 16×16 Words* is to turn that grid into a manageable sequence while retaining enough information about where each piece came from. Start with a road image that contains a tiny car and follow it through the model.
 

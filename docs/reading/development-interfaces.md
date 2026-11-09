@@ -1,6 +1,6 @@
 # HTTP, SQL, services and application boundaries
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 A labeling request crosses several boundaries. A client sends an image reference, a worker runs the model and a store saves the result. The user needs to retrieve the correct annotation even if a worker restarts partway through. Each boundary has its own success condition, which becomes easier to understand if we follow one job all the way through.
 

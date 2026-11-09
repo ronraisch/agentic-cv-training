@@ -1,6 +1,6 @@
 # Detection heads: dense CNNs and DETR-style decoders
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 Two trucks sit on a road. A classification head can answer “truck present.” A detector must return two separate boxes with scores. The head needs features that retain where things are, plus a training rule that decides which predictions should learn from which objects.
 

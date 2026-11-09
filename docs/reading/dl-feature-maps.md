@@ -1,6 +1,6 @@
 # Feature maps: what the backbone keeps
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 Two aerial tiles contain the same number of cars. In one tile all the cars sit on the left, and in the other they sit on the right. A classifier can give both images the same answer. A detector needs its representation to preserve the difference. A **feature map** gives the model a grid of places to store evidence about what it sees.
 

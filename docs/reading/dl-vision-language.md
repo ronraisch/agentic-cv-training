@@ -1,6 +1,6 @@
 # CLIP, VLMs, open-vocabulary detection and open-model use
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 Suppose someone wants to search images using a phrase such as “red car near a roundabout.” A system may rank images by similarity to the phrase, answer a question about a selected image or return a region containing the object. These outputs require different evidence. Start with how an image and a phrase can be compared at all.
 

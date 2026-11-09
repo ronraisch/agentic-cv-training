@@ -1,6 +1,6 @@
 # Trees, forests, AdaBoost, gradient boosting and model combination
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 Suppose a detector has proposed many vehicle boxes. For each box you have a score, an estimated size and a label saying whether the box is correct. A decision tree learns a sequence of questions about those features. Combining several trees can change the stability and errors of the resulting predictions. Start with one split so that the combination has something concrete to build on.
 

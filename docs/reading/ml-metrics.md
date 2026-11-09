@@ -1,6 +1,6 @@
 # Classification, detection, regression, ranking and selective prediction
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 An evaluation starts with decisions a system makes on examples whose outcomes we can check. An inbox filter decides which messages to flag. A detector returns boxes, which first have to be matched to objects. A price model gives a number, which we can compare with a sale. A useful metric summarizes the errors relevant to the decision.
 

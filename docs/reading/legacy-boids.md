@@ -1,6 +1,6 @@
 # Original Boids exercise
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 **Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
 
@@ -21,7 +21,7 @@ Credits: [https://www.labri.fr/perso/nrougier/from-python-to-numpy/#id5](arrays-
 
 Spatial vectorization refers to a situation where elements share the same computation but are in interaction with only a subgroup of other elements. In some situations there is an added difficulty because the subgroup is dynamic and needs to be updated at each iteration. This the case, for example, in particle systems where particles interact mostly with local neighbours. This is also the case for "boids" that simulate flocking behaviors.
 
-~ Flocking birds are an example of self-organization in biology. Image by[](https://commons.wikimedia.org/wiki/File:Fugle,_%C3%B8rns%C3%B8_073.jpg)[Christoffer A Rasmussen](https://commons.wikimedia.org/wiki/File:Fugle,_%C3%B8rns%C3%B8_073.jpg), 2012:
+~ Flocking birds are an example of self-organization in biology. Image by[Christoffer A Rasmussen](https://commons.wikimedia.org/wiki/File:Fugle,_%C3%B8rns%C3%B8_073.jpg), 2012:
 
 ![Original handout figure](assets/legacy-boids-image1.jpg)
 

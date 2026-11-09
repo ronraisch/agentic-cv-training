@@ -1,8 +1,6 @@
 # 4 · Deep learning, open models and video
 
-[All training](../TRAINING_INDEX.md) · [Reading syllabus](../reading/deep.md)
-
-Reading is a resource for you, not mandatory page completion. If you can answer the mentor’s questions and explain a new example yourself, that is enough. Theory and videos remain substantial parts of the program. Use the approved agent to deepen understanding during exercises; respect the manual assignments.
+[Training index](../TRAINING_INDEX.md)
 
 ## Topics and local reading
 
@@ -31,7 +29,7 @@ Reading is a resource for you, not mandatory page completion. If you can answer 
 ## Viewing and study
 
 Recommended first-pass study: 16–26 h; viewing/reflection: 18–28 h. These ranges are estimates, not hard caps or measured course runtimes. Record actual effort and deepen unfamiliar subjects.
-Use [the full course/video list](../reading/deep.md#videos-and-course-selection). Exact source URLs and legacy alternatives are preserved there.
+See [course videos](../reading/deep.md#videos-and-course-selection).
 
 Retained Stanford CS231n 2025 selection: lectures 1–16. Keep 11 and 13–15 at initial survey depth when appropriate. Michigan 2019 is an alternative. Robot/Human-Centered AI and DDPM implementation retain the historical skip status.
 

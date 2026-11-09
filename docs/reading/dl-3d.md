@@ -1,6 +1,6 @@
 # 3D vision, depth, reconstruction and learned scene representations
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 A camera records where a point appears in its image, and several points at different distances can appear in the same place. A second viewpoint can supply information about distance. To understand when it helps, start with the geometry of projecting a 3D point into each camera.
 

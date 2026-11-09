@@ -1,6 +1,6 @@
 # Hough voting, cameras, stereo and projective geometry
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 Two photographs of the same street do not put every landmark at the same pixel. Before aligning them, we need a way to describe where a point moves and when a single mapping is plausible. Line fitting gives one simple geometric model. Camera projection then explains why some image pairs require more than a planar warp.
 

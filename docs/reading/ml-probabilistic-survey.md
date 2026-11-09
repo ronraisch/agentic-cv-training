@@ -1,6 +1,6 @@
 # Retained survey: GLMs, Gaussian processes, graphical models and other learning
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 Suppose several functions explain the observations you collected. Their predictions may disagree where you have no data. A probabilistic model specifies how observations and unknown quantities relate, and an inference method uses that specification to update what you know. The examples below make different choices about the kind of quantity being predicted and how uncertainty is represented.
 

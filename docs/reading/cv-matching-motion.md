@@ -1,6 +1,6 @@
 # Features, RANSAC, warping, optical flow and tracking
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 To stitch two images, find small regions that appear in both and decide which regions correspond. To estimate motion between frames, ask a similar question at a smaller time interval. A feature is a location or measurement chosen for comparison. The strength of the local image pattern, the match and the geometric agreement each provide different evidence.
 

@@ -1,6 +1,6 @@
 # Autoencoders, VAEs, ELBO, GANs and diffusion
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 A classifier can choose a label for an image. A generative model can produce or assign probability to possible observations, sometimes conditioned on an input. Think of an old photograph with a blurry region. There may be several plausible clear images behind the same observed pixels. That ambiguity makes it important to ask what the model learned to produce.
 

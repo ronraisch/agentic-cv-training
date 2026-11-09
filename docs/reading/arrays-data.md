@@ -1,6 +1,6 @@
 # NumPy, Pandas, data contracts and visual exploration
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 Imagine a table with one row per tracked vehicle and three measurements per row. Before computing an average, decide whether you want an average for each vehicle or for each measurement across vehicles. The same array can answer either question. Shapes, axes and row identifiers make that decision explicit.
 

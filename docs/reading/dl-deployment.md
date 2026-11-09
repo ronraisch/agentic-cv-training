@@ -1,6 +1,6 @@
 # Transfer learning, LoRA, quantization, compilation and parallel execution
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 An inference request starts before the model runs and ends after a usable result has been returned. It can involve decoding an image, moving data, running the model and merging predictions. Knowing where time and memory are spent helps you choose which change to evaluate.
 

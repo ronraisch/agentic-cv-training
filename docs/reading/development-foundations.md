@@ -1,6 +1,6 @@
 # Linux, Git, containers and Python foundations
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 You have a Python program that reads shapes from a file and writes an image. Another researcher checks out the same code and gets a file error. To reproduce the run, you need to identify the current directory, interpreter, packages and mounted data that surround the code. This chapter follows those pieces from a local process to a container.
 

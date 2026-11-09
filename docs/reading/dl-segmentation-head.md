@@ -1,6 +1,6 @@
 # Segmentation heads: feature grids, skip connections and mask queries
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 A cloud mask should follow the boundary of a cloud. A scene-level embedding can say clouds are present. To draw the boundary, the head needs a feature grid that preserves which parts of the image contributed the evidence. Segmentation architectures differ in how they recover spatial detail and in what they predict at each location.
 

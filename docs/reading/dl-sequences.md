@@ -1,6 +1,6 @@
 # RNNs, LSTMs, temporal models and video understanding
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 A video is a sequence of frames. A frame classifier can answer a question about one picture. A clip model also has to decide what information to preserve across time. Average appearance is enough for some questions, while direction, duration and order are essential for others.
 

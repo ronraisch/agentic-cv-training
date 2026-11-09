@@ -1,6 +1,6 @@
 # Naive Bayes, Gaussian discriminants, KNN and kernels
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 Suppose a vehicle record contains a measured size and a few shape features, and we want to assign it a class. We could model what measurements each class tends to produce, look up nearby labelled examples or learn a boundary between classes. These approaches answer the same prediction question using different information from the training data. Review features, labels and fitting in the foundations chapter if those terms are new. [ML foundations](ml-foundations.md)
 

@@ -1,6 +1,6 @@
 # Types, decorators, concurrency and interactive experiments
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 A script that processes one image is easy to follow. Once it runs thousands of jobs, it also needs a clear interface, a way to keep track of failures and a reason for any added concurrency. Start by describing what a function accepts and returns. Then consider which surrounding work can be shared, cached or run at the same time.
 

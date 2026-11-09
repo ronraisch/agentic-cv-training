@@ -1,6 +1,6 @@
 # Archived edge route: C/C++, ownership, builds and binary networks
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 A program reads an image into memory and hands the image buffer to another part of the code. Someone must decide when that memory can be released. In C++, ownership and lifetime make this decision visible. The same edge-computing setting also makes builds, dependencies and representation costs worth inspecting.
 

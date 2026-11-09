@@ -1,6 +1,6 @@
 # Learning paradigms, probability, estimation and linear models
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 Suppose you want to estimate the selling price of an apartment. You have records of apartments that already sold, including their size, neighbourhood and selling price. For the next apartment you know its size and neighbourhood, and you want to estimate a price you have yet to observe. The earlier sales give you examples of the relationship you want to learn.
 

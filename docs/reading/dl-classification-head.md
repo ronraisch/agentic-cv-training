@@ -1,6 +1,6 @@
 # Classification heads on CNN and Transformer embeddings
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 A model sees a crop and returns a vector. Your job is to decide whether the crop shows a car, a truck or background. The **backbone** computes the representation. The **head** is the task-specific part that turns that representation into an answer. Start by identifying what one training label refers to. Here it refers to the whole crop.
 

@@ -1,59 +1,10 @@
-# Research training — start here
+# Chapter index
 
-[All training](index.md) · [Source coverage](sources.md)
+[Source coverage](sources.md)
 
-**Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](../READING_AND_SESSIONS.md).
+Find a chapter by topic. For course videos and assignments, use the [training index](../TRAINING_INDEX.md).
 
-Each chapter includes two short self-checks. Pick an answer before opening the explanation, then use it to revisit any idea you are unsure about.
-
-<details>
-<summary>On this page</summary>
-
-- [](#1-development)[1 · Development](development.md)
-
-- [](#2-classical-computer-vision)[2 · Classical computer vision](cv.md)
-
-- [](#3-machine-learning-and-evaluation)[3 · Machine learning and evaluation](ml.md)
-
-- [](#4-deep-learning-open-models-and-video)[4 · Deep learning, open models and video](deep.md)
-
-- [How the parts connect](#how-the-parts-connect)
-
-- [Study, video and discussion](#study-video-and-discussion)
-
-- [Browse the reading shelf](#browse-the-reading-shelf)
-
-- [Preservation and source coverage](#preservation-and-source-coverage)
-
-</details>
-
-One home for all four parts, the full theory map, original learner handouts and current exercises. Start with your stage, use the reading to resolve gaps and return to it while working with your agent.
-
-## [1 · Development](development.md)
-
-Environment, Linux, Git and containers · Python, modularity and data contracts · Advanced Python and concurrency · Services, HTTP, SQL and integration.
-
-## [2 · Classical computer vision](cv.md)
-
-Images, convolution, correlation and filters · Hough and Fourier · Cameras, perspective and stereo · Corners, descriptors and robust matching.
-
-## [3 · Machine learning and evaluation](ml.md)
-
-Paradigms, estimation and linear models · Bias, validation and shift · Evaluation across task types · Generative classifiers, neighbors and SVM.
-
-## [4 · Deep learning, open models and video](deep.md)
-
-Classification, loss and training · CNNs, training practice and architectures · Sequences and attention · Detection, segmentation and explanations.
-
-## How the parts connect
-
-Development establishes code/data/service ownership. CV establishes image geometry and temporal evidence. ML establishes models, evaluation and generalization. Deep learning builds representations, detection/video systems and verified inference on those foundations. Keep the current required exercises and manual boundaries; theory breadth does not introduce every old capstone again.
-
-## Study, video and discussion
-
-Learning happens before and during implementation. Ask your agent to explain a derivation, compare methods and propose a counterexample; verify it and explain it yourself. The mentor continues theory questioning. Videos remain a substantial route to intuition, and the source course selections are preserved per stage. Familiar material can be skipped when understanding is already demonstrated.
-
-## Browse the reading shelf
+## Chapters
 
 - [Linux, Git, containers and Python foundations](development-foundations.md)
 
@@ -116,7 +67,3 @@ Learning happens before and during implementation. Ask your agent to explain a d
 - [HTTP, SQL, services and application boundaries](development-interfaces.md)
 
 Experiment with decision boundaries, image filters, attention and code design in standalone pages. [Offline playgrounds](../playgrounds/README.md)
-
-## Preservation and source coverage
-
-See [the link-by-link migration table](sources.md) and [the GitHub-friendly index](../TRAINING_INDEX.md). Reading lives in local HTML, videos retain external URLs, and original Drive files remain unchanged. The new explanatory chapters consolidate repeated introductions; the original learner handouts are also retained in full.

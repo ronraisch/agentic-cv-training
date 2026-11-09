@@ -1,6 +1,6 @@
 # Deep learning intuition: find the bottleneck
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 You train a detector on aerial tiles. The loss comes down, the validation score looks respectable, and the model still misses most small trucks. A larger model might help. Before changing it, follow one missed truck through the system. Was it visible after resizing? Did it get a positive training assignment? Could the model emit enough boxes for that tile? Did a usable box disappear at the score threshold? Each answer points to a different experiment.
 

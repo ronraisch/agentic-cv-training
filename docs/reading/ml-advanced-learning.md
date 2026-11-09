@@ -1,6 +1,6 @@
 # Retained advanced topics: learning setups, ranking and recommendation
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 Your model finds common trucks, but reviewed examples of cement trucks are scarce. You have to decide what to label, how to use the labels and what prediction the result should make. Those decisions change the learning setup even if you keep the same encoder. This chapter assumes the basic distinction between features, targets and fitted models. [ML foundations](ml-foundations.md)
 

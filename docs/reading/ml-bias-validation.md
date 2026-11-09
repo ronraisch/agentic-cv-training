@@ -1,6 +1,6 @@
 # Bias, variance, dataset shift and trustworthy validation
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 A model is trained on one collection of examples and judged on another. Its score depends on what the collections contain and what they share. Imagine evaluating a motion classifier on videos from cameras it will encounter later. The validation setup needs to make that deployment question explicit before any model comparison can answer it.
 

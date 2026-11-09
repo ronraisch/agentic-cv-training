@@ -1,6 +1,6 @@
 # Original sources and migration coverage
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md)
 
 **Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
 
@@ -100,7 +100,7 @@ Some old outlines list YOSO, pSp, FUN, Bukch/Bukchin, Penta-AI and Clipster with
 | [AdaBoost](https://claude.ai/public/artifacts/c94c29e8-23f4-43ee-9fcd-092c46957aab) | Machine Learning Training.docx | [ml-trees-ensembles.html](ml-trees-ensembles.md) |
 | [plotly notebook](https://colab.research.google.com/github/pb111/Data-Analysis-and-Visualization-with-Python/blob/master/Plotly%20basics.ipynb#scrollTo=H6Z5_cV2IEs7) | Machine Learning Training.docx | [arrays-data.html](arrays-data.md) |
 | [Understanding LSTM Networks - colah's blog](https://colah.github.io/posts/2015-08-Understanding-LSTMs/) | Deep Learning Training.docx; cv/For Shampooee/Deep Learning Training.docx | [dl-sequences.html](dl-sequences.md) |
-| [](https://commons.wikimedia.org/wiki/File:Fugle,_%C3%B8rns%C3%B8_073.jpg) | cv/Archive/Exercises/Boids Simulation Exercise.docx | exercise-or-data — original external link retained |
+|  | cv/Archive/Exercises/Boids Simulation Exercise.docx | exercise-or-data — original external link retained |
 | [Batch Normalization, Dropout, Convolutional Nets, Network Visualization, Image Captioning with RNNs](https://cs231n.github.io/assignments2025/assignment2/) | Deep Learning Training.docx; cv/For Shampooee/Deep Learning Training.docx | [dl-cnns.html](dl-cnns.md) |
 | [Image Classification](https://cs231n.github.io/classification/) | Deep Learning Training.docx; cv/For Shampooee/Deep Learning Training.docx | [ml-foundations.html](ml-foundations.md) |
 | [Convolutional Neural Networks (CNNs / ConvNets)](https://cs231n.github.io/convolutional-networks/) | Deep Learning Training.docx; cv/For Shampooee/Deep Learning Training.docx | [dl-cnns.html](dl-cnns.md) |

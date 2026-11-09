@@ -1,6 +1,6 @@
 # Signals, filters, edges and Fourier analysis
 
-[All training](index.md) · [Source coverage](sources.md)
+[Chapter index](index.md) · [Source coverage](sources.md)
 
 A camera turns a scene into a grid of pixel values. A bright spot on a dark patch may come from a real detail or from noise. A filter changes a pixel using other pixels around it, so the rule that combines them determines which details survive.
 
