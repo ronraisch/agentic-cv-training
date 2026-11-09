@@ -4,6 +4,8 @@
 
 An image is a grid of numbers. A useful pattern, such as a bright edge or a wheel-shaped region, can occur at many positions in that grid. A convolution applies the same learned local calculation at different positions. Stacking those calculations changes how far each output can see and how densely outputs are sampled.
 
+Follow one image through a filter, a spatial grid and a task head in [Feature maps: what the backbone keeps](dl-feature-maps.md).
+
 For a shape-by-shape walkthrough, see the chapters on [classification](dl-classification-head.md), [detection](dl-detection-head.md) and [segmentation heads](dl-segmentation-head.md).
 
 <details>

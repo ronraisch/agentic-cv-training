@@ -4,6 +4,8 @@
 
 A trainable model turns input values into a prediction. To change its predictions, we need adjustable numbers called weights, a way to measure error and a rule for updating the weights. The chapter builds this path from a single computation to a training loop that can be checked after a restart.
 
+To turn a bad learning curve or a missed object into a focused experiment, see [Deep learning intuition: find the bottleneck](dl-intuition.md).
+
 <details>
 <summary>Jump to a concept</summary>
 

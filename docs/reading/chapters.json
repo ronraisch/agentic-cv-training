@@ -70,6 +70,11 @@
     "stage": "deep"
   },
   {
+    "slug": "dl-feature-maps",
+    "title": "Feature maps: what the backbone keeps",
+    "stage": "deep"
+  },
+  {
     "slug": "dl-sequences",
     "title": "RNNs, LSTMs, temporal models and video understanding",
     "stage": "deep"
@@ -97,6 +102,11 @@
   {
     "slug": "dl-segmentation-head",
     "title": "Segmentation heads: feature grids, skip connections and mask queries",
+    "stage": "deep"
+  },
+  {
+    "slug": "dl-intuition",
+    "title": "Deep learning intuition: find the bottleneck",
     "stage": "deep"
   },
   {

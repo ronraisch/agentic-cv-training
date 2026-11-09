@@ -4,6 +4,8 @@
 
 A Transformer encoder reads a sequence of vectors. An image is a grid of pixels. The key move in *An Image is Worth 16×16 Words* is to turn that grid into a manageable sequence while retaining enough information about where each piece came from. Start with a road image that contains a tiny car and follow it through the model.
 
+Compare patch tokens with CNN grids in [Feature maps: what the backbone keeps](dl-feature-maps.md).
+
 <details>
 <summary>Jump to a concept</summary>
 

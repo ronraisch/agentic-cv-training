@@ -83,6 +83,8 @@ Learning happens before and during implementation. Ask your agent to explain a d
 
 - [CNNs, receptive fields and efficient architecture families](dl-cnns.md)
 
+- [Feature maps: what the backbone keeps](dl-feature-maps.md)
+
 - [RNNs, LSTMs, temporal models and video understanding](dl-sequences.md)
 
 - [The Transformer: from translation to self-attention](dl-attention.md)
@@ -94,6 +96,8 @@ Learning happens before and during implementation. Ask your agent to explain a d
 - [Detection heads: dense CNNs and DETR-style decoders](dl-detection-head.md)
 
 - [Segmentation heads: feature grids, skip connections and mask queries](dl-segmentation-head.md)
+
+- [Deep learning intuition: find the bottleneck](dl-intuition.md)
 
 - [Detection, segmentation, OCR and the retained paper families](dl-detection.md)
 

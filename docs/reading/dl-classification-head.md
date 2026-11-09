@@ -4,6 +4,8 @@
 
 A model sees a crop and returns a vector. Your job is to decide whether the crop shows a car, a truck or background. The **backbone** computes the representation. The **head** is the task-specific part that turns that representation into an answer. Start by identifying what one training label refers to. Here it refers to the whole crop.
 
+For the distinction between a spatial embedding and a pooled vector, see [Feature maps: what the backbone keeps](dl-feature-maps.md).
+
 <details>
 <summary>Jump to a concept</summary>
 

@@ -4,6 +4,8 @@
 
 A cloud mask should follow the boundary of a cloud. A scene-level embedding can say clouds are present. To draw the boundary, the head needs a feature grid that preserves which parts of the image contributed the evidence. Segmentation architectures differ in how they recover spatial detail and in what they predict at each location.
 
+For the distinction between grid stride and receptive field, see [Feature maps: what the backbone keeps](dl-feature-maps.md).
+
 <details>
 <summary>Jump to a concept</summary>
 

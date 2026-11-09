@@ -4,6 +4,8 @@
 
 Two trucks sit on a road. A classification head can answer “truck present.” A detector must return two separate boxes with scores. The head needs features that retain where things are, plus a training rule that decides which predictions should learn from which objects.
 
+For worked anchor-assignment and query-ceiling diagnostics, see [Deep learning intuition: find the bottleneck](dl-intuition.md).
+
 <details>
 <summary>Jump to a concept</summary>
 
