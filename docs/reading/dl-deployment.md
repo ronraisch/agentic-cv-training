@@ -35,6 +35,27 @@ Low-rank adaptation changes a selected weight matrix by adding a product of two 
 
 Compare a frozen head and an adapted model on the same independent sources. Report which layers were trainable, what data they used and how the resulting artifacts are loaded in the consumer.
 
+### Self-check
+
+You train only a linear head on frozen, unchanged embeddings. Which work can be reused across head-training runs on those inputs?
+
+- A. The optimal head weights for every label set
+
+- B. The test labels as training data
+
+- C. The computed embeddings
+
+- D. A different encoder's incompatible outputs
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**C. The computed embeddings**
+
+Fixed preprocessing and encoder weights produce the same features, so the features can be cached across head experiments.
+
+</details>
+
 ## Latency, throughput and memory
 
 Latency measures time for a request; throughput measures completed work per unit time. Batching may improve throughput while increasing the time an individual request waits. Measure preprocessing, transfer, model forward, decoding and output merging separately and end to end. Synchronize asynchronous GPU work correctly for timing. Record warm-up, batch/shape distribution, hardware, precision and memory peaks. A FLOP estimate is not a latency measurement.
@@ -56,6 +77,27 @@ Consider a request with illustrative timings of 25 ms for preprocessing, 10 ms i
 The model did become twice as fast, but the user sees only a five-millisecond improvement. Reducing the 65 ms stage has more room to help this workload. Batching, data transfer and queueing can change the picture again, which is why the whole request needs measuring.
 
 Quantization, compilation and adaptation techniques are useful tools once we know which constraint we need to change.
+
+### Self-check
+
+A request spends 25 ms before the model, 10 ms in it and 65 ms afterwards. The model becomes twice as fast. What is the new total?
+
+- A. 90 ms
+
+- B. 95 ms
+
+- C. 50 ms
+
+- D. 105 ms
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**B. 95 ms**
+
+Only the 10 ms stage changes. It becomes 5 ms, so the total is 25 + 5 + 65 = 95 ms.
+
+</details>
 
 ## Quantization, pruning and distillation
 

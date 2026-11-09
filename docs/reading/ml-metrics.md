@@ -62,6 +62,27 @@ The denominators encode two different questions: how useful are the alerts, and 
 
 Choosing a metric starts with deciding which decisions and costs the evaluation should represent.
 
+### Self-check
+
+A system emits 20 alerts, of which 5 are correct. There are 10 real positives in total. What is its precision?
+
+- A. 50%
+
+- B. 20%
+
+- C. 25%
+
+- D. 75%
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**C. 25%**
+
+Precision divides correct alerts by all alerts, so 5/20 = 25%. The denominator of 10 real positives is used for recall.
+
+</details>
+
 ## Curves, prevalence and aggregation
 
 One threshold gives one operating point, like the 28 alerts in the example. Sweeping the threshold gives a broader picture. A ROC curve plots true-positive rate against false-positive rate; ROC AUC summarizes ranking across positive/negative pairs. It does not describe probability calibration or guarantee a useful point at the required false-alarm budget. A precision–recall curve focuses on the yield and coverage of positive predictions. Its baseline depends on positive prevalence, so PR scores from different populations need care when compared.
@@ -91,6 +112,27 @@ For segmentation, pixel IoU and Dice summarize set overlap; boundary metrics and
 Suppose an image has one labelled truck and two predictions of that truck. The first has score 0.9 and overlaps the label well. The second has score 0.8 and also overlaps it well. Under the usual one-to-one matching rule the first can claim the object and become a true positive. The second is a duplicate and counts as a false positive. Accepting both therefore gives precision 1/2 and recall 1 on this image. The geometry of the boxes and the ranking of their scores both affect the evaluation.
 
 Changing the overlap threshold can turn a candidate match into a miss. Changing the score threshold can remove the duplicate without changing overlap at all. These are two different knobs. When comparing a localization change, hold the matching rule fixed. When comparing rescoring, hold the detector outputs and matching geometry fixed and examine what the changed ordering does.
+
+### Self-check
+
+Two high-overlap predictions refer to the same single labelled truck. Both pass the score threshold. Under score-ordered one-to-one matching, how are they counted?
+
+- A. Two false positives
+
+- B. Two true positives
+
+- C. One true positive and one false positive
+
+- D. One true positive and one false negative
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**C. One true positive and one false positive**
+
+The first eligible prediction claims the object. The second is a duplicate prediction, so it counts as a false positive.
+
+</details>
 
 ## Selective prediction and calibration
 

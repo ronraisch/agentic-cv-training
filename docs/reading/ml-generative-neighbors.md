@@ -59,6 +59,27 @@ A Naive Bayes model may nevertheless count both likelihood contributions because
 
 Comparing these methods is easier when their assumptions are attached to concrete feature choices rather than only to model names.
 
+### Self-check
+
+An input column is copied exactly into a second column. Why might Naive Bayes become more confident?
+
+- A. The model automatically drops both columns
+
+- B. The class prior is always doubled
+
+- C. The two columns create new labelled examples
+
+- D. It can count the same likelihood contribution twice
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**D. It can count the same likelihood contribution twice**
+
+The conditional-independence assumption makes the likelihood factor across features. Duplicate columns violate the intended interpretation of separate evidence.
+
+</details>
+
 ## K-nearest neighbors
 
 KNN stores training observations and predicts from their neighbors. Classification can use uniform or distance-weighted votes; regression averages nearby target values. Feature representation and distance define “near.” Standardizing features changes the neighborhood; standardize with training statistics only. A high-dimensional irrelevant feature block can overwhelm a genuinely informative direction. Small K yields a flexible boundary sensitive to noise; larger K smooths but may erase rare local structure.
@@ -110,6 +131,27 @@ The RBF kernel `exp(−γ||x − z||²)` assigns higher similarity to nearby poi
 For tracklet motion, start with a simple scaled linear classifier. Compare an RBF SVM if the errors suggest a curved boundary in the chosen features. Fit scaling inside each training fold and split by video source. Inspect predictions on new sources as well as a validation score. The comparison should establish whether the added flexibility helps the intended decision, including the cost of scoring against support vectors.
 
 Training a kernel SVM can require a large matrix of pairwise similarities. Prediction can depend on how many support vectors the model retains, because each new example must be compared with them. A linear classifier on frozen embeddings can be cheaper. Expressiveness, whether from a kernel or a neural network, is one factor in the choice alongside sample efficiency, optimization, generalization and measured compute.
+
+### Self-check
+
+In the usual soft-margin objective with a fixed weight penalty, what changes when C increases?
+
+- A. The RBF length scale is fixed by C
+
+- B. The model outputs calibrated probabilities
+
+- C. Violations become more expensive relative to the weight penalty
+
+- D. Violations become cheaper
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**C. Violations become more expensive relative to the weight penalty**
+
+C multiplies the training violation cost. Larger values put more emphasis on satisfying the margin constraints on the training set.
+
+</details>
 
 ## Comparing models on the same motion task
 

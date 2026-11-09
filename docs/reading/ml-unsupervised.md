@@ -39,6 +39,27 @@ Suppose you measure average brightness and aspect ratio on image crops. There ar
 
 PCA chooses directions by variance. It uses neither vehicle labels nor the downstream retrieval objective. Scaling the original measurements can change which direction explains the most variation. This is useful when the units are arbitrary, but it does not automatically make the resulting components semantic. Inspect how reconstruction error and task performance change with the number of components. For clustering, also inspect some real members of each cluster. An appealing scatter plot can make a sensor or collection effect easy to see, which is valuable even when it does not reveal object categories.
 
+### Self-check
+
+Brightness varies much more than shape, while shape predicts vehicle type. What might retaining only the highest-variance component discard?
+
+- A. The number of training examples
+
+- B. Every variation in brightness
+
+- C. The labels used by PCA during fitting
+
+- D. Useful shape information
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**D. Useful shape information**
+
+PCA chooses directions of variance without class labels. High variance can describe illumination rather than the distinction relevant to the task.
+
+</details>
+
 ## K-means and hierarchical clustering
 
 K-means alternates assignment to the nearest center and center updates to cluster means, reducing within-cluster squared Euclidean distance. Initialization and K matter; multiple restarts help with local solutions. It prefers compact roughly isotropic groups and requires a convention for empty clusters. A small objective does not establish that the clusters match useful classes.
@@ -60,6 +81,27 @@ In a basic full-covariance update, each mean is a responsibility-weighted averag
 Suppose observed vehicle lengths have two broad concentrations, one near 4 m and one near 8 m. K-means assigns a 6 m observation to one centre, with some convention if distances tie. A Gaussian mixture can give it partial membership in both components. If both components have the same spread and weight, that midpoint has equal membership. A 4 m observation is more likely under the first component, with the strength of that preference depending on the spread.
 
 Expectation maximization alternates two operations. Given the current distributions, estimate how much each component explains each observation. Given those fractional memberships, refit the component means, spreads and weights. This resembles repeatedly reassigning and averaging in k-means, with fractional assignments and a richer model. Different starting points can produce different solutions. Compare the fit and inspect examples associated with each component before giving the groups names.
+
+### Self-check
+
+What does the E-step of Gaussian-mixture EM calculate from the current component parameters?
+
+- A. A new set of observed measurements
+
+- B. The final number of components
+
+- C. Fractional membership of each observation in each component
+
+- D. An exact global optimum
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**C. Fractional membership of each observation in each component**
+
+The E-step estimates responsibilities under the current model. The M-step uses those responsibilities to refit parameters.
+
+</details>
 
 ## Nonlinear visualization
 

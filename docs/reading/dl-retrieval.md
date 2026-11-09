@@ -51,6 +51,27 @@ There are consequently two evaluations to keep apart. Index recall measures whet
 
 A retrieval system also depends on ingestion, filters, model versions and downstream consumers, so those boundaries belong in the diagnosis.
 
+### Self-check
+
+Exact top three are A, B, C. Approximate top three are A, B, D. What fraction of the exact neighbours did the index recover?
+
+- A. 1
+
+- B. 2/3
+
+- C. 1/2
+
+- D. 1/3
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**B. 2/3**
+
+A and B appear in both lists, so two of the three exact neighbours were recovered.
+
+</details>
+
 ## Vector quantization
 
 Scalar quantization represents each coordinate using fewer numerical levels with declared scales and possibly zero points. Product quantization divides vectors into subspaces and stores a codebook index for each subvector. Approximate distances can be computed efficiently from tables. Compression changes ranking; reranking candidates using higher-precision vectors can recover some accuracy at extra storage and I/O cost. Quantizing stored embeddings is distinct from quantizing a neural model's weights or activations.
@@ -64,6 +85,27 @@ Evaluate answer correctness and source support separately from retrieval recall.
 ## Ranking metrics and operational checks
 
 Use the metrics chapter for precision/recall@K, mAP, MRR, NDCG and hit rate. Define relevance and query population first. Some tasks care about finding one valid support; others care about retrieving all objects of a category. Include hard negatives and no-answer queries. Report latency percentiles, throughput, memory and index build/update cost. A batch of warm cached queries is not the same workload as cold interactive use.
+
+### Self-check
+
+Exact search returns crops with the same snowy background but the wrong vehicle type. Which component should you examine first?
+
+- A. The random seed of index construction
+
+- B. The approximate search recall
+
+- C. The embedding and its notion of similarity
+
+- D. The number of threads used for distance calculations
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**C. The embedding and its notion of similarity**
+
+Exact search already reproduces the defined distance ordering. The mismatch lies between that ordering and the user's relevance criterion.
+
+</details>
 
 ## Learning from feedback
 

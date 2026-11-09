@@ -33,6 +33,27 @@ Consider predicting how many vehicles a camera will detect per minute. An uncons
 
 Compare this with a binary observation such as whether any vehicle appears. Logistic regression maps a linear score into a probability of that event. It answers a different question and can lose useful information about whether there are two vehicles or twenty. Choose the observation and model together. For counts, compare empirical variability with what the Poisson assumption implies. If rush-hour bursts produce greater variability than expected, the uncertainty under that model can be too narrow even if the mean is useful.
 
+### Self-check
+
+A Poisson regression predicts log expected count as a linear score s. How do you recover the expected count?
+
+- A. exp(s)
+
+- B. s² for every model
+
+- C. log(s)
+
+- D. 1/s
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**A. exp(s)**
+
+The log link relates the log of the mean to the score, so exponentiation maps the score back to a positive mean.
+
+</details>
+
 ## Gaussian processes
 
 A Gaussian process defines a distribution over functions through a mean and covariance kernel. Finite collections of function values have a joint Gaussian distribution. In regression, conditioning on observed inputs/targets yields a predictive mean and uncertainty under the chosen kernel/noise model. Kernel length scale encodes smoothness and relevance assumptions. Standard exact inference can require cubic-time matrix factorization and quadratic storage in observation count; sparse/approximate methods change this tradeoff. A narrow posterior from a misspecified kernel is not a universal guarantee of confidence.
@@ -60,6 +81,27 @@ When a posterior is hard to normalize or integrate, Monte Carlo methods approxim
 Suppose a posterior puts weight on two plausible explanations for a collection of observations. A sampling algorithm starts near one and proposes nearby parameter values. Many consecutive draws can look almost identical. If the chain rarely moves to the other region, a histogram of those draws can miss an important part of the posterior even when it contains thousands of samples.
 
 Multiple chains started in different places, traces over time and an estimate of effective sample size can help diagnose the problem. The practical idea is that correlated draws contain less independent information than their count suggests. Before trusting uncertainty from approximate inference, ask which regions were explored and whether the diagnostic is sensitive to the failure you care about.
+
+### Self-check
+
+A chain has many draws but stays near only one of two plausible posterior regions. Which conclusion is warranted?
+
+- A. The chain's draws are independent
+
+- B. The posterior is necessarily unimodal
+
+- C. The large sample count proves convergence
+
+- D. The draws may poorly represent the full posterior
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**D. The draws may poorly represent the full posterior**
+
+Repeated samples from one region leave the other region unexplored. Raw sample count does not measure independent coverage.
+
+</details>
 
 ## Topic modeling and latent factors
 

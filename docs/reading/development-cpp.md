@@ -55,6 +55,27 @@ C++ ownership tools make that decision more explicit. Exclusive ownership, share
 
 This archived edge-computing route uses those ideas to connect program behaviour with resource management, builds and runtime efficiency.
 
+### Self-check
+
+An asynchronous task retains a view into a caller-owned buffer. What must hold until the task finishes?
+
+- A. The underlying buffer stays alive
+
+- B. The compiler disables optimization
+
+- C. The view's numeric address stays the same, regardless of lifetime
+
+- D. The caller's function returns immediately
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**A. The underlying buffer stays alive**
+
+A view borrows access. Its address does not extend the lifetime of the data it refers to.
+
+</details>
+
 ## Modern language features
 
 C++11 introduced broad support for move semantics, lambdas, type inference and standard concurrency facilities. Later standards add tools such as structured bindings, optional/variant, concepts and ranges. Exact compiler and standard-library support must be checked for a chosen toolchain. The learning goal is to write explicit ownership and clear interfaces, not memorize a feature release list. A fast matrix-multiplication exercise illustrates cache blocking, layout, vectorization and the need to verify numerical results before claiming speed.
@@ -64,6 +85,27 @@ C++11 introduced broad support for move semantics, lambdas, type inference and s
 Make rebuilds targets based on dependency relationships and freshness rules. Automatic header dependency generation prevents a changed header from leaving stale object files. Separate build directories/configurations for different architectures avoid mixing incompatible objects. CMake generates a build system from higher-level target/dependency definitions; it is not the compiler. Record toolchain, build type, flags and linked libraries.
 
 A linker map shows placement and contributions of symbols/sections, useful for diagnosing code/data size on constrained systems. Dead-code elimination, alignment and template instantiations affect binary size. Measure both build reproducibility and execution behavior, including a clean rebuild rather than only an incremental one.
+
+### Self-check
+
+Changing a shared header should affect two translation units, but neither rebuilds. What should you inspect first?
+
+- A. Whether the build graph records dependencies on the header
+
+- B. The model's training loss
+
+- C. The shape of the output tensor
+
+- D. The image format
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**A. Whether the build graph records dependencies on the header**
+
+Incremental builds rely on dependency edges. Missing header dependencies can leave stale objects in the build.
+
+</details>
 
 ## Binary neural networks
 

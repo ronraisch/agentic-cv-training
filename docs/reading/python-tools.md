@@ -39,6 +39,27 @@ Suppose two functions perform image decoding and resizing. You want a duration f
 
 Now imagine measuring a cached function. Timing outside the cache measures the experience of its caller, including fast hits. Timing only the underlying function measures the work performed on misses. Both measurements can be useful, but they describe different paths. A cache key also has to include information that affects the result. If a function reads a file by name and the file is overwritten, a key based only on that name can return an old result. This is the same interface question as typing, with a different kind of contract.
 
+### Self-check
+
+A function caches results by filename. Its input file is overwritten under the same name. What should the cache design account for?
+
+- A. The thread count
+
+- B. The file version or content identity
+
+- C. The function's return type annotation
+
+- D. The caller's name
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**B. The file version or content identity**
+
+The filename can stay constant while the bytes change. Include an identity for the actual input or invalidate the cache on replacement.
+
+</details>
+
 ## Concurrency starts with the bottleneck
 
 Concurrency means tasks can make progress over overlapping time; parallelism means work executes simultaneously. In a standard GIL-enabled CPython build, multiple threads do not usually accelerate CPU-heavy Python bytecode. They can overlap blocking I/O. Native numerical code may release the GIL and run its own threads, so a Python thread benchmark does not characterize every NumPy workload. Separate processes have independent interpreters and can parallelize Python computation, but require startup, serialization and data-transfer costs.
@@ -54,6 +75,27 @@ Suppose a batch has four images to fetch and four CPU-heavy Python calculations 
 Threads can overlap those waits. In a standard GIL-enabled CPython build, processes are usually the more relevant option for parallel CPU-heavy Python work. They also introduce startup and data-transfer costs, which can outweigh the benefit for small tasks.
 
 A useful comparison therefore measures the same outputs across several task sizes. That distinction also explains why caching, decorators and queues need clear contracts rather than just convenient syntax.
+
+### Self-check
+
+A standard GIL-enabled CPython workload spends nearly all its time in independent pure Python calculations. Which option is the most relevant parallel baseline?
+
+- A. A timer around one function
+
+- B. A process pool, measuring data-transfer overhead
+
+- C. More threads in the same interpreter
+
+- D. A larger queue with one worker
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**B. A process pool, measuring data-transfer overhead**
+
+Separate processes can execute Python calculations in parallel. Serialization and startup costs still need to be included in the measurement.
+
+</details>
 
 ## Queues and failure
 

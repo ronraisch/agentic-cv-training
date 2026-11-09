@@ -39,6 +39,27 @@ Autoencoders, VAEs, GANs and diffusion models make different choices about how t
 
 An autoencoder maps x to a latent code z and reconstructs x from it. A bottleneck, noise or other constraints encourage the code to preserve selected structure rather than copy input trivially. Pixel reconstruction loss favors some information differently from a semantic objective. A low reconstruction error need not produce a useful classification embedding, and a high error can arise from a new camera rather than an anomalous object.
 
+### Self-check
+
+An ordinary autoencoder reconstructs training images from their latent vectors. What does that alone establish about decoding a random latent vector?
+
+- A. It must reproduce the closest training image
+
+- B. There is no guarantee it lies in a region the decoder learned to use
+
+- C. It must produce a blank image
+
+- D. It must produce a realistic image
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**B. There is no guarantee it lies in a region the decoder learned to use**
+
+Reconstruction checks codes produced by the encoder. Random sampling may land in regions that training did not constrain.
+
+</details>
+
 ## Variational autoencoders and ELBO
 
 A VAE uses a prior p(z), a decoder distribution p_theta(x|z) and an approximate posterior q_phi(z|x). Its evidence lower bound is `E_q[log p_theta(x|z)] - KL(q_phi(z|x) || p(z))`. The difference between log p_theta(x) and this bound is a nonnegative KL divergence to the true posterior. The first term rewards reconstruction likelihood; the second regularizes the latent distribution. A deterministic reconstruction penalty is not automatically the same as a specified likelihood without assumptions about output noise.
@@ -72,6 +93,27 @@ For an autoregressive image model, choose an ordering of the values to be genera
 Diffusion uses a different path. Imagine adding increasing amounts of noise to a clean training image. The model learns a prediction that helps undo corruption at different noise levels, such as estimating the added noise. At generation time, a sampler starts from a noisy state and uses a sequence of learned updates to reach a sample. A condition, such as text, can guide those updates. The exact training objective and sampling procedure depend on the model.
 
 Both methods can produce one of several plausible images. When the input leaves a region ambiguous, agreement with the observed pixels can coexist with disagreement about the hidden details. In an image analysis task, keep generated content identifiable as an inference and evaluate its effect on the downstream decision.
+
+### Self-check
+
+Two plausible restorations of the same blurred crop disagree about a letter. What does a sharp output establish by itself?
+
+- A. The recognizer will improve on every crop
+
+- B. The ambiguity in the original input disappeared
+
+- C. The true letter was measured again
+
+- D. The model generated a plausible candidate under its assumptions
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**D. The model generated a plausible candidate under its assumptions**
+
+The model can infer details compatible with the input. Sharpness alone gives no observation of which underlying letter was present.
+
+</details>
 
 ## Where this material fits
 

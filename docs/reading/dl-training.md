@@ -66,6 +66,27 @@ This prints:
 
 A larger network applies the same chain rule through many operations. The practical difficulty is tracking the right values, shapes and state.
 
+### Self-check
+
+The prediction is 2w, the target is 4, and the loss is half the squared error. At w = 3, what is the derivative with respect to w?
+
+- A. 4
+
+- B. 0
+
+- C. −4
+
+- D. 2
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**A. 4**
+
+The prediction error is 6 − 4 = 2. The prediction changes by 2 for each unit of w, so the chain rule gives 2 × 2 = 4.
+
+</details>
+
 ## Optimization and regularization
 
 Minibatch SGD estimates gradients from subsets. Learning rate controls update size; momentum accumulates directional history; adaptive methods such as Adam scale updates using moment estimates. A schedule changes the rate over training. Batch size affects optimization noise, memory, iteration count and hardware efficiency, so “same epochs” does not necessarily mean the same experiment.
@@ -91,6 +112,27 @@ Save architecture/config identity, model weights, preprocessing and label mappin
 Keep a small input whose preprocessing and prediction you can reproduce. Run it in evaluation mode before saving a checkpoint. Then load the checkpoint in a fresh process and run the same path. Matching the expected result checks more than reading a file successfully. It also checks that the model configuration and preprocessing were reconstructed and that the consumer actually uses the restored weights.
 
 Use a separate new input to exercise the intended interface. If continuing training is part of the experiment, optimizer state and schedule may matter as well. An inference checkpoint and a resume checkpoint answer different questions. Record which behaviour you verified.
+
+### Self-check
+
+Which check provides evidence that a saved checkpoint is actually used for inference?
+
+- A. Compare the two file sizes
+
+- B. Confirm the filename exists
+
+- C. Keep the training process alive and run its current model
+
+- D. Reload in a fresh process and compare predictions with the expected run
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**D. Reload in a fresh process and compare predictions with the expected run**
+
+A fresh process exercises loading, configuration and the inference consumer. The prediction comparison checks the restored behaviour.
+
+</details>
 
 ## Turning a training failure into a specific question
 

@@ -33,6 +33,27 @@ In two dimensions, the local calculation covers a patch of rows and columns and 
 
 Stacking layers extends the set of input positions that can influence a final output. It also changes how often those outputs are sampled, especially when a layer increases stride. These are the two quantities tracked in the receptive-field calculation.
 
+### Self-check
+
+Apply the filter [−1, 1] in the stated order with stride 1 and no padding to [1, 1, 4, 4]. What are the outputs?
+
+- A. [0, 3, 0]
+
+- B. [0, −3, 0]
+
+- C. [2, 5, 8]
+
+- D. [1, 4, 4]
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**A. [0, 3, 0]**
+
+The adjacent differences are 1 − 1, 4 − 1 and 4 − 4. Their values are 0, 3 and 0.
+
+</details>
+
 ## Receptive field
 
 Track the effective sampling jump j and receptive field r: start j=1,r=1, then update `r_new = r + (K-1) D j` and `j_new = j S`. Three stride-one 3-by-3 layers give a 7-by-7 theoretical receptive field. With equal channel counts, their convolution weights total 27C squared versus 49C squared for one 7-by-7 layer, plus more nonlinearities and intermediate activations. The theoretical field says which input could influence a feature, not how much each pixel actually influences it.
@@ -48,6 +69,27 @@ Three stride-one 3×3 convolutions give a final output a theoretical 7×7 recept
 This matters for small objects. A deep feature may have access to a large input region while being sampled on a coarse grid. Access to the object does not guarantee that its detail survives resizing, downsampling or the learned computation.
 
 Kernel size, stride and feature scale describe different aspects of this process. Keeping them separate helps explain both localization behaviour and compute cost.
+
+### Self-check
+
+How wide is the theoretical receptive field after three 3-wide layers with stride 1 and no dilation?
+
+- A. 7
+
+- B. 9
+
+- C. 3
+
+- D. 5
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**A. 7**
+
+The receptive field starts at 1. Each layer adds two input positions at stride 1, so the total is 1 + 3 × 2 = 7.
+
+</details>
 
 ## Fully connected and fully convolutional
 

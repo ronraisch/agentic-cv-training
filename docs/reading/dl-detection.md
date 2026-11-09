@@ -49,6 +49,27 @@ The missed detections need to be traced through the pipeline: resizing may erase
 
 The detection architectures below distribute those responsibilities differently, which is more useful to understand than their names alone.
 
+### Self-check
+
+Eight labelled objects are visible, and only three have usable candidate boxes. A later classifier only assigns labels to those boxes. What is the best possible recall at that point?
+
+- A. 1
+
+- B. 8/3
+
+- C. 5/8
+
+- D. 3/8
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**D. 3/8**
+
+The classifier can recover at most the three represented objects. The other five have no usable candidate to label.
+
+</details>
+
 ## From R-CNN to shared features
 
 R-CNN classifies proposed crops using CNN features and separates stages for classification and localization. Its repeated crop computation is expensive. Fast R-CNN shares image feature computation and pools region features for classification and box regression. Faster R-CNN introduces a learned region-proposal network over shared features. Explain the proposal stage's recall separately from the final head: no later classifier can recover an object that never receives a usable proposal.
@@ -72,6 +93,27 @@ Suppose a training image has two labelled cars. A DETR-style head returns three 
 Contrast this with a detector trained on dense locations. Several neighbouring locations may receive positive supervision for one object, with duplicate removal later during inference. The training assignment and the inference duplicate policy are therefore connected design choices. Inspect both before attributing a difference in crowded scenes to the backbone or class head.
 
 Candidate or query limits can also matter. If the model can emit at most three distinct objects, an image with four valid instances cannot have perfect recall under one-to-one evaluation. In tiled images, record this limit per tile and inspect whether the misses occur before or after merging across tiles.
+
+### Self-check
+
+A training image has two objects and three candidate slots. Under a one-to-one assignment covering both objects, how many slots are unmatched?
+
+- A. 1
+
+- B. 0
+
+- C. 3
+
+- D. 2
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**A. 1**
+
+Two distinct slots can match the two labels. The remaining slot receives the unmatched or no-object training treatment.
+
+</details>
 
 ## Dense masks and OCR
 

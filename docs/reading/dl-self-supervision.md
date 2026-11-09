@@ -35,6 +35,27 @@ That supervision can be useful, but it does not explicitly say that the truck mu
 
 Contrastive and teacher–student objectives build on such relationships, with additional mechanisms needed to avoid trivial representations.
 
+### Self-check
+
+A positive crop of an image removes its only tiny vehicle. What should you inspect before using that augmentation for vehicle retrieval?
+
+- A. Whether positive views preserve the object evidence the downstream task needs
+
+- B. Whether a crop keeps the same file format
+
+- C. Whether every crop has the same brightness
+
+- D. Whether the two views have the same number of pixels
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**A. Whether positive views preserve the object evidence the downstream task needs**
+
+A view can remain a positive under the training rule while losing relevant content. Inspecting view pairs connects augmentation to the downstream task.
+
+</details>
+
 ## Contrastive and triplet objectives
 
 Contrastive learning encourages related views to have similar representations and distinguishes them from negatives. An InfoNCE-style objective classifies a positive among candidates using similarity divided by temperature. Temperature affects how sharply differences are weighted. Batch size, a memory queue and negative sampling change the comparison set. False negatives arise when two distinct samples depict the same semantic class, so instance discrimination need not align perfectly with category labels.
@@ -54,6 +75,27 @@ A representation that maps everything to one vector would make positive pairs cl
 If every input maps to the same vector, matching views becomes trivial but the representation is useless. Negative comparisons, normalization, stop-gradient, target transformations and architectural asymmetry are among the tools used to avoid collapse. Each method needs its own explanation; “it has a teacher” is not sufficient.
 
 The self-supervised DINO family trains a student to match a teacher across views, with a teacher commonly updated from the student over time and output transformations controlling training. DINOv2 and DINOv3 extend the representation-learning line through different data, objectives and training refinements. Treat each checkpoint as a specific encoder with a defined patch size, output-token convention, normalization and license. Do not assume that a pooled classification vector and a dense patch feature map are interchangeable.
+
+### Self-check
+
+Every input maps to exactly the same vector. Which problem does this illustrate?
+
+- A. Balanced class sampling
+
+- B. Improved ranking resolution
+
+- C. A larger embedding vocabulary
+
+- D. Representation collapse
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**D. Representation collapse**
+
+Identical vectors satisfy a closeness objective trivially and cannot distinguish inputs for retrieval or classification.
+
+</details>
 
 ## Evaluate a frozen representation
 

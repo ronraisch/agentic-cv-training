@@ -58,6 +58,27 @@ Keeping the mean as (1, 3) makes the intended feature axis visible.
 
 Shapes, dtypes and indexing become much easier to reason about once every axis has a named role.
 
+### Self-check
+
+X has shape (20, 3), with samples in rows. Which mean removes the average of each feature across samples?
+
+- A. X.mean()
+
+- B. X.mean(axis=1)
+
+- C. X.mean(axis=1, keepdims=True)
+
+- D. X.mean(axis=0, keepdims=True)
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**D. X.mean(axis=0, keepdims=True)**
+
+Reducing axis 0 produces one mean per feature. The resulting shape (1, 3) broadcasts across the twenty rows.
+
+</details>
+
 ## Numerical work needs scale and stability
 
 Floating-point sums depend on order and precision; compare with tolerances justified by scale, not exact equality by default. Normalize features using statistics fitted only on training data and reuse those values at validation/inference. Protect zero denominators explicitly and report degenerate inputs. If every pixel in a patch is constant, normalized correlation has no defined variance normalization; returning a perfect score would invent evidence.
@@ -75,6 +96,27 @@ Suppose an inference batch contains frames 101, 102 and 103. A downstream operat
 A DataFrame can align values by index or join records on an explicit key. Use a stable frame identifier and check the expected relationship before joining. For one prediction per frame, duplicate IDs deserve investigation. For detections, many rows per frame may be normal, so you need the appropriate frame and detection identity for the task. Also check unmatched rows. A join that silently discards frames with no prediction can make a detector appear more complete than it is.
 
 This is a useful companion to the array example. Shape checks catch many mistakes about axes. They cannot tell whether one row still refers to the same real example after sorting or filtering.
+
+### Self-check
+
+Predictions were sorted by confidence. Labels are still in frame order. Which operation preserves the pairing?
+
+- A. Drop the original IDs before comparing
+
+- B. Sort labels by class first
+
+- C. Join on a stable frame ID and inspect unmatched rows
+
+- D. Assign labels in their current order
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**C. Join on a stable frame ID and inspect unmatched rows**
+
+Sorting changes row positions. A stable identifier links a prediction to its actual frame, while unmatched rows reveal omissions.
+
+</details>
 
 ## EDA and useful visualizations
 

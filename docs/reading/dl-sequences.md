@@ -55,11 +55,53 @@ Frame sampling can remove evidence even before the model combines it. If an obje
 
 In an evaluation, compare clips on which order matters with clips on which appearance alone suffices. A strong average-frame baseline on a road-presence question does not tell you whether it can recognize an action. Split by source video before sampling clips to keep related frames together.
 
+### Self-check
+
+A model averages frame embeddings. What happens to that average if the exact same frames are reversed?
+
+- A. It becomes the last frame embedding
+
+- B. It stays the same
+
+- C. It gives twice the original value
+
+- D. It changes sign
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**B. It stays the same**
+
+A mean depends on which vectors are included, and reversing their order leaves it unchanged. A direction-sensitive task needs order information.
+
+</details>
+
 ## Sampling and realistic evaluation
 
 Short clips can miss rare events; long clips increase context but mix irrelevant content. Sample using the deployment event duration, preserve actual timestamps and evaluate sensitivity to speed and gaps. Split by source video/session/camera as appropriate. Random frame splits reward memorizing backgrounds. Report latency from observed input to a decision, not just the model forward time. A clip-level score does not establish accurate event boundaries or stable online alerts.
 
 For tracklets, consider identity switches, missing detections and camera motion. For event systems, define when repeated detections become one event and how cooldown periods affect precision and recall. A person appearing in many adjacent frames should not count as dozens of independent successes. Include empty scenes, partial actions and camera transitions among qualitative cases.
+
+### Self-check
+
+You generate overlapping clips from long recordings. Which split best tests performance on unseen recordings?
+
+- A. Split by recording before extracting clips
+
+- B. Assign every other clip to validation
+
+- C. Split individual frames independently
+
+- D. Select clips with the highest model confidence
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**A. Split by recording before extracting clips**
+
+Grouping by recording prevents nearby or shared frames from appearing on both sides of the evaluation.
+
+</details>
 
 ## Pseudo-labels and teacher models
 

@@ -41,6 +41,27 @@ Four point correspondences in general position can determine a planar homography
 
 When rendering the output crop, an inverse warp asks where each destination pixel came from in the original image. Interpolation supplies a value when that source location falls between pixel centres. This separates the geometric mapping from the sampling step. A correct transformation can still produce a degraded crop if the source plate covers very few pixels.
 
+### Self-check
+
+Which set can constrain a general planar homography from exact point pairs?
+
+- A. Four points on a single edge
+
+- B. One point and its destination
+
+- C. Four correspondences in general position
+
+- D. Three points on a single line
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**C. Four correspondences in general position**
+
+Four corresponding points in general position provide independent constraints. Collinear points leave motion away from the line underdetermined.
+
+</details>
+
 ## Camera projection
 
 A pinhole camera maps a 3D homogeneous point through `p ~ K [R | t] X`. K describes intrinsics such as focal length in pixels and principal point; R and t describe the world-to-camera pose under a declared convention. Perspective division converts homogeneous coordinates to image coordinates. Lens distortion is a separate model and can break a simple projective fit at wide fields of view. A planar scene or pure camera rotation supports a global inter-image homography. A scene with depth variation and camera translation usually produces parallax that one homography cannot remove.
@@ -66,6 +87,27 @@ In a rectified ideal pair, disparity is inversely proportional to depth: `Z = f 
 Pick a corner in the left image. Every physical point along the camera ray through that corner would project to the same left pixel. Project that ray into the right image and it traces a line, except in degenerate configurations. The matching corner therefore has to lie on the corresponding epipolar line in the ideal geometry. This is why geometric calibration can reduce the search space even before depth is known.
 
 Rectification transforms both images so these searches can be made along corresponding rows. If multiple similar corners appear on a row, geometry alone may not identify the correct one. Texture, consistency with nearby matches and visibility matter too. One camera may see a point that the other camera cannot see at all. A forced correspondence there can produce a plausible disparity with no physical match.
+
+### Self-check
+
+For the same rectified stereo rig, disparity changes from 10 pixels to 5. What happens to estimated depth?
+
+- A. It doubles
+
+- B. It increases by 5 metres
+
+- C. It stays fixed
+
+- D. It halves
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**A. It doubles**
+
+Depth is fB/d. Holding focal length and baseline fixed while halving disparity doubles the estimated depth.
+
+</details>
 
 ## Reading an airborne alignment
 

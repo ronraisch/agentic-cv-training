@@ -33,6 +33,27 @@ Suppose six detector candidates have scores 0.2, 0.3, 0.4, 0.6, 0.7 and 0.9. The
 
 Gini impurity uses `1 − Σ pᵢ²`, where the probabilities are observed class proportions in the node. The root has impurity 0.5. Both children have impurity `1 − (2/3)² − (1/3)² = 4/9`, so this split lowers weighted impurity by about 0.056. A fitting algorithm evaluates candidate splits and chooses one according to its criterion. It may find a better threshold than this example. A small leaf can appear very pure by chance, which is why depth and leaf-size limits are useful model settings.
 
+### Self-check
+
+A node contains three positives and three negatives. Which child split makes both children pure?
+
+- A. Each child holds equal counts of both labels
+
+- B. One child holds all positives and the other all negatives
+
+- C. Each child has two examples of one label and one of the other
+
+- D. All examples remain in one child
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**B. One child holds all positives and the other all negatives**
+
+A pure node contains one label. A split that separates the two labels gives zero impurity in each child.
+
+</details>
+
 ## Bagging and random forests
 
 Bagging trains models on bootstrap samples and averages their predictions. Averaging reduces variance when errors are not perfectly correlated. A random forest additionally samples candidate features at splits to diversify trees. More trees often stabilize the average but increase memory and inference cost. Out-of-bag predictions use trees that did not train on a given row, providing an internal diagnostic; they do not repair leakage between correlated rows or a mismatch with the deployment population.
@@ -50,6 +71,27 @@ Gradient boosting fits each new learner to a negative gradient of the chosen los
 For a simple regression example, imagine predicting prices 100, 120 and 180 for three observations. Start by predicting their mean, about 133.3, for all three. The residuals are about −33.3, −13.3 and +46.7. A small tree can group some of those residuals and predict a correction for each group. Adding a fraction of its output moves the ensemble in a direction that reduces squared loss.
 
 The second tree is trained on a problem defined by the current model's errors. With another loss, the corrections are based on the corresponding negative gradient, rather than necessarily the raw residual. This explains how gradient boosting differs from a forest trained by sampling independent trees and averaging them. The learning rate controls the size of each correction. A small rate usually requires more rounds, and validation-based stopping is one way to choose how long to keep adding trees.
+
+### Self-check
+
+For squared-error gradient boosting, what does the next regression tree learn to approximate?
+
+- A. The feature means across all examples
+
+- B. Residual corrections to the current ensemble
+
+- C. A fresh random labeling of the data
+
+- D. A separate prediction that will replace every earlier tree
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**B. Residual corrections to the current ensemble**
+
+For squared error the negative gradient is the residual. The next tree contributes a correction to the current prediction.
+
+</details>
 
 ## XGBoost and LightGBM
 

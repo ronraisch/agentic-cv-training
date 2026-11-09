@@ -25,6 +25,27 @@ HTTP connects clients and services through methods, paths, headers and bodies. A
 
 A requests-style client sends data, checks status and parses the body. Do not retry every exception blindly: a timeout can occur after the service already committed work. Retrying then duplicates side effects unless a stable request identity supports idempotency. Authentication, serialization and schema evolution are separate from model quality. Logs should carry request/task IDs without exposing credentials or large sensitive inputs.
 
+### Self-check
+
+A client times out after sending a create-job request and retries. What helps the server recognize that both requests refer to one intended job?
+
+- A. A different server port for each retry
+
+- B. A longer display title
+
+- C. A stable request key reused across retries
+
+- D. A new random job ID on every retry
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**C. A stable request key reused across retries**
+
+A stable key gives the server an identity it can look up when a request may already have succeeded.
+
+</details>
+
 ## SQL and persistent data
 
 A relational table stores rows with declared columns and constraints. A primary key identifies a row; a foreign key expresses a relationship to another table. SELECT filters and projects rows; JOIN combines related tables; GROUP BY aggregates. A many-to-many join can multiply counts, so check cardinality before interpreting a metric. NULL represents missing/unknown information and has different comparison semantics from a normal value. Use parameterized queries rather than building SQL by concatenating untrusted input.
@@ -69,6 +90,27 @@ This prints:
 ```
 
 HTTP, database transactions and queue acknowledgements each cover a different boundary. Recovery depends on how the application connects them.
+
+### Self-check
+
+A worker saves its output, then crashes before acknowledging the message. What can happen?
+
+- A. The saved result proves the broker acknowledged it
+
+- B. The message can never be delivered again
+
+- C. The message may be redelivered and must be safe to replay
+
+- D. The broker automatically deletes the saved result
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**C. The message may be redelivered and must be safe to replay**
+
+Saving and acknowledgement are different operations. Durable, idempotent writes handle replay after the gap between them.
+
+</details>
 
 ## Research interfaces
 

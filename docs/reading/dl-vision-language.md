@@ -37,6 +37,27 @@ Suppose you want to find images containing red cars. A dual encoder maps images 
 
 The same phrase can be used across these systems, but the evidence each one returns is different. Evaluate the result the user receives. A fluent answer about a scene and a box placed on the right instance require different checks.
 
+### Self-check
+
+A user asks for the coordinates of every visible red car. Which output directly addresses the request?
+
+- A. Localized candidates for the phrase
+
+- B. One similarity score for the whole image
+
+- C. A ranking of scene captions
+
+- D. A yes/no response only
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**A. Localized candidates for the phrase**
+
+Coordinates require region-level evidence. Image-level similarity or an answer about presence does not locate individual cars.
+
+</details>
+
 ## Zero-shot labels and prompts
 
 Zero-shot classification compares an image against text candidates without fitting a task-specific classifier on labeled examples from those classes. The candidate set, wording and context affect results. Softmax over candidate similarities normalizes relative scores within that set; adding another candidate can change probabilities without changing the image. It is not an object-presence probability calibrated for arbitrary deployment scenes.
@@ -52,6 +73,27 @@ An image encoder gives “red car” a higher similarity than “bicycle.” If 
 Candidate wording, scene context and crop scale can all affect the result. A whole-image score may reflect the general setting, while a detector or region-level comparison asks a more localized question. The scores are useful only in relation to the task and the way they were evaluated.
 
 This distinction helps separate dual-encoder matching, generative VLM answers and open-vocabulary localization.
+
+### Self-check
+
+An image ranks red car above bicycle in a two-label similarity comparison. What does that establish?
+
+- A. A car is present with probability 1
+
+- B. Red car is the higher-scoring candidate in that comparison
+
+- C. The model found the car's location
+
+- D. There are no bicycles in the image
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**B. Red car is the higher-scoring candidate in that comparison**
+
+Relative similarity says which candidate ranks higher. It does not establish presence, localization or calibrated probability.
+
+</details>
 
 ## Open-vocabulary localization
 

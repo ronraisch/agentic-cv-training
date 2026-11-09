@@ -65,6 +65,27 @@ A record of apartment sales tells us the price for each past example. In the rob
 | Semi-supervised | A mix of labelled and unlabelled examples | Train a spam classifier with reviewed messages and selected pseudo-labels |
 | Reinforcement learning | Rewards from actions and their consequences | Choose movements that help a robot reach a charger |
 
+### Self-check
+
+A model learns to predict each next token from prefixes in existing text. Where do its targets come from?
+
+- A. The next tokens already present in the text
+
+- B. Rewards after taking actions
+
+- C. Human labels of document topics
+
+- D. Clusters of unrelated documents
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**A. The next tokens already present in the text**
+
+The text supplies both prefix and target. That derived prediction task is self-supervised.
+
+</details>
+
 ## Fit a line to apartment prices
 
 Return to the supervised example. Start with a deliberately small dataset where floor area is the only feature. Prices in this example are in thousands of shekels.
@@ -118,6 +139,27 @@ Scale matters for interpretation as well as fitting. If area is measured in tens
 When many features compete to explain a small dataset, fitting the training rows closely may require weights that are sensitive to tiny changes in the data. A **regularizer** adds a penalty to the training objective. **Ridge** adds a term proportional to the sum of squared weights. It tends to shrink them. **Lasso** adds a term proportional to the sum of absolute weights. Under suitable conditions some coefficients become exactly zero.
 
 The weights and intercept are **parameters** learned by fitting. The penalty strength is a **hyperparameter** chosen as part of model selection. The intercept is often left out of the penalty. Feature units matter because changing a feature's scale changes the weight needed for the same prediction. This is one reason scaling belongs inside the fitted preprocessing pipeline.
+
+### Self-check
+
+A model is b + w₁x + w₂x². Why can it be fitted by linear least squares?
+
+- A. Its computed columns x and x² enter linearly in the unknown weights
+
+- B. Squaring the feature removes the residuals
+
+- C. Its graph is always a straight line in x
+
+- D. The coefficient w₂ is fixed by the input
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**A. Its computed columns x and x² enter linearly in the unknown weights**
+
+Once x² is computed, the coefficients multiply fixed feature columns. The fit is linear in those coefficients even though the prediction curves as x varies.
+
+</details>
 
 ## What assumptions make a loss reasonable?
 

@@ -33,6 +33,27 @@ A camera model gives the relationship between image positions and viewing rays. 
 
 In a rectified stereo pair, matching points share a row under the ideal model. Disparity is their horizontal coordinate difference. Rectification and known focal length and baseline make the later depth calculation possible. A visually plausible match across repeated windows still needs to correspond to the same physical point.
 
+### Self-check
+
+A calibrated single image supplies the pixel location of a point. What does that location determine in the ideal camera model?
+
+- A. Its unique distance from the camera
+
+- B. Its depth without additional assumptions
+
+- C. Its complete world coordinates
+
+- D. A viewing ray along which the point could lie
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**D. A viewing ray along which the point could lie**
+
+Several 3D points along the same ray project to the same pixel. Another observation or assumption is needed to determine distance.
+
+</details>
+
 ## Depth and ambiguity
 
 A monocular network can learn depth-related priors from data, but the image alone does not uniquely determine metric depth in every scene. A model may infer typical object size or camera height and fail when those priors change. Relative depth ordering and metric depth are different targets. Aligning predictions to ground truth with a fitted scale/shift changes what the metric claims; declare that protocol. Evaluate boundaries, reflective surfaces, occlusions and depth ranges rather than one global mean.
@@ -46,6 +67,27 @@ In an ideal rectified stereo pair, depth follows `Z = fB/d`. With a focal length
 The same one-pixel change matters much more at smaller disparities: changing two pixels to one changes the inferred depth from 50 to 100 metres. A visually small matching error can therefore become a large error in world coordinates.
 
 Calibration, viewpoint and the chosen scene representation determine what can be inferred from the images and how reliable that inference is.
+
+### Self-check
+
+For a rectified rig with fB = 100 metre-pixels, what depth corresponds to a disparity of 4 pixels?
+
+- A. 4 metres
+
+- B. 40 metres
+
+- C. 10 metres
+
+- D. 25 metres
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**D. 25 metres**
+
+The depth is fB/d = 100/4 = 25 metres.
+
+</details>
 
 ## 3D representations
 

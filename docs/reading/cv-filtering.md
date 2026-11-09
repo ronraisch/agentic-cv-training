@@ -66,6 +66,27 @@ The one-dimensional signal makes the averaging visible without image-display set
 
 The filter definitions below explain how much information is mixed, where it comes from and what happens near an image boundary.
 
+### Self-check
+
+A three-pixel uniform average sees the window [0, 9, 0]. What does it output at the centre?
+
+- A. 9
+
+- B. 27
+
+- C. 3
+
+- D. 0
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**C. 3**
+
+The three equal weights are each 1/3, so the result is (0 + 9 + 0) / 3 = 3.
+
+</details>
+
 ## Template matching and edge detection
 
 Correlation can search for a known template, but raw intensity similarity changes with illumination. Zero-mean normalized correlation removes additive offsets and positive multiplicative contrast changes when both patches have nonzero variance. It does not create invariance to perspective, scale or occlusion. Large windows collect evidence but may mix multiple surfaces; small windows localize precisely but are noisy and ambiguous.
@@ -81,6 +102,27 @@ Convolution in space corresponds to multiplication in frequency. A discrete FFT 
 ## Pyramids and sampling
 
 Downsampling without limiting frequencies can cause aliasing: different signals become indistinguishable at the lower sampling rate. A Gaussian pyramid smooths and downsamples repeatedly. A Laplacian pyramid stores differences between a level and an expanded coarse estimate; together with the coarse residual it supports reconstruction and multiscale blending. Upsampling creates more samples, not new measured detail. Bilinear interpolation is useful for continuous intensities; nearest-neighbor is often appropriate for categorical segmentation labels.
+
+### Self-check
+
+Thin stripes change into a false coarse pattern after downsampling. Which preprocessing directly addresses that failure?
+
+- A. Low-pass filter before downsampling
+
+- B. Raise contrast after downsampling
+
+- C. Use a smaller crop
+
+- D. Add more edge sharpening
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**A. Low-pass filter before downsampling**
+
+Reducing high-frequency detail before sampling lowers aliasing. Sharpening afterwards cannot recover the original frequency information.
+
+</details>
 
 ## Choosing a filter for the LPR path
 

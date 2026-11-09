@@ -39,6 +39,27 @@ Before changing the parser, inspect the working directory, the exact input path,
 
 The same reasoning extends to a pod. A path inside a container refers to its own view of the filesystem. A file on the developer machine is available to the process only if it was included or mounted through the environment. Check the path from inside the running process's environment.
 
+### Self-check
+
+A script opens data/input.json. You launch it from /tmp without changing directories. Where does Python look first?
+
+- A. Beside the script automatically
+
+- B. In the Git root automatically
+
+- C. /tmp/data/input.json
+
+- D. Beside the Python executable
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**C. /tmp/data/input.json**
+
+A relative path resolves against the process working directory. The script's location matters only if the program explicitly builds a path from it.
+
+</details>
+
 ## Git as an experiment record
 
 A commit records a tree of tracked files plus metadata and parent history. The working tree contains your current files; the staging area selects the next commit. A branch is a movable reference to a commit; HEAD identifies the current checkout. Inspect `git status` and `git diff` before staging, and inspect the staged diff before committing. A local commit is not yet a remote backup. Fetch updates your view of the remote; merging combines histories and may require resolving conflicting edits. Resolve a conflict by understanding the intended behavior on both sides, then rerun the relevant example.
@@ -68,6 +89,27 @@ The shape parser runs correctly from VS Code. Inside the container, it fails to 
 This is an easy failure to misdiagnose as a Python problem. The program depends on more than its source files: its working directory, interpreter, packages and mounted data all affect what it does. Reproducing the run means making those dependencies explicit.
 
 Following one input from the terminal into the container gives the Linux, Git and environment concepts below a concrete purpose.
+
+### Self-check
+
+Your container starts, but a model file exists only on the host and was neither copied nor mounted. Which change makes it available at runtime?
+
+- A. Switch Git branches
+
+- B. Restart the same container without a mount
+
+- C. Change the host's current directory
+
+- D. Mount the model at the path the process reads
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**D. Mount the model at the path the process reads**
+
+The process reads its own filesystem view. An explicit mount makes the host file available at a known container path.
+
+</details>
 
 ## Following the shape parser through a real run
 

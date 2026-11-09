@@ -72,6 +72,27 @@ This prints:
 
 This small weighted sum is the last step of attention. The rest of the layer explains how the model learns the projections and produces the weights.
 
+### Self-check
+
+Keep Q, K and the mask fixed, and change only V. What can change in that attention operation?
+
+- A. The weighted output, with the same weights
+
+- B. The weights, with the same output guaranteed
+
+- C. The mask only
+
+- D. The QK scores only
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**A. The weighted output, with the same weights**
+
+Q, K and the mask determine the weights. V supplies the content of the weighted sum.
+
+</details>
+
 ## Order, heads and architecture
 
 The comparisons alone do not tell the model where a token appeared. Ordinary self-attention without positional information is permutation equivariant: rearranging the inputs rearranges the corresponding outputs. Pooling can then produce an invariant summary. Absolute or relative positions, including rotary schemes, introduce order or geometry in different ways. Multiple heads allow different learned projections and interaction maps, although that does not guarantee a distinct interpretable role for every head.
@@ -89,6 +110,27 @@ Changing resolution changes the spatial token grid and may require positional ad
 With non-overlapping 16-by-16 patches, a 224-by-224 image gives a 14-by-14 patch grid, or 196 patch tokens. Doubling both image dimensions gives a 28-by-28 grid, or 784 patch tokens. Ignoring special tokens, full attention compares about 38,416 pairs in the first case and 614,656 in the second. The number of tokens grows fourfold and the pair count grows sixteenfold. This calculation describes the number of score entries, rather than a measured runtime.
 
 The resolution can still be worthwhile if it preserves a small object that would disappear after resize. Decide what spatial evidence the downstream task needs, then measure the impact of resolution on quality, memory and throughput. Local windows and hierarchical stages change which pairs are compared and how information travels across the image.
+
+### Self-check
+
+With a fixed patch size, you double the image width and height. Ignoring special tokens, how many times more score entries does full attention compute?
+
+- A. 2
+
+- B. 4
+
+- C. 16
+
+- D. 8
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**C. 16**
+
+There are four times as many patches. The number of query–key pairs scales with the square of the token count, so it grows by 4² = 16.
+
+</details>
 
 ## What attention does not prove
 

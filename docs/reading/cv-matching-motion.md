@@ -55,6 +55,27 @@ A model with fifteen inliers spread across the overlap can be better evidence th
 
 In optical flow, the local evidence is smaller. A patch with only a vertical edge can constrain sideways motion, while motion along the edge may leave its image unchanged. A corner provides intensity change in two directions. This is why the positions chosen for tracking affect what can be inferred about motion.
 
+### Self-check
+
+Most inliers lie on one building wall, but the road and roof do not align. What is the most informative next check?
+
+- A. Assume a global fit is verified
+
+- B. Blend the panorama more strongly
+
+- C. Increase iteration count immediately
+
+- D. Plot the spatial distribution of residuals and inliers
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**D. Plot the spatial distribution of residuals and inliers**
+
+Inliers concentrated on one surface can support a local warp. The spatial pattern of disagreement helps diagnose a model that fails elsewhere.
+
+</details>
+
 ## Warping and blending
 
 Forward warping pushes source pixels to destinations and may create holes or collisions. Inverse warping visits each destination and samples its preimage, using interpolation for fractional coordinates. Verify the matrix direction: swapping image-to-image and inverse maps can produce plausible but incorrect output. Bilinear interpolation weights four neighbors; nearest-neighbor preserves discrete labels. Explicitly distinguish pixels outside the image from valid dark pixels using a validity mask.
@@ -66,6 +87,27 @@ For stitching, transform image bounds to determine canvas extent, handle negativ
 Brightness constancy assumes a moving point has approximately unchanged intensity. Linearizing small motion gives `Ix u + Iy v + It = 0`, one equation for two motion components. The aperture problem leaves motion along an edge ambiguous. Lucas–Kanade assumes approximately common motion in a local window and solves a least-squares system. Its normal matrix is the same gradient structure that explains corner quality. Use a stable solver rather than explicitly inverting a nearly singular matrix.
 
 Large motion violates the linearization. Coarse-to-fine pyramids turn it into smaller displacements at coarse scales and refine upward. They can still fail on tiny objects, occlusion, illumination changes or motion boundaries. Motion estimates require confidence and visibility checks, not merely a dense output at every pixel.
+
+### Self-check
+
+A patch contains only a vertical edge with constant appearance along its height. Which motion is hardest to infer locally?
+
+- A. Motion across the edge
+
+- B. Horizontal displacement
+
+- C. Motion along the edge
+
+- D. The component normal to the edge
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**C. Motion along the edge**
+
+Moving along a uniform edge preserves its local appearance. The horizontal intensity change constrains motion across it.
+
+</details>
 
 ## From flow to tracks and scene understanding
 

@@ -25,6 +25,27 @@ Your model finds common trucks, but reviewed examples of cement trucks are scarc
 
 Multiclass classification chooses among mutually exclusive labels. Multilabel classification permits multiple labels per example and needs both per-label and per-example evaluation. Multiple-output regression predicts several numerical targets. A sequence-labeling system emits a label per token or time step, while sequence-to-sequence learning produces an output sequence with a potentially different length. Input/output structure determines losses, masks and metrics; replacing a final layer alone may not define the correct task.
 
+### Self-check
+
+A clip can contain both a road and an outdoor scene. How should those two targets be represented?
+
+- A. Two labels that can independently be present
+
+- B. A single mutually exclusive two-class label
+
+- C. An unlabeled cluster index
+
+- D. One continuous price prediction
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**A. Two labels that can independently be present**
+
+The two properties can co-occur. A multilabel target permits both to be present in one example.
+
+</details>
+
 ## Limited supervision
 
 Active learning chooses which examples to label next, often using uncertainty, diversity or expected gain. Uncertainty-only selection can oversample outliers and overlook confidently wrong regions. Evaluate label efficiency on independent data and retain random sampling as an audit. Semi-supervised learning combines labeled and unlabeled observations through assumptions such as smoothness, consistency or low-density class boundaries. Pseudo-label thresholds can reinforce existing biases; unlabeled data is not guaranteed to improve a misspecified task.
@@ -46,6 +67,27 @@ You have time to label three more images. The three most uncertain predictions a
 Active learning treats the choice of observations as part of the learning process. Diversity, representativeness and the cost of annotation can matter alongside uncertainty. A small random audit remains useful because a model can be confidently wrong in a region it never asks anyone to label.
 
 The learning setups below make different assumptions about which labels and relationships are available.
+
+### Self-check
+
+Most uncertain examples are adjacent crops of one truck. Your labeling goal is to cover distinct failure modes. Which change fits that goal?
+
+- A. Always select the highest three uncertainties
+
+- B. Spread the selected labels across distinct sources or error groups
+
+- C. Label only crops with the largest boxes
+
+- D. Treat uncertain predictions as verified negatives
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**B. Spread the selected labels across distinct sources or error groups**
+
+Selecting for diversity reduces repeated review of nearly identical evidence. A representative audit is still needed to estimate overall error.
+
+</details>
 
 ## One-class and anomaly detection
 

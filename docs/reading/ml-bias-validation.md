@@ -39,6 +39,27 @@ Now suppose a high-degree polynomial fits the training prices almost perfectly b
 
 To see the statistical idea, imagine fitting the model to many independently sampled training sets. At a particular area, the predictions can have an average that systematically misses the true expected price, which is bias. They can also spread widely around their own average, which is variance. Squared prediction error can be decomposed into squared bias, variance and irreducible noise under the usual assumptions. This view explains how a slightly biased regularized fit can improve expected error by making predictions less sensitive to the particular training sample.
 
+### Self-check
+
+A high-degree model fits training prices closely but performs poorly on independent sales from the same population. Which explanation should you investigate first?
+
+- A. The model may be fitting details specific to the training sample
+
+- B. The model must have high approximation bias
+
+- C. The true targets have no variation
+
+- D. The validation loss is part of the training objective
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**A. The model may be fitting details specific to the training sample**
+
+A large gap under comparable sampling is consistent with overfitting. Check the split and data first, then compare a simpler or more strongly regularized fit.
+
+</details>
+
 ## How datasets acquire bias
 
 Reporting bias arises when recorded events differ from actual frequencies: a log of reported incidents omits unreported ones. Historical bias carries earlier inequities or policies into labels. Automation bias is undue trust in an automated suggestion; annotators accepting every SAM mask can reinforce its systematic misses.
@@ -74,6 +95,27 @@ A motion classifier performs well after frames are split randomly into training 
 A source-grouped split asks a different question: can the system handle videos it has not already encountered? A lower score on that split can reveal a limitation hidden by the random split. The appropriate split depends on what will actually be new at deployment.
 
 This is one way data collection and evaluation shape apparent performance. It also helps separate dataset bias from the statistical bias–variance discussion.
+
+### Self-check
+
+A motion classifier will run on previously unseen cameras. Which validation design targets that use?
+
+- A. Evaluate only the easiest training videos
+
+- B. Put nearby frames in different sets
+
+- C. Normalize using all cameras before splitting
+
+- D. Hold out whole cameras and fit preprocessing on training cameras
+
+<details>
+<summary>Show answer and explanation</summary>
+
+**D. Hold out whole cameras and fit preprocessing on training cameras**
+
+Grouping by camera tests generalization to unseen installations and keeps validation information out of fitted preprocessing.
+
+</details>
 
 ## Uncertainty and comparison
 
