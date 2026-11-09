@@ -25,6 +25,14 @@ A model is trained on one collection of examples and judged on another. Its scor
 
 ## Three meanings of bias
 
+### One optimistic report, three different causes
+
+A vehicle counter predicts about 15 cars on streets where the true count ranges from 3 to 40. If you repeatedly trained the same deliberately simple model and averaged its predictions for a busy street, it might still predict far too few cars. That systematic error is the kind of bias discussed alongside variance.
+
+Now inspect the training images and find that nearly all came from clear days. Predictions at night can fail because the examples you collected underrepresent the conditions you care about. To test this explanation, report day and night results separately and record how many images each group contains.
+
+Finally, suppose your validation set was made by randomly splitting video frames. A model can see nearly identical frames during training and validation. The optimistic score then comes from the measurement procedure. Splitting by recording is a concrete way to remove that particular path for leakage. These failures can coexist, and each suggests changing a different part of the experiment.
+
 The word bias describes several different things in this discussion. A model can have an additive intercept called a bias. An estimator can have statistical bias, meaning its expectation differs systematically from the quantity being estimated. A dataset can also reflect biased collection, labels or human decisions. These meanings should stay separate: fitting a more flexible model may reduce approximation bias without making the collected sample more representative.
 
 ## Bias and variance in prediction

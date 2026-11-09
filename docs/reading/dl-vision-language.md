@@ -23,6 +23,14 @@ Suppose someone wants to search images using a phrase such as “red car near a 
 
 ## Two ways to connect text and images
 
+### One frame, three different requests
+
+Give a model an image of a roundabout and ask it to choose between red car, crane truck and empty road. An image–text encoder can compare the image vector with vectors for those phrases. It returns a ranking over the phrases you offered. A high relative score can still occur when all three choices are poor descriptions.
+
+Now ask where the red car is. A whole-image score has no box coordinates. An open-vocabulary detector can take the phrase and return candidate regions with scores. You can check whether the region actually overlaps the car and whether the score changes when you crop away the background.
+
+Finally ask whether the red car is entering the roundabout. A generative vision–language model can produce a sentence. Entering is a claim about motion, so one frame may leave it ambiguous even if the car is visible. Matching an image, locating an object and explaining an event produce different outputs and need different evidence.
+
 A dual encoder maps an image and text into a comparable embedding space. CLIP-style training contrasts matching image/text pairs against other pairs. At inference, candidate text labels or descriptions become vectors and similarity gives a relative ranking. A generative vision-language model conditions a language model on visual information and generates tokens. A fluent generated answer and a high embedding similarity are different signals; neither is a guarantee that the described object exists.
 
 ### Use the output that matches the question

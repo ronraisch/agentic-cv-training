@@ -27,6 +27,14 @@ Before the model can compare positions, it needs a representation for each input
 
 ## Attention from shapes
 
+### Calculate one attention row by hand
+
+Imagine three image tokens, one for a vehicle-sized patch and two for its surroundings. For the vehicle query, suppose the three compatibility scores after scaling are (0, 1, 0). Softmax exponentiates each entry and divides by the total. The resulting weights are about (0.21, 0.58, 0.21). This is one row of an attention map.
+
+Now give those same tokens scalar values (2, 10, 4). The query's output is the weighted sum, about 7.03. If the middle value becomes 0, the output drops to about 1.27 even though the heatmap stays exactly the same. The heatmap shows the weights used to combine the values. You also need the values to know what information was combined.
+
+In a model the compatibility scores come from comparing one query vector with each key vector. Each value can be a vector too, so the weighted sum combines vectors coordinate by coordinate. Repeat for each query and stack the rows. This is the computation that the matrix notation below performs at once.
+
 In a full attention layer, the weights in the opening example are computed from the input. For N token vectors collected in X, learned projections produce queries Q, keys K and values V. The operation is `softmax(Q K^T / sqrt(d_k) + mask) V`. The Q–K comparison produces a weight for each available position; multiplying by V combines the content at those positions. Self-attention creates all three projections from the same sequence, but they are generally different tensors. Cross-attention uses a separate memory for keys and values: a translation decoder, for example, queries the encoder’s representation.
 
 The division by sqrt(d_k) happens before softmax. Under common initialization assumptions it moderates the growth in score variance as key dimension increases, helping avoid an excessively sharp distribution. Multiplying the result after softmax would change its magnitude rather than serve the same purpose. Masks change which positions are available: a causal mask excludes future positions, while a padding mask excludes absent tokens. A mask broadcast along the wrong axis can leave the output shape unchanged while letting forbidden information through.
@@ -96,6 +104,14 @@ Q, K and the mask determine the weights. V supplies the content of the weighted 
 Change a key or a value and compare the attention weights with the weighted output. [Attention map playground](../playgrounds/attention-map.html)
 
 ## Order, heads and architecture
+
+### When moving a token changes the meaning
+
+Read “truck follows car” and “car follows truck.” The tokens are the same, but the two statements reverse the relationship. Plain self-attention with no position information treats a reordering of input tokens as a corresponding reordering of its outputs. For a given query it can compare content, but the calculation has no direct clue which token came first.
+
+Position information can enter through learned position vectors or through the way query and key vectors interact. For image patches, two-dimensional position can tell the model which patches are neighbors. A causal mask has a different job. It prevents a query from reading future positions, which matters when training a model to predict the next token. It changes which entries a row can use before softmax.
+
+A multihead layer learns several sets of query, key and value projections. Each head gets to form its own attention rows, and the results are combined. A head might weigh nearby patches strongly, but its map only shows where its weights went for that input. To see how much a head mattered for a prediction, compare outputs with a controlled intervention and check several examples.
 
 The comparisons alone do not tell the model where a token appeared. Ordinary self-attention without positional information is permutation equivariant: rearranging the inputs rearranges the corresponding outputs. Pooling can then produce an invariant summary. Absolute or relative positions, including rotary schemes, introduce order or geometry in different ways. Multiple heads allow different learned projections and interaction maps, although that does not guarantee a distinct interpretable role for every head.
 

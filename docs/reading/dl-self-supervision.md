@@ -58,6 +58,14 @@ A view can remain a positive under the training rule while losing relevant conte
 
 ## Contrastive and triplet objectives
 
+### Put a number on a useful neighbor
+
+Take two crops of the same car from consecutive frames and one crop of a different car. An encoder maps each crop to a vector. Suppose a distance function gives 0.7 between the first two vectors and 0.5 between the first and third. The different car is currently closer to your query than the same car.
+
+A triplet objective can ask for the positive to be closer than the negative by a margin of 0.2. Its loss for this example is max(0, 0.7 − 0.5 + 0.2), or 0.4. If training moves the positive distance to 0.2 and the negative to 0.5, the loss becomes zero. This particular ordering now satisfies the margin.
+
+The loss trusts the pairs you supplied. If a tracker switches identities, the positive could be a different vehicle. If your actual job is grouping all trucks rather than finding the same physical truck, treating every other truck as a negative can conflict with that goal. Inspect a few examples of each pair type before interpreting a training curve.
+
 Contrastive learning encourages related views to have similar representations and distinguishes them from negatives. An InfoNCE-style objective classifies a positive among candidates using similarity divided by temperature. Temperature affects how sharply differences are weighted. Batch size, a memory queue and negative sampling change the comparison set. False negatives arise when two distinct samples depict the same semantic class, so instance discrimination need not align perfectly with category labels.
 
 A triplet loss such as `max(0, d(a,p)-d(a,n)+margin)` asks a positive to be closer to an anchor than a negative by a margin. Sampling easy triplets can produce zero loss without learning much; overly hard or mislabeled negatives can destabilize training. Normalization and distance choice determine scale. Compare random, semi-hard and hard mining on actual errors instead of assuming the hardest pair is always useful.

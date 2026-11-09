@@ -21,6 +21,14 @@ A labeling request crosses several boundaries. A client sends an image reference
 
 ## Requests are explicit interfaces
 
+### Trace one image from request to response
+
+The labeling app sends an image and asks a segmentation service for a mask. Both sides need to agree on what the request means. Does a point use pixel coordinates or values from 0 to 1? Are the coordinates relative to the uploaded crop or to the full image? A valid JSON object can carry the wrong answer to either question.
+
+Draw a 6 × 4 test image and put a point at x=4, y=1. If the service reads the pair as row then column, it may reject row 4, since valid rows run from 0 to 3. A square image with a point on the diagonal would conceal the swap. Test a non-square case and mark the expected point on the image.
+
+The response has a contract too. A mask produced at model resolution must be mapped back to the agreed image resolution before the client draws it. Record those sizes and use a stable test request through both the service and the client. A unit test that only checks a 200 status cannot tell you whether the drawn mask lines up.
+
 HTTP connects clients and services through methods, paths, headers and bodies. A request to an inference endpoint needs a defined payload schema, encoding, maximum size and response/error schema. A connection timeout and a read timeout answer different questions. A successful TCP connection does not prove model readiness, and a 200 response does not prove the returned prediction belongs to the submitted image. Validate IDs, shapes and required fields at both ends.
 
 A requests-style client sends data, checks status and parses the body. Do not retry every exception blindly: a timeout can occur after the service already committed work. Retrying then duplicates side effects unless a stable request identity supports idempotency. Authentication, serialization and schema evolution are separate from model quality. Logs should carry request/task IDs without exposing credentials or large sensitive inputs.

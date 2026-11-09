@@ -27,6 +27,14 @@ A NumPy array has shape, dtype, strides and an underlying storage buffer. A thre
 
 ## Indexing, slicing and broadcasting
 
+### Follow one column through a batch
+
+Three image tiles each have two measurements. Write them as rows (10, 1), (20, 4) and (30, 7). The array has shape (3, 2). Its first axis selects the tile and its second selects the measurement. Taking the mean over axis 0 combines the three tiles and leaves one number for each measurement, (20, 4).
+
+Subtracting (20, 4) from the array subtracts the same two numbers from every row. The result is (−10, −3), (0, 0), (10, 3). NumPy can apply this operation without you explicitly copying the pair three times. This is broadcasting. The rightmost dimensions match here, so each element in the pair lines up with its measurement column.
+
+If you meant to subtract each tile's own mean, you would first compute three numbers instead of two. Keep that result as a (3, 1) array so the single entry per row expands across its columns. A good check is to calculate one row by hand and confirm that its two centered values add to zero.
+
 Basic slices often return views. If `b = a[:, :3]`, editing b may change a. Advanced integer or boolean indexing normally produces a copy, so editing that result may leave a unchanged. Check the intended mutation explicitly rather than guessing from matching printed values. A mask over rows is not a mask over channels. Keep stable sample IDs alongside filtering and reordering.
 
 Broadcasting aligns shapes from the right. Dimensions are compatible if they are equal or one is 1. For an N-by-D feature matrix, a length-D mean can be subtracted per feature. A length-N vector is not automatically a column of sample weights: reshape it to N-by-1. With N equal to D, the wrong operation may run successfully and normalize the wrong axis. Design a non-square counterexample. Vectorized code moves loops into efficient implementations, but materializing N-by-N distances can use far more memory than chunked computation.

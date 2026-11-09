@@ -56,6 +56,14 @@ The log link relates the log of the mean to the score, so exponentiation maps th
 
 ## Gaussian processes
 
+### Predicting between two measurements
+
+You sample a temperature sensor at 10:00 and 10:05 and miss the 10:02 reading. Many curves pass through the two recorded values. If you expect the temperature to change slowly, nearly flat curves between those readings seem plausible. If the sensor measures a cycling heater, much quicker variation may be plausible.
+
+A Gaussian process describes a distribution over possible functions. One way to picture it is to pick a handful of timestamps and assign a joint Gaussian distribution to their temperatures. The covariance kernel specifies which timestamps are expected to move together. A kernel with a short length scale lets points a few minutes apart vary more independently than a kernel with a long length scale.
+
+Conditioning on the measurements changes the distribution at unobserved timestamps. You get a mean and uncertainty. Predictions near observations often have tighter intervals than those far away, given the same noise model and a kernel that relates nearby inputs. The interval depends on what you assumed about the process. It can look narrow and still miss an abrupt event that your chosen kernel treats as implausible.
+
 A Gaussian process defines a distribution over functions through a mean and covariance kernel. Finite collections of function values have a joint Gaussian distribution. In regression, conditioning on observed inputs/targets yields a predictive mean and uncertainty under the chosen kernel/noise model. Kernel length scale encodes smoothness and relevance assumptions. Standard exact inference can require cubic-time matrix factorization and quadratic storage in observation count; sparse/approximate methods change this tradeoff. A narrow posterior from a misspecified kernel is not a universal guarantee of confidence.
 
 ## What a model assumes between observations

@@ -37,6 +37,14 @@ The useful starting point is therefore the temporal information the output requi
 
 ## Recurrent state
 
+### Count a crossing with a little memory
+
+Consider a video of a gate. A detector says where a vehicle is in each frame. If the current frame shows a vehicle on the right of the gate, you still need earlier frames to tell whether it crossed from the left or was already on the right when recording began.
+
+A hand-written solution keeps the last confident side for each track. On a new frame it reads the old side and the latest observation, optionally emits a crossing, and updates the stored side. The stored value is state. It carries information forward even though the next step only receives one new frame.
+
+A recurrent neural network learns a state update from examples. Its state is a vector of numbers rather than the explicit last-side variable. The state can summarize useful history, but long gaps, new camera views and recording boundaries change what should carry over. When evaluating, reset state at genuine sequence boundaries and check tracks with occlusions or broken identities separately.
+
 A basic recurrent network updates `h_t = phi(W_x x_t + W_h h_(t-1) + b)`. The hidden state summarizes earlier inputs. Backpropagation through time multiplies derivatives along temporal paths; repeated contraction can make gradients vanish and expansion can make them explode. Clipping limits excessive gradient norms but does not create missing long-term information.
 
 An LSTM maintains a cell state and gates controlling forgetting, new information and output. A common update is `c_t = f_t*c_(t-1) + i_t*g_t`, then `h_t = o_t*tanh(c_t)`, with sigmoid gates and elementwise products. The additive path can support longer-term gradients but does not guarantee perfect memory. A GRU combines state/gating more compactly, commonly using update and reset gates. Different formulas and gate conventions exist; inspect the implementation before mapping named gates.

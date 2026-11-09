@@ -84,6 +84,14 @@ NMS suppresses overlapping lower-scored predictions under a specified overlap ru
 
 ## Set prediction with DETR
 
+### Decide who gets credit for one object
+
+An image contains one truck. A detector produces two nearly identical boxes over it and a third over empty road. If you trained all three predictions independently, both overlapping boxes could learn to say truck and leave duplication to a cleanup step.
+
+DETR-style training uses one-to-one matching between predictions and labeled objects. For this image, a training cost compares each prediction with the truck using class and box terms. The best assignment pairs one prediction with the truck. The other predictions receive a no-object target. With several trucks, matching chooses assignments jointly so each prediction and labeled object can be used at most once.
+
+This pairing is part of training. At inference there are no labeled boxes to assign, so you inspect the predicted classes, boxes and scores directly. If the label set missed a real truck, a good prediction on that truck can be treated as unmatched in training. For pseudo-labels, inspect those misses before interpreting unmatched predictions as ordinary background.
+
 DETR uses learned object queries, attention over image features and a matching-based training objective for a fixed set of output slots. Bipartite matching associates predictions with ground-truth objects; unmatched predictions learn a no-object outcome. Query count limits simultaneous outputs and feature stride affects small objects. Deformable attention samples selected feature locations across scales to improve efficiency and learning. The DINO detector line and the DINO self-supervised encoder line share a name but solve different problems.
 
 ### Two objects and three predictions

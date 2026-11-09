@@ -23,6 +23,14 @@ Suppose a detector has proposed many vehicle boxes. For each box you have a scor
 
 ## A tree partitions feature space
 
+### Follow a new box to a prediction
+
+Imagine a tiny tree whose first question is whether the detector score is at least 0.5. A score of 0.65 goes right. The next question on that branch asks whether the box is at least ten pixels wide. If the box is only eight pixels wide, it takes the other branch and reaches a leaf. A leaf is where the questions stop and the prediction comes from.
+
+Suppose two training boxes reached that leaf and only one was correct. The leaf can return a correctness score of 1/2. A different leaf might contain four correct boxes and return 1. That apparent certainty depends on four examples. Test it on other scenes before treating the score as a probability you can act on.
+
+To build a tree, the algorithm looks at the available training labels and tests possible questions. A good question tends to move different labels into different branches. The next calculation measures that separation for one candidate question. After a split, each branch can consider its own next question. This is how a tree can learn that size is useful at low scores and much less useful at high scores.
+
 A decision tree recursively chooses a feature and threshold to split observations into more homogeneous subsets. Classification commonly reduces Gini impurity or entropy; regression reduces squared-error variation. A leaf stores a prediction or class distribution. Greedy local split selection does not guarantee a globally optimal tree. Restrict depth, minimum leaf size or pruning to control variance. Threshold rules can capture interactions without explicit polynomial features, but extrapolation beyond observed values is limited.
 
 A deep tree can memorize small data changes. Missing-value routing and categorical-feature handling depend on the implementation and must match inference. Impurity-based importance can favor high-cardinality features and does not establish causality. Permutation importance on independent data asks how predictions suffer when a feature is disrupted, but correlated features can share or hide their importance. Feature selection and importance-driven redesign can leak validation information if repeated without a fresh evaluation plan.
@@ -55,6 +63,14 @@ A pure node contains one label. A split that separates the two labels gives zero
 </details>
 
 ## Bagging and random forests
+
+### Why two trees disagree about the same box
+
+Suppose the training list has six examples A through F. Draw six times from that list, allowing repeats. You might get A, A, C, D, F, F. Another draw could give A, B, C, C, E, F. Both draws have six rows but emphasize different examples. These are bootstrap samples. A tree fitted to the first draw can choose a different first question from one fitted to the second.
+
+If one tree returns 0.8 for a new box and the other returns 0.4, averaging their scores gives 0.6. A third tree can move that average again. If every tree makes the same mistake on the box, averaging preserves it. A random forest encourages a wider range of decisions by giving each split a random subset of features to consider.
+
+Example B was absent from the first draw. The first tree can contribute to B's out-of-bag prediction, while the second tree cannot. With many trees you can average the predictions from trees that did not train on B. If B is a video frame and a near-identical frame is in the draw, B is still easier to predict than a frame from a new recording. Use held-out recordings for that comparison.
 
 Bagging trains models on bootstrap samples and averages their predictions. Averaging reduces variance when errors are not perfectly correlated. A random forest additionally samples candidate features at splits to diversify trees. More trees often stabilize the average but increase memory and inference cost. Out-of-bag predictions use trees that did not train on a given row, providing an internal diagnostic; they do not repair leakage between correlated rows or a mismatch with the deployment population.
 

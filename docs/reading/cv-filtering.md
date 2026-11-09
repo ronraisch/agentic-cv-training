@@ -27,6 +27,14 @@ An image samples a scene after optics, sensor response and processing. Resolutio
 
 ## Smoothing and separability
 
+### One bright pixel, then a bright stripe
+
+Take a row of five grayscale pixels with values 10, 10, 100, 10, 10. The 100 might be sensor noise. Replace the middle pixel with the mean of itself and its two neighbors and it becomes 40. A neighbor also becomes 40 if its window includes the bright pixel. The filter has weakened the spike and spread its effect into nearby pixels.
+
+Now imagine a thin bright stripe across a dark image. A horizontal row across that stripe can have exactly the same five values. An averaging filter sees those values and behaves the same way, even when the stripe belongs to the letter you are trying to read. Changing the window size changes which details survive. That trade-off is visible when you look at a crop of the actual object.
+
+In two dimensions, a square mean gives equal weight to all pixels in a square window. You get the same mean by averaging each row horizontally and then averaging those results vertically, provided the boundary rules agree. Those two passes are what separability buys you. For a 5 × 5 window, each output can use two five-element passes instead of a 25-element sum.
+
 A normalized box filter averages a neighborhood. A Gaussian gives more weight to nearby pixels and controls smoothing with sigma. Increasing sigma reduces fine detail and suppresses high-frequency noise. Kernel support must be large enough to represent the selected Gaussian; truncation and renormalization affect its behavior. Specify boundary padding: zero padding can create a dark edge, reflection synthesizes different neighboring values and valid filtering shrinks the result.
 
 A separable two-dimensional kernel is an outer product of two one-dimensional kernels. Apply a horizontal filter and then a vertical one. A K-by-K filter then needs roughly 2K rather than K squared operations per pixel, ignoring constants and memory costs. Exact separability means rank one; the leading singular vectors give a rank-one approximation when it is not exact. A Gaussian is separable. Normalizing a kernel to sum to one preserves constant regions away from boundaries.
@@ -96,6 +104,14 @@ Correlation can search for a known template, but raw intensity similarity change
 A derivative estimates local intensity change. Sobel combines differentiation with smoothing in the perpendicular direction. Differentiating a smoothed image reduces noise amplification. Gradient magnitude indicates edge strength; gradient direction indicates the local normal. Canny adds directional nonmaximum suppression and hysteresis: strong responses seed edges and connected weaker responses may survive. The thresholds affect fragmentation and false edges, while smoothing affects localization and sensitivity to noise.
 
 ## Fourier intuition and implementation
+
+### Compare stripes that repeat at different rates
+
+Imagine an image made of vertical stripes. In a row of 32 pixels, a dark-to-light-to-dark pattern might repeat twice or eight times. A Fourier representation can describe both rows using repeating waves. The eight-repeat pattern has a higher spatial frequency because the brightness changes more often over the same distance.
+
+A smooth background and fine texture can coexist in one image. Their frequency contributions can differ, so reducing high frequencies often makes the image smoother. A sharp edge also needs higher frequencies. If you remove those components to suppress noise, a sharp boundary spreads across neighboring pixels. Look at the edge itself to see whether the result still serves the task.
+
+The transform stores both the strength and phase of each component. If you shift the stripes sideways, their spacing is the same, but the location of the bright bands changes. The magnitude spectrum can stay the same for a circular shift while the phases change. That is why a picture of spectral magnitudes can tell you which patterns repeat without telling you where the objects are.
 
 The Fourier transform represents a signal as a weighted combination of frequencies. A complex coefficient has magnitude and phase. Low frequencies capture slowly varying structure; high frequencies capture fast changes, including both edges and noise. The DC coefficient represents the sum of samples under the common unnormalized forward transform. A display using fftshift moves DC to the center; the transform itself need not store it there.
 

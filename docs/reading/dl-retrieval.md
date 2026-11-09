@@ -29,6 +29,14 @@ A query is encoded into the same space as indexed items, neighbors are found, me
 
 ## Exact and approximate search
 
+### Separate a bad neighbor from a missed neighbor
+
+You search for a quarry truck using one example crop. A vector index returns a few paved-road vehicles. There are two places to look. First compute similarities between the query vector and every gallery vector for a small gallery. That exhaustive ranking is exact for your chosen representation and distance.
+
+If exact search also returns paved-road vehicles first, the index has successfully found the neighbors the embedding describes. Inspect what the crop contains. The road surface or an oversized box may dominate its representation. Try the same comparison with tighter crops and look at which results move.
+
+If exact search finds quarry trucks but the approximate index drops them, compare the returned IDs to the exact top k. That measures search recall for the index. Then compare each result set against relevance labels to evaluate usefulness to the researcher. Those two comparisons isolate different failures and can send you toward different fixes.
+
 Exact search computes all relevant distances and ranks them. Approximate nearest-neighbor structures reduce work or memory while allowing some true neighbors to be missed. Graph indices route through connected candidate neighborhoods; inverted-file indices partition coarse regions and search a selected subset. Faiss supplies several implementations; it is not a single approximation method. More search effort commonly improves recall at additional latency.
 
 Measure index recall against exact search on a bounded sample, separately from semantic relevance against task labels. An exact neighbor can be semantically wrong because the embedding is poor; an approximate miss can hide an otherwise useful match. Metadata filters can interact with index search and return too few results. Evaluate filtered queries, index updates and deletion consistency, not just an unfiltered static benchmark.

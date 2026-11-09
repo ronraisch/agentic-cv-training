@@ -29,6 +29,14 @@ Unsupervised methods optimize a structure criterion without direct class supervi
 
 ## Principal component analysis
 
+### Which direction captures the variation?
+
+Plot width and height for a group of rectangular image crops. If wide crops also tend to be tall, the dots look like a tilted cloud. You could store width alone as a one-number summary. Another choice is to store each crop's position along the cloud's long axis, so both measurements contribute to that one number.
+
+PCA finds that axis from the data. First subtract the average crop size so the cloud is centered. Then imagine rotating a ruler through the center. Project each point onto the ruler and measure how spread out the marks are. The direction with the most spread is the first principal component. The next component is perpendicular and captures the most remaining variation.
+
+A crop that is unusually wide for its height may stand out mainly in the second component. If you keep only the first, that signal can disappear. Decide what a useful projection must preserve and check examples before using it for anomaly detection. The input units matter too. A measurement with a much larger numeric scale can dominate the spread unless you account for that scale.
+
 Center a training feature matrix, then compute its singular value decomposition. Principal directions are orthogonal directions of maximal variance; projecting onto the leading directions minimizes squared reconstruction error among linear projections of the same rank. Explained variance describes representation variance, not class information. A low-variance direction can be essential to classification and a high-variance direction can be illumination or sensor identity.
 
 Standardization changes the optimization from raw units to scaled units. Whitening additionally rescales principal coordinates and can amplify low-variance noise. Select dimensionality with a stated objective and evaluate downstream consequences. Fit the mean, scaling and PCA only on the training portion of a predictive pipeline. A reconstruction check and a plot of variance versus dimension reveal different aspects of the approximation.

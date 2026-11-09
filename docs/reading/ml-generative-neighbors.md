@@ -98,6 +98,24 @@ Kernel regression predicts a locally weighted average with weights set by a simi
 
 ## Support vector machines
 
+### Move the boundary without changing a single training label
+
+Suppose one feature measures how much a track moved. Your stationary examples have values 0 and 1. Your moving examples have values 3 and 4. A cutoff anywhere between 1 and 3 fits all four labels. A cutoff at 2 leaves the most room on either side before a training point changes class. The closest examples, at 1 and 3, determine that choice. These are the support vectors in this simple hard-margin example.
+
+In two dimensions the cutoff becomes a line. Think of drawing two parallel lines through the closest examples on either side, then looking for the widest strip between them. Points far from the strip matter less to this particular choice. You can move the example at 4 to 40 without changing the answer in the one-feature case.
+
+If you add a mislabeled stationary example at 3.5, no cutoff can perfectly separate the two classes in the expected order. A soft-margin SVM can accept points inside the strip or on the wrong side, at a cost. The parameter C sets how much the optimization penalizes those violations relative to keeping a wider margin. Compare C on validation scenes and check the feature scales first. Changing meters to centimeters can change which distances dominate the fit.
+
+### When a straight boundary needs a different view
+
+Imagine plotting two features for each proposal. Correct proposals form a small cluster near the origin, and false proposals form a ring around it. A straight line cannot enclose the central cluster. If you add a feature equal to the squared distance from the origin, a threshold on that single new feature can separate an idealized version of the two classes. The separation looks straight in the expanded feature space and circular in the original plot.
+
+A kernel gives the SVM a way to compute how pairs of inputs relate in a feature space. In the usual kernel formulation, the score of a new point is a weighted sum of its kernel values against support vectors, plus an offset. With an RBF kernel, a nearby support vector has a larger kernel value than a distant one. Its signed coefficient determines which way it pulls the decision score.
+
+For an RBF kernel, gamma sets how quickly the kernel value drops with squared distance. With a larger gamma, each support vector affects a smaller neighborhood and the boundary can follow isolated examples more closely. With a smaller gamma, their effects extend farther and the decision tends to vary more slowly. Feature scaling changes what counts as nearby, so fit the scaler on the training split and keep it in the same pipeline as the SVM.
+
+For a first comparison, fit a linear SVM and an RBF SVM on the same train scenes. Select C and, where applicable, gamma using held-out validation scenes. Inspect which examples move across the boundary, then check whether those gains hold on a separate test set. If the SVM is rescoring boxes from a frozen detector, neither kernel can recover a truck that was missing from the candidate list.
+
 A support vector machine, or SVM, can learn a boundary between labelled classes. Its starting idea is to choose a boundary with room between it and the nearest examples. A line of measured values is enough to see how this works.
 
 ### The widest gap between labelled points

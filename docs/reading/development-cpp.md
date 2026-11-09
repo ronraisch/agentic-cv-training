@@ -29,6 +29,14 @@ The archived Vortex route covered C/C++, compilation, Make/CMake and edge models
 
 ## Compilation and memory
 
+### Read an error by asking who produced it
+
+Suppose main.cpp calls area(width, height), a function declared in geometry.hpp and implemented in geometry.cpp. The declaration lets the compiler check the call while translating main.cpp. It tells the compiler which argument types the function expects and what it returns.
+
+Each source file can be compiled into an object file. The object for main can still contain an unresolved reference to area. The linker joins the compiled pieces and resolves that reference. If the build omits geometry.cpp, main.cpp may compile successfully and the linker can still report an undefined reference.
+
+A missing declaration usually means checking the header, include path or spelling. A missing definition at link time means checking whether the implementation was built, linked and compiled with the same signature. Rebuilding everything may hide an incremental-build issue, but reading the first failing stage tells you where to look.
+
 A C/C++ build preprocesses source, compiles translation units, assembles object code and links definitions into a program or library. A declaration tells the compiler an interface; a definition provides storage or implementation. Missing symbols are often link-time problems, while incompatible declarations can create subtler errors. Header dependencies and compiler flags form part of a reproducible build.
 
 An array is a contiguous sequence; a pointer stores an address. An array can decay to a pointer in many expression contexts, but the array object and a pointer object are not interchangeable. A pointer alone does not carry the allocation length or ownership. Stack lifetime, heap allocation and object lifetime differ. A dangling pointer can appear to work before later memory reuse reveals the bug. Buffer bounds and correct allocation/deallocation pairs are essential.

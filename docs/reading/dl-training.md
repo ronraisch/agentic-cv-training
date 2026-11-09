@@ -31,6 +31,14 @@ A linear layer applies an affine transformation `h = Wx+b`. Composing affine lay
 
 ## Loss and backpropagation
 
+### One prediction, one update
+
+Say a single input has value 2 and its target is 6. A model with one weight w predicts 2w. At w=1 the prediction is 2 and the squared error is 16. Increasing w a little moves the prediction toward 6 and makes that error smaller.
+
+The derivative tells us how the loss changes near the current weight. Here the loss is (2w − 6)². Its derivative is 2 × (2w − 6) × 2, which is −16 at w=1. The last factor comes from how much the prediction changes for a small change in the weight. With learning rate 0.1, subtracting 0.1 times the derivative moves w to 2.6. The prediction becomes 5.2.
+
+In a larger model, each weight affects a sequence of intermediate values. Backpropagation applies the same rule for multiplying derivatives along that sequence, and adds contributions when multiple paths lead to the loss. The optimizer then uses those gradients to update the weights. In a training loop you can inspect whether the two operations happened separately.
+
 A loss compares predictions to targets and defines the optimization objective. Classification cross entropy, regression squared/absolute loss and metric-learning losses express different goals. Backpropagation uses the chain rule to propagate derivatives through a computational graph. At a node with multiple consumers, contributions to its derivative add. For y=wx and squared error L=(y-t)^2/2, the derivative with respect to w is (wx-t)x. Derive this tiny example and check it with finite differences before treating autograd as a black box.
 
 A gradient check perturbs a parameter and compares the numerical change to the analytic derivative, using a small deterministic double-precision example where possible. Kinks, random dropout, state updates and a poor step size can invalidate a naive comparison. A detached tensor or non-differentiable path can quietly stop learning even though the loss still prints.

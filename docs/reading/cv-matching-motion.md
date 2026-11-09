@@ -43,6 +43,14 @@ Feature selection, descriptor matching and robust estimation address different p
 
 ## RANSAC and model validity
 
+### Ten matches and a convincing wrong answer
+
+Say you matched ten corners between two views of a parking lot. Seven point pairs imply a shift of about 20 pixels right. Three come from similar-looking cars and imply shifts of 100 pixels or more. Averaging all ten shifts would produce a transformation that fits neither group well.
+
+For a pure translation, one point pair gives a complete hypothesis. Pick a pair, compute its shift, then apply that shift to every point from the first image. Count a match as an inlier if its predicted and observed locations differ by at most a chosen tolerance. Repeating this with several pairs lets the seven consistent matches support the same hypothesis. Once you choose it, refit the shift using those inliers.
+
+RANSAC uses that propose-and-count idea with other model families too. A homography needs four point pairs in a nondegenerate configuration to generate a hypothesis, and its sample can contain bad matches. If one repeated roof pattern produces many mutually consistent wrong matches, the inlier count can favor a bad warp. Plot where the supporting points are and inspect a few landmarks that were outside the fit.
+
 RANSAC repeatedly samples a minimal set, fits a model and counts geometrically consistent observations. If each sample independently has probability w of being an inlier, a minimal set has size s and the desired success probability is p, an idealized iteration count is `log(1-p) / log(1-w^s)`. Unknown inlier ratios and degeneracy complicate this estimate. The residual threshold sets what “consistent” means; too loose accepts wrong matches and too tight rejects noisy true matches. Refit on inliers and assess their spatial coverage.
 
 RANSAC rejects outliers relative to a model, not errors in the model family itself. A global homography cannot explain arbitrary depth parallax. Compare a simpler model when possible, and avoid reporting a successful fit based only on the number of inliers without examining where they lie.

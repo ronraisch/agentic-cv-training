@@ -56,6 +56,14 @@ Several 3D points along the same ray project to the same pixel. Another observat
 
 ## Depth and ambiguity
 
+### Move your head and watch the near object
+
+Hold a finger in front of a far wall and alternate which eye is open. The finger appears to move more against the wall. Two cameras observe a similar effect. After aligning their images so matches lie on the same rows, the horizontal difference between two views of the same point is called disparity.
+
+For a rectified stereo pair, depth is focal length in pixels times camera separation divided by disparity in pixels. With a focal length of 600 pixels and camera separation of 0.2 meters, a point with disparity 12 pixels is 10 meters away. A disparity of 3 pixels gives 40 meters.
+
+If the second match is off by one pixel, the 40-meter estimate can jump to 30 or 60 meters. The same one-pixel error matters less at larger disparities. This makes distant geometry sensitive to matching error, especially on repeated patterns or surfaces with little texture. Mark uncertain or unmatched regions when you show the result.
+
 A monocular network can learn depth-related priors from data, but the image alone does not uniquely determine metric depth in every scene. A model may infer typical object size or camera height and fail when those priors change. Relative depth ordering and metric depth are different targets. Aligning predictions to ground truth with a fitted scale/shift changes what the metric claims; declare that protocol. Evaluate boundaries, reflective surfaces, occlusions and depth ranges rather than one global mean.
 
 ## How a small disparity error changes depth

@@ -23,6 +23,14 @@ An image is a grid of numbers. A useful pattern, such as a bright edge or a whee
 
 ## Convolution as a learned local operator
 
+### Slide the same question across the image
+
+Take three neighboring grayscale values (20, 20, 80). A filter with weights (−1, 0, 1) multiplies corresponding entries and sums them. The result is 60. Apply the same weights to (20, 20, 20) and the result is zero. This filter responds where brightness changes along the row.
+
+Move that filter one pixel and ask the same question again. Reusing weights across locations lets a feature respond to a transition wherever it appears in the image, subject to boundary and sampling effects. A two-dimensional filter uses a small grid of weights. With color inputs it can look at local patterns across channels as well.
+
+A CNN learns these weights from the task's loss. One output channel can respond to one kind of local pattern and another channel to a different one. Later layers combine nearby responses. If several layers sample more sparsely, details smaller than that spacing can become hard to recover. This is one reason to inspect small objects at each resolution rather than only the final image-level result.
+
 A convolutional layer shares local weights across positions, giving an inductive preference for local, translation-related patterns. Many software layers compute cross-correlation under the name convolution. With input height H, padding P, dilation D, kernel K and stride S, output height is `floor((H+2P-D(K-1)-1)/S)+1`. Compute width similarly. For groups=1, the parameter count is K_h K_w C_in C_out plus optional biases. Activation storage and memory traffic can dominate cost even when parameter count is modest.
 
 ### One edge detector applied across a row

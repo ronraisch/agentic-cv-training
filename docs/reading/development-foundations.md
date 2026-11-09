@@ -27,6 +27,14 @@ A research result depends on code, inputs, configuration and execution environme
 
 ## Linux and process boundaries
 
+### Two terminals, two different worlds
+
+You run a script in VS Code and it reads its images. You paste the same command into a terminal on the pod and it reports that the directory is missing. Start by asking where each command ran and what directory it started in. A relative path such as data/input.png starts from the process's working directory, which can differ from the directory that contains the script.
+
+A program in execution is a process. It inherits a working directory and a set of environment variables from the program that launched it. Run pwd and inspect the interpreter path in both terminals before touching Python code. If one terminal is inside a container, check whether the input directory was mounted into that container. The same path string can point into a different filesystem.
+
+Git, an environment lock file and an input manifest each answer a different question. Git can show which source you ran. The lock file records package versions. The manifest can tell you which inputs you actually used. If two runs disagree, checking each one separately gives you a much smaller problem to debug.
+
 A filesystem contains directories and files addressed by absolute or relative paths. Learn to inspect and navigate with `pwd`, `ls`, `cd`, `cat` and a text search tool. Standard input, standard output and standard error are distinct streams. A pipe connects output to the next process's input; redirection writes a stream to a file. Check exit status as well as printed text: a program can print a warning and exit successfully or print nothing and fail. Permissions control reading, writing and execution. Environment variables are inherited by child processes and are strings, so configuration needs parsing and validation.
 
 A process has its own address space; a terminal is just one way to interact with it. A tmux or screen session lets a long-running terminal task survive a disconnected client, but does not make the task restart after a machine failure. Know how to inspect processes, interrupt a job, read logs and distinguish a running process from a completed result. Avoid treating missing output as evidence of success.

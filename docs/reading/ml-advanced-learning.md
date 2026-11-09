@@ -48,6 +48,14 @@ The two properties can co-occur. A multilabel target permits both to be present 
 
 ## Limited supervision
 
+### Which ten labels would you buy?
+
+You have a thousand proposed boxes and time to label ten. If you sample at random, you may get eight common cars, one truck and one background patch. That batch is useful for estimating what the stream usually contains. It may teach the current model very little about the classes it struggles with.
+
+Active learning spends labels where they could improve the model. One heuristic picks boxes near the current decision boundary. If fifty near-boundary boxes come from consecutive frames of one truck, their labels are likely to repeat the same lesson. You could cap the number per track and spread the rest across distinct scenes or visual groups.
+
+Keep a separate evaluation set before making those choices. Measuring on the same uncertain cases you selected for labeling answers how well the model does on that selection. A held-out sample that reflects deployment answers how well the whole system does on its ordinary stream. You can keep an additional hard-case slice and report both results.
+
 Active learning chooses which examples to label next, often using uncertainty, diversity or expected gain. Uncertainty-only selection can oversample outliers and overlook confidently wrong regions. Evaluate label efficiency on independent data and retain random sampling as an audit. Semi-supervised learning combines labeled and unlabeled observations through assumptions such as smoothness, consistency or low-density class boundaries. Pseudo-label thresholds can reinforce existing biases; unlabeled data is not guaranteed to improve a misspecified task.
 
 One-shot/few-shot learning uses very few labeled supports for a new task or class. Meta-learning can optimize adaptation across tasks, while pretrained embeddings with prototypes are a simpler alternative. Zero-shot learning uses semantic descriptions or other transferable supervision without task-class examples in the declared adaptation set. Clarify whether “unseen” means unseen during a small adaptation run or unseen anywhere in pretraining. Test novel categories and acquisition conditions separately.

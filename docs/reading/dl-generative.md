@@ -62,6 +62,14 @@ Reconstruction checks codes produced by the encoder. Random sampling may land in
 
 ## Variational autoencoders and ELBO
 
+### What happens between two encoded images?
+
+An ordinary autoencoder can compress an image into a vector and reconstruct the image from that vector. Suppose it places two examples at latent positions −3 and +3. Good reconstructions at those two positions tell you little about what the decoder produces at 0, where it may rarely see training inputs.
+
+A variational autoencoder gives each image a distribution over latent codes. In a simple one-dimensional version the encoder predicts a mean and a scale. During training you sample a code from that distribution and ask the decoder to explain the original image from it. Repeated samples train the decoder around each encoded image as well as near its mean.
+
+A regularization term measures how far the encoder's distribution is from a shared prior, often a standard normal distribution. This encourages a latent space you can sample from using the prior. The objective balances explaining observed images with keeping their code distributions compatible with that prior. Better samples and sharper reconstructions can pull the model in different directions, so examine both when comparing settings.
+
 A VAE uses a prior p(z), a decoder distribution p_theta(x|z) and an approximate posterior q_phi(z|x). Its evidence lower bound is `E_q[log p_theta(x|z)] - KL(q_phi(z|x) || p(z))`. The difference between log p_theta(x) and this bound is a nonnegative KL divergence to the true posterior. The first term rewards reconstruction likelihood; the second regularizes the latent distribution. A deterministic reconstruction penalty is not automatically the same as a specified likelihood without assumptions about output noise.
 
 For a Gaussian approximate posterior, the reparameterization `z = mu + sigma*epsilon` with epsilon sampled from a standard Gaussian allows gradients through mu and sigma. A strong decoder may ignore latent variables, and changing the balance of reconstruction and KL changes the model's behavior. Show both generated samples and reconstruction/latent diagnostics.

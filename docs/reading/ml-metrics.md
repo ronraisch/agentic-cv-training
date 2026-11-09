@@ -31,6 +31,14 @@ The alert example treats each case as one binary decision. Detection changes tha
 
 ## Confusion counts and operating points
 
+### Work through one page of alerts
+
+Imagine a reviewer receives 20 camera events. Five really show a vehicle entering a restricted area. At your current threshold the system flags six events. Four are real violations and two are false alarms. One real violation stays below the threshold. The remaining thirteen events are correctly ignored.
+
+Precision asks what fraction of the six alerts the reviewer can use. Here it is 4/6. Recall asks what fraction of the five violations reached the reviewer. Here it is 4/5. Accuracy is 17/20 because it includes the thirteen correctly ignored events. Each denominator comes from a different question.
+
+Suppose lowering the threshold sends the missed violation and four other events to the reviewer. You now catch all five violations but send eleven alerts, so precision falls to 5/11. This is an operating point. The right choice depends on how costly missed events are and how many alerts a reviewer can check. Repeating the count across thresholds gives the points behind a precision–recall curve.
+
 TP and TN are correct positive and negative predictions; FP and FN are the two errors. Accuracy is (TP+TN)/N, precision is TP/(TP+FP), recall/sensitivity is TP/(TP+FN), specificity is TN/(TN+FP), and false positive rate is FP/(FP+TN). False alarm rate is ambiguous in practice: it can mean FPR or a count per image/hour/area. State which is meant. Undefined ratios need an explicit convention rather than an unnoticed default.
 
 If there are 10 positives among 1,000 cases and a model reports 8 TP and 20 FP, recall is 0.8, precision is 8/28≈0.286 and FPR is 20/990≈0.0202. Accuracy is 0.978, which hides the poor yield among alerts. F1 is the harmonic mean 2PR/(P+R); F-beta weights recall by beta squared. These summaries omit true negatives and do not encode every operational cost. Select a threshold against a stated target, such as minimum recall with an acceptable number of alerts.

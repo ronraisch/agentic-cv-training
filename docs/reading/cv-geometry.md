@@ -29,6 +29,14 @@ A known-radius circle has two center parameters. A boundary point votes for poss
 
 ## Homogeneous coordinates and transformations
 
+### Where did this corner move?
+
+Pick the corner of a painted parking bay in two photographs. In the first it is at pixel (100, 50). In the second it is at (120, 45). A translation by (20, −5) accounts for that one corner. If every other corner moves by the same amount, you can use that same translation for the image.
+
+If a second corner moves by a different amount, one translation cannot align both. A rotation or change of scale could account for it. Looking down from a tilted camera introduces another effect. A rectangular bay can look like a trapezoid, so a model that preserves parallel lines cannot account for everything you see. A homography is a mapping that can represent that kind of perspective change for points on one plane.
+
+To keep translations and perspective mappings in the same matrix notation, write an image point as (x, y, 1). After applying the matrix, you may get three coordinates (u, v, w). If w is nonzero, the image location is (u/w, v/w). The division matters. When w changes with the input point, the apparent scale changes across the image.
+
 Represent a 2D point as (x,y,1), with any nonzero scalar multiple representing the same projective point. Translation becomes matrix multiplication. A rigid planar transform rotates and translates; a similarity also scales uniformly. An affine transform allows shear and independent linear scaling while preserving parallel lines. A projective homography has eight degrees of freedom up to scale and maps lines to lines, but need not preserve parallelism or angles.
 
 For generic nondegenerate point correspondences, a similarity can be determined from two points, an affine transform from three noncollinear points and a homography from four with no problematic collinear configuration. More correspondences allow a noisy fit and validation. Parameter count is necessary but not sufficient: repeated, collinear or poorly spread points can make the estimate unstable. Normalize coordinates, inspect conditioning and measure residuals in meaningful units.

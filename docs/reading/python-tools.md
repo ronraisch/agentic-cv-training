@@ -27,6 +27,14 @@ Annotate parameters and returned values to communicate intended objects. A type 
 
 ## Decorators and descriptors
 
+### What changes when you wrap a function?
+
+A teammate wants to time an image-loading function without adding a timer to every call site. Start with a function that takes the original loader and returns a new callable. That new callable starts a timer, calls the original loader and returns the image it got back. The caller can still write load_image(path).
+
+The @timer syntax is applied when Python defines the function. It is equivalent to assigning load_image = timer(load_image) just after the definition. Timing still happens later, when someone calls the wrapper. This distinction explains why work placed directly in timer runs once during definition, while work placed in the wrapper runs on each call.
+
+Trace the error path as well. If the loader raises because a file is missing, a timer can record elapsed time in a finally block and let the exception reach the caller. A wrapper that instead returns an empty array has changed the loader's contract. The same call site can now silently pass invalid data to a model.
+
 A decorator takes a function or class and returns its replacement. For a timing decorator, capture the start time, invoke the wrapped function and report elapsed time in a finally block, preserving its result and exception. Use `functools.wraps` so names and documentation remain inspectable. A decorator that consumes an iterator before returning it can change behavior even if its printed output looks useful.
 
 `lru_cache` stores return values for recently used hashable arguments. It suits deterministic computations whose results fit in memory. It can produce stale results when the function reads a changing file or model behind an unchanged path, and cached mutable return values can be modified by callers. Include artifact identity in a cache key when relevant.

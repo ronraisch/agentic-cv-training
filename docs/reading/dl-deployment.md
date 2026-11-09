@@ -58,6 +58,14 @@ Fixed preprocessing and encoder weights produce the same features, so the featur
 
 ## Latency, throughput and memory
 
+### Two systems can be faster in different ways
+
+A single image request takes 40 ms from arrival to response. At that rate, processing requests sequentially gives up to 25 images per second. A batch of eight may finish in 100 ms, giving 80 images per second once each batch starts. Each image in a batch can still wait at least 100 ms, plus whatever time it spent waiting for the batch to fill.
+
+The first number describes latency for a request. The second describes throughput. A live camera alert has a deadline per frame, while a dataset backfill may primarily care how many images finish per hour. Batch size changes which workload benefits and how much memory the system needs.
+
+Measure elapsed time from the boundary the client uses. If you start timing after preprocessing, you may miss image decoding and resizing. If a GPU call launches asynchronous work, ensure the timed interval includes completion. Keep warm-up and typical requests separate, and examine slow-tail requests if the service has a deadline.
+
 Latency measures time for a request; throughput measures completed work per unit time. Batching may improve throughput while increasing the time an individual request waits. Measure preprocessing, transfer, model forward, decoding and output merging separately and end to end. Synchronize asynchronous GPU work correctly for timing. Record warm-up, batch/shape distribution, hardware, precision and memory peaks. A FLOP estimate is not a latency measurement.
 
 ### Measure one request before changing one component
