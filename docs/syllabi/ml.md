@@ -14,7 +14,6 @@ Reading is a resource for you, not mandatory page completion. If you can answer 
 | Generative classifiers, neighbors and SVM | [Naive Bayes, Gaussian discriminants, KNN and kernels](../reading/ml-generative-neighbors.md) | Explain Gaussian discriminants, Naive Bayes, KNN, kernel regression and margin/kernel choices. |
 | Trees and ensembles | [Trees, forests, AdaBoost, gradient boosting and model combination](../reading/ml-trees-ensembles.md) | Compare trees, forests, bagging, AdaBoost, gradient boosting, XGBoost/LightGBM, voting and stacking. |
 | Unsupervised learning and visualization | [PCA, clustering, EM/GMM, t-SNE and UMAP](../reading/ml-unsupervised.md); [NumPy, Pandas, data contracts and visual exploration](../reading/arrays-data.md) | Use PCA, K-means, hierarchical/DBSCAN/spectral clustering, EM/GMM, t-SNE/UMAP and clear plots. |
-| Retained breadth | [Retained advanced topics: learning setups, ranking and recommendation](../reading/ml-advanced-learning.md); [Retained survey: GLMs, Gaussian processes, graphical models and other learning](../reading/ml-probabilistic-survey.md) | Keep one-class, active/semi/few/zero-shot learning, ranking/recommendation, GLMs, GPs and probabilistic topics visible. |
 
 ## Practical work
 

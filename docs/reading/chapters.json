@@ -76,7 +76,27 @@
   },
   {
     "slug": "dl-attention",
-    "title": "Tokens, attention, Transformers and vision Transformers",
+    "title": "The Transformer: from translation to self-attention",
+    "stage": "deep"
+  },
+  {
+    "slug": "dl-vit",
+    "title": "Vision Transformers: from image patches to features",
+    "stage": "deep"
+  },
+  {
+    "slug": "dl-classification-head",
+    "title": "Classification heads on CNN and Transformer embeddings",
+    "stage": "deep"
+  },
+  {
+    "slug": "dl-detection-head",
+    "title": "Detection heads: dense CNNs and DETR-style decoders",
+    "stage": "deep"
+  },
+  {
+    "slug": "dl-segmentation-head",
+    "title": "Segmentation heads: feature grids, skip connections and mask queries",
     "stage": "deep"
   },
   {
@@ -115,23 +135,8 @@
     "stage": "deep"
   },
   {
-    "slug": "ml-advanced-learning",
-    "title": "Retained advanced topics: learning setups, ranking and recommendation",
-    "stage": "ml"
-  },
-  {
-    "slug": "ml-probabilistic-survey",
-    "title": "Retained survey: GLMs, Gaussian processes, graphical models and other learning",
-    "stage": "ml"
-  },
-  {
     "slug": "development-interfaces",
     "title": "HTTP, SQL, services and application boundaries",
-    "stage": "development"
-  },
-  {
-    "slug": "development-cpp",
-    "title": "Archived edge route: C/C++, ownership, builds and binary networks",
     "stage": "development"
   }
 ]

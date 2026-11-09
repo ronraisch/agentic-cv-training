@@ -39,9 +39,9 @@ Change the assumptions and the boundary can move. If trucks are uncommon, the ca
 
 ## Naive Bayes
 
-The naive assumption is conditional independence of features given the class: `P(x|y) = product_j P(x_j|y)`. It is not an assumption that features are independent unconditionally. Gaussian Naive Bayes uses a Gaussian for each continuous feature/class pair; Bernoulli uses binary observations; multinomial uses count-like observations. The model family's observation assumptions matter.
+The naive assumption is conditional independence of features given the class: $P(x\mid y)=\prod_jP(x_j\mid y)$. It is not an assumption that features are independent unconditionally. Gaussian Naive Bayes uses a Gaussian for each continuous feature/class pair; Bernoulli uses binary observations; multinomial uses count-like observations. The model family's observation assumptions matter.
 
-Compute scores in log space: `log P(y) + sum_j log P(x_j|y)`. Smoothing prevents unseen categorical events from assigning zero likelihood to a whole class. For two binary features and two classes, manually compute a posterior from class counts and likelihoods, then duplicate one feature. The naive model now double-counts correlated evidence, often becoming overconfident. Classification can still be useful even when its probabilities are poorly calibrated. Compare it to logistic regression and inspect disagreement cases.
+Compute scores in log space: $\log P(y)+\sum_j\log P(x_j\mid y)$. Smoothing prevents unseen categorical events from assigning zero likelihood to a whole class. For two binary features and two classes, manually compute a posterior from class counts and likelihoods, then duplicate one feature. The naive model now double-counts correlated evidence, often becoming overconfident. Classification can still be useful even when its probabilities are poorly calibrated. Compare it to logistic regression and inspect disagreement cases.
 
 ### See the independence assumption change a probability
 
@@ -124,9 +124,9 @@ Use one feature first. Place negative examples at x = 0 and 1, and positives at 
 
 ![On the feature axis, negative points at 0 and 1 and positive points at 3 and 4 surround a boundary at 2. The support vectors at 1 and 3 bound a margin strip two units wide.](assets/ml-svm-margin.svg)
 
-In more dimensions a linear score is `f(x) = wᵀx + b`. Its zero level is the boundary. Let labels be −1 and +1. Multiplying the score by the label makes correct sides have positive values. We can rescale w and b so the closest training points on the two sides have signed scores equal to 1. The two parallel supporting planes then have scores −1 and +1.
+In more dimensions a linear score is $f(x)=w^\top x+b$. Its zero level is the boundary. Let labels be −1 and +1. Multiplying the score by the label makes correct sides have positive values. We can rescale w and b so the closest training points on the two sides have signed scores equal to 1. The two parallel supporting planes then have scores −1 and +1.
 
-The perpendicular distance between those planes is `2 / ||w||`. You can see why by moving one unit in the direction of w. The score changes by `||w||`. Going from score −1 to +1 therefore takes `2 / ||w||` units of distance. Maximizing that width is equivalent to minimizing `½||w||²` subject to `yᵢf(xᵢ) ≥ 1` for every training example. This gives the geometry of the optimization without needing its dual derivation.
+The perpendicular distance between those planes is `2 / ||w||`. You can see why by moving one unit in the direction of w. The score changes by `||w||`. Going from score −1 to +1 therefore takes `2 / ||w||` units of distance. Maximizing that width is equivalent to minimizing $\frac12\lVert w\rVert^2$ subject to `yᵢf(xᵢ) ≥ 1` for every training example. This gives the geometry of the optimization without needing its dual derivation.
 
 ### What happens when the classes overlap?
 
@@ -138,13 +138,13 @@ Now put one labelled car on the truck side of the gap. It could be a measurement
 | 0.6 | 0.4 | Correct side but inside the margin |
 | −0.5 | 1.5 | Wrong side of the boundary |
 
-In the common formulation `½||w||² + C Σ hinge loss`, a larger C makes violations more expensive relative to the norm penalty. This can help fit real exceptions, and it can also make the boundary chase noisy labels. A smaller C permits more violations in exchange for stronger regularization. Tune C on held-out groups under the same preprocessing pipeline used for inference. An SVM score measures position relative to its decision function. A probability requires a separately assessed calibration step.
+With binary labels *y* encoded as −1 and +1, the soft-margin objective is $\frac12\lVert w\rVert^2+C\sum_i\max(0,1-y_i f(x_i))$. A larger C makes violations more expensive relative to the norm penalty. This can help fit real exceptions, and it can also make the boundary chase noisy labels. A smaller C permits more violations in exchange for stronger regularization. Tune C on held-out groups under the same preprocessing pipeline used for inference. An SVM score measures position relative to its decision function. A probability requires a separately assessed calibration step.
 
 ### What a kernel changes
 
-Imagine one class near the centre of a two-dimensional plot and the other around its outside. A straight line cannot separate them. Adding the feature `x₁² + x₂²` gives a linear model a way to separate small and large radii. A kernel generalizes this idea by computing the similarity that an inner product in another feature space would give. The solver can work with that similarity without explicitly constructing every feature in the new space.
+Imagine one class near the centre of a two-dimensional plot and the other around its outside. A straight line cannot separate them. Adding the feature $x_1^2+x_2^2$ gives a linear model a way to separate small and large radii. A kernel generalizes this idea by computing the similarity that an inner product in another feature space would give. The solver can work with that similarity without explicitly constructing every feature in the new space.
 
-The RBF kernel `exp(−γ||x − z||²)` assigns higher similarity to nearby points. With small gamma, influence extends farther. With large gamma, the influence of an example falls off quickly, which can give a complicated boundary that follows local training detail. C still controls the penalty for violating the margin. Because gamma depends on distances, feature scaling changes what a numerical value of gamma means.
+The RBF kernel $\exp(-\gamma\lVert x-z\rVert^2)$ assigns higher similarity to nearby points. With small gamma, influence extends farther. With large gamma, the influence of an example falls off quickly, which can give a complicated boundary that follows local training detail. C still controls the penalty for violating the margin. Because gamma depends on distances, feature scaling changes what a numerical value of gamma means.
 
 For tracklet motion, start with a simple scaled linear classifier. Compare an RBF SVM if the errors suggest a curved boundary in the chosen features. Fit scaling inside each training fold and split by video source. Inspect predictions on new sources as well as a validation score. The comparison should establish whether the added flexibility helps the intended decision, including the cost of scoring against support vectors.
 

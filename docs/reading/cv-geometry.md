@@ -21,7 +21,7 @@ Two photographs of the same street do not put every landmark at the same pixel. 
 
 ## Voting for a geometric explanation
 
-Hough transforms convert local evidence into votes for model parameters. A point (x,y) lies on every line satisfying `rho = x cos(theta) + y sin(theta)`. It therefore traces a sinusoid in parameter space. Collinear points vote at a common parameter pair. Unlike slope/intercept coordinates, polar parameters include vertical lines without infinite slopes. Choose consistent ranges for signed rho and angle so equivalent lines are not mistakenly counted twice.
+Hough transforms convert local evidence into votes for model parameters. A point (x,y) lies on every line satisfying $\rho=x\cos\theta+y\sin\theta$. It therefore traces a sinusoid in parameter space. Collinear points vote at a common parameter pair. Unlike slope/intercept coordinates, polar parameters include vertical lines without infinite slopes. Choose consistent ranges for signed rho and angle so equivalent lines are not mistakenly counted twice.
 
 An accumulator discretizes parameter space. Coarse bins merge nearby lines; very fine bins fragment noisy evidence. Nonmaximum suppression finds separated peaks, and fitting around a peak or refitting supporting pixels improves localization. Gradient orientation can restrict plausible votes. A large vote count does not prove a line is the desired plate edge: text, background fences and shadows can all vote strongly.
 
@@ -86,9 +86,9 @@ This is why transformation families and camera geometry matter when choosing wha
 
 ## Stereo and epipolar geometry
 
-Two cameras observe the same 3D point along two rays. The plane through that point and both camera centers intersects each image in an epipolar line. Thus a point in one image constrains its match to a line in the other, expressed by `x2^T F x1 = 0`. The fundamental matrix applies to pixel coordinates; the essential matrix applies after intrinsic normalization. Rectification warps the pair so corresponding epipolar lines align, often horizontally. Parallel image planes alone should not be treated as a complete calibration specification.
+Two cameras observe the same 3D point along two rays. The plane through that point and both camera centers intersects each image in an epipolar line. Thus a point in one image constrains its match to a line in the other, expressed by $x_2^\top F x_1=0$. The fundamental matrix applies to pixel coordinates; the essential matrix applies after intrinsic normalization. Rectification warps the pair so corresponding epipolar lines align, often horizontally. Parallel image planes alone should not be treated as a complete calibration specification.
 
-In a rectified ideal pair, disparity is inversely proportional to depth: `Z = f B / d` for compatible units and conventions. Small disparity errors at long distance create large depth errors. Occlusion, repeated textures and non-Lambertian surfaces make matching difficult. A larger matching window reduces noise but crosses depth boundaries; a smaller window preserves detail but lacks evidence.
+In a rectified ideal pair, disparity is inversely proportional to depth: $Z=\frac{fB}{d}$ for compatible units and conventions. Small disparity errors at long distance create large depth errors. Occlusion, repeated textures and non-Lambertian surfaces make matching difficult. A larger matching window reduces noise but crosses depth boundaries; a smaller window preserves detail but lacks evidence.
 
 ### Reduce a search from an area to a line
 

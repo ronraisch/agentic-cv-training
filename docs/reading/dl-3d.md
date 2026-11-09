@@ -68,7 +68,7 @@ A monocular network can learn depth-related priors from data, but the image alon
 
 ## How a small disparity error changes depth
 
-In an ideal rectified stereo pair, depth follows `Z = fB/d`. With a focal length of 100 pixels and a one-metre baseline, a disparity of ten pixels corresponds to ten metres. A disparity of nine pixels corresponds to about 11.1 metres.
+In an ideal rectified stereo pair, depth follows $Z=\frac{fB}{d}$. With a focal length of 100 pixels and a one-metre baseline, a disparity of ten pixels corresponds to ten metres. A disparity of nine pixels corresponds to about 11.1 metres.
 
 ![One pixel of disparity can matter a lot. d=10 → Z=10 m; d=9 → Z≈11.1 m; Z=fB/d](assets/dl-3d-toy.svg)
 

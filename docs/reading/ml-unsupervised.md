@@ -80,7 +80,7 @@ DBSCAN joins density-connected neighborhoods, with epsilon setting a spatial sca
 
 ## Mixtures and expectation maximization
 
-A Gaussian mixture models `p(x) = sum_k pi_k N(x|mu_k,Sigma_k)`, where nonnegative mixture weights sum to one. Components give soft membership rather than mandatory hard cluster labels. EM alternates an E-step computing responsibilities proportional to pi_k times each component likelihood, and an M-step updating weights, means and covariances with those responsibilities.
+A Gaussian mixture models $p(x)=\sum_k\pi_k\,\mathcal{N}(x\mid\mu_k,\Sigma_k)$, where nonnegative mixture weights sum to one. Components give soft membership rather than mandatory hard cluster labels. EM alternates an E-step computing responsibilities proportional to pi_k times each component likelihood, and an M-step updating weights, means and covariances with those responsibilities.
 
 In a basic full-covariance update, each mean is a responsibility-weighted average and each covariance averages centered outer products. Under regular conditions, exact EM steps do not decrease training likelihood, but may converge to a local solution. An unconstrained component can collapse onto a data point with near-singular covariance; regularize covariance, constrain the family or monitor degeneracy. Component labels can permute without changing the distribution, so compare distributions or aligned components rather than raw numeric IDs. K-means and GMM assignments reflect different noise/shape assumptions.
 

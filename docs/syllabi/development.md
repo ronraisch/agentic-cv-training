@@ -13,7 +13,6 @@ Reading is a resource for you, not mandatory page completion. If you can answer 
 | Advanced Python and concurrency | [Types, decorators, concurrency and interactive experiments](../reading/python-tools.md) | Use type hints and explain decorators, caching, queues and workload-dependent parallelism. |
 | Services, HTTP, SQL and integration | [HTTP, SQL, services and application boundaries](../reading/development-interfaces.md) | Add polygons, then build and deploy the first SAM2 service and minimal CI/CD by hand. |
 | Agent workflows and evidence | [HTTP, SQL, services and application boundaries](../reading/development-interfaces.md) | After capstone review, configure OMP/local LLM and selected Matt Pocock skills; verify agent claims. |
-| Archived edge-role extension | [Archived edge route: C/C++, ownership, builds and binary networks](../reading/development-cpp.md) | C/C++, ownership, Make/CMake, linker maps and binary networks remain available for relevant roles. |
 
 ## Practical work
 

@@ -30,7 +30,6 @@ Recommended first-pass study: 10–14 active hours; viewing/reflection: 3–5 ac
 | Advanced Python and concurrency | [Types, decorators, concurrency and interactive experiments](python-tools.md) | Use type hints and explain decorators, caching, queues and workload-dependent parallelism. |
 | Services, HTTP, SQL and integration | [HTTP, SQL, services and application boundaries](development-interfaces.md) | Add polygons, then build and deploy the first SAM2 service and minimal CI/CD by hand. |
 | Agent workflows and evidence | [HTTP, SQL, services and application boundaries](development-interfaces.md) | After capstone review, configure OMP/local LLM and selected Matt Pocock skills; verify agent claims. |
-| Archived edge-role extension | [Archived edge route: C/C++, ownership, builds and binary networks](development-cpp.md) | C/C++, ownership, Make/CMake, linker maps and binary networks remain available for relevant roles. |
 
 ## Practical work
 
@@ -48,13 +47,7 @@ Read selectively before and during implementation; discuss hypotheses with your 
 
 Use the original topic videos below, pausing to derive an example or inspect your experiment. Do not replace substantial theory with four short generic media windows. A familiar learner can choose relevant sections; no duplicate viewing is required.
 
-- [https://youtu.be/7EmboKQH8lM](https://youtu.be/7EmboKQH8lM)
-
-- [https://youtu.be/2a_ytyt9sf8](https://youtu.be/2a_ytyt9sf8)
-
-- [Beginner C++ Game Programming DirectX [Snake Game] Tutorial 14a](https://www.youtube.com/watch?v=KTyemy82Zqk)
-
-- [Beginner C++ Game Programming DirectX [Snake Game] Tutorial 14b](https://www.youtube.com/watch?v=DoO_NEksf3c)
+Earlier C++ video references are listed in the [original program outline](legacy-outline.md).
 
 ## Mentor conversations
 

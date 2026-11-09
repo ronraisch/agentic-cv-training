@@ -39,7 +39,17 @@ Precision asks what fraction of the six alerts the reviewer can use. Here it is 
 
 Suppose lowering the threshold sends the missed violation and four other events to the reviewer. You now catch all five violations but send eleven alerts, so precision falls to 5/11. This is an operating point. The right choice depends on how costly missed events are and how many alerts a reviewer can check. Repeating the count across thresholds gives the points behind a precision–recall curve.
 
-TP and TN are correct positive and negative predictions; FP and FN are the two errors. Accuracy is (TP+TN)/N, precision is TP/(TP+FP), recall/sensitivity is TP/(TP+FN), specificity is TN/(TN+FP), and false positive rate is FP/(FP+TN). False alarm rate is ambiguous in practice: it can mean FPR or a count per image/hour/area. State which is meant. Undefined ratios need an explicit convention rather than an unnoticed default.
+TP and TN are correct positive and negative predictions; FP and FN are the two errors. Let *N* be the number of evaluated examples.
+
+$$
+\mathrm{Accuracy}=\frac{TP+TN}{N},\qquad\mathrm{Precision}=\frac{TP}{TP+FP},\qquad\mathrm{Recall}=\frac{TP}{TP+FN}
+$$
+
+$$
+\mathrm{Specificity}=\frac{TN}{TN+FP},\qquad\mathrm{FPR}=\frac{FP}{FP+TN}
+$$
+
+Recall is also called sensitivity. FPR is the false positive rate. False alarm rate is ambiguous in practice: it can mean FPR or a count per image/hour/area. State which is meant. Undefined ratios need an explicit convention rather than an unnoticed default.
 
 If there are 10 positives among 1,000 cases and a model reports 8 TP and 20 FP, recall is 0.8, precision is 8/28≈0.286 and FPR is 20/990≈0.0202. Accuracy is 0.978, which hides the poor yield among alerts. F1 is the harmonic mean 2PR/(P+R); F-beta weights recall by beta squared. These summaries omit true negatives and do not encode every operational cost. Select a threshold against a stated target, such as minimum recall with an acceptable number of alerts.
 
@@ -111,7 +121,13 @@ Each additional positive increases recall by 1/3 here. Average precision with th
 
 ## Detection and segmentation
 
-Intersection over union is intersection area divided by union area. Match detections to ground truth using a declared class and overlap rule, generally one-to-one, then accumulate TP/FP as confidence decreases. A second prediction of an already matched object is normally a duplicate FP. Detection has no obvious count of all background TN boxes, so generic binary FPR is not automatically meaningful. AP at IoU 0.5 and AP averaged over several IoUs answer different localization questions. Horizontal boxes, oriented boxes and masks require the appropriate overlap geometry.
+Intersection over union measures the overlap between predicted region *A* and labeled region *B*.
+
+$$
+\mathrm{IoU}(A,B)=\frac{|A\cap B|}{|A\cup B|}
+$$
+
+Match detections to ground truth using a declared class and overlap rule, generally one-to-one, then accumulate TP/FP as confidence decreases. A second prediction of an already matched object is normally a duplicate FP. Detection has no obvious count of all background TN boxes, so generic binary FPR is not automatically meaningful. AP at IoU 0.5 and AP averaged over several IoUs answer different localization questions. Horizontal boxes, oriented boxes and masks require the appropriate overlap geometry.
 
 For segmentation, pixel IoU and Dice summarize set overlap; boundary metrics and object-level recall reveal other failure modes. A large background or large object can dominate a pooled metric. State whether averaging is per pixel, per image, per class or per instance. Incomplete annotation complicates FP counts and may need ignored regions or audited subsets.
 

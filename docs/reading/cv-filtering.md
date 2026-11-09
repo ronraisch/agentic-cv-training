@@ -23,7 +23,7 @@ A camera turns a scene into a grid of pixel values. A bright spot on a dark patc
 
 ## An image is a sampled signal
 
-An image samples a scene after optics, sensor response and processing. Resolution, dynamic range and noise affect what can be recovered. Spatial filters combine nearby samples. In one dimension, convolution is `(f*g)[n] = sum_k f[k] g[n-k]`; correlation uses the unflipped relative kernel. They agree for a symmetric real kernel, but derivative signs can differ for an asymmetric one. An impulse kernel reproduces or shifts a signal depending on its location. Linearity follows by distributing the sum over a weighted combination of inputs.
+An image samples a scene after optics, sensor response and processing. Resolution, dynamic range and noise affect what can be recovered. Spatial filters combine nearby samples. In one dimension, convolution is $(f*g)[n]=\sum_k f[k]g[n-k]$; correlation uses the unflipped relative kernel. They agree for a symmetric real kernel, but derivative signs can differ for an asymmetric one. An impulse kernel reproduces or shifts a signal depending on its location. Linearity follows by distributing the sum over a weighted combination of inputs.
 
 ## Smoothing and separability
 
@@ -41,7 +41,7 @@ A separable two-dimensional kernel is an outer product of two one-dimensional ke
 
 ### Calculate one filtered pixel
 
-Take a one-dimensional row of intensities `[0, 0, 9, 0, 0]`. A three-position average gives equal weight to the centre and its two neighbours. The value at the peak becomes `(0 + 9 + 0) / 3 = 3`. Each immediate neighbour also becomes 3 because its window includes the original peak. The intensity is spread out across nearby positions. The code example shows the same operation with extra zero positions on the sides.
+Take a one-dimensional row of intensities `[0, 0, 9, 0, 0]`. A three-position average gives equal weight to the centre and its two neighbours. The value at the peak becomes $\frac{0+9+0}{3}=3$. Each immediate neighbour also becomes 3 because its window includes the original peak. The intensity is spread out across nearby positions. The code example shows the same operation with extra zero positions on the sides.
 
 Now replace the row by a step, such as `[0, 0, 9, 9, 9]`. At the transition, an averaging window contains both dark and bright samples, so the edge gets less sharp. Inside a constant region the average preserves the original value as long as the weights sum to one and the window stays inside that region. Near the image boundary the padding convention decides what samples the filter sees.
 

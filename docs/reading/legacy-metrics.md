@@ -143,7 +143,7 @@ As you may have noticed, precision and recall have an inverse relationship — a
 
 Formally the F-score is defined as:
 
-${F}_{1}=\frac{2⋅Precision⋅Recall}{Recall+Precision}$
+${F}_{1}=\frac{2\cdot Precision\cdot Recall}{Recall+Precision}$
 
 We can also view the F-score as the harmonic mean of precision and recall.
 
@@ -157,9 +157,9 @@ One advantage of F-score over accuracy is that it is much more suitable when fac
 
 There are some edge cases that make F-score a bit dangerous if you aren’t paying attention. For example, The F-score gives a larger weight to lower scores. Consider the following two binary classification scenarios:
 
-When $Precision=100%$ and $Recall=0%$, we get ${F}_{1 }=0%$ rather than $50%$.
+When $Precision=100\%$ and $Recall=0\%$, we get ${F}_{1 }=0\%$ rather than $50\%$.
 
-Consider two models. Model A obtains $P=R=80%$ while Model B obtained $P=60%$ and $R=100%$. Here, Model A will obtain an F-score of $80%$ while Model B will obtain a score of $75$%. However, it is not entirely clear which of the two models is preferable.
+Consider two models. Model A obtains $P=R=80\%$ while Model B obtained $P=60\%$ and $R=100\%$. Here, Model A will obtain an F-score of $80\%$ while Model B will obtain a score of $75$%. However, it is not entirely clear which of the two models is preferable.
 
 The following paper provides a nice overview of some other drawbacks of the F-score measure: ​​[https://adamyedidia.files.wordpress.com/2014/11/f_score.pdf](ml-metrics.md)
 
@@ -275,11 +275,11 @@ The micro-average will adequately capture this class imbalance, and bring the ov
 
 For computational reasons, it may sometimes be more convenient to compute class averages and then macro-average them. If class imbalance is known to be an issue, there are several ways around it. One is to report not only the macro-average, but also its standard deviation (for 3 or more classes). Another is to compute a weighted macro-average, in which each class contribution to the average is weighted by the relative number of examples available for it. In the above scenario, we obtain:
 
-$P{r}_{macro-mean}=0.25⋅0.5+0.25⋅0.1+0.25⋅0.5+0.25⋅0.5=0.4$
+$P{r}_{macro-mean}=0.25\cdot 0.5+0.25\cdot 0.1+0.25\cdot 0.5+0.25\cdot 0.5=0.4$
 
 $P{r}_{macro-std}=0.173$
 
-$P{r}_{macro-weighted}=0.0189·0.5+0.943·0.1+0.0189·0.5+0.0189·0.5$
+$P{r}_{macro-weighted}=0.0189\cdot 0.5+0.943\cdot 0.1+0.0189\cdot 0.5+0.0189\cdot 0.5$
 
 $=0.009+0.094+0.009+0.009=0.123$
 
@@ -363,7 +363,7 @@ To illustrate this, let’s consider the below example, in which the model is tr
 
 The MRR of this system can be found as:
 
-$MRR= \frac{1}{3}⋅(\frac{1}{2}+\frac{1}{3}+\frac{1}{1})= \frac{11}{18}$
+$MRR= \frac{1}{3}\cdot (\frac{1}{2}+\frac{1}{3}+\frac{1}{1})= \frac{11}{18}$
 
 One of the limitations of MRR is that it only takes the rank of one of the items (the most relevant one) into account, and ignores other items (for example mediums as the plural form of medium is ignored). This may not be a good metric for cases where we want to browse a list of related items.
 

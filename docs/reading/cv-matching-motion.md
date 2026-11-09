@@ -51,7 +51,7 @@ For a pure translation, one point pair gives a complete hypothesis. Pick a pair,
 
 RANSAC uses that propose-and-count idea with other model families too. A homography needs four point pairs in a nondegenerate configuration to generate a hypothesis, and its sample can contain bad matches. If one repeated roof pattern produces many mutually consistent wrong matches, the inlier count can favor a bad warp. Plot where the supporting points are and inspect a few landmarks that were outside the fit.
 
-RANSAC repeatedly samples a minimal set, fits a model and counts geometrically consistent observations. If each sample independently has probability w of being an inlier, a minimal set has size s and the desired success probability is p, an idealized iteration count is `log(1-p) / log(1-w^s)`. Unknown inlier ratios and degeneracy complicate this estimate. The residual threshold sets what “consistent” means; too loose accepts wrong matches and too tight rejects noisy true matches. Refit on inliers and assess their spatial coverage.
+RANSAC repeatedly samples a minimal set, fits a model and counts geometrically consistent observations. If each sample independently has probability w of being an inlier, a minimal set has size s and the desired success probability is p, an idealized iteration count is $\frac{\log(1-p)}{\log(1-w^s)}$. Unknown inlier ratios and degeneracy complicate this estimate. The residual threshold sets what “consistent” means; too loose accepts wrong matches and too tight rejects noisy true matches. Refit on inliers and assess their spatial coverage.
 
 RANSAC rejects outliers relative to a model, not errors in the model family itself. A global homography cannot explain arbitrary depth parallax. Compare a simpler model when possible, and avoid reporting a successful fit based only on the number of inliers without examining where they lie.
 
@@ -92,7 +92,7 @@ For stitching, transform image bounds to determine canvas extent, handle negativ
 
 ## Optical flow from local evidence
 
-Brightness constancy assumes a moving point has approximately unchanged intensity. Linearizing small motion gives `Ix u + Iy v + It = 0`, one equation for two motion components. The aperture problem leaves motion along an edge ambiguous. Lucas–Kanade assumes approximately common motion in a local window and solves a least-squares system. Its normal matrix is the same gradient structure that explains corner quality. Use a stable solver rather than explicitly inverting a nearly singular matrix.
+Brightness constancy assumes a moving point has approximately unchanged intensity. Linearizing small motion gives $I_xu+I_yv+I_t=0$, one equation for two motion components. The aperture problem leaves motion along an edge ambiguous. Lucas–Kanade assumes approximately common motion in a local window and solves a least-squares system. Its normal matrix is the same gradient structure that explains corner quality. Use a stable solver rather than explicitly inverting a nearly singular matrix.
 
 Large motion violates the linearization. Coarse-to-fine pyramids turn it into smaller displacements at coarse scales and refine upward. They can still fail on tiny objects, occlusion, illumination changes or motion boundaries. Motion estimates require confidence and visibility checks, not merely a dense output at every pixel.
 

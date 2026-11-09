@@ -35,7 +35,7 @@ Retain UD810/CS4495 units 1,2,3,4,6,7A,9A,9B and Stanford CS231n 2025 lectures 1
 The stage syllabi preserve their exact source links and the original skip/survey choices.
 Michigan 2019 is an alternative explanation for corresponding topics, not a second required
 course. Generative models, 3D and distributed training remain visible even when their first
-pass is survey depth. Retained breadth and archived role-specific material are explicitly labeled.
+pass is survey depth. Distributed training is covered with deployment; historical reading is listed in the source archive.
 
 ## Two conversations for each part
 

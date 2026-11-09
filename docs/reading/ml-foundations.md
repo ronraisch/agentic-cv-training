@@ -98,9 +98,9 @@ Return to the supervised example. Start with a deliberately small dataset where 
 
 On a plot, area goes along the horizontal axis and price up the vertical axis. Here every increase of 20 m² goes with an increase of 400 in price. A line with slope 20 and intercept zero goes through all three points. For an apartment of 80 m², that line predicts 1,600, or ₪1.6 million.
 
-The line is the model. Its formula is `prediction = w × area + b`. The slope `w` tells us how much the prediction changes for one additional square metre. The intercept `b` sets the height of the line at zero area. Real sales rarely line up perfectly. **Fitting** means using the training data to choose the slope and intercept according to a specified rule.
+The line is the model. Its formula is $\hat y=w\,a+b$. Here *a* is floor area and the left-hand side is the predicted price. The slope `w` tells us how much the prediction changes for one additional square metre. The intercept `b` sets the height of the line at zero area. Real sales rarely line up perfectly. **Fitting** means using the training data to choose the slope and intercept according to a specified rule.
 
-Try a candidate line with `w = 18` and `b = 100`. It predicts 1,000, 1,360 and 1,720 on the three rows. Define the residual as observed minus predicted. The residuals are 0, 40 and 80. Their mean squared value is `(0² + 40² + 80²) / 3 = 2666.7` in squared price units. Squaring prevents positive and negative residuals from cancelling and makes a large miss contribute more heavily. A mean absolute error would instead average 0, 40 and 80 directly in price units.
+Try a candidate line with `w = 18` and `b = 100`. It predicts 1,000, 1,360 and 1,720 on the three rows. Define the residual as observed minus predicted. The residuals are 0, 40 and 80. Their mean squared value is $\frac{0^2+40^2+80^2}{3}\approx2666.7$ in squared price units. Squaring prevents positive and negative residuals from cancelling and makes a large miss contribute more heavily. A mean absolute error would instead average 0, 40 and 80 directly in price units.
 
 ![Three apartment sales lie on the blue fitted line. The orange candidate line predicts prices 40 and 80 thousand shekels below the 70 and 90 square metre sales.](assets/ml-apartment-fit.svg)
 
@@ -112,19 +112,19 @@ Start the comparison with a baseline you can calculate without any fitted slope.
 
 Two apartments of equal size can sell for different prices because of location or condition. A model with several features gives each numerical feature a weight. For example, it could use area and an indicator for whether the building has a lift. The indicator is 1 when a lift is present and 0 otherwise, so its weight adds a fixed amount to the prediction in this particular model.
 
-In vector notation the same model is `prediction = wᵀx + b`. Each position in `x` holds a feature, and the corresponding position in `w` tells the model how much to weight it. For a dataset, a matrix `X` places examples in rows and features in columns. If two columns measure almost the same thing, many combinations of weights can make similar predictions. This is why individual coefficients can be unstable even when prediction is reasonably stable. Interpret an estimated association with due regard for which features the data includes.
+In vector notation the same model is $\hat y=w^\top x+b$. Each position in `x` holds a feature, and the corresponding position in `w` tells the model how much to weight it. For a dataset, a matrix `X` places examples in rows and features in columns. If two columns measure almost the same thing, many combinations of weights can make similar predictions. This is why individual coefficients can be unstable even when prediction is reasonably stable. Interpret an estimated association with due regard for which features the data includes.
 
 ### How an optimizer changes the line
 
 One way to minimize the loss is to start at a candidate line and adjust it. A **gradient** tells us the local direction in which the loss increases. Gradient descent moves in the opposite direction, scaled by a learning rate.
 
-For a one-weight example, predict `w × 2` when the target is 4. With `w = 3` the prediction is 6. Define the loss as half the squared error. Its derivative with respect to w is `(prediction − target) × 2 = 4`. At learning rate 0.1 the update is `3 − 0.1 × 4 = 2.6`. The new prediction is 5.2, with loss 0.72 instead of 2. The gradient and learning rate both matter. A sufficiently large step can cross the minimum and increase the loss.
+For a one-weight example, predict `w × 2` when the target is 4. With `w = 3` the prediction is 6. Define the loss as half the squared error. Its derivative with respect to w is $(\hat y-y)\times2=4$. At learning rate 0.1 the update is $3-0.1\times4=2.6$. The new prediction is 5.2, with loss 0.72 instead of 2. The gradient and learning rate both matter. A sufficiently large step can cross the minimum and increase the loss.
 
 For squared loss on many rows, the gradient with respect to the weights is proportional to `Xᵀ(Xw − y)`, taking the intercept into account separately or through a constant feature. Each residual contributes according to the features of its row. For ordinary least squares, a numerical solver based on QR or SVD is often more direct. Those solvers can handle difficult feature matrices more reliably than explicitly inverting `XᵀX`.
 
 ### A curved fit can still be linear in its weights
 
-Now imagine observations where larger apartments command a rising price per additional square metre. A straight line uses a constant slope, so it may miss that bend. Add a feature computed from floor area squared and the model becomes `prediction = b + w₁ × area + w₂ × area²`.
+Now imagine observations where larger apartments command a rising price per additional square metre. A straight line uses a constant slope, so it may miss that bend. Add a feature computed from floor area squared and the model becomes $\hat y=b+w_1a+w_2a^2$.
 
 For a tiny numerical illustration, use values of x equal to 0, 1 and 2 and targets 1, 3 and 9. The figure compares a straight line with the curve `1 + 2x²`. The curve fits because the feature x² changes nonlinearly with x. Once the feature is computed, the fit still chooses coefficients that multiply fixed columns. That is the sense in which the model is linear in its parameters.
 
@@ -163,7 +163,7 @@ Once x² is computed, the coefficients multiply fixed feature columns. The fit i
 
 ## What assumptions make a loss reasonable?
 
-The sale price for two apparently similar apartments can differ because of details the features do not capture. A **random variable** describes outcomes and their probabilities. Here we can describe a distribution of prices `y` given features `x`, written `P(y|x)`. The reverse expression `P(x|y)` asks a different question, such as what sizes are common among apartments sold at a given price.
+The sale price for two apparently similar apartments can differ because of details the features do not capture. A **random variable** describes outcomes and their probabilities. Here we can describe a distribution of prices `y` given features `x`, written $P(y\mid x)$. The reverse expression $P(x\mid y)$ asks a different question, such as what sizes are common among apartments sold at a given price.
 
 Suppose prices fluctuate independently around the fitted line with Gaussian noise of fixed variance. Small residuals are then more probable than large residuals. The **likelihood** asks how probable the observed prices would be under a candidate set of weights. Under these assumptions, maximizing the likelihood gives the same weights as minimizing squared error. A different noise model can motivate a different loss. The squared loss is therefore both a computational objective and, in this example, a consequence of assumptions about observations.
 

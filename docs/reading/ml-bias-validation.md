@@ -129,7 +129,7 @@ Grouping by camera tests generalization to unseen installations and keeps valida
 
 A split tells us what population a result is testing; uncertainty asks how much the result might vary across samples from that population. A bootstrap approximates this by resampling observed units with replacement. For correlated frames, the relevant units may be videos or sessions rather than individual frames. Cross-validation serves a different role: estimating performance and supporting model selection under a chosen split design. Neither procedure repairs a sampling design that does not represent deployment.
 
-For an independent Bernoulli proportion p estimated from n trials, the rough standard error is `sqrt(p(1-p)/n)`. This approximation can be poor for small n or rare events; use suitable intervals and report counts. Zero misses among n positives does not prove perfect recall. Correlation reduces effective sample size. Decide test-set size from the precision needed around the operating point, not from a fixed percentage of the whole dataset.
+For an independent Bernoulli proportion p estimated from n trials, the rough standard error is $\sqrt{\frac{p(1-p)}{n}}$. This approximation can be poor for small n or rare events; use suitable intervals and report counts. Zero misses among n positives does not prove perfect recall. Correlation reduces effective sample size. Decide test-set size from the precision needed around the operating point, not from a fixed percentage of the whole dataset.
 
 ## What an honest comparison leaves visible
 

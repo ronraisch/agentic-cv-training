@@ -39,7 +39,7 @@ A deep tree can memorize small data changes. Missing-value routing and categoric
 
 Suppose six detector candidates have scores 0.2, 0.3, 0.4, 0.6, 0.7 and 0.9. Their correctness labels are false, false, true, false, true and true. The root contains three of each label. A split at score 0.5 puts two false and one true on the left, and one false and two true on the right. Each child is more concentrated in one label than the root. A tree can test another feature, such as object size, separately inside each child.
 
-Gini impurity uses `1 − Σ pᵢ²`, where the probabilities are observed class proportions in the node. The root has impurity 0.5. Both children have impurity `1 − (2/3)² − (1/3)² = 4/9`, so this split lowers weighted impurity by about 0.056. A fitting algorithm evaluates candidate splits and chooses one according to its criterion. It may find a better threshold than this example. A small leaf can appear very pure by chance, which is why depth and leaf-size limits are useful model settings.
+Gini impurity uses $1-\sum_i p_i^2$, where the probabilities are observed class proportions in the node. The root has impurity 0.5. Both children have impurity $1-\left(\frac23\right)^2-\left(\frac13\right)^2=\frac49$, so this split lowers weighted impurity by about 0.056. A fitting algorithm evaluates candidate splits and chooses one according to its criterion. It may find a better threshold than this example. A small leaf can appear very pure by chance, which is why depth and leaf-size limits are useful model settings.
 
 ### Self-check
 
@@ -78,7 +78,7 @@ For independent estimators of variance sigma squared, averaging M estimators wou
 
 ## Boosting
 
-Boosting adds weak predictors sequentially, each addressing shortcomings of the current combined model. AdaBoost reweights observations so misclassified cases receive more attention. For binary labels in {-1,+1}, a common weak-learner weight is `alpha = 0.5 log((1-error)/error)`, with a corresponding exponential reweighting. A learner at chance provides little useful weight; mislabeled outliers can attract excessive attention. The formula assumes its stated setup and needs numerical handling at zero error.
+Boosting adds weak predictors sequentially, each addressing shortcomings of the current combined model. AdaBoost reweights observations so misclassified cases receive more attention. For binary labels in {-1,+1}, if *e* is the current weighted error, a common weak-learner weight is $\alpha=\tfrac12\log\left(\frac{1-e}{e}\right)$, with a corresponding exponential reweighting. A learner at chance provides little useful weight; mislabeled outliers can attract excessive attention. The formula assumes its stated setup and needs numerical handling at zero error.
 
 Gradient boosting fits each new learner to a negative gradient of the chosen loss with respect to current predictions. For squared loss this resembles fitting residuals. For logistic classification, the gradient is computed in score space and is not simply a hard-label mistake indicator. Learning rate, tree complexity and number of rounds jointly control capacity. Early stopping chooses a round using validation data, making that validation set part of model selection.
 

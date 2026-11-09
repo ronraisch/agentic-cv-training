@@ -1,4 +1,4 @@
-# Tokens, attention, Transformers and vision Transformers
+# The Transformer: from translation to self-attention
 
 [All training](index.md) · [Source coverage](sources.md)
 
@@ -7,11 +7,17 @@ A model reading a sentence or a picture receives a collection of input units. A 
 <details>
 <summary>Jump to a concept</summary>
 
+- [Why translation led to the Transformer](#why-transformers)
+
 - [Tokens and embeddings](#tokens-and-embeddings)
 
 - [Attention from shapes](#attention-from-shapes)
 
 - [Order, heads and architecture](#order-heads-and-architecture)
+
+- [Walk through the original encoder and decoder](#original-transformer)
+
+- [Which part would you use?](#transformer-families)
 
 - [Vision Transformers](#vision-transformers)
 
@@ -20,6 +26,14 @@ A model reading a sentence or a picture receives a collection of input units. A 
 - [Seeing a mask change the computation](#seeing-a-mask-change-the-computation)
 
 </details>
+
+## Why translation led to the Transformer
+
+Translate “The truck that passed the two cars *was* red.” To choose the verb form, a model needs the singular subject *truck*, even though the nearest noun, *cars*, is plural. To place words correctly in the output language, it also needs a way to look back at the source while it is writing the translation.
+
+One early encoder–decoder approach read the source from left to right with a recurrent network and handed the decoder a summary. In an RNN, the state at position 8 depends on the state at position 7, which depends on position 6. Information from the beginning travels through those intermediate updates. An attention-equipped recurrent decoder could already look back at all the encoder states instead of relying on a single summary. The 2017 Transformer took the next step. It used attention to exchange information across positions inside the encoder and decoder too, replacing recurrence in the architecture.
+
+In a self-attention layer the representation for *was* can get a contribution directly from *truck*. A learned comparison decides how much to read from each position. During training the source tokens are known, so the encoder can calculate all those comparisons in parallel within a layer. The trade-off is a matrix with one entry for every query–key pair. Doubling a sequence length quadruples the number of entries in ordinary full self-attention.
 
 ## Tokens and embeddings
 
@@ -35,9 +49,15 @@ Now give those same tokens scalar values (2, 10, 4). The query's output is the w
 
 In a model the compatibility scores come from comparing one query vector with each key vector. Each value can be a vector too, so the weighted sum combines vectors coordinate by coordinate. Repeat for each query and stack the rows. This is the computation that the matrix notation below performs at once.
 
-In a full attention layer, the weights in the opening example are computed from the input. For N token vectors collected in X, learned projections produce queries Q, keys K and values V. The operation is `softmax(Q K^T / sqrt(d_k) + mask) V`. The Q–K comparison produces a weight for each available position; multiplying by V combines the content at those positions. Self-attention creates all three projections from the same sequence, but they are generally different tensors. Cross-attention uses a separate memory for keys and values: a translation decoder, for example, queries the encoder’s representation.
+In a full attention layer, the weights in the numerical example are computed from the input. For N token vectors collected in X, learned projections produce queries Q, keys K and values V. Let M be the additive mask and let softmax act across the keys of each query. The output is
 
-The division by sqrt(d_k) happens before softmax. Under common initialization assumptions it moderates the growth in score variance as key dimension increases, helping avoid an excessively sharp distribution. Multiplying the result after softmax would change its magnitude rather than serve the same purpose. Masks change which positions are available: a causal mask excludes future positions, while a padding mask excludes absent tokens. A mask broadcast along the wrong axis can leave the output shape unchanged while letting forbidden information through.
+$$
+\operatorname{Attention}(Q,K,V)=\operatorname{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}+M\right)V
+$$
+
+The Q–K comparison produces a weight for each available position; multiplying by V combines the content at those positions. Self-attention creates all three projections from the same sequence, but they are generally different tensors. Cross-attention uses a separate memory for keys and values: a translation decoder, for example, queries the encoder’s representation.
+
+The division by $\sqrt{d_k}$ happens before softmax. Under common initialization assumptions it moderates the growth in score variance as key dimension increases, helping avoid an excessively sharp distribution. Multiplying the result after softmax would change its magnitude rather than serve the same purpose. Masks change which positions are available: a causal mask excludes future positions, while a padding mask excludes absent tokens. A mask broadcast along the wrong axis can leave the output shape unchanged while letting forbidden information through.
 
 ### Build the weights before multiplying the values
 
@@ -117,38 +137,59 @@ The comparisons alone do not tell the model where a token appeared. Ordinary sel
 
 A Transformer block also includes feedforward layers, residual connections and normalization. An encoder typically permits bidirectional context. An autoregressive decoder uses causal attention, and an encoder-decoder architecture additionally connects decoder queries to encoder memory. “Decoder” names an architectural role and does not mean every decoder performs text generation. A DETR decoder produces object representations through a related but task-specific design.
 
-## Vision Transformers
+## Walk through the original encoder and decoder
 
-For an image, patches can play the role of tokens. A Vision Transformer projects each patch into a vector and applies attention to the resulting sequence. A class token or pooling can summarize the image; a dense task can instead use the spatial tokens. Patch size therefore affects both sequence length and the detail directly represented by each input token. Doubling image height and width at fixed patch size gives roughly four times as many tokens, and the pairwise score work in full attention can grow by about sixteen times. Actual memory and latency also depend on the implementation.
+Think of the encoder as preparing a searchable version of the source. The decoder maintains a representation of the answer so far. It consults the source at each decoder layer and eventually produces a score for every token that could come next.
 
-Changing resolution changes the spatial token grid and may require positional adaptation. Padding, interpolation and windowing rules must match the implementation. Swin uses local windows, shifted interaction patterns and hierarchical feature scales to reduce cost and build multiscale representations. CNNs encode stronger local weight-sharing structure; ViTs offer flexible long-range interaction. Data, pretraining and compute determine the actual tradeoff.
+- **Prepare the input.** Token IDs index a learned embedding table. A vector is added for each position, so two copies of a word can carry different positions. The original paper used sinusoidal position vectors in its reported architecture.
 
-### How image size turns into a sequence length
+- **Encode the source.** Every encoder layer first runs multi-head self-attention over the source. Source positions can read each other in both directions, with padding excluded. A feed-forward network then transforms each position independently using the same weights at each position.
 
-With non-overlapping 16-by-16 patches, a 224-by-224 image gives a 14-by-14 patch grid, or 196 patch tokens. Doubling both image dimensions gives a 28-by-28 grid, or 784 patch tokens. Ignoring special tokens, full attention compares about 38,416 pairs in the first case and 614,656 in the second. The number of tokens grows fourfold and the pair count grows sixteenfold. This calculation describes the number of score entries, rather than a measured runtime.
+- **Read the target prefix.** The decoder starts with embeddings of the target tokens available so far. Masked self-attention lets each position read itself and earlier positions. The input is shifted during training so reading its own input position cannot reveal the token it is asked to predict.
 
-The resolution can still be worthwhile if it preserves a small object that would disappear after resize. Decide what spatial evidence the downstream task needs, then measure the impact of resolution on quality, memory and throughput. Local windows and hierarchical stages change which pairs are compared and how information travels across the image.
+- **Look back at the source.** Decoder cross-attention forms its queries from the decoder states. Its keys and values come from the final encoder states. A decoder position preparing a color word can therefore combine evidence from source positions describing the color and the vehicle.
+
+- **Predict the next token.** A linear projection maps each final decoder vector to one logit per vocabulary entry. During training, token-level cross-entropy rewards the correct next token. At inference, a decoding rule chooses an output token from the logits, appends it and repeats until the end token or a length limit.
+
+The original base model stacked six encoder layers and six decoder layers. The decoder has three sublayers in each layer: masked self-attention, source cross-attention and a position-wise feed-forward network. Each sublayer in the original used a residual addition followed by layer normalization. The addition gives the incoming representation a direct path, while normalization operates across the features of each token. Many later Transformers move the normalization before the sublayer.
+
+### What each piece contributes
+
+| Piece | What it changes | What to track |
+| --- | --- | --- |
+| Position encoding | Gives the model information about order | Token positions, or relative positions in some variants |
+| Attention | Moves information between token positions | Which sequence supplies queries, keys and values |
+| Multiple heads | Learns several projections and weighted combinations in parallel | Concatenate the head outputs and project back to the model width |
+| Feed-forward network | Mixes features nonlinearly within each token | Usually widens the vector internally and projects it back |
+| Residual path and LayerNorm | Preserve an additive path and regulate feature scales | Which representation reaches the next layer |
+| Output projection | Turns features into task scores | Vocabulary logits for translation, class logits or other outputs for downstream tasks |
+
+### Why training can predict a whole sentence at once
+
+Suppose the target tokens are `camion rouge <end>`. Feed the decoder `<start> camion rouge`. At the first position it predicts `camion`, at the second it predicts `rouge`, and at the third it predicts `<end>`. The causal mask stops the first position from seeing the second input. This use of the true prefix during training is called teacher forcing. At inference the model must use its own earlier choices, so token generation still proceeds step by step even though training can score all target positions together.
+
+With three target positions and five source positions, one decoder self-attention head has a 3 × 3 score matrix and one cross-attention head has a 3 × 5 matrix. The output has three rows in both cases because there are three queries. If you remember only one shape rule, count the queries to know how many output vectors come back.
 
 ### Self-check
 
-With a fixed patch size, you double the image width and height. Ignoring special tokens, how many times more score entries does full attention compute?
-
-- A. 2
-
-- B. 4
-
-- C. 16
-
-- D. 8
+Why does the training decoder need both shifted inputs and a causal mask?
 
 <details>
 <summary>Show answer and explanation</summary>
 
-**C. 16**
-
-There are four times as many patches. The number of query–key pairs scales with the square of the token count, so it grows by 4² = 16.
+Shifting makes the current input token the previous output token. The mask prevents a position from looking at later inputs, where the answer it is supposed to predict is already present. Together they let the model train on a whole sequence while respecting the same information boundary as generation.
 
 </details>
+
+## Which part would you use?
+
+For translation, the original encoder–decoder arrangement gives each output token access to an entire source sentence and the generated prefix. An encoder-only model gives all input tokens bidirectional context and is a useful backbone for classifying a document or producing a vector for each patch. A decoder-only language model uses a stack of causally masked self-attention layers, typically without a separate source encoder. The prompt and generated answer form one sequence. The Transformer block is a reusable design. The objective, attention mask and output head determine what task it performs.
+
+## Vision Transformers
+
+Now replace the text input with a grid of patches and keep the encoder. Follow the input shapes, position embeddings, class token and transfer recipe in [the Vision Transformer chapter](dl-vit.md).
+
+Primary source: [Vaswani et al., Attention Is All You Need](https://arxiv.org/abs/1706.03762), sections 1–4 and Figure 1.
 
 ## What attention does not prove
 

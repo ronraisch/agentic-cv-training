@@ -4,6 +4,8 @@
 
 A classifier can report that an image contains a car. A detector also reports where individual cars are. That extra requirement introduces candidate locations, box coordinates, training assignments and decisions about repeated predictions. Following one image through those stages makes it possible to compare architectures and diagnose misses.
 
+For a shape-by-shape walkthrough, see the chapters on [classification](dl-classification-head.md), [detection](dl-detection-head.md) and [segmentation heads](dl-segmentation-head.md).
+
 <details>
 <summary>Jump to a concept</summary>
 

@@ -27,7 +27,7 @@ A trainable model turns input values into a prediction. To change its prediction
 
 ## Layers and representational capacity
 
-A linear layer applies an affine transformation `h = Wx+b`. Composing affine layers without nonlinearities is still an affine transformation, regardless of depth. Activations such as ReLU, sigmoid and tanh change the function family and gradient behavior. A network with sufficient capacity can approximate broad function classes under a theorem's assumptions, but that theorem does not promise a useful optimizer, a small dataset or good extrapolation.
+A linear layer applies an affine transformation $h=Wx+b$. Composing affine layers without nonlinearities is still an affine transformation, regardless of depth. Activations such as ReLU, sigmoid and tanh change the function family and gradient behavior. A network with sufficient capacity can approximate broad function classes under a theorem's assumptions, but that theorem does not promise a useful optimizer, a small dataset or good extrapolation.
 
 ## Loss and backpropagation
 
@@ -45,7 +45,7 @@ A gradient check perturbs a parameter and compares the numerical change to the a
 
 ### Follow the gradient across two operations
 
-Take one scalar input x = 2. First compute `z = w × x` with w = 3, then let the prediction be `z + b` with b = 0. A target of 4 gives an error of 2. Using half the squared error makes the derivative with respect to the prediction equal to that error. The derivative with respect to b is therefore 2, because a unit change in b changes the prediction by one unit. The derivative with respect to w is 4, because a unit change in w changes the prediction by two units.
+Take one scalar input x = 2. First compute $z=w\,x$ with w = 3, then let the prediction be `z + b` with b = 0. A target of 4 gives an error of 2. Using half the squared error makes the derivative with respect to the prediction equal to that error. The derivative with respect to b is therefore 2, because a unit change in b changes the prediction by one unit. The derivative with respect to w is 4, because a unit change in w changes the prediction by two units.
 
 Backpropagation applies the chain rule from the loss back through these operations. It tells each parameter how a small change would affect the loss with other values fixed. A gradient does not specify how far to move. The optimizer applies its own update rule and learning rate. In the single-weight code example below, b is held fixed so one step is easy to calculate.
 

@@ -85,7 +85,15 @@ Learning happens before and during implementation. Ask your agent to explain a d
 
 - [RNNs, LSTMs, temporal models and video understanding](dl-sequences.md)
 
-- [Tokens, attention, Transformers and vision Transformers](dl-attention.md)
+- [The Transformer: from translation to self-attention](dl-attention.md)
+
+- [Vision Transformers: from image patches to features](dl-vit.md)
+
+- [Classification heads on CNN and Transformer embeddings](dl-classification-head.md)
+
+- [Detection heads: dense CNNs and DETR-style decoders](dl-detection-head.md)
+
+- [Segmentation heads: feature grids, skip connections and mask queries](dl-segmentation-head.md)
 
 - [Detection, segmentation, OCR and the retained paper families](dl-detection.md)
 
@@ -101,13 +109,7 @@ Learning happens before and during implementation. Ask your agent to explain a d
 
 - [Transfer learning, LoRA, quantization, compilation and parallel execution](dl-deployment.md)
 
-- [Retained advanced topics: learning setups, ranking and recommendation](ml-advanced-learning.md)
-
-- [Retained survey: GLMs, Gaussian processes, graphical models and other learning](ml-probabilistic-survey.md)
-
 - [HTTP, SQL, services and application boundaries](development-interfaces.md)
-
-- [Archived edge route: C/C++, ownership, builds and binary networks](development-cpp.md)
 
 Experiment with decision boundaries, image filters, attention and code design in standalone pages. [Offline playgrounds](../playgrounds/README.md)
 

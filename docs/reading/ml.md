@@ -31,7 +31,6 @@ Recommended first-pass study: 14–22 active hours; viewing/reflection: 3–5 ac
 | Generative classifiers, neighbors and SVM | [Naive Bayes, Gaussian discriminants, KNN and kernels](ml-generative-neighbors.md) | Explain Gaussian discriminants, Naive Bayes, KNN, kernel regression and margin/kernel choices. |
 | Trees and ensembles | [Trees, forests, AdaBoost, gradient boosting and model combination](ml-trees-ensembles.md) | Compare trees, forests, bagging, AdaBoost, gradient boosting, XGBoost/LightGBM, voting and stacking. |
 | Unsupervised learning and visualization | [PCA, clustering, EM/GMM, t-SNE and UMAP](ml-unsupervised.md)<br>[NumPy, Pandas, data contracts and visual exploration](arrays-data.md) | Use PCA, K-means, hierarchical/DBSCAN/spectral clustering, EM/GMM, t-SNE/UMAP and clear plots. |
-| Retained breadth | [Retained advanced topics: learning setups, ranking and recommendation](ml-advanced-learning.md)<br>[Retained survey: GLMs, Gaussian processes, graphical models and other learning](ml-probabilistic-survey.md) | Keep one-class, active/semi/few/zero-shot learning, ranking/recommendation, GLMs, GPs and probabilistic topics visible. |
 
 ## Practical work
 

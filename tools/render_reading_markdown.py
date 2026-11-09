@@ -65,6 +65,14 @@ def local_link(url):
 def math(node):
     if isinstance(node, str):
         return node
+    if node.tag == 'semantics':
+        for child in node.children:
+            if (
+                isinstance(child, Node)
+                and child.tag == 'annotation'
+                and child.attrs.get('encoding') == 'application/x-tex'
+            ):
+                return ''.join(part for part in child.children if isinstance(part, str))
     children = [math(c) for c in node.children]
     if node.tag == 'mfrac':
         return r'\frac{' + children[0] + '}{' + children[1] + '}'
@@ -79,6 +87,13 @@ def math(node):
     text = ''.join(children)
     for char, command in {'∑':r'\sum ', '∞':r'\infty ', '∈':r'\in ', '≥':r'\ge ', '≤':r'\le ', '−':'-', '×':r'\times ', 'α':r'\alpha ', 'β':r'\beta ', 'θ':r'\theta '}.items():
         text = text.replace(char, command)
+    if node.tag in {'mi', 'mn', 'mo', 'mtext'}:
+        text = text.replace('%', r'\%').replace('⋅', r'\cdot ').replace('·', r'\cdot ')
+        text = text.replace('μ', r'\mu ')
+        if text in {'exp', 'log'}:
+            return '\\' + text
+        if node.tag == 'mtext':
+            return r'\text{' + text + '}'
     return text
 
 
@@ -87,7 +102,10 @@ def render(node):
         return node
     tag = node.tag
     if tag == 'math':
-        return '$' + math(node).strip() + '$'
+        formula = math(node).strip()
+        if node.attrs.get('display') == 'block':
+            return '\n\n$$\n' + formula + '\n$$\n\n'
+        return '$' + formula + '$'
     content = ''.join(render(c) for c in node.children)
     if tag in {'script', 'style', 'nav'}:
         return ''

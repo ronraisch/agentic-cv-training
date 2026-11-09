@@ -119,9 +119,9 @@ Since we are using the logistic function to transform a linear combination of th
 
 Logistic regression is linear in the sense that the predictions can be written as
 
-$p=\frac{1}{1+exp(-μ)}$ where $μ=\theta ⋅x$
+$p=\frac{1}{1+\exp(-\mu )}$ where $\mu =\theta \cdot x$
 
-Thus the prediction can be written in terms of $μ$ which is a linear function of $x$. Also, for logistic regression, the decision boundary ${x:p=0.5}$ is linear: it is the solution to $\theta ⋅x=0$.Assume you trained a model. How would you define the importance of each feature?
+Thus the prediction can be written in terms of $\mu$ which is a linear function of $x$. Also, for logistic regression, the decision boundary ${x:p=0.5}$ is linear: it is the solution to $\theta \cdot x=0$.Assume you trained a model. How would you define the importance of each feature?
 
 They will most likely say that the coefficient measures importance.
 
@@ -133,7 +133,7 @@ Yes. Let us consider the extreme case where we have two variables that are perfe
 
 Let’s say you want to use logistic regression to predict the probability of a car accident being fatal where one of the predictor variables will be speed, but for some reason you have two variables x = speed in km/h and y = speed in mph. Clearly, x and y are linearly dependent with x = 1.61y. In your model, you will estimate coefficients $\beta$ such that:
 
-$log(\frac{P(fatal)}{P(not fatal)})={\beta }_{0}+{\beta }_{x}x+{\beta }_{y}y+(other terms)$
+$\log(\frac{P(fatal)}{P(not fatal)})={\beta }_{0}+{\beta }_{x}x+{\beta }_{y}y+(other terms)$
 
 Due to the linear dependence, the relevant term on the right hand side can be written as $(1.61{\beta }_{x }+{\beta }_{y})y$. Now let’s say for some reason the speed actually has no influence on the fatality of the crash. Then you would expect your model to find that ${\beta }_{x}={\beta }_{y}=0$. However, due to the linear dependence, the model cannot distinguish between ${\beta }_{x}={\beta }_{y}=0$ or ${\beta }_{x }=1,{\beta }_{y}=-1.61$ or ${\beta }_{x}=-100, {\beta }_{y}=161$ or any other combination where ${\beta }_{x}=-\frac{{\beta }_{y}}{1.61}$
 

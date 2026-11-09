@@ -4,6 +4,8 @@
 
 An image is a grid of numbers. A useful pattern, such as a bright edge or a wheel-shaped region, can occur at many positions in that grid. A convolution applies the same learned local calculation at different positions. Stacking those calculations changes how far each output can see and how densely outputs are sampled.
 
+For a shape-by-shape walkthrough, see the chapters on [classification](dl-classification-head.md), [detection](dl-detection-head.md) and [segmentation heads](dl-segmentation-head.md).
+
 <details>
 <summary>Jump to a concept</summary>
 
@@ -64,9 +66,9 @@ The adjacent differences are 1 − 1, 4 − 1 and 4 − 4. Their values are 0, 3
 
 ## Receptive field
 
-Track the effective sampling jump j and receptive field r: start j=1,r=1, then update `r_new = r + (K-1) D j` and `j_new = j S`. Three stride-one 3-by-3 layers give a 7-by-7 theoretical receptive field. With equal channel counts, their convolution weights total 27C squared versus 49C squared for one 7-by-7 layer, plus more nonlinearities and intermediate activations. The theoretical field says which input could influence a feature, not how much each pixel actually influences it.
+Track the effective sampling jump j and receptive field r: start j=1,r=1, then update $r_{\mathrm{new}}=r+(K-1)Dj$ and $j_{\mathrm{new}}=jS$. Three stride-one 3-by-3 layers give a 7-by-7 theoretical receptive field. With equal channel counts, their convolution weights total 27C squared versus 49C squared for one 7-by-7 layer, plus more nonlinearities and intermediate activations. The theoretical field says which input could influence a feature, not how much each pixel actually influences it.
 
-For VGG-16, apply the recurrence separately to every convolution and pool, rather than assuming pooling adds no receptive field. With 3-by-3 stride-one padded convolutions and 2-by-2 stride-two pools, the receptive field after pool5 is 212 pixels with a jump of 32. Counting after conv5_3 gives 196 instead. State exactly which output is measured. For L identical stride-S, dilation-one convolutions, r is `1+(K-1) sum_{i=0}^{L-1} S^i`; when S=1 this becomes 1+L(K-1).
+For VGG-16, apply the recurrence separately to every convolution and pool, rather than assuming pooling adds no receptive field. With 3-by-3 stride-one padded convolutions and 2-by-2 stride-two pools, the receptive field after pool5 is 212 pixels with a jump of 32. Counting after conv5_3 gives 196 instead. State exactly which output is measured. For L identical stride-S, dilation-one convolutions, r is $1+(K-1)\sum_{i=0}^{L-1}S^i$; when S=1 this becomes 1+L(K-1).
 
 ## How three small convolutions see a larger region
 
