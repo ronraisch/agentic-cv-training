@@ -1,5 +1,9 @@
 # Evaluate a change and train two small classical models
 
+## Start here
+
+Use the approved research workspace. Get the frozen component versions and [prepared subset](../../docs/DATASETS.md#evaluation-and-classical-ml), or confirm which acquisition steps you own. Open one plate case, one tracklet sequence and one detector/GT pair. Agree on the split unit, target and denominator before scoring. See the [worked example](../../docs/WORKED_EXAMPLES.md#ml-evaluation) before starting.
+
 ## Goal and preparation
 
 Complete three comparisons: the license-plate recognition (LPR) preprocessing change, a motion classifier and a detection

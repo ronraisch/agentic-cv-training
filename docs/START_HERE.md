@@ -1,5 +1,15 @@
 # Start here
 
+| Step | Where | First evidence | If blocked |
+| --- | --- | --- | --- |
+| Workspace | VS Code terminal attached to your own OpenShift pod | Run the mentor-provided Python fixture and stop at a breakpoint | Ask the mentor for the namespace, approved install paths or access |
+| Manual Python | Assigned exercise checkout in your pod | Render one supplied XML input and show the resulting file | Ask for the fixture or clarify the specification |
+| OMP and skills | Pod-backed workspace with the approved model endpoint, after Python sign-off | Confirm a harmless tool call reads an authorized fixture from the pod | Ask the mentor to check the endpoint, tool configuration and workspace identity |
+| Baseline and internal handoff | ResearchLab demo checkout for local rehearsal, Peanuach checkout for the application | Local preflight `PASS` establishes a starter check. Internal `RECORDED` means a readiness record exists. Resolve applicable `BLOCKED` entries with the mentor before the affected lab | Follow [preflight](PREFLIGHT.md) and confirm live internal assets with the mentor |
+| Research labs | The environment stated in each lab's start card | Open the first fixture and reproduce the expected baseline or inspection | Bring the exact error and missing prerequisite to the mentor |
+
+[Learning with your agent](RESEARCH_WITH_AGENTS.md#when-you-get-stuck) starts after the manual Python review. The [worked examples](WORKED_EXAMPLES.md) bridge the theory and the labs.
+
 Begin with the manual Python exercise below; use the approved agent only after that exercise is reviewed. Start from [the training index](TRAINING_INDEX.md). Reading is available locally in HTML; videos keep their original links. Use the material to deepen understanding; reading completion is optional when you can answer the mentor’s questions yourself.
 
 1. Open [the four-part training index](TRAINING_INDEX.md), then read [the short trainee guide](TRAINEE_GUIDE.md): all tasks, study/viewing, active hours,

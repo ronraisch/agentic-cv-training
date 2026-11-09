@@ -1,5 +1,9 @@
 # Propose a cloud-segmentation approach
 
+## Start here
+
+Use approved sensor examples and public sources in your research workspace. Ask the mentor which bands are available and for one representative image with a cloud boundary. Inspect the bands, then agree on the two downstream error costs and the runtime measurement. See the [worked example](../../docs/WORKED_EXAMPLES.md#deep-learning-and-video) before starting.
+
 ## Goal
 
 A detector spends work on cloudy regions that contain little useful observation. Propose a way

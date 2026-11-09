@@ -1,5 +1,9 @@
 # Add polygons to the labeling application
 
+## Start here
+
+Use the internal Peanuach checkout. Get the revision, run command, access and a known image from the mentor. Create, save and reopen one existing rectangle and locate its downstream consumer. Bring this trace and open product questions to the mentor before implementing. See the [worked example](../../docs/WORKED_EXAMPLES.md#rectangle-and-service) before starting.
+
 ## The request
 
 > Add polygon support to the labeling website.

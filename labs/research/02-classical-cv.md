@@ -1,5 +1,9 @@
 # Rectify a licence plate and stitch two airborne images
 
+## Start here
+
+Use the approved research checkout and the mentor-confirmed [CV fixture subset](../../docs/DATASETS.md#classical-cv-and-lpr-evaluation). Open one annotated plate image and one overlapping pair. Run raw LPR first and inspect the crop coordinates. Bring intermediate overlays and a failure case to the first review. See the [worked example](../../docs/WORKED_EXAMPLES.md#classical-cv) before starting.
+
 ## Goal and preparation
 
 Use classical geometry in two existing image-processing tasks. For both, show the intermediate
@@ -38,3 +42,7 @@ product and a claim of unmeasured geospatial accuracy are outside this task.
 Submit bounded MRs with reproducible inputs/configurations and the intermediate visual evidence.
 Use the allocated research-agent time to resolve one missing geometric concept, then explain it
 independently in the individual session. Keep the saved LPR baseline for the next exercise.
+
+## Handoff to ML
+
+Save per-item IDs, original detector outcomes, raw and processed crop references and fallback reasons. Keep detector misses visible in the original manifest for [paired OCR evaluation](03-evaluation-ml.md).

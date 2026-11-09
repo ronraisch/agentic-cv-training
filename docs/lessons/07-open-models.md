@@ -3,8 +3,9 @@
 Full theory and original course links: [Deep syllabus](../syllabi/deep.md).
 This short lesson supplements that route; reading completion is optional when understanding is demonstrated.
 
-Required before the Part 4 video baseline. Allow two hours of study/self-check within the existing
-seven-hour DL block and one hour of probing within the existing 19-hour video baseline allocation.
+Required before the Part 4 video baseline. Count about two hours of study and self-check within the
+[DL study estimate](../syllabi/deep.md#viewing-and-study), and one hour of probing within the
+[ordinary-camera video work allocation](../TRAINEE_GUIDE.md).
 This replaces repeated representation introductions; it is not another model-training project.
 
 ## Three tools, three output contracts

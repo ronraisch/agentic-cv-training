@@ -1,5 +1,9 @@
 # Label a video batch with SAM3, then train one detector
 
+## Start here
+
+Use the teaching namespace and approved worker, broker, model and data paths from the mentor. Start with three inspectable frames and verify one message can be followed to a saved output. Demonstrate recovery and audit a small label sample before scaling. See the [worked example](../../docs/WORKED_EXAMPLES.md#queue-to-training) before starting.
+
 ## Goal and scope
 
 Build a batch-labeling pipeline that can resume after a worker failure. It processes ordinary-camera

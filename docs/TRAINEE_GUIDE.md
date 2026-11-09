@@ -1,5 +1,7 @@
 # Trainee guide — syllabus at a glance
 
+When an idea is unclear, try the [agent explanation and teach-back routine](RESEARCH_WITH_AGENTS.md#when-you-get-stuck), then bring any remaining gap to your mentor.
+
 Updated 8 November 2026. This is the short learner-facing overview; it is complete without Drive.
 [All four training parts](TRAINING_INDEX.md) · [Detailed syllabus](CURRICULUM.md) · [Reading map](READING_AND_SESSIONS.md) ·
 [Dataset catalog](DATASETS.md).

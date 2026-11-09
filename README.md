@@ -17,7 +17,11 @@ See [the practical trainee guide](docs/TRAINEE_GUIDE.md) for manual-work boundar
 sessions and corrections. Original Drive materials are preserved; [source coverage](docs/reading/sources.md)
 records the migration and any unresolved internal reading.
 
+New team member? Start with the [onboarding route](docs/START_HERE.md).
+
 ## First run
+
+These commands exercise the local ResearchLab demo. The polygon assignment uses the internal Peanuach checkout.
 
 Install the approved environment using [offline setup](docs/OFFLINE_SETUP.md). For a connected
 public development workstation only, the locked installation is:

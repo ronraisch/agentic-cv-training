@@ -1,5 +1,17 @@
 # Learn research with an agent
 
+## When you get stuck
+
+Ask the approved agent you already work with to explain the specific idea, diagram or code path. Use Matt Pocock's [teach skill](MATT_POCOCK_CATALOG.md) for a concept, or ask for an explain-code walkthrough of a real caller and its output. You can also consult an outside source. Check one example, then explain it yourself or predict what changes on a fresh input. If you are still stuck after a short attempt, ask your mentor and bring the link, what you tried and the exact point that still does not make sense. Ask the mentor directly for access, task scope and product decisions.
+
+Small questions count as real onboarding practice:
+
+- “Explain this diagram from the training. Walk me through one input and ask me what each arrow carries.”
+- “Let's use this [playground](playgrounds/README.md) together. Explain each parameter, then ask me to predict what one slider will change before I move it.”
+- “Explain this code path from caller to consumer. Point to the files you read and separate observed behavior from inference.”
+
+Follow the [manual-work boundaries](READING_AND_SESSIONS.md) during these conversations. The Python capstone permits occasional concept questions under its own rules. During the manual SAM2 build, keep explanations conceptual and perform the work yourself.
+
 Use the approved repository-aware agent to understand a problem, not only implement a ticket.
 Reserve two hours each week within the syllabus. The individual teach-back itself is agent-free.
 

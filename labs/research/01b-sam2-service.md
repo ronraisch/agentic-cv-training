@@ -1,5 +1,9 @@
 # Add SAM2-assisted annotation and deploy your first service
 
+## Start here
+
+Use the assigned Peanuach workspace and OpenShift teaching namespace. The mentor provides approved model files, image/registry paths, a test image and access. Confirm the checkpoint is readable and agree on one prompt with a known expected response shape. Trace one request from image to persisted annotation. See the [worked example](../../docs/WORKED_EXAMPLES.md#rectangle-and-service) before starting.
+
 ## Goal
 
 A user can request a SAM2 mask in the labeling application, accept or edit it, and save the

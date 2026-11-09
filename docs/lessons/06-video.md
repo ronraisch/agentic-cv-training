@@ -33,7 +33,7 @@ contract. New model/encoder revisions may invalidate features, heads and caches.
 answers during changes and record what was tested versus inferred.
 
 The inference path includes decode, sampling, transforms, representation, decision and serialization.
-The notebook must call the same modules and artifacts as the service, explain intermediate shapes,
+The [self-contained notebook](../../labs/research/06-handover.md) must reproduce the service inference logic and use the same artifact revision, explain intermediate shapes,
 handle unknown/error and survive a clean restart. Use an approved agent to learn unfamiliar concepts;
 explain every critical line and imported helper yourself during the teach-back.
 

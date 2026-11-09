@@ -1,5 +1,9 @@
 # Build the original shape renderer by hand
 
+## Start here
+
+Use the assigned Python workspace in your pod. Open the inline XML from the [handout](../../docs/reading/legacy-shape-rendering.md) and ask the mentor for any separate panda fixtures. Save and reopen one render as your first check. Bring one valid and one malformed input to review. Python approval releases OMP setup. See the [worked example](../../docs/WORKED_EXAMPLES.md#python-modularity) before starting.
+
 ## Goal and starting point
 
 Build the parser and renderer specified in [the original Shape Rendering handout](../../docs/reading/legacy-shape-rendering.md).
@@ -27,6 +31,8 @@ clear. Prefer small, well-named units with explicit interfaces and useful errors
 to introduce abstractions that do not help the exercise.
 
 ## Submit and demonstrate
+
+Use this lab's submission instructions. The legacy design review and per-stage branches/MRs are historical. In the pod, write the drawing to an image file and preview it in VS Code or Jupyter. Record the command and path so the mentor can reopen it.
 
 Submit the required code and drawings with a short run instruction. At review:
 

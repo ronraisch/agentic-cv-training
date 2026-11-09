@@ -1,5 +1,9 @@
 # Set up your research workspace
 
+## Start here
+
+Use your workstation for VS Code and its attached pod terminal for Python. The mentor supplies your namespace, Artifactory path and a small Python fixture. Run it in the pod and hit a breakpoint. Review the [setup order](../../docs/GETTING_STARTED_INTERNAL.md). Confirm Python readiness now and return for OMP only after manual Python approval.
+
 ## Goal
 
 Run and debug Python in your own OpenShift pod, then prepare the approved agent workflow.
