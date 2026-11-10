@@ -19,7 +19,7 @@ the Python capstone and the first SAM2 service setup.
 
 | Part | Syllabus and topic map | Suggested study | Suggested viewing/reflection |
 |---|---|---:|---:|
-| Development | [Development](syllabi/development.md) | 10–14 h | 3–5 h |
+| Development | [Development](reading/development.md) | 10–14 h | 3–5 h |
 | Classical CV | [CV](syllabi/cv.md) | 12–18 h | 8–12 h |
 | ML and evaluation | [ML](syllabi/ml.md) | 14–22 h | 3–5 h |
 | Deep learning, open models and video | [DL](syllabi/deep.md) | 16–26 h | 18–28 h |

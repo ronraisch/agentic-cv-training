@@ -4,27 +4,30 @@
 
 Use the internal Remote Sensing checkout. Get the revision, run command, access and a known image from the mentor. Create, save and reopen one existing rectangle and locate its downstream consumer. Bring this trace and open product questions to the mentor before implementing. If you get stuck, use the [worked example](../../docs/WORKED_EXAMPLES.md#rectangle-and-service).
 
-## The request
+## What to build
 
-> Add polygon support to the labeling website.
+Add polygon annotations to the existing labeling app. A user should be able to draw a polygon
+on an image, edit its vertices, save it, and reopen the image with the polygon in the same
+position. The existing downstream consumer should be able to read the saved polygon.
+Existing rectangle annotations should still open and save as before.
 
-Work in the existing Remote Sensing monorepo with the approved agent. The mentor is the product owner
-for this request. The short brief is intentional: clarify the intended interactions and completion
-criteria with them before deciding what “support” includes.
+## Before implementing
 
-## Start with the existing behaviour
+Follow a rectangle through the editor, API, storage and downstream consumer. Review that
+path with your mentor and agree on interaction details such as how to finish drawing and
+how to handle a polygon with too few vertices. Use the existing app conventions where they
+already answer those questions. Work in the internal monorepo with the approved agent.
 
-Find the relevant application path and inspect how its current annotations are created, saved and
-consumed. Use this to make the product questions concrete. Agree on the scope, implement the
-change and verify it through the relevant consumer, including persistence where applicable.
-
-Use the [development syllabus](../../docs/syllabi/development.md) for the associated theory and
+Use the [development syllabus](../../docs/reading/development.md) for the associated theory and
 individual discussion. Reading and the teach-back are separate from the code review.
 
 ## Submit and demonstrate
 
-Submit a bounded, reviewable MR and show that the agreed request is complete on a new example.
-Separate behaviour you actually verified from assumptions or paths you have not tested.
+Submit a bounded, reviewable MR. On a fresh, non-square image, create an asymmetric polygon,
+edit a vertex, save and reload it. Check the downstream result and reopen a rectangle from
+before the change. If the polygon shifts, compare the vertices in the save request, the stored
+record and the reload response before inspecting how the editor draws them. Record what you
+verified and any paths you could not test.
 
 ## What follows
 

@@ -7,7 +7,7 @@ The short lessons below are practical supplements to that restored theory route.
 
 | Block | Local chapters |
 |---|---|
-| Development | [01-development](01-development.md); [ENGINEERING](../ENGINEERING.md); [AGENT_WORK](../AGENT_WORK.md); [TEAM_INTEGRATION](../TEAM_INTEGRATION.md) |
+| Development | [ENGINEERING](../ENGINEERING.md); [AGENT_WORK](../AGENT_WORK.md); [TEAM_INTEGRATION](../TEAM_INTEGRATION.md) |
 | Classical CV | [02-classical-cv](02-classical-cv.md) |
 | Evaluation and ML | [03-metrics-ml](03-metrics-ml.md) |
 | DL and representation | [04-torch](04-torch.md); [05-clouds](05-clouds.md); [06-video](06-video.md); [07-open-models](07-open-models.md) |

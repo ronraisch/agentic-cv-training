@@ -2,67 +2,38 @@
 
 [Chapter index](index.md) · [Source coverage](sources.md)
 
-**Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
+This part of onboarding covers the software development work behind our computer vision projects. You'll learn to organize and debug Python code, follow data through a web application, and package and deploy a model as a service.
 
-<details>
-<summary>On this page</summary>
+You'll start in your own OpenShift workspace, write a small program from scratch, then extend the team's labeling app and connect it to SAM2.
 
-- [Learning route and expected understanding](#learning-route-and-expected-understanding)
+## Learning material
 
-- [Practical work](#practical-work)
+Allow 10–14 active hours for first-pass reading and 3–5 for viewing and reflection. Use the chapters alongside the exercises and bring questions to your mentor.
 
-- [Videos and course selection](#videos-and-course-selection)
+- [Linux, Git, containers and Python foundations](development-foundations.md) covers working directories, debugging, environments and how to split a program into modules.
 
-- [Mentor conversations](#mentor-conversations)
+- [NumPy, Pandas and data contracts](arrays-data.md) covers image axes, array shapes and types, views and copies, and table joins.
 
-- [Original learner material](#original-learner-material)
+- [Types, decorators and concurrency](python-tools.md) covers type hints, function wrappers and how to choose between threads, processes and vectorized operations.
 
-</details>
+- [HTTP, SQL, services and application boundaries](development-interfaces.md) follows a request from the UI through an API to storage and explains what happens when a request fails or gets retried.
 
-## Learning route and expected understanding
+## Exercises
 
-Recommended first-pass study: 10–14 active hours; viewing/reflection: 3–5 active hours. These are planning ranges, not deadlines or measured full-course runtimes. Skip known explanations; deepen gaps. Record actual time.
+Start with [workspace setup](../../labs/research/00-installations.md). Connect VS Code to your OpenShift pod, configure Python and the debugger, and run the setup fixture.
 
-| Topic | Local reading | What to understand and apply |
-| --- | --- | --- |
-| Environment, Linux, Git and containers | [Linux, Git, containers and Python foundations](development-foundations.md) | Configure VS Code and your own pod; explain interpreter, image, process and storage boundaries. |
-| Python, modularity and data contracts | [Linux, Git, containers and Python foundations](development-foundations.md)<br>[NumPy, Pandas, data contracts and visual exploration](arrays-data.md) | Complete the manual shape-rendering capstone; trace parsing, geometry and rendering. |
-| Advanced Python and concurrency | [Types, decorators, concurrency and interactive experiments](python-tools.md) | Use type hints and explain decorators, caching, queues and workload-dependent parallelism. |
-| Services, HTTP, SQL and integration | [HTTP, SQL, services and application boundaries](development-interfaces.md) | Add polygons, then build and deploy the first SAM2 service and minimal CI/CD by hand. |
-| Agent workflows and evidence | [HTTP, SQL, services and application boundaries](development-interfaces.md) | After capstone review, configure OMP/local LLM and selected Matt Pocock skills; verify agent claims. |
+- **Shape rendering in Python.** Read the provided XML, validate it, draw the described shapes and save an image. Keep parsing, validation and drawing separate. At review, run one valid input and one malformed input and explain how the program handles each. Complete this exercise by hand. [Shape-rendering instructions](../../labs/research/00-python-manual.md).
 
-## Practical work
+- **Polygons in the labeling app.** Add a way to draw, edit and save a polygon annotation. Show that the polygon reopens with the correct vertices, that the existing downstream consumer can use it and that rectangle annotations still work. [Polygon instructions](../../labs/research/01-polygons.md).
 
-- [Setup](../../labs/research/00-installations.md)
+- **First SAM2 service.** Connect the labeling app to a deployed model that returns a mask for an image and prompt. Show that a user can accept or edit the result, save it and reopen it. Build the container, deploy to OpenShift and set up the first GitLab build, push and deploy pipeline by hand. [SAM2 instructions](../../labs/research/01b-sam2-service.md).
 
-- [Manual Python capstone](../../labs/research/00-python-manual.md)
+## Mentor reviews and agent use
 
-- [Labeling/polygons](../../labs/research/01-polygons.md)
+At the Python review, walk through an unseen input and explain one design choice. After sign-off, return to workspace setup to configure OMP, the approved local model and the selected skills. When agent use is allowed, [ask it to explain a concept](../RESEARCH_WITH_AGENTS.md#when-you-get-stuck) and check the explanation with a fresh input or the actual code path.
 
-- [First SAM2 service](../../labs/research/01b-sam2-service.md)
+At the service review, trace a request from the app to the deployed model, show the saved result after reopening and explain what the app shows if inference fails.
 
-Read selectively before and during implementation; discuss hypotheses with your agent, verify one counterexample and explain the evidence yourself. The manual Python capstone and first SAM2 service retain their existing manual rules.
+## Videos and original handouts
 
-## Videos and course selection
-
-Use the original topic videos below, pausing to derive an example or inspect your experiment. Do not replace substantial theory with four short generic media windows. A familiar learner can choose relevant sections; no duplicate viewing is required.
-
-Earlier C++ video references are listed in the [original program outline](legacy-outline.md).
-
-## Mentor conversations
-
-Session 1: brief foundations check, then manual code review and an unseen input. Session 2: service/data boundaries, state and failure recovery; later agent/skill use after the manual boundary. The mentor may ask theory questions throughout.
-
-The mentor keeps the existing theory questions and probes your reasoning with a new example. Reading-page completion is not assessed. If you can answer and explain the assigned concepts yourself, your learning route is sufficient. Gaps lead to targeted study and another discussion, not an obligation to reread every source.
-
-## Original learner material
-
-Complete historical handouts are preserved locally with their reading links redirected. Historical project requirements are not added to the current workload.
-
-- [Advanced Python handout](legacy-python.md)
-
-- [Original 2025 program outline](legacy-outline.md)
-
-- [Original shape-rendering exercise](legacy-shape-rendering.md)
-
-- [Original Boids exercise](legacy-boids.md)
+The earlier C++ videos are listed in the [original 2025 program outline](legacy-outline.md). For historical exercises and background, see the [advanced Python handout](legacy-python.md), [original shape-rendering exercise](legacy-shape-rendering.md) and [Boids exercise](legacy-boids.md).
