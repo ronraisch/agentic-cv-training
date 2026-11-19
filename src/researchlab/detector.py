@@ -176,8 +176,8 @@ def train(data, model, output, *, epochs=10, batch=8, imgsz=640, device="cpu"):
             "loss_plot": str(loss_plot), "export": str(saved / "export.json")}
 
 
-def predict_image(model, image, *, device="cpu", imgsz=640):
-    result = model.predict(source=Image.fromarray(image), conf=0.001, imgsz=imgsz,
+def predict_image(model, image, *, device="cpu", imgsz=640, confidence=0.25):
+    result = model.predict(source=Image.fromarray(image), conf=confidence, max_det=300, imgsz=imgsz,
                            device=device, verbose=False)[0]
     detections = result.obb if result.obb is not None else result.boxes
     objects = []
@@ -245,7 +245,7 @@ def evaluate(data, model, output, *, split="validation", imgsz=640, device="cpu"
                 bounds = [(x - w / 2) * width, (y - h / 2) * height,
                           (x + w / 2) * width, (y + h / 2) * height]
             targets.append({"label": meta["classes"][int(label)], "bounds": bounds})
-        frames.append((predict_image(yolo, pixels, device=device, imgsz=imgsz), targets))
+        frames.append((predict_image(yolo, pixels, device=device, imgsz=imgsz, confidence=0.001), targets))
     ground_truth = sum(len(targets) for _, targets in frames)
     if not ground_truth:
         raise demo.DemoError(f"{directory}/labels/{split}: no labeled objects; export again.")
@@ -280,6 +280,7 @@ def evaluate(data, model, output, *, split="validation", imgsz=640, device="cpu"
     report = {"data": str(directory), "split_policy": meta["split_policy"], "split": split,
               "checkpoint_sha256": demo.digest(model), "images": len(frames), "ground_truth": ground_truth,
               "roc_auc_at_iou_90": reports[-1]["roc_auc"], "iou_geometry": "axis_aligned",
+              "confidence_floor": 0.001, "max_detections_per_image": 300,
               "iou_sweep": reports}
     (output / "evaluation.json").write_text(json.dumps(report, indent=2))
     with (output / "iou-sweep.csv").open("w", newline="") as stream:
