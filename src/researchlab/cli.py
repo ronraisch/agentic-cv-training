@@ -5,30 +5,37 @@ import sys
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--data", type=Path, default=Path("data/fixtures"))
+    parser = argparse.ArgumentParser(description="Search a local image metadata and embedding catalog")
+    parser.add_argument("--data", type=Path, default=Path("data/catalog"))
+    parser.add_argument("--query", nargs="+", type=float,
+                        help="Embedding components in the same order and dimension as features.csv")
+    parser.add_argument("--top-k", type=int, default=3)
     args = parser.parse_args(argv)
-    for name in ("samples.csv", "features.csv"):
+    for name, schema in (("samples.csv", "sample_id,scene_id,split"),
+                         ("features.csv", "sample_id,embedding (space-separated numeric components)")):
         path = args.data / name
         if not path.is_file():
-            print(f"Missing catalog fixture: {path}. Restore the fixture directory from the selected "
-                  "source revision or pass --data PATH. See docs/OFFLINE_SETUP.md#local-fixture-data. "
-                  "No runtime download was attempted.", file=sys.stderr)
+            print(f"Missing catalog file: {path}. Expected CSV columns {schema}. "
+                  "Mount an approved catalog at --data PATH. See docs/DATA_FORMATS.md#retrieval-catalog.",
+                  file=sys.stderr)
             return 2
+    if args.query is None or args.top_k < 1:
+        parser.error("supply a query embedding with --query and a positive --top-k")
     try:
         import numpy as np
         from researchlab.pipeline import retrieve
         from researchlab.sources import from_csv
+
+        result = retrieve(from_csv(args.data / "samples.csv"), from_csv(args.data / "features.csv"),
+                          np.asarray(args.query), k=args.top_k)
     except ModuleNotFoundError as error:
         print(f"Missing dependency: {error.name}. Install the approved locked environment; "
-              "see docs/OFFLINE_SETUP.md#python-runtime. No runtime installation was attempted.",
-              file=sys.stderr)
+              "see docs/OFFLINE_SETUP.md#python-runtime.", file=sys.stderr)
         return 2
-    result = retrieve(
-        from_csv(args.data / "samples.csv"),
-        from_csv(args.data / "features.csv"),
-        np.array([1.0, 0.0, 0.0, 0.0]),
-    )
+    except (ValueError, KeyError, AttributeError, OSError) as error:
+        print(f"Invalid catalog or query at {args.data}: {error}. "
+              "See docs/DATA_FORMATS.md#retrieval-catalog.", file=sys.stderr)
+        return 2
     print(json.dumps(result, indent=2))
     return 0
 

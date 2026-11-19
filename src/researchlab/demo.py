@@ -26,7 +26,8 @@ def missing(asset, path, action):
 
 
 def digest(path):
-    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+    with Path(path).open("rb") as stream:
+        return hashlib.file_digest(stream, "sha256").hexdigest()
 
 
 def asset_path(root, relative):
@@ -84,14 +85,15 @@ def load_manifest(root):
     path = Path(root) / "manifest.json"
     if not path.is_file():
         raise missing("dataset manifest", path,
-                      f"Run researchlab-demo prepare --root {root}, or transfer the approved bundle here.")
+                      "Transfer the approved bundle here. For the isolated smoke exercise, run researchlab-demo smoke.")
     try:
         manifest = json.loads(path.read_text())
-        if manifest["schema_version"] != 1 or not manifest["samples"]:
+        if (not isinstance(manifest, dict) or manifest["schema_version"] != 1
+                or not isinstance(manifest["samples"], list) or not manifest["samples"]):
             raise ValueError("schema")
         seen, groups = set(), {}
         for item in manifest["samples"]:
-            if item["id"] in seen or item["kind"] not in {"image", "video"}:
+            if not isinstance(item, dict) or item["id"] in seen or item["kind"] not in {"image", "video"}:
                 raise ValueError("identity/kind")
             seen.add(item["id"])
             group = item["group_id"]
@@ -113,18 +115,28 @@ def load_manifest(root):
 
 
 def pixels(root, sample):
-    image = np.load(asset_path(root, sample["path"]), allow_pickle=False)
+    path = asset_path(root, sample["path"])
+    if path.suffix.lower() == ".npy":
+        image = np.load(path, allow_pickle=False)
+    else:
+        from PIL import Image
+
+        with Image.open(path, formats=("JPEG", "PNG", "TIFF")) as source:
+            if source.mode != "RGB":
+                raise DemoError(f"{path}: expected three-channel RGB data; decode/prepare upstream")
+            image = np.asarray(source)
     expected_rank = 3 if sample["kind"] == "image" else 4
-    if image.ndim != expected_rank or image.shape[-1] != 3 or image.dtype != np.uint8:
+    if image.ndim != expected_rank or image.shape[-1] != 3 or image.dtype != np.uint8 or image.size == 0:
         raise DemoError("Expected RGB uint8 HWC image or THWC video; see docs/DATA_FORMATS.md")
     return image
 
 
-def validate_annotations(record, width, height):
+def validate_annotations(record, width, height, classes=CLASSES):
     if record.get("schema_version") != 1 or not isinstance(record.get("annotations"), list):
         raise DemoError("Unsupported annotation schema; see docs/DATA_FORMATS.md")
     for annotation in record["annotations"]:
-        if annotation.get("type") != "rectangle" or annotation.get("label") not in CLASSES:
+        if (not isinstance(annotation, dict) or annotation.get("type") != "rectangle"
+                or annotation.get("label") not in classes):
             raise DemoError("Expected a rectangle and a supported class")
         box = np.asarray(annotation.get("bounds"), dtype=float)
         if box.shape != (4,) or not np.isfinite(box).all():
@@ -132,6 +144,17 @@ def validate_annotations(record, width, height):
         x1, y1, x2, y2 = box
         if not (0 <= x1 < x2 <= width and 0 <= y1 < y2 <= height):
             raise DemoError("Rectangle is empty or outside the image")
+        if "obb" in annotation:
+            corners = np.asarray(annotation["obb"], dtype=float)
+            if (corners.shape != (4, 2) or not np.isfinite(corners).all()
+                    or (corners < 0).any() or (corners > [width, height]).any()):
+                raise DemoError("Source OBB must have four finite image-space corner pairs")
+            edges = np.roll(corners, -1, axis=0) - corners
+            next_edges = np.roll(edges, -1, axis=0)
+            cross = edges[:, 0] * next_edges[:, 1] - edges[:, 1] * next_edges[:, 0]
+            if not (np.all(cross > 0) or np.all(cross < 0)):
+                raise DemoError("Source OBB corners must be ordered around a convex quadrilateral")
+
     return record
 
 
@@ -146,12 +169,22 @@ def initialize_store(root, manifest):
                                    (sample["id"], json.dumps(record)))
 
 
-def annotations(root, image_id, record=None):
+def annotation_db(root):
     path = Path(root) / "labels.sqlite"
     if not path.is_file():
         raise missing("annotation database", path,
                       f"Run researchlab-demo initialize-store --root {root} to import prepared annotations, or restore the database.")
-    with sqlite3.connect(path) as connection:
+    return sqlite3.connect(path)
+
+
+def annotation_snapshot(root):
+    with annotation_db(root) as connection:
+        rows = connection.execute("SELECT image_id, record FROM annotations").fetchall()
+    return {image_id: json.loads(record) for image_id, record in rows}
+
+
+def annotations(root, image_id, record=None):
+    with annotation_db(root) as connection:
         if record is not None:
             connection.execute("UPDATE annotations SET record = ? WHERE image_id = ?",
                                (json.dumps(record), image_id))
@@ -163,9 +196,9 @@ def annotations(root, image_id, record=None):
 
 def image_features(image):
     x = image.astype(float) / 255.
-    middle = len(x) // 2
+    middle = max(1, len(x) // 2)
     return np.concatenate([x.mean((0, 1)), x.std((0, 1)),
-                           x[:middle].mean((0, 1)), x[middle:].mean((0, 1))])
+                           x[:middle].mean((0, 1)), x[min(middle, len(x) - 1):].mean((0, 1))])
 
 
 def crop_rows(root, manifest, split):
@@ -186,12 +219,29 @@ def crop_rows(root, manifest, split):
     return np.array(features), np.array(targets, dtype=float), ids
 
 
+def video_features(root, sample):
+    frames = pixels(root, sample)
+    timestamps = np.asarray(sample.get("timestamps_seconds"), dtype=float)
+    duration = sample.get("duration_seconds")
+    if (type(duration) not in (int, float) or not np.isfinite(duration) or duration <= 0
+            or timestamps.shape != (len(frames),) or not np.isfinite(timestamps).all()
+            or timestamps[0] < 0 or timestamps[-1] >= duration or (np.diff(timestamps) <= 0).any()):
+        raise DemoError(f'{sample["id"]}: expected strictly increasing frame timestamps inside the clip duration')
+    return np.mean([image_features(frame) for frame in frames], axis=0)
+
+
 def video_rows(root, manifest, split):
     selected = [s for s in manifest["samples"] if s["kind"] == "video" and s["split"] == split]
     if not selected:
         raise DemoError(f"No video samples in {split}; see docs/OFFLINE_SETUP.md")
-    features = [np.mean([image_features(frame) for frame in pixels(root, s)], axis=0) for s in selected]
-    return np.array(features), np.array([s["targets"] for s in selected], dtype=float), [s["id"] for s in selected]
+    features, targets = [], []
+    for sample in selected:
+        target = np.asarray(sample.get("targets"))
+        if target.shape != (len(QUESTIONS),) or not np.isin(target, [0, 1]).all():
+            raise DemoError(f'{sample["id"]}: expected three binary video targets in {QUESTIONS} order')
+        features.append(video_features(root, sample))
+        targets.append(target)
+    return np.asarray(features), np.asarray(targets, dtype=float), [s["id"] for s in selected]
 
 
 def sigmoid(value):
@@ -204,10 +254,16 @@ def fit(x, y):
     design = np.column_stack([(x - mean) / scale, np.ones(len(x))])
     weights = np.zeros((design.shape[1], y.shape[1]))
     losses = []
-    for _ in range(250):
-        p = sigmoid(design @ weights)
-        losses.append(float(-np.mean(y * np.log(p + 1e-12) + (1-y) * np.log(1-p + 1e-12))))
-        weights -= .25 * design.T @ (p-y) / len(y)
+    for epoch in range(251):
+        logits = design @ weights
+        losses.append(float(np.mean(np.logaddexp(0, logits) - y * logits)))
+        if epoch == 250:
+            break
+        # Starter experiment: consecutive examples, same order each epoch and a fixed LR.
+        for start in range(0, len(y), 16):
+            batch = slice(start, start + 16)
+            p = sigmoid(design[batch] @ weights)
+            weights -= .05 * design[batch].T @ (p - y[batch]) / len(y[batch])
     return mean, scale, weights, losses
 
 
@@ -216,19 +272,23 @@ def probabilities(arrays, kind, x):
     return sigmoid(design @ arrays[kind+"_weights"])
 
 
-def train(root, model):
+def train(root, model, head="both"):
     manifest = load_manifest(root)
     arrays, history, ids = {}, {}, {}
-    for kind, loader in [("crop", crop_rows), ("video", video_rows)]:
+    loaders = {"crop": crop_rows, "video": video_rows}
+    heads = list(loaders) if head == "both" else [head]
+    for kind in heads:
+        loader = loaders[kind]
         x, y, ids[kind] = loader(root, manifest, "train")
         mean, scale, weights, loss = fit(x, y)
         arrays.update({kind+"_mean": mean, kind+"_scale": scale, kind+"_weights": weights})
-        history[kind] = {"examples": len(x), "initial_loss": loss[0], "final_loss": loss[-1]}
-    label_records = [annotations(root, s["id"]) for s in manifest["samples"] if s["kind"] == "image"]
+        history[kind] = {"examples": len(x), "initial_loss": loss[0], "final_loss": loss[-1], "loss_by_epoch": loss}
+    label_records = ([annotations(root, s["id"]) for s in manifest["samples"] if s["kind"] == "image"]
+                     if "crop" in heads else [])
     metadata = {"schema_version": 1, "feature_version": FEATURE_VERSION, "classes": CLASSES,
                 "questions": QUESTIONS, "manifest_sha256": digest(Path(root)/"manifest.json"),
                 "annotation_sha256": hashlib.sha256(json.dumps(label_records, sort_keys=True).encode()).hexdigest(),
-                "training_ids": ids, "history": history, "source": manifest["source"]}
+                "training_ids": ids, "history": history, "source": manifest["source"], "heads": heads}
     model = Path(model)
     model.parent.mkdir(parents=True, exist_ok=True)
     with model.open("wb") as output:
@@ -248,7 +308,12 @@ def load_model(path):
         if (metadata["schema_version"] != 1 or metadata["feature_version"] != FEATURE_VERSION
                 or metadata["classes"] != CLASSES or metadata["questions"] != QUESTIONS):
             raise ValueError("model contract")
-        for kind, outputs in [("crop", 2), ("video", 3)]:
+        head_sizes = {"crop": len(CLASSES), "video": len(QUESTIONS)}
+        heads = metadata.setdefault("heads", list(head_sizes))
+        if not heads or any(kind not in head_sizes for kind in heads):
+            raise ValueError("unsupported heads")
+        for kind in heads:
+            outputs = head_sizes[kind]
             if arrays[kind+"_weights"].shape != (13, outputs):
                 raise ValueError("weights")
             if arrays[kind+"_mean"].shape != (12,) or arrays[kind+"_scale"].shape != (12,):
@@ -264,9 +329,11 @@ def load_model(path):
 
 def evaluate(root, model):
     manifest = load_manifest(root)
-    arrays, _ = load_model(model)
+    arrays, metadata = load_model(model)
     results = {}
-    for kind, loader in [("crop", crop_rows), ("video", video_rows)]:
+    loaders = {"crop": crop_rows, "video": video_rows}
+    for kind in metadata["heads"]:
+        loader = loaders[kind]
         results[kind] = {}
         for split in ["validation", "test"]:
             x, y, _ = loader(root, manifest, split)
@@ -281,10 +348,12 @@ def predict(root, model, sample_id):
     sample = next((s for s in manifest["samples"] if s["id"] == sample_id), None)
     if sample is None:
         raise DemoError(f"Unknown sample ID: {sample_id}")
-    arrays, _ = load_model(model)
-    image = pixels(root, sample)
+    arrays, metadata = load_model(model)
     kind = "crop" if sample["kind"] == "image" else "video"
+    if kind not in metadata["heads"]:
+        raise DemoError(f"Model {model} has no {kind} head. Train with --head {kind} or supply a compatible artifact.")
     if kind == "crop":
+        image = pixels(root, sample)
         record = validate_annotations(annotations(root, sample_id), image.shape[1], image.shape[0])
         objects = []
         for annotation in record["annotations"]:
@@ -294,9 +363,9 @@ def predict(root, model, sample_id):
             objects.append({"bounds": annotation["bounds"], "scores": dict(zip(CLASSES, map(float, scores)))})
         return {"sample_id": sample_id, "model_sha256": digest(model),
                 "feature_version": FEATURE_VERSION, "objects": objects}
-    x = np.mean([image_features(f) for f in image], axis=0)
+    x = video_features(root, sample)
     scores = probabilities(arrays, kind, x[None])[0]
     return {"sample_id": sample_id, "model_sha256": digest(model),
             "feature_version": FEATURE_VERSION,
             "scores": dict(zip(CLASSES if kind == "crop" else QUESTIONS, map(float, scores))),
-            "scope": "procedural CPU baseline; no real-world accuracy claim"}
+            "data_source": manifest["source"]}

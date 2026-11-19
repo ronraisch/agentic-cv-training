@@ -11,7 +11,7 @@ Start with VS Code, your own OpenShift pod and Python/uv through Artifactory. Do
 capstone manually before installing/updating/configuring OMP. After review, configure OMP with
 the approved local LLM and learn the selected Matt Pocock workflows.
 
-Then complete labeling/polygons and the first SAM2 service. Build that first service and its
+Then complete labeling, polygons and oriented boxes and the first SAM2 service. Build that first service and its
 minimal GitLab build/push/deploy pipeline by hand: Dockerfile, image, registry push, OpenShift
 Deployment/Service/Route, logs and verification. ChatGPT explanations and illustrative examples,
 documentation and mentor guidance are allowed; you assemble, run and explain the work yourself.
@@ -32,18 +32,19 @@ belongs in work. Both columns count only time the trainee is actively engaged.
 |---|---:|---:|---|
 | [Guided environment + OMP/skills](../labs/research/00-installations.md) | 6 | 0 | VS Code/pod, Python/Artifactory first; OMP only after Python review |
 | [Manual Python capstone](../labs/research/00-python-manual.md) | 22 | 2 | XML shape parser and panda drawing; modularity |
-| [Labeling application](../labs/research/01-polygons.md) | 20 | 4 | Polygon support, persistence and consumer checks |
+| [Labeling application](../labs/research/01-polygons.md) | 20 | 4 | Polygon and oriented box editing, persistence and consumer checks |
 | [First SAM2 service + GitLab CI/CD](../labs/research/01b-sam2-service.md) | 14 | 2 | Manual Docker/image/push, Deployment/Service/Route and build/push/deploy pipeline |
 | [LPR preprocessing](../labs/research/02-classical-cv.md) | 11 | 2 | Hough-based rectification |
 | [Two-image stitching](../labs/research/02-classical-cv.md) | 10 | 2 | Matching, robust geometry and warp |
 | [LPR evaluation](../labs/research/03-evaluation-ml.md) | 6 | 1 | Independent comparison of the preprocessing change |
 | [Tracklet motion classifier](../labs/research/03-evaluation-ml.md) | 12 | 2 | Features, grouped splits, estimator and error analysis |
 | [Detection rescoring](../labs/research/03-evaluation-ml.md) | 9 | 1 | Frozen detector, learned rescorer and evaluation |
+| [YOLO11 oriented detection and experiments](../labs/research/04-oriented-detection.md) | 12 | 2 | OBB prediction in the app, grouped evaluation and loss/PR comparison |
 | [Cloud segmentation proposal](../labs/research/04-clouds.md) | 7 | 1 | Bounded literature review and research proposal |
 | [Ordinary-camera video](../labs/research/05-video.md) | 30 | 4 | Clip baseline, open-model probe and subsequent product requests |
 | [RabbitMQ + SAM3 + detector](../labs/research/05b-rabbitmq-sam3-detector.md) | 22 | 2 | Queued pseudo-labeling, recovery, export and one YOLO/RT-DETR training run |
 | [Operational notebook + transfer](../labs/research/06-handover.md) | 15 | 1 | Inference-only notebook, parity and peer handover |
-| **Total** | **184** | **24** | |
+| **Total** | **196** | **26** | |
 
 The final video work uses ordinary cameras, not satellite video. Train one YOLO or RT-DETR in the
 RabbitMQ/SAM3 exercise; no requirement to implement both. Audit pseudo-label quality and evaluate
@@ -80,22 +81,22 @@ your exercise and an unresolved question. A gap triggers targeted study and a fo
 Eight suggested 45-minute conversations use 6 h contact. Reserve another 2 h from the existing
 8 h contact allocation for targeted product/code review and final handover, with 4 h mentor
 preparation separately. Schedule extra time explicitly when needed. The exercise table already
-includes 24 h feedback corrections; do not double-count them as new implementation time.
+includes 26 h feedback corrections; do not double-count them as new implementation time.
 
 ## Total time and waiting
 
 | Category | Hours |
 |---|---:|
-| Practical work | 184 |
-| Feedback corrections | 24 |
+| Practical work | 196 |
+| Feedback corrections | 26 |
 | Theory study and derivations | 52–80 |
 | Viewing/reflection | 32–50 |
 | Active research learning with agent | 12 |
 | Mentor attendance | 8 |
-| **First-pass planned active trainee total** | **312–358** |
+| **First-pass planned active trainee total** | **326–372** |
 | Access/remediation contingency | 16 |
 | Separately reserved mentor prep; not trainee work | 4 |
-| **Conservative scheduling envelope** | **332–378** |
+| **Conservative scheduling envelope** | **346–392** |
 
 Unattended agent generation, builds, transfers,
 inference/training and queue waits are recorded separately when no active attention is needed.

@@ -62,7 +62,7 @@ def starter_checks():
     checks = []
     for name, modules, args, options in (
         ("researchlab_cli", ("numpy", "pandas", "httpx", "tenacity"),
-         [sys.executable, "-m", "researchlab.cli", "--data", str(ROOT / "data/fixtures")],
+         [sys.executable, "-m", "researchlab.cli", "--data", str(ROOT / "data/fixtures"), "--query", "1", "0", "0", "0"],
          {"report": True}),
         ("course_skill_files", (), [sys.executable, str(ROOT / "tools/check_skills.py")],
          {"marker": "Validated 2 required course skills"}),

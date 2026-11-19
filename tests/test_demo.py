@@ -12,7 +12,7 @@ from urllib.request import Request, urlopen
 import numpy as np
 import pytest
 
-from researchlab import demo, demo_cli, demo_web
+from researchlab import demo, demo_cli, demo_web, label_data
 
 
 def baseline(tmp_path):
@@ -59,9 +59,17 @@ def test_current_saved_annotations_reach_training(tmp_path):
     assert demo.annotations(root, "image-000") == record
 
 
-def test_labeling_api_save_reload_and_loaded_model(tmp_path):
-    root, model = baseline(tmp_path)
-    server = ThreadingHTTPServer(("127.0.0.1", 0), demo_web.handler(root, model))
+def test_labeling_api_opens_required_collections_and_persists_edits(tmp_path):
+    root = tmp_path / "collections"
+    for domain in label_data.DOMAINS:
+        path = root / domain
+        path.mkdir(parents=True)
+        np.save(path / "image.npy", np.zeros((30, 50, 3), dtype="uint8"))
+        label_data.write_manifest(path, domain, "validation fixture", ["vehicle"], [
+            {"id": "image-000", "path": "image.npy", "split": "train", "group_id": "capture",
+             "timestamp_seconds": 0, "annotations": [
+                 {"type": "rectangle", "label": "vehicle", "bounds": [8, 7, 40, 25]}]}])
+    server = ThreadingHTTPServer(("127.0.0.1", 0), demo_web.handler(root, None))
     thread = threading.Thread(target=server.serve_forever, daemon=True)
     thread.start()
     base = f"http://127.0.0.1:{server.server_port}"
@@ -75,16 +83,16 @@ def test_labeling_api_save_reload_and_loaded_model(tmp_path):
     try:
         with urlopen(base, timeout=5) as response:
             assert b"Remote Sensing labeling" in response.read()
-        with urlopen(base+"/api/image?id=image-000", timeout=5) as response:
+        with urlopen(base+"/api/image?id=coco%2Fimage-000", timeout=5) as response:
             assert response.read().startswith(b"\x89PNG")
-        record = get("/api/annotations?id=image-000")
+        assert {item["dataset"] for item in get("/api/images")["items"]} == set(label_data.DOMAINS)
+        record = get("/api/annotations?id=coco%2Fimage-000")
         record["annotations"][0]["bounds"] = [7, 6, 39, 24]
         assert post("/api/annotations", record) == record
-        assert get("/api/annotations?id=image-000") == record
-        assert demo.annotations(root, "image-000") == record
-        assert get("/health")["model_sha256"] == demo.digest(model)
-        assert post("/api/predict", {"sample_id": "image-000"})["objects"]
-        assert post("/api/predict", {"sample_id": "video-030"})["model_sha256"] == demo.digest(model)
+        assert get("/api/annotations?id=coco%2Fimage-000") == record
+        assert demo.annotations(root / "coco", "image-000") == {**record, "image_id": "image-000"}
+        assert demo.annotations(root / "drone", "image-000")["annotations"][0]["bounds"] == [8, 7, 40, 25]
+        assert get("/health")["model_sha256"] is None
     finally:
         server.shutdown()
         server.server_close()
@@ -102,7 +110,7 @@ def test_missing_assets_stop_with_path_and_setup_instructions(tmp_path, capsys, 
     if asset == "store":
         (root / "labels.sqlite").unlink()
     command = "train" if asset != "model" else "predict"
-    assert demo_cli.main([command, "--root", str(root), "--model", str(model)]) == 2
+    assert demo_cli.main([command, "--root", str(root), "--model", str(model), "--sample", "video-030"]) == 2
     error = capsys.readouterr().err
     assert str(root) in error
     assert "docs/OFFLINE_SETUP.md" in error
@@ -137,4 +145,15 @@ def test_catalog_missing_fixture_has_recovery_message(tmp_path, capsys):
     assert main(["--data", str(tmp_path)]) == 2
     message = capsys.readouterr().err
     assert str(tmp_path / "samples.csv") in message
-    assert "docs/OFFLINE_SETUP.md" in message
+    assert "docs/DATA_FORMATS.md" in message
+
+
+def test_labeling_refuses_incomplete_or_invalid_mount(tmp_path, capsys):
+    path = tmp_path / "coco"
+    path.mkdir()
+    (path / "manifest.json").write_text("broken manifest")
+    assert demo_cli.main(["serve", "--root", str(tmp_path)]) == 2
+    message = capsys.readouterr().err
+    assert "Invalid dataset manifest" in message
+    for domain in label_data.DOMAINS:
+        assert str(tmp_path / domain / "manifest.json") in message

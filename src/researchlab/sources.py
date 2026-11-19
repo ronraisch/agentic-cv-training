@@ -1,4 +1,4 @@
-"""Inherited adapters. HTTP endpoint is only exercised with a mock transport."""
+"""CSV, SQLite and HTTP adapters for local or team catalog sources."""
 
 import sqlite3
 from pathlib import Path
@@ -13,7 +13,11 @@ def from_csv(path: Path) -> pd.DataFrame:
 
 
 def from_sqlite(path: Path, split: str) -> pd.DataFrame:
-    with sqlite3.connect(path) as conn:
+    path = Path(path).resolve()
+    if not path.is_file():
+        raise ValueError(f"Missing catalog database {path}. Expected SQLite with a samples table "
+                         "including a split column. See docs/DATA_FORMATS.md#retrieval-catalog.")
+    with sqlite3.connect(f"{path.as_uri()}?mode=ro", uri=True) as conn:
         return pd.read_sql_query("SELECT * FROM samples WHERE split = ?", conn, params=(split,))
 
 

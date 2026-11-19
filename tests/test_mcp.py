@@ -11,7 +11,8 @@ module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 
 
-def test_catalog_bounds():
+def test_catalog_bounds(monkeypatch):
+    monkeypatch.setattr(module, "CATALOG", Path("data/fixtures/samples.csv"))
     assert len(module.list_samples(1)["items"]) == 1
     assert module.list_samples(1)["truncated"]
     with pytest.raises(ValueError):

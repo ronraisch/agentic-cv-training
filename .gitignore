@@ -14,3 +14,6 @@ data/local-demo/
 data/imported/
 wheelhouse/
 staging/
+
+data/labeling/
+data/catalog/

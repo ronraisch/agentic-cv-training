@@ -1,7 +1,7 @@
 # System map
 
-The working CPU baseline covers image labeling and ordinary-camera video. It uses local
-procedural inputs by default and can read approved compatible bundles. See [baseline commands](BASELINE.md).
+The labeling app opens four approved local image collections. The CPU crop and clip classifiers
+load an explicit bundle. See [baseline commands](BASELINE.md) for the offline smoke check.
 
 | Area | Implemented path |
 |---|---|
@@ -11,8 +11,8 @@ procedural inputs by default and can read approved compatible bundles. See [base
 | Labeling interface | [index.html](../src/researchlab/static/index.html) |
 | Existing catalog/retrieval modules | [pipeline.py](../src/researchlab/pipeline.py), [sources.py](../src/researchlab/sources.py) |
 | Shared transport | [http.py](../src/researchlab/http.py) |
-| Local CNN detector, fixture, training and inference | [detector.py](../src/researchlab/detector.py), [contract](DETECTOR.md) |
-| Optional Torch component | [torch_model.py](../src/researchlab/torch_model.py) |
+| YOLO11 export, training, evaluation and inference | [detector.py](../src/researchlab/detector.py), [contract](DETECTOR.md) |
+| Torch API practice | [torch_model.py](../src/researchlab/torch_model.py), a standalone exercise module for four-element inputs |
 | Frozen LPR, vehicle detection and tracking | [components.py](../src/researchlab/components.py), [commands/models](COMPONENTS.md) |
 
 Annotations persist in the selected bundle's SQLite store. Training consumes current records and

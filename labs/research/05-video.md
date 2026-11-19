@@ -28,7 +28,8 @@ The probe is already included in the baseline allocation; it does not prescribe 
 
 ## Build and evaluate a first solution
 
-Start with something small enough to inspect. An available video embedding, a few manual labels
+Start with the runnable CPU clip classifier in [the baseline](../../docs/BASELINE.md#train-on-approved-clip-data),
+or use another model with the same approved inputs and held-out clips. Start with something small enough to inspect. An available video embedding, a few manual labels
 and a small learned head are one possible starting point; justify an alternative if it fits better.
 
 Use the approved agent for both implementation and understanding. Track sampling/timing choices,

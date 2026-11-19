@@ -6,10 +6,11 @@
         "run",
         "--project",
         "/ABSOLUTE/PATH/TO/REPO",
-        "--extra",
-        "mcp",
+        "--no-sync",
         "python",
-        "/ABSOLUTE/PATH/TO/REPO/tools/mcp_server.py"
+        "/ABSOLUTE/PATH/TO/REPO/tools/mcp_server.py",
+        "--catalog",
+        "/APPROVED/CATALOG/samples.csv"
       ]
     }
   }

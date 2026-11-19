@@ -2,7 +2,7 @@
 
 The team works on both remote sensing and ordinary-camera video. Satellite/airborne images serve
 the imagery assignments. Scene understanding uses ordinary ground, handheld or vehicle cameras;
-it is not satellite video. UAV footage below is for the airborne stitching task only.
+it is not satellite video. Drone footage covers aerial detection and the separate airborne stitching task.
 
 This is a reference catalog, not another reading course or a requirement to download every source.
 Acquire and prepare one small subset per task. Reuse LPR data for evaluation and video data for handover.
@@ -12,7 +12,7 @@ and internal availability have not been inspected here; suggested subset sizes a
 | Assignment | Recommended source | Optional alternative or supplement |
 |---|---|---|
 | 0: setup and Matt Pocock skills | Synthetic fixtures already in the repo; no external ML dataset needed | A tiny approved sample from the later assignments |
-| 1: labeling application | [COCO 2017 images and instance annotations](https://cocodataset.org/#download) | [DOTA](https://captain-whu.github.io/DOTA/dataset.html) for remote-sensing examples |
+| 1: labeling application | [COCO 2017](https://cocodataset.org/#download), [UA-DETRAC](https://www.albany.edu/faculty/mchang2/chang_download.html), [VisDrone](https://github.com/VisDrone/VisDrone-Dataset), and verified satellite imagery | [BDD100K](https://github.com/bdd100k/bdd100k) or [VIRAT](https://viratdata.org/) for ground video, approved local satellite data with OBB labels |
 | 2: Hough LPR, then 3: LPR evaluation | [RodoSol-ALPR](https://github.com/raysonlaroca/rodosol-alpr-dataset), or approved Latin/digit plate images | [CCPD](https://github.com/detectRecog/CCPD), with a matching Chinese recognizer |
 | 2: stitch two images from a flight | [UAVid, video-supported release](https://uavid.nl/) | An approved team flight with two overlapping frames |
 | 3: tracklet motion classification | [UA-DETRAC, author download entry](https://www.albany.edu/faculty/mchang2/chang_download.html) | [VIRAT ground-camera video and tracks](https://viratdata.org/) |
@@ -50,7 +50,7 @@ transfer paths are supplied separately. Do not try to obtain external data from 
 
 | Task | Acquire from source | Local preparation required |
 |---|---|---|
-| Labeling | COCO download page: `2017 Val images` and `2017 Train/Val annotations` | Select 20-40 image IDs; retain matching `instances_val2017.json` records and convert to [the application bundle](DATA_FORMATS.md) |
+| Labeling | Four real collections listed below | Mount the four [application collections](DATA_FORMATS.md#labeling-collections) with independent labels and grouped splits |
 | LPR | RodoSol README: request access under its agreement, then obtain images and annotation text; or approved existing Latin/digit imagery | Select about 200-400 images with plate text and corner labels; preserve raw files and source groups. Use supplied Latin OCR. Annotate missing text/corners independently; do not use them as inference inputs |
 | Stitching | UAVid download instructions: video-supported release, not only semantic still images | Select two overlapping frames from the same flight, record sequence/frame timestamps; inspect overlap manually |
 | Motion | UA-DETRAC author download page: videos plus tracking annotations, or VIRAT ground-camera release | Select 6-10 sequences; run the supplied tracklet producer, or adapt the provided source tracks with provenance. Add independent motion labels; keep whole sequences/cameras together |
@@ -70,11 +70,21 @@ that access or organizational reuse has already been approved.
 
 ## Labeling application
 
-COCO supplies ordinary-camera images and instance annotations. Start with about 20-40 images.
-Prepare a compatible initial application data bundle; ask product which data to work on.
-DOTA offers remote-sensing imagery if the prepared application uses that domain instead.
-COCO annotations and individual image rights have different terms; retain the source image-license
-information from the [official terms](https://cocodataset.org/#termsofuse).
+Prepare four small real collections before stage 1. The catalog links above and below give source
+alternatives. The application uses the shared manifest contract for any compatible dataset.
+Use contiguous frame IDs with original timestamps, related-scene IDs and original label provenance.
+
+| Domain | Example conversion |
+|---|---|
+| COCO | Join image IDs to `instances_*.json` and map `category_id` through `categories`. Convert `[x,y,w,h]` to pixel edges. Keep image-license references. Select frames and classes with a clear crowd/ignore policy. |
+| Ground video | Use UA-DETRAC frame annotations or another recording with labeled boxes. Extract exact labeled frames. Convert the source boxes to pixel edges and group all frames from the same sequence. |
+| Drone | Use VisDrone DET or VID and convert scored object rows from `left,top,width,height` to edges. Handle excluded/ignore regions explicitly when selecting a training or evaluation subset. Preserve sequence/flight IDs where available. |
+| Satellite | Use approved optical imagery with oriented labels, or a verified satellite subset of [DOTA](https://captain-whu.github.io/DOTA/dataset.html) with its matching `labelTxt` files. DOTA also contains aerial imagery, so verify the source of the selected scenes. Preserve the four corners and derive the HBB envelope. Split by parent scene and geography. |
+
+Start with at least a few independent groups per split. Include negatives with verified labels,
+small and crowded objects, and enough oriented satellite instances for stage 4. Size the subset
+for the lab's approved compute budget. See [the mount and format](DATA_FORMATS.md#labeling-collections)
+and [detector commands](DETECTOR.md).
 
 ## Classical CV and LPR evaluation
 

@@ -30,9 +30,16 @@ jobs:
           RESEARCHLAB_COMPONENT_IMAGE: ${{ github.workspace }}/.local/sample.png
   detector:
     runs-on: ubuntu-latest
+    env:
+      YOLO_CONFIG_DIR: ${{ runner.temp }}/yolo-config
+      RESEARCHLAB_COCO8: ${{ runner.temp }}/coco8
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
-      - run: uv sync --locked --extra dev --extra torch
+      - run: uv sync --locked --extra dev --extra detector
+      - run: |
+          mkdir -p "$YOLO_CONFIG_DIR"
+          curl --fail --location https://github.com/ultralytics/assets/releases/download/v0.0.0/Arial.ttf --output "$YOLO_CONFIG_DIR/Arial.ttf"
+          curl --fail --location https://github.com/ultralytics/assets/releases/download/v0.0.0/coco8.zip --output "$RUNNER_TEMP/coco8.zip"
+          unzip -q "$RUNNER_TEMP/coco8.zip" -d "$RUNNER_TEMP"
       - run: uv run --no-sync pytest tests/test_detector.py
-      - run: uv run --no-sync researchlab-detector smoke --model artifacts/detector/model.npz

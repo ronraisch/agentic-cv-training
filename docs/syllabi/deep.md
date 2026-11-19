@@ -21,6 +21,7 @@
 
 ## Practical work
 
+- [YOLO11 oriented detection and experiments](../../labs/research/04-oriented-detection.md)
 - [Cloud segmentation proposal](../../labs/research/04-clouds.md)
 - [Ordinary-camera video](../../labs/research/05-video.md)
 - [RabbitMQ/SAM3 and detector training](../../labs/research/05b-rabbitmq-sam3-detector.md)

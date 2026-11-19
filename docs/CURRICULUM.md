@@ -6,11 +6,11 @@ See the [training index](TRAINING_INDEX.md) for the four syllabi and [the traine
 |---|---|
 | 0a | Guided pod/VS Code/Python/Artifactory setup; [manual Python capstone](../labs/research/00-python-manual.md), about three working days, without coding agents |
 | 0b | OMP/local-LLM setup after capstone review; Matt Pocock skill installation/teach-back |
-| 1 | Product request in the labeling application |
+| 1 | [Polygon and oriented box support in the labeling application](../labs/research/01-polygons.md) |
 | 1b | [Required SAM2-assisted annotation service](../labs/research/01b-sam2-service.md): first Docker image and Deployment/Service/Route setup by hand; application integration |
 | 2 | Hough-based LPR preprocessing; stitch two airborne images |
 | 3 | Evaluate the LPR change; classify tracklet motion; learn a detection rescorer |
-| 4 | Short cloud-segmentation proposal; video classification with staged customer requests |
+| 4 | [YOLO11 oriented detection and experiments](../labs/research/04-oriented-detection.md); cloud-segmentation proposal; video classification |
 | 4C | [Required RabbitMQ/SAM3 batch pseudo-labeling and RT-DETR or YOLO training](../labs/research/05b-rabbitmq-sam3-detector.md) in the DL/video block |
 | Handover | Reproducible operational video notebook and peer transfer |
 

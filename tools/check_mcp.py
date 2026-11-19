@@ -16,8 +16,9 @@ except ModuleNotFoundError as error:
 
 async def main():
     server = str(Path(__file__).with_name("mcp_server.py").resolve())
+    catalog = str(Path(__file__).resolve().parents[1] / "data/fixtures/samples.csv")
     async with stdio_client(
-        StdioServerParameters(command=sys.executable, args=[server])
+        StdioServerParameters(command=sys.executable, args=[server, "--catalog", catalog])
     ) as streams:
         async with ClientSession(*streams) as session:
             await session.initialize()

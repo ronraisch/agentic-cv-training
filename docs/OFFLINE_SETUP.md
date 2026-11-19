@@ -129,19 +129,25 @@ successful prediction. Ask the named owner when the approved internal value has 
 
 ## Detector runtime
 
-The included single-object CNN requires the `torch` extra. On the matching connected staging
-machine use `uv sync --locked --extra dev --extra mcp --extra torch`, then run
-`uv run --no-sync researchlab-detector smoke --model artifacts/detector/model.npz`.
-For the wheelhouse route, add `--extra torch` to the `uv export` command above and download all
-exported requirements for the actual target platform. Transfer the complete verified image or
-wheelhouse, rather than asking the trainee to fetch Torch inside the network. CPU is sufficient
-for this fixture; CUDA models need the owner's separately verified driver/runtime combination.
+On a connected staging workstation, run `uv sync --locked --extra dev --extra detector`. The Linux
+lock uses CPU Torch and TorchVision. For GPU training, the environment owner supplies an approved
+image with compatible CUDA drivers, Torch/TorchVision and the same detector runtime. Launch those
+preinstalled commands with `uv run --no-sync` to preserve the supplied environment.
 
-Training generates the detector fixture in memory, and saves the artifact at the explicit
-`--model` path (default `artifacts/detector/model.npz`). Supply that file for inference or run the
-local training command. Inference input must already exist as a local float32 RGB BCHW `.npy`
-array. See [detector architecture and input/output contracts](DETECTOR.md). Neither missing Torch,
-weights nor input arrays triggers a download.
+For the wheelhouse route, add `--extra detector` to the lock export, download the platform wheels
+in staging and transfer the complete environment. Mount the four
+[labeling datasets](DATA_FORMATS.md#labeling-collections) and stage the approved local
+`yolo11n.pt` checkpoint (or a local YOLO11n architecture YAML for from-scratch training).
+Stage the Ultralytics `Arial.ttf` font (or `Arial.Unicode.ttf` for non-ASCII labels) in the
+Ultralytics config directory, which can be set with `YOLO_CONFIG_DIR`. The approved staging
+workstation can obtain those fonts from the
+[Ultralytics assets release](https://github.com/ultralytics/assets/releases/tag/v0.0.0).
+Stage 4 also needs YOLO11n-OBB weights and an oriented reference subset. Check the runtime and
+checkpoint terms for the intended environment.
+
+Run [the detector workflow](DETECTOR.md) with explicit paths to the data export and model.
+Missing inputs report the expected path and format. Use the YOLO training output's `weights/last.pt`
+as the explicit model for the next evaluation or prediction.
 
 ## Frozen research components
 
