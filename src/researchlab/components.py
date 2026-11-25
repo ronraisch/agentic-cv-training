@@ -73,7 +73,7 @@ def runtime():
         import onnxruntime as ort
     except ImportError as error:
         raise ValueError("Install the approved components extra: uv sync --locked --extra "
-                         "components; see docs/COMPONENTS.md and docs/OFFLINE_SETUP.md") from error
+                         "components; see docs/reference/COMPONENTS.md and docs/setup/OFFLINE_SETUP.md") from error
     return cv2, ort
 
 
@@ -88,9 +88,9 @@ class Models:
             if not path.is_file():
                 raise ValueError(f"Missing model {path}. On an approved connected workstation run "
                                  f"researchlab-components fetch --root {self.root} --models {name}, "
-                                 "or transfer that bundle; see docs/COMPONENTS.md")
+                                 "or transfer that bundle; see docs/reference/COMPONENTS.md")
             if digest(path) != ASSETS[name]["sha256"]:
-                raise ValueError(f"Model checksum mismatch: {path}; see docs/COMPONENTS.md")
+                raise ValueError(f"Model checksum mismatch: {path}; see docs/reference/COMPONENTS.md")
             _, ort = runtime()
             options = ort.SessionOptions()
             options.intra_op_num_threads = 1
@@ -223,7 +223,7 @@ def write_images(models, manifest, output, mode, threshold, overlay_dir=None):
         for record, path in manifest_rows(manifest):
             image = cv2.imread(str(path))
             if image is None:
-                raise ValueError(f"Cannot decode {path}; see docs/DATASETS.md")
+                raise ValueError(f"Cannot decode {path}; see docs/reference/DATASETS.md")
             if mode == "lpr":
                 predictions = models.plates(image, threshold)
                 for item in predictions:
@@ -330,7 +330,7 @@ def main(argv=None):
         print(json.dumps(result, indent=2))
         return 0
     except (ValueError, OSError, ImportError, RuntimeError, httpx.HTTPError) as error:
-        print(f"ERROR: {error}\nSee docs/COMPONENTS.md", file=sys.stderr)
+        print(f"ERROR: {error}\nSee docs/reference/COMPONENTS.md", file=sys.stderr)
         return 2
 
 

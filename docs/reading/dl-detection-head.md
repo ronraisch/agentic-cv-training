@@ -2,6 +2,8 @@
 
 [Chapter index](index.md) · [Source coverage](sources.md)
 
+Companion lab: [Oriented detection](../../labs/research/04-oriented-detection.md).
+
 Two trucks sit on a road. A classification head can answer “truck present.” A detector must return two separate boxes with scores. The head needs features that retain where things are, plus a training rule that decides which predictions should learn from which objects.
 
 For worked anchor-assignment and query-ceiling diagnostics, see [Deep learning intuition: find the bottleneck](dl-intuition.md).
@@ -17,11 +19,15 @@ For worked anchor-assignment and query-ceiling diagnostics, see [Deep learning i
 
 </details>
 
+<a name="dense-detection"></a>
+
 ## CNN detection: let many locations propose boxes
 
 Start with a CNN map of shape B × D × H × W. Each location represents a neighborhood in the image. A dense head applies small convolutional branches across that map to predict class scores and box geometry at each location. In a simplified anchor-free design, each location predicts left, top, right and bottom distances from a reference point. For a reference point at image coordinates (40, 32), distances (8, 4, 12, 6) decode to corners (32, 28) and (52, 38). Real implementations define whether distances are in grid units or image pixels.
 
 Anchor-based heads instead predict offsets from predefined boxes. A feature pyramid gives the head grids at several strides, so small objects have more possible prediction sites on finer maps. During training a rule assigns locations or anchors to targets. Several locations can legitimately learn about the same object, so typical dense inference filters overlapping detections with non-maximum suppression (NMS). A two-stage CNN detector such as Faster R-CNN first makes proposals, then pools features in each proposal and predicts its class and box refinement.
+
+<a name="set-detection"></a>
 
 ## DETR: let queries ask for objects
 
@@ -56,6 +62,8 @@ The image enters through the CNN and encoder on the left. The decoder reads that
 | Detection DINO | Builds on deformable detection with box-related queries and refinement | Denoising training and improved query initialization strengthen the detector; this is a different model family from the self-supervised DINO encoder |
 
 A DETR-style decoder can also read spatial ViT features. Remove special tokens before rebuilding a spatial grid, keep its dimensions and positional information, and project the channel width if the decoder expects another width. A dense convolutional head can also read a map built from ViT patch tokens. Backbone choice and head choice are separate decisions.
+
+<a name="trace-a-small-object"></a>
 
 ## Where did the small truck disappear?
 

@@ -19,9 +19,13 @@ For the distinction between grid stride and receptive field, see [Feature maps: 
 
 </details>
 
+<a name="choose-the-output"></a>
+
 ## Decide what a mask means
 
 In semantic segmentation, every pixel gets a category such as cloud, road or vehicle. Two adjacent vehicles can share one category region. In instance segmentation, the output must also separate those vehicles into two masks. Panoptic segmentation combines an image-wide semantic partition with separate identities for countable objects.
+
+<a name="cnn-segmentation"></a>
 
 ## CNNs: bring fine detail back to the prediction grid
 
@@ -47,9 +51,13 @@ The horizontal skip brings finer spatial features to the decoder. The long route
 
 </details>
 
+<a name="vit-segmentation"></a>
+
 ## ViT: keep the patch grid
 
 A ViT-B/16 at 256 × 256 returns 256 patch vectors, plus any model-specific special tokens. Strip the special tokens, then reshape the remaining vectors to a 16 × 16 feature grid in patch order. A simple semantic head predicts class logits for each patch and upsamples them. More capable heads fuse features across layers or scales and decode at finer resolution. If all you cached was the class token, reshaping it cannot recover a patch map. If your map is too coarse, inspect whether finer features survive earlier in the model or in an additional image branch.
+
+<a name="query-segmentation"></a>
 
 ## Mask queries: one vector per candidate mask
 

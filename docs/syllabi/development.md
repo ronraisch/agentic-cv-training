@@ -1,6 +1,6 @@
 # 1 · Development
 
-[Training index](../TRAINING_INDEX.md)
+[Training index](../TRAINING_INDEX.md) · Next route: [CV, ML & Deep Learning](../training/RESEARCH.md)
 
 ## Topics and local reading
 
@@ -14,10 +14,13 @@
 
 ## Practical work
 
-- [Setup](../../labs/research/00-installations.md)
-- [Manual Python capstone](../../labs/research/00-python-manual.md)
-- [Labeling/polygons](../../labs/research/01-polygons.md)
-- [First SAM2 service](../../labs/research/01b-sam2-service.md)
+1. [Set up the workspace and verify Python](../../labs/research/00-installations.md#first-prepare-python-and-complete-the-manual-exercise).
+2. Complete [Shape Rendering by hand](../../labs/research/00-python-manual.md) and get mentor sign-off.
+3. Return for [approved OMP and skills setup](../../labs/research/00-installations.md#then-prepare-omp-and-skills).
+4. [Add polygons and oriented boxes](../../labs/research/01-polygons.md).
+5. [Build and deploy the first SAM2 service by hand](../../labs/research/01b-sam2-service.md).
+
+Companion lesson: [Development in a research monorepo](../lessons/01-development.md). After SAM2, start [classical CV](cv.md).
 
 ## Viewing and study
 

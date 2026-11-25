@@ -21,4 +21,4 @@ artifact is a setup error rather than an empty scene.
 
 The CLI bounds forward-pass memory, while retaining the combined output in memory. Very large
 jobs may need an incremental writer. Changing the batch size is an execution choice; it does not
-change the consumer's ordering or output schema. See [the detector interface](../DETECTOR.md).
+change the consumer's ordering or output schema. See [the detector interface](../reference/DETECTOR.md).

@@ -23,6 +23,8 @@ Two aerial tiles contain the same number of cars. In one tile all the cars sit o
 
 </details>
 
+<a name="read-a-feature-map"></a>
+
 ## What one entry means
 
 Start with the input image. At each position it stores three numbers for red, green and blue. After a CNN layer, each output position can store 64 numbers instead. They are activations computed from the input. A single **channel** is one sheet in that stack of 64. A single **spatial embedding** is the stack of 64 numbers at one location.
@@ -35,6 +37,8 @@ Start with the input image. At each position it stores three numbers for red, gr
 | Average each channel over the grid | 64 numbers | What evidence is present overall? |
 
 People use “feature map” for both one activation sheet and the whole stack. Here we call the stack a map and specify its shape. In PyTorch a batch of maps commonly has axes B × C × H × W. The numbers can be signed or unbounded depending on the layer. A value of 4.2 is an activation. To call it a probability or a score for “truck,” you need a prediction head and a definition of its output.
+
+<a name="how-the-map-is-made"></a>
 
 ## Make a map by sliding one filter
 
@@ -55,6 +59,8 @@ filters = np.array([[-1, 1], [1, 1]])
 print(filters @ windows.T)  # channels × positions
 ```
 
+<a name="stride-and-receptive-field"></a>
+
 ## Where is a cell looking?
 
 Stride is spacing in the original input between neighboring map positions. For a chain of strides 2, 2 and 2, neighboring positions on the final grid are eight input pixels apart. On a 256 × 256 model input with the usual shape-preserving padding before downsampling, the resulting grid is 32 × 32. Padding and crop offsets also affect where those positions land. If a head predicts offsets from the grid, it must use the same coordinate convention when decoding.
@@ -62,6 +68,8 @@ Stride is spacing in the original input between neighboring map positions. For a
 The **receptive field** is the input region that can influence a particular activation. It is a different quantity. Three 3 × 3 convolutions with stride 2 have output stride 8 and a theoretical receptive field 15 pixels wide along each axis. Neighboring receptive fields therefore overlap. With additional stride-1 layers the cells can see a wider area while staying eight pixels apart. The regions that strongly influence a particular prediction may occupy less than the theoretical support.
 
 Consider an eight-pixel car after resizing. At stride 8 it spans about one grid interval. At stride 32 it spans a quarter of an interval. This is a clue about how finely a head can sample evidence, and it leaves room for sub-cell box offsets and overlapping receptive fields. To see whether useful information survived, check objects of that size on fine and coarse levels. An upsampled coarse map gives you more output locations but has no new image measurements. A skip connection from an earlier fine map can supply evidence that was absent from the coarse map.
+
+<a name="maps-in-network-design"></a>
 
 ## Design backward from the answer you need
 
@@ -74,6 +82,8 @@ Consider an eight-pixel car after resizing. At stride 8 it spans about one grid 
 
 A ViT exposes a similar contract. The spatial rows are patch tokens. Remove the special tokens according to the model's interface, then restore the patch grid in the same order used for patchification. In a global-attention encoder, each patch token still has a grid address even though it may contain evidence from distant patches. If the only output you saved was the class token, you have a global vector and have discarded the explicit spatial rows.
 
+<a name="transfer-learning"></a>
+
 ## Transfer learning: borrow the representation that fits the job
 
 Say a pretrained encoder retrieves similar trucks, but your new task is to outline each one. The global embedding can be a good starting point for crop classification, while segmentation needs a spatial output and may benefit from several levels. Choose the tensor before choosing the head. Inspect its stage, stride, number of channels, preprocessing, and token or pixel ordering. Two backbones can both emit 768 numbers per position while using entirely different feature coordinates.
@@ -85,6 +95,8 @@ Say a pretrained encoder retrieves similar trucks, but your new task is to outli
 - **Adapt the backbone when you need to change the representation.** Compare a frozen backbone with partial fine-tuning or adapters. A gain suggests the new training signal helps adapt the representation or its interaction with the head. Keep a separate validation scene set and measure the cost of training and inference.
 
 If you cache frozen features, record the checkpoint, layer, resize and normalization, feature shape and sample ID. Changing the crop or unfreezing the encoder makes that cache stale. In PyTorch, freezing parameters and selecting evaluation mode solve different problems. Evaluation mode controls behavior such as dropout and running BatchNorm statistics. Make both choices explicit when testing a frozen extractor.
+
+<a name="inspect-before-interpreting"></a>
 
 ## Look at what the representation keeps
 
@@ -100,6 +112,8 @@ You have a 32 × 32 feature grid and a global mean of that grid. Which output ca
 Use the 32 × 32 grid. It has separate spatial entries. The global mean mixes the positions and does not preserve an explicit grid, so upsampling cannot reconstruct it.
 
 </details>
+
+<a name="sources"></a>
 
 ## Further reading
 

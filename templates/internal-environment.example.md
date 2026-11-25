@@ -1,7 +1,7 @@
 # Internal environment map
 
 Mentor completes this only inside the approved network. This is a template, not verified connectivity.
-Do not store credentials here.
+Do not store credentials here. Use the [research environment handoff](../docs/setup/RESEARCH_ENVIRONMENT.md) and [preflight](../docs/setup/PREFLIGHT.md) to complete the evidence column.
 
 | Item | Approved value and preflight evidence |
 |---|---|

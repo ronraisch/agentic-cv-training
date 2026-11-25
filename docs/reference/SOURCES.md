@@ -1,7 +1,7 @@
 # Sources and preservation
 
-[Full migration coverage](reading/sources.md) · [Link inventory](reading/source-map.json)
-· [Training index](TRAINING_INDEX.md)
+[Full migration coverage](../reading/sources.md) · [Link inventory](../reading/source-map.json)
+· [Training index](../TRAINING_INDEX.md)
 
 The 8 November 2026 migration reviewed current learner handouts, mentor subject references,
 archived outlines, developer reading material and Word documents throughout the original CV ZIP.
@@ -34,7 +34,7 @@ Video recordings were not watched end to end and runtime savings have not been m
 | [uv CLI](https://docs.astral.sh/uv/reference/cli/) | Locked internal environments and cache/offline distinction |
 
 The current theory map retains CS231n 2025 lectures 1–16 and their subject coverage, with the
-historical survey/skip choices documented in [the DL syllabus](syllabi/deep.md).
+historical survey/skip choices documented in [the DL syllabus](../syllabi/deep.md).
 Exact URLs are retained from the source documents; no current duration or timestamp claim is made.
 
 ## Matt Pocock skill sources
@@ -62,6 +62,6 @@ See [Datasets by assignment](DATASETS.md) for official project/download entry po
 limitations and offline packaging. Dataset documentation was checked on 23 October 2026;
 archives were not downloaded or locally inspected. No data-access or license eligibility is assumed.
 
-Open-model foundations: see the selected primary references in [lesson 07](lessons/07-open-models.md).
+Open-model foundations: see the selected primary references in [lesson 07](../lessons/07-open-models.md).
 Official CLIP, Grounding DINO, Qwen2.5-VL and Transformers offline documentation were consulted
 on 23 October 2026. Examples are teaching references, not a latest-model ranking or installed assets.

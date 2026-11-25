@@ -51,6 +51,8 @@ Take one scalar input x = 2. First compute $z=w\,x$ with w = 3, then let the pre
 
 Backpropagation applies the chain rule from the loss back through these operations. It tells each parameter how a small change would affect the loss with other values fixed. A gradient does not specify how far to move. The optimizer applies its own update rule and learning rate. In the single-weight code example below, b is held fixed so one step is easy to calculate.
 
+<a name="start-with-a-case"></a>
+
 ## Following one weight through a training step
 
 A small network is easier to inspect than a large one, so start with a single weight: prediction `w × x`. With x=2, w=3 and target=4, it predicts 6. The squared-error loss divided by two is 2.

@@ -1,8 +1,10 @@
 # Label a video batch with SAM3, then train one detector
 
+[Deep Learning syllabus](../../docs/syllabi/deep.md) · [Companion lesson](../../docs/lessons/04-torch.md) · Previous: [Ordinary-camera video](05-video.md) · Next: [Operational handover](06-handover.md)
+
 ## Start here
 
-Use the teaching namespace and approved worker, broker, model and data paths from the mentor. Start with three inspectable frames and verify one message can be followed to a saved output. Demonstrate recovery and audit a small label sample before scaling. If you get stuck, use the [worked example](../../docs/WORKED_EXAMPLES.md#queue-to-training).
+Use the teaching namespace and approved worker, broker, model and data paths from the mentor. Start with three inspectable frames and verify one message can be followed to a saved output. Demonstrate recovery and audit a small label sample before scaling. If you get stuck, use the [worked example](../../docs/reference/WORKED_EXAMPLES.md#queue-to-training).
 
 ## Goal and scope
 
@@ -18,11 +20,13 @@ The initial allocation is 24 active trainee hours; record unattended GPU runtime
 
 Agree with the mentor on classes, prompt wording, data volume, detector variant and device budget.
 The mentor supplies approved broker/model/detector assets, compute and teaching-namespace access
-through [the environment handoff](../../docs/RESEARCH_ENVIRONMENT.md).
+through [the environment handoff](../../docs/setup/RESEARCH_ENVIRONMENT.md).
 
 Split by source video/scene before sampling frames or generating pseudo-labels. Keep neighbouring
 frames from one source out of different splits. Reserve a bounded, independently human-checked
 validation/test set. Agreement with SAM3 alone is not an accuracy evaluation.
+
+Review [what survives redelivery](../../docs/reading/development-interfaces.md#handling-a-job-that-arrives-a-second-time) before defining the job contract.
 
 ## 1. Bring up the broker and worker
 

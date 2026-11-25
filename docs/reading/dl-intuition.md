@@ -21,6 +21,8 @@ You train a detector on aerial tiles. The loss comes down, the validation score 
 
 </details>
 
+<a name="what-makes-a-task-learnable"></a>
+
 ## Follow the signal from input to prediction
 
 | Question | How learning or prediction can fail | What to look at |
@@ -33,6 +35,8 @@ You train a detector on aerial tiles. The loss comes down, the validation score 
 
 Shortcuts can make a task look easier during training. If almost all trucks in training are photographed on gravel, predicting “truck” from gravel is rewarded. Hold out a site and add examples of trucks on pavement and gravel without trucks. This tests whether the model learned a transferable cue.
 
+<a name="anchors-and-matching"></a>
+
 ## Anchors: check who gets taught to predict the box
 
 In an anchor-based detector, anchors are reference boxes. During training an assigner compares candidate anchors with the ground-truth boxes. A positive assignment tells the class branch to recognize an object and gives the regression branch a box to learn. The anchor can be a rough starting point, since the head can predict offsets. What matters first is which targets actually receive useful supervision.
@@ -41,11 +45,15 @@ Imagine an 8 × 24 truck and a centered 24 × 24 anchor. The truck is fully insi
 
 Plot the best candidate IoU and the number of positives per object after preprocessing. Split the plot by size and aspect ratio, and inspect the objects with zero positives. Then compare one change, such as adding a finer feature level, modifying anchor shapes or changing the assignment rule. Check how many positives the change adds and what happens to validation recall and false positives. A bigger anchor set can make the problem worse if it mostly adds redundant candidates.
 
+<a name="query-budget"></a>
+
 ## Queries: count how many answers the model can emit
 
 In standard DETR-style set prediction, each final object query emits at most one detection and can be matched to at most one labeled object. With 100 output queries and 140 valid objects in one tile, even a perfect set of outputs can recover at most 100/140, or about 71%, before filtering. For a validation slice with object counts nᵢ, add the smaller of nᵢ and the query count for each image, then divide by the total number of objects to get a dataset-level recall ceiling. Use the actual maximum returned by the system if top-k or a downstream cap is lower.
 
 First plot object counts per model input. Then count useful predictions before filtering. If many sparse tiles are missed while most query slots go unused, a larger query budget has a weaker case. Look at feature resolution, matching, query initialization or training instead. If dense tiles routinely hit the ceiling, compare more queries with tiling. More queries increase decoder work and may change the balance between matched and unmatched slots. Tiling changes object scale and context and adds merge work. Evaluate both with scene-level splits and a size- and density-stratified recall report.
+
+<a name="architecture-knobs"></a>
 
 ## What changes when you turn a knob?
 
@@ -58,6 +66,8 @@ First plot object counts per model input. Then count useful predictions before f
 | More queries or more anchor candidates | Queries raise the possible output count. Anchors add candidate starting locations or shapes for assignment and regression. | They solve different problems. Measure the query ceiling for the first, and the number and quality of positive assignments for the second. Account for decoding and post-processing costs. |
 
 Keep three dimensions distinct when reading a config: **feature width** is how many numbers describe each location, **spatial resolution** is how many locations describe the image, and **query count** is how many candidate output slots the decoder can use. Doubling one does not double the others.
+
+<a name="make-a-diagnostic-experiment"></a>
 
 ## Make an experiment that can change your mind
 
@@ -81,6 +91,8 @@ A detector with 50 queries misses trucks in scenes with 12 objects, and only eig
 The count alone is below the hard limit. Inspect the missing objects at input resolution, their matches during training and low-confidence raw outputs. More queries can change optimization, but this example does not establish that the output count is the binding constraint.
 
 </details>
+
+<a name="sources"></a>
 
 ## Further reading
 

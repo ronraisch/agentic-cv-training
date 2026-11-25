@@ -19,6 +19,8 @@ Compare patch tokens with CNN grids in [Feature maps: what the backbone keeps](d
 
 </details>
 
+<a name="from-pixels-to-tokens"></a>
+
 ## From pixels to a sequence
 
 Cut a 224 × 224 RGB image into non-overlapping 16 × 16 patches. There are 14 rows and 14 columns of patches, or 196 in all. Each patch contains 16 × 16 × 3 = 768 pixel values. Flatten them in a consistent order and apply the same learned linear projection to each patch. The output dimension is a model choice. For ViT-B/16 it happens to be 768 too. Patch size and embedding width are separate knobs.
@@ -55,6 +57,8 @@ Patch 4 becomes one position in the input sequence. The extra learned token mark
 ViT keeps the encoder idea. Self-attention exchanges information across patches, and the same feed-forward network within a block updates each token independently. The original ViT used pre-normalization and residual connections. A patch can combine evidence from another patch across the image. The class token reads the patch sequence through the same self-attention mechanism. There is no translation decoder or causal mask in this classifier, because the full image is available at once.
 
 The RGB patch projection takes the place of text token lookup. Position information remains necessary for spatial arrangement. A classification head takes the place of the vocabulary prediction layer. During supervised pretraining it learns to classify images. During transfer to another label set, the paper replaced the classifier and fine-tuned the model. At a higher input resolution, the patch grid changes and the original work interpolated the learned position embeddings over the new two-dimensional grid.
+
+<a name="why-patches"></a>
 
 ## Why not use a token for every pixel?
 

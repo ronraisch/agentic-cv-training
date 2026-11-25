@@ -1,6 +1,6 @@
 # 2 · Classical computer vision
 
-[Training index](../TRAINING_INDEX.md)
+[CV, ML & Deep Learning](../training/RESEARCH.md) · Previous: [Development](development.md) · Next: [Machine learning](ml.md)
 
 ## Topics and local reading
 
@@ -15,6 +15,8 @@
 ## Practical work
 
 - [LPR rectification and two-image stitching](../../labs/research/02-classical-cv.md)
+
+Companion lesson: [Classical CV lesson](../lessons/02-classical-cv.md).
 
 ## Viewing and study
 

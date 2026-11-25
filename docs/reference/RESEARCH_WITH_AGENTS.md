@@ -7,10 +7,10 @@ Ask the approved agent you already work with to explain the specific idea, diagr
 Small questions count as real onboarding practice:
 
 - “Explain this diagram from the training. Walk me through one input and ask me what each arrow carries.”
-- “Let's use this [playground](playgrounds/README.md) together. Explain each parameter, then ask me to predict what one slider will change before I move it.”
+- “Let's use this [playground](../playgrounds/README.md) together. Explain each parameter, then ask me to predict what one slider will change before I move it.”
 - “Explain this code path from caller to consumer. Point to the files you read and separate observed behavior from inference.”
 
-Follow the [manual-work boundaries](READING_AND_SESSIONS.md) during these conversations. The Python capstone permits occasional concept questions under its own rules. During the manual SAM2 build, keep explanations conceptual and perform the work yourself.
+Follow the [manual-work boundaries](../mentor/READING_AND_SESSIONS.md) during these conversations. The Python capstone permits occasional concept questions under its own rules. During the manual SAM2 build, keep explanations conceptual and perform the work yourself.
 
 Use the approved repository-aware agent to understand a problem, not only implement a ticket.
 Reserve two hours each week within the syllabus. The individual teach-back itself is agent-free.
@@ -50,7 +50,7 @@ examples and general concepts; never paste restricted repository content into an
 
 ## Research card
 
-Use [templates/research-learning.md](../templates/research-learning.md): question, explanation in your own words, alternatives,
+Use [templates/research-learning.md](../../templates/research-learning.md): question, explanation in your own words, alternatives,
 source/version, observed evidence, counterexample, smallest experiment, current uncertainty and
 next decision. One page is enough; a transcript dump is not the deliverable.
 

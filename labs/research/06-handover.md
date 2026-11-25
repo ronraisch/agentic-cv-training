@@ -1,5 +1,7 @@
 # Hand over a reproducible video inference path
 
+[Deep Learning syllabus](../../docs/syllabi/deep.md) · [Companion lesson](../../docs/lessons/06-video.md) · Previous: [RabbitMQ/SAM3](05b-rabbitmq-sam3-detector.md) · [Completion checklist](../../docs/training/TRAINEE_GUIDE.md#completion)
+
 ## Start here
 
 Use a clean peer workspace with the declared packages, supplied model checkpoint and an ordinary-camera clip. Ask the mentor for a service reference run. Confirm one new clip runs independently and bring parity evidence and a reproducible command to the handover windows.
@@ -11,7 +13,9 @@ Close the released product tasks and concept checks with the mentor first. There
 detector implementation at this stage.
 
 Use the ordinary-camera subset and frozen split from the [video lab](05-video.md). Use the service model and preprocessing revision. The detector-training outputs belong to [the SAM3 lab](05b-rabbitmq-sam3-detector.md).
-[Relevant data](../../docs/DATASETS.md#ordinary-camera-video-and-handover).
+[Relevant data](../../docs/reference/DATASETS.md#ordinary-camera-video-and-handover).
+
+Review [deployment and verified standalone inference](../../docs/reading/dl-deployment.md).
 
 ## Prepare the handover
 

@@ -53,6 +53,8 @@ Recall is also called sensitivity. FPR is the false positive rate. False alarm r
 
 If there are 10 positives among 1,000 cases and a model reports 8 TP and 20 FP, recall is 0.8, precision is 8/28≈0.286 and FPR is 20/990≈0.0202. Accuracy is 0.978, which hides the poor yield among alerts. F1 is the harmonic mean 2PR/(P+R); F-beta weights recall by beta squared. These summaries omit true negatives and do not encode every operational cost. Select a threshold against a stated target, such as minimum recall with an acceptable number of alerts.
 
+<a name="start-with-a-case"></a>
+
 ## What 97.8% accuracy looks like in an alert inbox
 
 Imagine 1,000 cases containing ten real positives. The system finds eight, misses two and raises twenty false alarms. It makes 978 correct decisions overall, so its accuracy is 97.8%.

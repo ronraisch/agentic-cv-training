@@ -72,6 +72,8 @@ Track the effective sampling jump j and receptive field r: start j=1,r=1, then u
 
 For VGG-16, apply the recurrence separately to every convolution and pool, rather than assuming pooling adds no receptive field. With 3-by-3 stride-one padded convolutions and 2-by-2 stride-two pools, the receptive field after pool5 is 212 pixels with a jump of 32. Counting after conv5_3 gives 196 instead. State exactly which output is measured. For L identical stride-S, dilation-one convolutions, r is $1+(K-1)\sum_{i=0}^{L-1}S^i$; when S=1 this becomes 1+L(K-1).
 
+<a name="start-with-a-case"></a>
+
 ## How three small convolutions see a larger region
 
 Three stride-one 3×3 convolutions give a final output a theoretical 7×7 receptive field. The last layer reads nearby features, but those features already contain information from their own neighbours.

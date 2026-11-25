@@ -25,6 +25,8 @@ A classifier can choose a label for an image. A generative model can produce or 
 
 A generative model describes or samples an observation distribution. Useful applications include conditional image synthesis, restoration, simulation and representation learning. Realistic images alone do not establish that the model learned the target distribution or preserved an input's identity. A generated detail is a model hypothesis, not a measurement recovered from the sensor.
 
+<a name="start-with-a-case"></a>
+
 ## A plausible reconstruction may still invent a letter
 
 A blurred crop might be consistent with either a P or an R. A generative model can produce a crisp version of one letter, but the visual improvement does not establish which letter the sensor originally observed.

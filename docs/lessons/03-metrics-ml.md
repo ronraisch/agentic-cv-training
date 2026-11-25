@@ -1,6 +1,7 @@
 # Evaluation and classical ML
 
-Full theory and original course links: [Ml syllabus](../syllabi/ml.md).
+[ML syllabus](../syllabi/ml.md) · [Evaluation and ML](../../labs/research/03-evaluation-ml.md)
+
 This short lesson supplements that route; reading completion is optional when understanding is demonstrated.
 
 ## One valid experiment

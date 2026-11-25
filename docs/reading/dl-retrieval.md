@@ -49,6 +49,8 @@ Conversely, if A, B and C all match the snowy background instead of vehicle type
 
 Metadata constraints can also change the eligible candidates. If a query asks for crops from a specific sensor, compare systems against an exact baseline over that same eligible collection. A filter applied after a very short candidate list can leave too few results even when valid matches exist elsewhere in the index.
 
+<a name="start-with-a-case"></a>
+
 ## A correct nearest-neighbour search can return irrelevant images
 
 Suppose the embedding places snowy scenes close together. An exact index returns those neighbours perfectly, but the user wanted other images of the same vehicle type. The search calculation is correct; the representation is emphasizing a different relationship.

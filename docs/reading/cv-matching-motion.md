@@ -2,6 +2,8 @@
 
 [Chapter index](index.md) · [Source coverage](sources.md)
 
+Companion lab: [Two-image stitching](../../labs/research/02-classical-cv.md#task-2-stitch-two-images-from-one-flight).
+
 To stitch two images, find small regions that appear in both and decide which regions correspond. To estimate motion between frames, ask a similar question at a smaller time interval. A feature is a location or measurement chosen for comparison. The strength of the local image pattern, the match and the geometric agreement each provide different evidence.
 
 <details>
@@ -30,6 +32,8 @@ Adding a constant to intensity leaves derivatives unchanged; multiplying intensi
 ## Ambiguity before geometry
 
 Nearest-descriptor matching compares local appearances. A small absolute distance is insufficient if many candidates are equally similar. A nearest/second-nearest distance ratio rejects ambiguous matches; mutual matching checks agreement in both directions. Neither proves geometric correctness. Repeated windows on a building may produce numerous internally consistent but wrong matches.
+
+<a name="start-with-a-case"></a>
 
 ## Matching a building with repeated windows
 

@@ -66,6 +66,8 @@ Conditioning on the measurements changes the distribution at unobserved timestam
 
 A Gaussian process defines a distribution over functions through a mean and covariance kernel. Finite collections of function values have a joint Gaussian distribution. In regression, conditioning on observed inputs/targets yields a predictive mean and uncertainty under the chosen kernel/noise model. Kernel length scale encodes smoothness and relevance assumptions. Standard exact inference can require cubic-time matrix factorization and quadratic storage in observation count; sparse/approximate methods change this tradeoff. A narrow posterior from a misspecified kernel is not a universal guarantee of confidence.
 
+<a name="start-with-a-case"></a>
+
 ## What a model assumes between observations
 
 Three observations can be consistent with more than one function. The figure shows two functions that pass through the same points but behave differently elsewhere. Fitting those points alone does not choose how the prediction should continue.

@@ -2,9 +2,12 @@
 
 import argparse
 import re
+from html import escape
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlsplit, urlunsplit
+
+from check_course_links import heading_slug
 
 ROOT = Path(__file__).resolve().parents[1]
 READING = ROOT / 'docs' / 'reading'
@@ -110,7 +113,11 @@ def render(node):
     if tag in {'script', 'style', 'nav'}:
         return ''
     if tag in {'h1', 'h2', 'h3', 'h4'}:
-        return '\n\n' + '#' * int(tag[1]) + ' ' + content.strip() + '\n\n'
+        anchor = node.attrs.get('id')
+        alias = ''
+        if anchor and anchor != heading_slug(content):
+            alias = f'<a name="{escape(anchor, quote=True)}"></a>\n\n'
+        return '\n\n' + alias + '#' * int(tag[1]) + ' ' + content.strip() + '\n\n'
     if tag == 'details':
         summary = next((c for c in node.children if isinstance(c, Node) and c.tag == 'summary'), None)
         label = ''.join(render(c) for c in summary.children) if summary else 'More'

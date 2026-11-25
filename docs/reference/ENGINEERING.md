@@ -10,5 +10,5 @@ Inspect the saved artifact and fresh-load behavior before reporting a completed 
 change. Read [verification practice](PITFALLS.md) and the assigned local lesson for concepts.
 
 Use [the working baseline](BASELINE.md), [data contracts](DATA_FORMATS.md) and
-[offline setup](OFFLINE_SETUP.md) to run the system. Existing callers and actual executed settings
+[offline setup](../setup/OFFLINE_SETUP.md) to run the system. Existing callers and actual executed settings
 are the source of evidence when a secondary note and runtime behavior disagree.

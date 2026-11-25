@@ -265,6 +265,8 @@ Legacy (UMichigan 2019)
 
 [OpenAI CLIP: ConnectingText and Images (Paper Explained)](https://www.youtube.com/watch?v=T9XSU0pKX2E)
 
+<a name="robot-learning-human-centered-ai-skip-those-chapters"></a>
+
 ## Robot Learning + Human-Centered AI - Skip those chapters
 
 ## <br>

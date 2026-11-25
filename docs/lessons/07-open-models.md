@@ -1,11 +1,12 @@
 # Embeddings, VLMs and open-vocabulary detection
 
-Full theory and original course links: [Deep syllabus](../syllabi/deep.md).
+[Deep Learning syllabus](../syllabi/deep.md) · [Ordinary-camera video](../../labs/research/05-video.md)
+
 This short lesson supplements that route; reading completion is optional when understanding is demonstrated.
 
 Required before the Part 4 video baseline. Count about two hours of study and self-check within the
 [DL study estimate](../syllabi/deep.md#viewing-and-study), and one hour of probing within the
-[ordinary-camera video work allocation](../TRAINEE_GUIDE.md).
+[ordinary-camera video work allocation](../training/TRAINEE_GUIDE.md).
 This replaces repeated representation introductions; it is not another model-training project.
 
 ## Three tools, three output contracts
@@ -106,7 +107,7 @@ reliability on small remote-sensing objects or ordinary-camera video in the team
 
 ## One-hour intuition probe, not three deployments
 
-Reuse [the prepared data](../DATASETS.md#embedding-vlm-and-open-vocabulary-probe): about 12-20 COCO
+Reuse [the prepared data](../reference/DATASETS.md#embedding-vlm-and-open-vocabulary-probe): about 12-20 COCO
 images with existing annotations, a few small-object DOTA examples and a few already assigned
 ordinary-camera clips. Separate prompt-development examples from a small untouched check set.
 This is an illustrative sanity check, not a statistically reliable benchmark or another dataset.

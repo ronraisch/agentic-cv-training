@@ -1,6 +1,6 @@
 # 3 · Machine learning and evaluation
 
-[Training index](../TRAINING_INDEX.md)
+[CV, ML & Deep Learning](../training/RESEARCH.md) · Previous: [Computer vision](cv.md) · Next: [Deep learning](deep.md)
 
 ## Topics and local reading
 
@@ -16,6 +16,8 @@
 ## Practical work
 
 - [LPR evaluation, tracklets and rescoring](../../labs/research/03-evaluation-ml.md)
+
+Companion lesson: [Evaluation and ML lesson](../lessons/03-metrics-ml.md).
 
 ## Viewing and study
 

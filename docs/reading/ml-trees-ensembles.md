@@ -121,6 +121,8 @@ Hard voting combines class decisions; soft voting averages scores/probabilities 
 
 Measure the cost of the whole ensemble, including all feature extractors, preprocessing, model loads and output merging. A second model is worthwhile only if its gain at the relevant operating point justifies the latency, memory and maintenance. In detection rescoring, distinguish changing scores from adding proposals: a rescorer cannot recover an object absent from the frozen detector's candidate set.
 
+<a name="start-with-a-case"></a>
+
 ## What an ensemble can learn from disagreement
 
 Three truck classifiers agree on most easy examples. They also all miss cement trucks. Combining their votes does not recover a category that none of them recognizes.

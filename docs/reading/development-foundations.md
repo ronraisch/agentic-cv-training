@@ -88,6 +88,8 @@ A Docker image is a layered filesystem and execution specification. A container 
 
 Build context determines what a Dockerfile can copy. A published port and a process listening on the expected interface are both needed for access. Compose describes connected services for local work; an OpenShift Deployment manages replicas, a Service provides an internal address and a Route exposes the chosen service. Check readiness, requests, logs and a real response instead of equating an accepted manifest with a working deployment.
 
+<a name="start-with-a-case"></a>
+
 ## When the same code runs in a different environment
 
 The shape parser runs correctly from VS Code. Inside the container, it fails to find its input. Nothing in the parser changed: `./data` now refers to a different directory, and the file may not be mounted there at all.

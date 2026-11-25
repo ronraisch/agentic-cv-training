@@ -29,7 +29,7 @@ logs, replay the fixed command shown in the JSON report.
 ## Internal handoff records
 
 The default scope is `handoff`: starter checks plus the coarse components in
-[the readiness template](../templates/readiness.csv). The public template is intentionally
+[the readiness template](../../templates/readiness.csv). The public template is intentionally
 incomplete, so this invocation should exit **2**, not indicate a ready cohort:
 
 ```bash

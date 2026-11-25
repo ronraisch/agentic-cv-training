@@ -4,6 +4,8 @@
 
 Find a chapter by topic. For course videos and assignments, use the [training index](../TRAINING_INDEX.md).
 
+<a name="browse-the-reading-shelf"></a>
+
 ## Chapters
 
 - [Linux, Git, containers and Python foundations](development-foundations.md)

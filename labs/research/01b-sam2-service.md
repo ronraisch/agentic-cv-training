@@ -1,8 +1,12 @@
 # Add SAM2-assisted annotation and deploy your first service
 
+[Development syllabus](../../docs/syllabi/development.md) · [Companion lesson](../../docs/lessons/01-development.md) · Previous: [Labeling](01-polygons.md) · Next: [Classical CV](02-classical-cv.md)
+
 ## Start here
 
-Use the assigned Remote Sensing workspace and OpenShift teaching namespace. The mentor provides approved model files, image/registry paths, a test image and access. Confirm the checkpoint is readable and agree on one prompt with a known expected response shape. Trace one request from image to persisted annotation. If you get stuck, use the [worked example](../../docs/WORKED_EXAMPLES.md#rectangle-and-service).
+Use the assigned Remote Sensing workspace and OpenShift teaching namespace. The mentor provides approved model files, image/registry paths, a test image and access. Confirm the checkpoint is readable and agree on one prompt with a known expected response shape. Trace one request from image to persisted annotation. If you get stuck, use the [worked example](../../docs/reference/WORKED_EXAMPLES.md#rectangle-and-service).
+
+Review [HTTP and service boundaries](../../docs/reading/development-interfaces.md#trace-one-image-from-request-to-response).
 
 ## Goal
 
@@ -92,5 +96,5 @@ Explain image versus container, Deployment versus Service versus Route, and wher
 and annotations persist. Record failures and unverified claims. If an asset or permission is missing,
 mark the required exercise BLOCKED with an owner; it remains required.
 
-[Environment handoff](../../docs/RESEARCH_ENVIRONMENT.md) ·
-[Internal setup](../../docs/GETTING_STARTED_INTERNAL.md)
+[Environment handoff](../../docs/setup/RESEARCH_ENVIRONMENT.md) ·
+[Internal setup](../../docs/setup/GETTING_STARTED_INTERNAL.md)

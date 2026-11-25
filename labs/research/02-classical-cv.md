@@ -1,8 +1,10 @@
 # Rectify a licence plate and stitch two airborne images
 
+[CV syllabus](../../docs/syllabi/cv.md) · [Companion lesson](../../docs/lessons/02-classical-cv.md) · Previous: [First SAM2 service](01b-sam2-service.md) · Next: [Evaluation and ML](03-evaluation-ml.md)
+
 ## Start here
 
-Use the approved research checkout and the mentor-confirmed [CV fixture subset](../../docs/DATASETS.md#classical-cv-and-lpr-evaluation). Open one annotated plate image and one overlapping pair. Run raw LPR first and inspect the crop coordinates. Bring intermediate overlays and a failure case to the first review. If you get stuck, use the [worked example](../../docs/WORKED_EXAMPLES.md#classical-cv).
+Use the approved research checkout and the mentor-confirmed [CV fixture subset](../../docs/reference/DATASETS.md#classical-cv-and-lpr-evaluation). Open one annotated plate image and one overlapping pair. Run raw LPR first and inspect the crop coordinates. Bring intermediate overlays and a failure case to the first review. If you get stuck, use the [worked example](../../docs/reference/WORKED_EXAMPLES.md#classical-cv).
 
 ## Goal and preparation
 
@@ -11,12 +13,14 @@ results that explain how the output was produced, including a failure case.
 
 Read selectively from [the CV syllabus](../../docs/syllabi/cv.md) and
 [the practical CV lesson](../../docs/lessons/02-classical-cv.md).
-Acquire [the CV/LPR subset](../../docs/DATASETS.md#classical-cv-and-lpr-evaluation) using
-[the dataset instructions](../../docs/DATASETS.md#acquire-a-working-subset).
+Acquire [the CV/LPR subset](../../docs/reference/DATASETS.md#classical-cv-and-lpr-evaluation) using
+[the dataset instructions](../../docs/reference/DATASETS.md#acquire-a-working-subset).
+
+Use the chapters on [Hough voting and projective geometry](../../docs/reading/cv-geometry.md) and [matching and warping](../../docs/reading/cv-matching-motion.md) while working through the two tasks.
 
 ## Task 1: rectify a plate before recognition
 
-First run [the supplied raw LPR path](../../docs/COMPONENTS.md#lpr-baseline-and-crop-recognition)
+First run [the supplied raw LPR path](../../docs/reference/COMPONENTS.md#lpr-baseline-and-crop-recognition)
 on your subset. Save its output, model hashes and configuration as the comparison baseline.
 
 The detector returns an axis-aligned box, but the plate inside may be tilted or projectively

@@ -20,7 +20,7 @@ class DemoError(ValueError):
 def missing(asset, path, action):
     return DemoError(
         f"Missing {asset}: {path}. {action} "
-        "See docs/OFFLINE_SETUP.md for preparation, transfer and installation locations. "
+        "See docs/setup/OFFLINE_SETUP.md for preparation, transfer and installation locations. "
         "No runtime download was attempted."
     )
 
@@ -106,12 +106,12 @@ def load_manifest(root):
             if not asset.is_file():
                 raise missing("dataset asset", asset, "Restore it from the approved bundle manifest.")
             if digest(asset) != item["sha256"]:
-                raise DemoError(f"Checksum mismatch: {asset}; restore the approved version. See docs/OFFLINE_SETUP.md")
+                raise DemoError(f"Checksum mismatch: {asset}; restore the approved version. See docs/setup/OFFLINE_SETUP.md")
         return manifest
     except DemoError:
         raise
     except (KeyError, TypeError, ValueError) as error:
-        raise DemoError(f"Invalid dataset manifest: {path}; see docs/DATA_FORMATS.md") from error
+        raise DemoError(f"Invalid dataset manifest: {path}; see docs/reference/DATA_FORMATS.md") from error
 
 
 def pixels(root, sample):
@@ -127,13 +127,13 @@ def pixels(root, sample):
             image = np.asarray(source)
     expected_rank = 3 if sample["kind"] == "image" else 4
     if image.ndim != expected_rank or image.shape[-1] != 3 or image.dtype != np.uint8 or image.size == 0:
-        raise DemoError("Expected RGB uint8 HWC image or THWC video; see docs/DATA_FORMATS.md")
+        raise DemoError("Expected RGB uint8 HWC image or THWC video; see docs/reference/DATA_FORMATS.md")
     return image
 
 
 def validate_annotations(record, width, height, classes=CLASSES):
     if record.get("schema_version") != 1 or not isinstance(record.get("annotations"), list):
-        raise DemoError("Unsupported annotation schema; see docs/DATA_FORMATS.md")
+        raise DemoError("Unsupported annotation schema; see docs/reference/DATA_FORMATS.md")
     for annotation in record["annotations"]:
         if (not isinstance(annotation, dict) or annotation.get("type") != "rectangle"
                 or annotation.get("label") not in classes):
@@ -233,7 +233,7 @@ def video_features(root, sample):
 def video_rows(root, manifest, split):
     selected = [s for s in manifest["samples"] if s["kind"] == "video" and s["split"] == split]
     if not selected:
-        raise DemoError(f"No video samples in {split}; see docs/OFFLINE_SETUP.md")
+        raise DemoError(f"No video samples in {split}; see docs/setup/OFFLINE_SETUP.md")
     features, targets = [], []
     for sample in selected:
         target = np.asarray(sample.get("targets"))
@@ -324,7 +324,7 @@ def load_model(path):
             raise ValueError("nonfinite artifact")
         return arrays, metadata
     except (KeyError, ValueError, OSError) as error:
-        raise DemoError(f"Invalid model artifact: {path}; restore/retrain it. See docs/OFFLINE_SETUP.md#model-artifacts") from error
+        raise DemoError(f"Invalid model artifact: {path}; restore/retrain it. See docs/setup/OFFLINE_SETUP.md#model-artifacts") from error
 
 
 def evaluate(root, model):

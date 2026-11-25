@@ -10,7 +10,7 @@ try:
 except ModuleNotFoundError as error:
     raise SystemExit(
         f"Missing MCP dependency: {error.name}. Install the approved dev/MCP environment; "
-        "see docs/OFFLINE_SETUP.md#python-runtime. No runtime installation was attempted."
+        "see docs/setup/OFFLINE_SETUP.md#python-runtime. No runtime installation was attempted."
     ) from error
 
 

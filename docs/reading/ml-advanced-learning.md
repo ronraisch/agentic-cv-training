@@ -66,6 +66,8 @@ Imagine six uncertain crops. Four are adjacent frames of the same cement truck, 
 
 Sampling strategy changes the distribution of reviewed data. Cases selected for uncertainty are not a representative estimate of overall error. Keep a separate random or deployment-matched audit for evaluation. Use the selected labels for training, and record the selection policy so any improvement can be interpreted.
 
+<a name="start-with-a-case"></a>
+
 ## Choosing the next few examples to label
 
 You have time to label three more images. The three most uncertain predictions are almost identical crops from one video; other candidates cover several different failure groups. Choosing solely by uncertainty may spend the whole budget on nearly the same case.

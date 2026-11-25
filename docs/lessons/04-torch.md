@@ -1,6 +1,7 @@
 # Training and inference fundamentals
 
-Full theory and original course links: [Deep syllabus](../syllabi/deep.md).
+[Deep Learning syllabus](../syllabi/deep.md) · [Oriented detection](../../labs/research/04-oriented-detection.md) · [Ordinary-camera video](../../labs/research/05-video.md) · [RabbitMQ/SAM3](../../labs/research/05b-rabbitmq-sam3-detector.md)
+
 This short lesson supplements that route; reading completion is optional when understanding is demonstrated.
 
 A tensor has shape, dtype, device and possibly an autograd graph. HWC is not CHW: permute changes

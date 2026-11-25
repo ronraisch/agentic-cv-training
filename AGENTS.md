@@ -3,7 +3,7 @@
 
 ## Work on the assigned request
 
-Read [START_HERE](docs/START_HERE.md), the selected assignment and current callers before editing.
+Read [START_HERE](docs/training/START_HERE.md), the selected assignment and current callers before editing.
 Ask product when behavior is unclear; inspect the system before assuming requirements. Keep
 changes bounded. Preserve public report contracts unless a versioned change is agreed.
 Use the approved environment and internal model endpoint. Run application, training and evaluation
@@ -23,4 +23,4 @@ uv run --no-sync researchlab-demo smoke --root artifacts/baseline-check.
 Active documentation is English. References to repository files use clickable relative Markdown
 links resolved from the referring document. Check targets after renames. Runtime dependencies,
 data and models must be available locally; missing assets must name their expected location,
-recovery command and [offline setup instructions](docs/OFFLINE_SETUP.md), without auto-downloading.
+recovery command and [offline setup instructions](docs/setup/OFFLINE_SETUP.md), without auto-downloading.

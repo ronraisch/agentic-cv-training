@@ -53,6 +53,8 @@ A decoder allocates a buffer and returns it to a caller. The caller hands a read
 
 One design transfers exclusive ownership to the queued work. Another makes a copy, which can be reasonable when the data is small. Shared ownership can work if several consumers genuinely need independent lifetimes, at the cost of less obvious release timing. Pick a representation that expresses which component can keep the data and for how long. The right question to ask at review is when the memory can be released, and what proves every consumer is finished.
 
+<a name="start-with-a-case"></a>
+
 ## Copying an address does not copy ownership
 
 Two objects hold the same raw pointer to one allocation. If both believe they own it and both destructors delete it, the second deletion is invalid. Copying the address was easy; deciding what the copy means was the important design question.

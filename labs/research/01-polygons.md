@@ -1,10 +1,12 @@
 # Add polygons and oriented boxes to the labeling application
 
+[Development syllabus](../../docs/syllabi/development.md) · [Companion lesson](../../docs/lessons/01-development.md) · Previous: [OMP and skills setup](00-installations.md#then-prepare-omp-and-skills) · Next: [First SAM2 service](01b-sam2-service.md)
+
 ## Start here
 
-Use the [labeling application](../../docs/BASELINE.md#label-real-imagery) in the assigned checkout.
-Mount the four [real collections](../../docs/DATA_FORMATS.md#labeling-collections) and start on an
-annotated satellite image. Confirm the assigned revision and data mount with the mentor. Create, save and reopen one existing rectangle and locate its downstream consumer. Bring this trace and open product questions to the mentor before implementing. If you get stuck, use the [worked example](../../docs/WORKED_EXAMPLES.md#rectangle-and-service).
+Use the [labeling application](../../docs/reference/BASELINE.md#label-real-imagery) in the assigned checkout.
+Mount the four [real collections](../../docs/reference/DATA_FORMATS.md#labeling-collections) and start on an
+annotated satellite image. Confirm the assigned revision and data mount with the mentor. Create, save and reopen one existing rectangle and locate its downstream consumer. Bring this trace and open product questions to the mentor before implementing. If you get stuck, use the [worked example](../../docs/reference/WORKED_EXAMPLES.md#rectangle-and-service).
 
 ## The request
 
@@ -37,5 +39,5 @@ Separate behaviour you actually verified from assumptions or paths you have not 
 Continue with [the required SAM2 annotation service](01b-sam2-service.md).
 Its separate initial allocation is 16 hours.
 
-[Labeling data](../../docs/DATASETS.md#labeling-application) ·
-[Acquisition steps](../../docs/DATASETS.md#acquire-a-working-subset)
+[Labeling data](../../docs/reference/DATASETS.md#labeling-application) ·
+[Acquisition steps](../../docs/reference/DATASETS.md#acquire-a-working-subset)

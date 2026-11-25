@@ -33,13 +33,7 @@ Recommended first-pass study: 10–14 active hours; viewing/reflection: 3–5 ac
 
 ## Practical work
 
-- [Setup](../../labs/research/00-installations.md)
-
-- [Manual Python capstone](../../labs/research/00-python-manual.md)
-
-- [Labeling/polygons](../../labs/research/01-polygons.md)
-
-- [First SAM2 service](../../labs/research/01b-sam2-service.md)
+Follow the [current syllabus assignment sequence](../syllabi/development.md#practical-work).
 
 Read selectively before and during implementation; discuss hypotheses with your agent, verify one counterexample and explain the evidence yourself. The manual Python capstone and first SAM2 service retain their existing manual rules.
 

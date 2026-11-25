@@ -2,6 +2,8 @@
 
 [Chapter index](index.md) · [Source coverage](sources.md)
 
+Companion lab: [Ordinary-camera video](../../labs/research/05-video.md).
+
 A video is a sequence of frames. A frame classifier can answer a question about one picture. A clip model also has to decide what information to preserve across time. Average appearance is enough for some questions, while direction, duration and order are essential for others.
 
 <details>
@@ -24,6 +26,8 @@ A video is a sequence of frames. A frame classifier can answer a question about 
 ## Time changes the task
 
 A frame model sees appearance at one time. A video model may need action order, duration, motion and interactions. A sequence has timestamps, sampling rate and possibly gaps. Uniformly taking every tenth frame means a different temporal interval at different frame rates. Define whether the output is per clip, per frame, per track or an event with start/end boundaries.
+
+<a name="start-with-a-case"></a>
 
 ## The same frames can describe opening or closing
 

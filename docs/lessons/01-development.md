@@ -1,6 +1,7 @@
 # Development in a research monorepo
 
-Full theory and original course links: [Development syllabus](../syllabi/development.md).
+[Development syllabus](../syllabi/development.md) · [Workspace setup](../../labs/research/00-installations.md) · [Manual Python](../../labs/research/00-python-manual.md) · [Labeling](../../labs/research/01-polygons.md) · [First SAM2 service](../../labs/research/01b-sam2-service.md)
+
 This short lesson supplements that route; reading completion is optional when understanding is demonstrated.
 
 Read Python functions, imports, exceptions, context managers, iterators, mutation and classes.
@@ -27,7 +28,7 @@ Keep context bounded, verify installed APIs and read the semantic diff yourself.
 Submit one reviewable change with reproducible commands, commit, input ID and observed output.
 An initial green smoke suite is a baseline, not proof of scientific correctness. Do not turn
 service failures into plausible empty results. Distinguish observed code, executed paths, inferred
-requirements and unverified integration. See [ENGINEERING.md](../ENGINEERING.md) and [AGENT_WORK.md](../AGENT_WORK.md) for deeper examples.
+requirements and unverified integration. See [ENGINEERING.md](../reference/ENGINEERING.md) and [AGENT_WORK.md](../reference/AGENT_WORK.md) for deeper examples.
 
 Self-check: predict a join with duplicate keys, explain a mutated view, and trace a request through
 its actual boundaries. Use the agent to learn the concept, then explain a new input without it.

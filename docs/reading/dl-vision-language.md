@@ -90,6 +90,8 @@ The matched pairs lie on the diagonal. At inference, the text encoder embeds pro
 
 </details>
 
+<a name="start-with-a-case"></a>
+
 ## When the best text match names an absent object
 
 An image encoder gives “red car” a higher similarity than “bicycle.” If these are the only candidates, red car wins. It may still be absent: the comparison ranks supplied descriptions rather than establishing that one must be true.

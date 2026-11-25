@@ -16,7 +16,7 @@ def main(argv=None):
         path = args.data / name
         if not path.is_file():
             print(f"Missing catalog file: {path}. Expected CSV columns {schema}. "
-                  "Mount an approved catalog at --data PATH. See docs/DATA_FORMATS.md#retrieval-catalog.",
+                  "Mount an approved catalog at --data PATH. See docs/reference/DATA_FORMATS.md#retrieval-catalog.",
                   file=sys.stderr)
             return 2
     if args.query is None or args.top_k < 1:
@@ -30,11 +30,11 @@ def main(argv=None):
                           np.asarray(args.query), k=args.top_k)
     except ModuleNotFoundError as error:
         print(f"Missing dependency: {error.name}. Install the approved locked environment; "
-              "see docs/OFFLINE_SETUP.md#python-runtime.", file=sys.stderr)
+              "see docs/setup/OFFLINE_SETUP.md#python-runtime.", file=sys.stderr)
         return 2
     except (ValueError, KeyError, AttributeError, OSError) as error:
         print(f"Invalid catalog or query at {args.data}: {error}. "
-              "See docs/DATA_FORMATS.md#retrieval-catalog.", file=sys.stderr)
+              "See docs/reference/DATA_FORMATS.md#retrieval-catalog.", file=sys.stderr)
         return 2
     print(json.dumps(result, indent=2))
     return 0

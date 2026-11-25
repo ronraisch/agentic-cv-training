@@ -66,6 +66,8 @@ If the second match is off by one pixel, the 40-meter estimate can jump to 30 or
 
 A monocular network can learn depth-related priors from data, but the image alone does not uniquely determine metric depth in every scene. A model may infer typical object size or camera height and fail when those priors change. Relative depth ordering and metric depth are different targets. Aligning predictions to ground truth with a fitted scale/shift changes what the metric claims; declare that protocol. Evaluate boundaries, reflective surfaces, occlusions and depth ranges rather than one global mean.
 
+<a name="start-with-a-case"></a>
+
 ## How a small disparity error changes depth
 
 In an ideal rectified stereo pair, depth follows $Z=\frac{fB}{d}$. With a focal length of 100 pixels and a one-metre baseline, a disparity of ten pixels corresponds to ten metres. A disparity of nine pixels corresponds to about 11.1 metres.

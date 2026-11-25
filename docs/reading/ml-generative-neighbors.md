@@ -49,6 +49,8 @@ Suppose one in four vehicles in the training sample is a truck. Three out of fou
 
 Copy the feature into a second column and a Naive Bayes model can multiply by the same likelihood a second time. The weights become 0.25 × 0.75² and 0.75 × 0.25². Normalizing now gives a truck probability of 0.75. The observation did not change. The model treated the two columns as separate pieces of evidence, which shows why its class decisions and the calibration of its probabilities deserve separate checks.
 
+<a name="start-with-a-case"></a>
+
 ## What happens when the same evidence appears twice
 
 A classifier uses one feature indicating that a vehicle is large. Someone adds a second column containing exactly the same feature. The dataset now has two columns, but it has gained no new observation.

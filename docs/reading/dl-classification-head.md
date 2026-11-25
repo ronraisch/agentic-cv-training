@@ -29,6 +29,8 @@ The scores can be negative and their sum need not be one. With mutually exclusiv
 
 If an image can contain both a truck and a car, one label no longer excludes the other. A multi-label head can have one independent logit per category, trained with a binary loss for each known label. Apply a sigmoid and decide a threshold for each category. A missing label can mean either “absent” or “unknown” depending on your dataset. That distinction changes which loss terms you can trust.
 
+<a name="cnn-and-transformer"></a>
+
 ## CNN and Transformer inputs
 
 | Backbone output | How the head gets a vector | What it throws away |
@@ -38,6 +40,8 @@ If an image can contain both a truck and a car, one label no longer excludes the
 | Spatial ViT tokens, B × N × D | Mean-pool the valid patches if that matches your head design | Which patch supplied a feature |
 
 A crop head can reuse a detector's proposals. First obtain a representation per region, from a crop encoder or by pooling a region of a shared map. Then classify each proposal independently. Changing that classifier can recover misclassified proposals, but a missed proposal never reaches the classifier.
+
+<a name="linear-probe"></a>
 
 ## What a frozen linear probe tells you
 

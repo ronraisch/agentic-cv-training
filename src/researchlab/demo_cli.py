@@ -20,7 +20,7 @@ def main(argv=None):
     args = parser.parse_args(argv)
     if importlib.util.find_spec("numpy") is None:
         print("Missing Python dependency: numpy. Install the approved locked environment before running. "
-              "See docs/OFFLINE_SETUP.md#python-runtime; no public installation was attempted.", file=sys.stderr)
+              "See docs/setup/OFFLINE_SETUP.md#python-runtime; no public installation was attempted.", file=sys.stderr)
         return 2
     if args.root is None:
         if args.command in {"serve", "check-data", "import-labels"}:
@@ -28,7 +28,7 @@ def main(argv=None):
         elif args.command == "smoke":
             args.root = Path("artifacts/baseline-check")
         else:
-            parser.error("specify --root PATH for the local bundle; see docs/DATA_FORMATS.md")
+            parser.error("specify --root PATH for the local bundle; see docs/reference/DATA_FORMATS.md")
     from researchlab import demo
     model = args.model or args.root / "models/baseline.npz"
     try:
@@ -77,7 +77,7 @@ def main(argv=None):
         print(json.dumps(result, indent=2))
         return 0
     except (demo.DemoError, OSError, ValueError, KeyError, TypeError, ImportError, RuntimeError) as error:
-        print(f"ERROR: {error}\nSetup and asset locations: docs/OFFLINE_SETUP.md", file=sys.stderr)
+        print(f"ERROR: {error}\nSetup and asset locations: docs/setup/OFFLINE_SETUP.md", file=sys.stderr)
         return 2
 
 

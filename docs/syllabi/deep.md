@@ -1,6 +1,6 @@
 # 4 · Deep learning, open models and video
 
-[Training index](../TRAINING_INDEX.md)
+[CV, ML & Deep Learning](../training/RESEARCH.md) · Previous: [Machine learning](ml.md)
 
 ## Topics and local reading
 
@@ -23,9 +23,11 @@
 
 - [YOLO11 oriented detection and experiments](../../labs/research/04-oriented-detection.md)
 - [Cloud segmentation proposal](../../labs/research/04-clouds.md)
-- [Ordinary-camera video](../../labs/research/05-video.md)
+- [Ordinary-camera video](../../labs/research/05-video.md), including the [open-model probe](../lessons/07-open-models.md#one-hour-intuition-probe-not-three-deployments) before the baseline
 - [RabbitMQ/SAM3 and detector training](../../labs/research/05b-rabbitmq-sam3-detector.md)
 - [Operational handover](../../labs/research/06-handover.md)
+
+Companion lessons: [Training and inference](../lessons/04-torch.md) · [Cloud segmentation](../lessons/05-clouds.md) · [Video](../lessons/06-video.md) · [Open models](../lessons/07-open-models.md).
 
 ## Viewing and study
 

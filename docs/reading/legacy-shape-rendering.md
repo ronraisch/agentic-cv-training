@@ -2,6 +2,8 @@
 
 [Chapter index](index.md) · [Source coverage](sources.md)
 
+Companion lab: [Manual Shape Rendering](../../labs/research/00-python-manual.md).
+
 **Reading is for you; page completion is optional.** If you can explain the concepts and answer the mentor's questions yourself, that is enough. Use these pages and the course videos to deepen understanding during the exercises with your approved agent. [Learning route and manual-work boundaries](index.md).
 
 <details>
@@ -512,6 +514,8 @@ You should determine a terminating scenario (base case)
 The fractal definition should be consistent with any other complex shape
 
 <br>
+
+<a name="appendix-sample-xml-input-file"></a>
 
 ## Appendix - Sample XML Input File
 

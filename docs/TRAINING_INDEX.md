@@ -1,12 +1,10 @@
 # Training index
 
-| Syllabus | Practical work |
-| --- | --- |
-| [Development](syllabi/development.md) | Setup, manual Python, polygons and first SAM2 service |
-| [Computer vision](syllabi/cv.md) | License plate rectification and two-image stitching |
-| [Machine learning](syllabi/ml.md) | License plate recognition evaluation, motion classification and detection rescoring |
-| [Deep learning](syllabi/deep.md) | YOLO11 OBB upgrade, cloud proposal, ordinary-camera video, RabbitMQ/SAM3 and inference handover |
+[Repository home](../README.md) · [Start here](training/START_HERE.md) · [Trainee guide](training/TRAINEE_GUIDE.md)
 
-Each syllabus links directly to its chapters, videos and exercises.
+1. **[Development](syllabi/development.md)** builds the workspace and engineering foundations. Set up Python, complete Shape Rendering by hand, configure OMP after sign-off, extend the labeling application and deploy the first SAM2 service by hand.
+2. **[CV, ML & Deep Learning](training/RESEARCH.md)** applies those foundations. Start with classical CV, continue through ML evaluation and modeling, then complete the deep learning, video and handover work.
 
-[Trainee guide](TRAINEE_GUIDE.md) · [Mentor sessions](READING_AND_SESSIONS.md#two-conversations-for-each-part) · [Chapter index](reading/index.md)
+Use each syllabus for theory, practical work, viewing and mentor conversation topics. The [trainee guide](training/TRAINEE_GUIDE.md#total-time-and-waiting) owns the time budget, and the [mentor guide](mentor/CURRICULUM.md) covers scheduling and readiness.
+
+[Environment and setup](setup/README.md) · [Technical reference](reference/README.md)

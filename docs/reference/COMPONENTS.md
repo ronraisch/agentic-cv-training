@@ -4,7 +4,7 @@ The workspace supplies a plate detector and recognizer, vehicle detector, trackl
 JSONL exports for the LPR, motion and rescoring assignments. The trainee obtains and inspects
 the datasets using [the acquisition instructions](DATASETS.md#acquire-a-working-subset), then
 implements the assigned preprocessing or learned head. Existing components are in
-[components.py](../src/researchlab/components.py).
+[components.py](../../src/researchlab/components.py).
 
 ## Installation and models
 
@@ -82,7 +82,7 @@ uv run --no-sync researchlab-components recognize --root .local/models \
 
 Do not replace detector crops with GT corners on the inference path. Preserve the raw baseline
 and use the same models/data for the comparison. The geometry and evaluation work remain the
-[part-2](../labs/research/02-classical-cv.md) and [part-3](../labs/research/03-evaluation-ml.md) assignments.
+[part-2](../../labs/research/02-classical-cv.md) and [part-3](../../labs/research/03-evaluation-ml.md) assignments.
 
 ## Vehicle predictions for rescoring
 
