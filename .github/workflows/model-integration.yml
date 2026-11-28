@@ -1,0 +1,77 @@
+name: model-integration
+on:
+  pull_request:
+    paths: &integration_paths
+      - ".github/workflows/model-integration.yml"
+      - "src/**"
+      - "tests/**"
+      - "pyproject.toml"
+      - "uv.lock"
+  push:
+    branches: [main]
+    paths: *integration_paths
+  schedule:
+    - cron: "23 5 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  components:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --locked --extra dev --extra components
+      - name: Cache frozen ONNX models
+        uses: actions/cache@v4
+        with:
+          path: .local/models
+          key: frozen-models-${{ hashFiles('src/researchlab/components.py') }}
+      - name: Prepare and verify the frozen models
+        run: |
+          # The fetch command verifies cached files and keeps each completed model across retries.
+          for attempt in 1 2 3; do
+            if uv run --no-sync researchlab-components fetch --root .local/models; then
+              exit 0
+            fi
+            if [ "$attempt" -lt 3 ]; then
+              sleep "$((5 * attempt))"
+            fi
+          done
+          exit 1
+      - name: Download the plate test image
+        run: |
+          curl --fail --location --retry 3 --retry-max-time 90 --max-time 120 \
+            https://raw.githubusercontent.com/ankandrew/fast-alpr/c5a94706f175590b2bc09aa86f46182d4c267fae/assets/test_image.png \
+            --output .local/sample.png
+      - run: uv run --no-sync pytest tests/test_components.py
+        env:
+          RESEARCHLAB_COMPONENT_MODELS: ${{ github.workspace }}/.local/models
+          RESEARCHLAB_COMPONENT_IMAGE: ${{ github.workspace }}/.local/sample.png
+
+  detector:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --locked --extra dev --extra detector
+      - name: Prepare COCO8 images and the Ultralytics font
+        env:
+          YOLO_CONFIG_DIR: ${{ runner.temp }}/yolo-config
+        run: |
+          mkdir -p "$YOLO_CONFIG_DIR"
+          curl --fail --location --retry 3 --retry-max-time 90 --max-time 120 \
+            https://github.com/ultralytics/assets/releases/download/v0.0.0/Arial.ttf \
+            --output "$YOLO_CONFIG_DIR/Arial.ttf"
+          curl --fail --location --retry 3 --retry-max-time 90 --max-time 120 \
+            https://github.com/ultralytics/assets/releases/download/v0.0.0/coco8.zip \
+            --output "$RUNNER_TEMP/coco8.zip"
+          unzip -q "$RUNNER_TEMP/coco8.zip" -d "$RUNNER_TEMP"
+      - run: uv run --no-sync pytest tests/test_detector.py
+        env:
+          YOLO_CONFIG_DIR: ${{ runner.temp }}/yolo-config
+          RESEARCHLAB_COCO8: ${{ runner.temp }}/coco8
