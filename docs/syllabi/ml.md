@@ -17,6 +17,8 @@
 
 - [LPR evaluation, tracklets and rescoring](../../labs/research/03-evaluation-ml.md)
 
+Companion lesson: [Evaluation and ML lesson](../lessons/03-metrics-ml.md).
+
 ## Viewing and study
 
 Recommended first-pass study: 14–22 h; viewing/reflection: 3–5 h. These ranges are estimates, not hard caps or measured course runtimes. Record actual effort and deepen unfamiliar subjects.

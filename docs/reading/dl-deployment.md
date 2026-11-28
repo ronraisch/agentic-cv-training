@@ -2,6 +2,8 @@
 
 [Chapter index](index.md) · [Source coverage](sources.md)
 
+Companion lab: [Operational handover](../../labs/research/06-handover.md).
+
 An inference request starts before the model runs and ends after a usable result has been returned. It can involve decoding an image, moving data, running the model and merging predictions. Knowing where time and memory are spent helps you choose which change to evaluate.
 
 For a worked example of choosing a frozen feature layer before fine-tuning, see [Feature maps: what the backbone keeps](dl-feature-maps.md#transfer-learning).
@@ -77,6 +79,8 @@ Suppose an image arrives, is decoded and tiled, passes through an encoder and th
 Run representative image sizes and record warm-up conditions, batch sizes and queueing. A batch can increase images processed per second while making an individual request wait for the batch to fill. Throughput and latency therefore answer different questions. Memory also needs its own measurement because a larger batch may improve throughput until it exceeds the device budget.
 
 Once the slow stage is known, compare a single change with the same inputs and output-quality criteria. For example, a faster encoder may have little effect when merging dominates. A change in tiling can speed both stages and still harm recall of tiny objects. Measure the tradeoff that the application would actually experience.
+
+<a name="start-with-a-case"></a>
 
 ## Where an inference request spends its time
 

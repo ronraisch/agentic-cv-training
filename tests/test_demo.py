@@ -113,14 +113,14 @@ def test_missing_assets_stop_with_path_and_setup_instructions(tmp_path, capsys, 
     assert demo_cli.main([command, "--root", str(root), "--model", str(model), "--sample", "video-030"]) == 2
     error = capsys.readouterr().err
     assert str(root) in error
-    assert "docs/OFFLINE_SETUP.md" in error
+    assert "docs/setup/OFFLINE_SETUP.md" in error
     assert "No runtime download was attempted" in error
 
 
 def test_missing_python_dependency_has_offline_remediation(monkeypatch, capsys):
     monkeypatch.setattr(importlib.util, "find_spec", lambda module: None)
     assert demo_cli.main(["train"]) == 2
-    assert "docs/OFFLINE_SETUP.md#python-runtime" in capsys.readouterr().err
+    assert "docs/setup/OFFLINE_SETUP.md#python-runtime" in capsys.readouterr().err
 
 
 def test_bundle_groups_and_file_checksums_are_checked(tmp_path):
@@ -145,7 +145,7 @@ def test_catalog_missing_fixture_has_recovery_message(tmp_path, capsys):
     assert main(["--data", str(tmp_path)]) == 2
     message = capsys.readouterr().err
     assert str(tmp_path / "samples.csv") in message
-    assert "docs/DATA_FORMATS.md" in message
+    assert "docs/reference/DATA_FORMATS.md" in message
 
 
 def test_labeling_refuses_incomplete_or_invalid_mount(tmp_path, capsys):

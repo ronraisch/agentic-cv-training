@@ -47,6 +47,8 @@ Now replace the row by a step, such as `[0, 0, 9, 9, 9]`. At the transition, an 
 
 For an LPR crop, evaluate the impact on the recognizer as well as the filtered pixels. Smoothing may make a noisy background more stable and also erase a narrow stroke. An edge detector applied after smoothing inherits both changes.
 
+<a name="start-with-a-case"></a>
+
 ## Smoothing a plate changes the evidence
 
 A bright pixel in a dark region may be sensor noise. A thin bright stroke may be part of a licence-plate character. A smoothing filter does not know the difference: it combines neighbouring intensities in both cases.

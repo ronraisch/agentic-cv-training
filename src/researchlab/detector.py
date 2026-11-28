@@ -19,7 +19,7 @@ from researchlab import demo, label_data
 def runtime():
     if importlib.util.find_spec("ultralytics") is None:
         raise demo.DemoError("Missing dependency: ultralytics. Install the locked detector extra; "
-                             "see docs/OFFLINE_SETUP.md#detector-runtime.")
+                             "see docs/setup/OFFLINE_SETUP.md#detector-runtime.")
     os.environ["YOLO_AUTOINSTALL"] = "false"
     os.environ["YOLO_OFFLINE"] = "true"
     from ultralytics import YOLO, settings
@@ -32,7 +32,7 @@ def load(path):
     path = Path(path)
     if not path.is_file():
         raise demo.missing("YOLO checkpoint or architecture", path,
-                           "Supply an approved local YOLO11 artifact. See docs/DETECTOR.md.")
+                           "Supply an approved local YOLO11 artifact. See docs/reference/DETECTOR.md.")
     if path.suffix.lower() not in {".pt", ".yaml"}:
         raise demo.DemoError(f"{path}: expected a local YOLO .pt checkpoint or .yaml architecture")
     return runtime()(str(path.resolve()))
@@ -120,7 +120,7 @@ def read_export(directory):
     meta_path = directory / "export.json"
     for path in (config_path, meta_path):
         if not path.is_file():
-            raise demo.missing("detector export", path, "Run researchlab-detector export; see docs/DETECTOR.md.")
+            raise demo.missing("detector export", path, "Run researchlab-detector export; see docs/reference/DETECTOR.md.")
     meta = json.loads(meta_path.read_text())
     config = json.loads(config_path.read_text())
     expected = {"path": str(directory), "train": "images/train", "val": "images/validation",
@@ -152,7 +152,7 @@ def train(data, model, output, *, epochs=10, batch=8, imgsz=640, device="cpu"):
     if not font_path.is_file() and not any(Path(path).name == font for path in font_manager.findSystemFonts()):
         raise demo.missing("Ultralytics font", font_path,
                            f"Stage the approved {font} in this directory or set YOLO_CONFIG_DIR "
-                           "to the directory containing it. See docs/DETECTOR.md.")
+                           "to the directory containing it. See docs/reference/DETECTOR.md.")
     # Teaching baseline: fixed-LR SGD and aspect-ratio-sorted, unshuffled batches.
     yolo.train(data=str(directory / "dataset.yaml"), project=str(output.parent), name=output.name,
                epochs=epochs, batch=batch, imgsz=imgsz, device=device, optimizer="SGD",
@@ -333,7 +333,7 @@ def main(argv=None):
         print(json.dumps(result, indent=2))
         return 0
     except (ValueError, OSError, KeyError, RuntimeError, ImportError) as error:
-        print(f"ERROR: {error}\nSee docs/OFFLINE_SETUP.md#detector-runtime", file=sys.stderr)
+        print(f"ERROR: {error}\nSee docs/setup/OFFLINE_SETUP.md#detector-runtime", file=sys.stderr)
         return 2
 
 

@@ -39,6 +39,8 @@ Basic slices often return views. If `b = a[:, :3]`, editing b may change a. Adva
 
 Broadcasting aligns shapes from the right. Dimensions are compatible if they are equal or one is 1. For an N-by-D feature matrix, a length-D mean can be subtracted per feature. A length-N vector is not automatically a column of sample weights: reshape it to N-by-1. With N equal to D, the wrong operation may run successfully and normalize the wrong axis. Design a non-square counterexample. Vectorized code moves loops into efficient implementations, but materializing N-by-N distances can use far more memory than chunked computation.
 
+<a name="start-with-a-case"></a>
+
 ## A square array can hide a normalization bug
 
 Consider two objects described by three features: `[[1,10,100],[3,30,300]]`. To centre each feature, subtract its mean across objects. The means are `[2,20,200]`, so the two centred rows should be `[-1,-10,-100]` and `[1,10,100]`.

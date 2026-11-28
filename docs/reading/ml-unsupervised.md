@@ -117,6 +117,8 @@ t-SNE emphasizes local neighbor relationships by matching probability distributi
 
 UMAP constructs a weighted neighborhood graph and optimizes a low-dimensional representation. Neighbor count and minimum distance change the local/global appearance. It can provide useful projections and transformations, but a clean picture remains a model output. Validate meaningful neighborhood structure in the original representation and with actual examples. Do not use a visually separated t-SNE figure as evidence that a classifier will generalize to new sensors.
 
+<a name="start-with-a-case"></a>
+
 ## Two clusters, two possible explanations
 
 An embedding plot separates a dataset into two attractive islands. Looking at the images reveals that one island is bright and the other dark; both contain cars and trucks. The grouping is real, but it may not reflect the distinction we wanted.

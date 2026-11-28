@@ -16,6 +16,8 @@
 
 - [LPR rectification and two-image stitching](../../labs/research/02-classical-cv.md)
 
+Companion lesson: [Classical CV lesson](../lessons/02-classical-cv.md).
+
 ## Viewing and study
 
 Recommended first-pass study: 12–18 h; viewing/reflection: 8–12 h. These ranges are estimates, not hard caps or measured course runtimes. Record actual effort and deepen unfamiliar subjects.

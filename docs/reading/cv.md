@@ -33,7 +33,7 @@ Recommended first-pass study: 12–18 active hours; viewing/reflection: 8–12 a
 
 ## Practical work
 
-- [LPR rectification and two-image stitching](../../labs/research/02-classical-cv.md)
+Follow the [current syllabus assignment sequence](../syllabi/cv.md#practical-work).
 
 Read selectively before and during implementation; discuss hypotheses with your agent, verify one counterexample and explain the evidence yourself. The manual Python capstone and first SAM2 service retain their existing manual rules.
 

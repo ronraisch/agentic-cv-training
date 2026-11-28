@@ -1,8 +1,10 @@
 # Evaluate a change and train two small classical models
 
+[ML syllabus](../../docs/syllabi/ml.md) · [Companion lesson](../../docs/lessons/03-metrics-ml.md) · Previous: [Classical CV](02-classical-cv.md) · Next: [Oriented detection](04-oriented-detection.md)
+
 ## Start here
 
-Use the approved research workspace. Get the frozen component versions and [prepared subset](../../docs/DATASETS.md#evaluation-and-classical-ml), or confirm which acquisition steps you own. Open one plate case, one tracklet sequence and one detector/GT pair. Agree on the split unit, target and denominator before scoring. If you get stuck, use the [worked example](../../docs/WORKED_EXAMPLES.md#ml-evaluation).
+Use the approved research workspace. Get the frozen component versions and [prepared subset](../../docs/reference/DATASETS.md#evaluation-and-classical-ml), or confirm which acquisition steps you own. Open one plate case, one tracklet sequence and one detector/GT pair. Agree on the split unit, target and denominator before scoring. If you get stuck, use the [worked example](../../docs/reference/WORKED_EXAMPLES.md#ml-evaluation).
 
 ## Goal and preparation
 
@@ -11,8 +13,10 @@ rescorer. A well-supported non-improvement is a valid result.
 
 Use [the ML syllabus](../../docs/syllabi/ml.md),
 [the practical lesson](../../docs/lessons/03-metrics-ml.md) and
-[the prepared data sources](../../docs/DATASETS.md#evaluation-and-classical-ml).
-Follow [the acquisition steps](../../docs/DATASETS.md#acquire-a-working-subset).
+[the prepared data sources](../../docs/reference/DATASETS.md#evaluation-and-classical-ml).
+Follow [the acquisition steps](../../docs/reference/DATASETS.md#acquire-a-working-subset).
+
+Review [grouped splits and reliable validation](../../docs/reading/ml-bias-validation.md#split-by-the-actual-independence-unit) before fixing your evaluation design.
 
 ## Task 1: did plate rectification help?
 
@@ -28,7 +32,7 @@ For example, five boxes following the same car across five frames form one track
 supplied per-frame export, gather its observations by `(sequence_id, track_id)` and order them
 by timestamp. Check for gaps or switches to another object before computing motion features.
 
-Use [the supplied tracklet producer](../../docs/COMPONENTS.md#tracklets-for-motion-classification)
+Use [the supplied tracklet producer](../../docs/reference/COMPONENTS.md#tracklets-for-motion-classification)
 or a documented frozen export. Acquire videos and label motion independently; implementing or
 retraining the detector/tracker is not part of this exercise.
 
@@ -38,7 +42,7 @@ feature computation and model, and verify inference after loading the selected a
 
 ## Task 3: rescore frozen detections
 
-Use [the vehicle prediction export](../../docs/COMPONENTS.md#vehicle-predictions-for-rescoring)
+Use [the vehicle prediction export](../../docs/reference/COMPONENTS.md#vehicle-predictions-for-rescoring)
 with independent ground truth. Record the source-to-target class mapping and box representation.
 
 Learn a new score from the detector's original score and useful image/detection metadata.

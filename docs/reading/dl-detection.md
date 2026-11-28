@@ -41,6 +41,8 @@ Now suppose one car is partly occluded and two predicted boxes overlap its neigh
 
 When a detector misses one car, inspect the earliest stage at which its evidence disappears. A model can have enough capacity to classify a crop accurately and still never propose a usable crop in a dense scene.
 
+<a name="start-with-a-case"></a>
+
 ## Finding the stage that lost an object
 
 Eight objects are visible in an image, but only three usable proposals reach the classifier. Even a perfect classifier at that point can recover at most three of the eight objects in this toy example.

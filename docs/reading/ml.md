@@ -34,7 +34,7 @@ Recommended first-pass study: 14–22 active hours; viewing/reflection: 3–5 ac
 
 ## Practical work
 
-- [LPR evaluation, tracklets and rescoring](../../labs/research/03-evaluation-ml.md)
+Follow the [current syllabus assignment sequence](../syllabi/ml.md#practical-work).
 
 Read selectively before and during implementation; discuss hypotheses with your agent, verify one counterexample and explain the evidence yourself. The manual Python capstone and first SAM2 service retain their existing manual rules.
 

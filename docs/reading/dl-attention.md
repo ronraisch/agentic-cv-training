@@ -27,6 +27,8 @@ A model reading a sentence or a picture receives a collection of input units. A 
 
 </details>
 
+<a name="why-transformers"></a>
+
 ## Why translation led to the Transformer
 
 Translate “The truck that passed the two cars *was* red.” To choose the verb form, a model needs the singular subject *truck*, even though the nearest noun, *cars*, is plural. To place words correctly in the output language, it also needs a way to look back at the source while it is writing the translation.
@@ -72,6 +74,8 @@ Give the three positions scalar values of 10, 20 and 30. The output is the weigh
 | Mask a position | Which positions contribute and how the remaining weights are normalized |
 
 In a real layer there are many queries, and the values are vectors. The same calculation runs for each query. Tracking the score matrix as query positions by key positions is especially helpful when constructing masks.
+
+<a name="start-with-a-case"></a>
 
 ## Separating where attention looks from what it reads
 
@@ -137,6 +141,8 @@ The comparisons alone do not tell the model where a token appeared. Ordinary sel
 
 A Transformer block also includes feedforward layers, residual connections and normalization. An encoder typically permits bidirectional context. An autoregressive decoder uses causal attention, and an encoder-decoder architecture additionally connects decoder queries to encoder memory. “Decoder” names an architectural role and does not mean every decoder performs text generation. A DETR decoder produces object representations through a related but task-specific design.
 
+<a name="original-transformer"></a>
+
 ## Walk through the original encoder and decoder
 
 Think of the encoder as preparing a searchable version of the source. The decoder maintains a representation of the answer so far. It consults the source at each decoder layer and eventually produces a score for every token that could come next.
@@ -198,6 +204,8 @@ Why does the training decoder need both shifted inputs and a causal mask?
 Shifting makes the current input token the previous output token. The mask prevents a position from looking at later inputs, where the answer it is supposed to predict is already present. Together they let the model train on a whole sequence while respecting the same information boundary as generation.
 
 </details>
+
+<a name="transformer-families"></a>
 
 ## Which part would you use?
 

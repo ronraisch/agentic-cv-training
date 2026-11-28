@@ -1,6 +1,7 @@
 # Classical CV for plates and airborne imagery
 
-Full theory and original course links: [Cv syllabus](../syllabi/cv.md).
+[CV syllabus](../syllabi/cv.md) · [Plate rectification and stitching](../../labs/research/02-classical-cv.md)
+
 This short lesson supplements that route; reading completion is optional when understanding is demonstrated.
 
 ## Filtering and coordinates

@@ -1,8 +1,10 @@
 # Build the shape renderer by hand
 
+[Development syllabus](../../docs/syllabi/development.md) · [Companion lesson](../../docs/lessons/01-development.md) · Previous: [Workspace setup](00-installations.md#first-prepare-python-and-complete-the-manual-exercise) · Next: [After mentor sign-off, OMP and skills setup](00-installations.md#then-prepare-omp-and-skills)
+
 ## Start here
 
-Use the assigned Python workspace in your pod. Open the inline XML from the [handout](../../docs/reading/legacy-shape-rendering.md) and ask the mentor for any separate panda fixtures. Save and reopen one render as your first check. Bring one valid and one malformed input to review. Python approval releases OMP setup. If you get stuck, use the [worked example](../../docs/WORKED_EXAMPLES.md#python-modularity).
+Use the assigned Python workspace in your pod. Open the inline XML from the [handout](../../docs/reading/legacy-shape-rendering.md) and ask the mentor for any separate panda fixtures. Save and reopen one render as your first check. Bring one valid and one malformed input to review. Python approval releases OMP setup. If you get stuck, use the [worked example](../../docs/reference/WORKED_EXAMPLES.md#python-modularity).
 
 ## Goal and starting point
 
@@ -15,7 +17,7 @@ Use the XML grammar and expected drawings in the handout, including the panda ex
 ## How to work
 
 Work in your own pod through VS Code with Python/uv, Artifactory, interpreter and debugger ready.
-Use [the internal setup guide](../../docs/GETTING_STARTED_INTERNAL.md) if needed.
+Use [the internal setup guide](../../docs/setup/GETTING_STARTED_INTERNAL.md) if needed.
 
 Write, debug and refactor the code yourself. Keep coding agents and AI completion inactive;
 do not install, update or configure OMP until review is complete. Documentation and mentor

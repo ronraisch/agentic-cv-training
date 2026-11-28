@@ -26,7 +26,7 @@ def handler(root, model):
               for sample_id, sample in samples.items()}
     if model is not None:
         if Path(model).suffix.lower() != ".pt":
-            raise demo.DemoError(f"{model}: serve expects a trained local YOLO .pt checkpoint. See docs/DETECTOR.md")
+            raise demo.DemoError(f"{model}: serve expects a trained local YOLO .pt checkpoint. See docs/reference/DETECTOR.md")
         from researchlab.detector import load
         predictor = load(model)
         model_sha256 = demo.digest(model)
@@ -69,7 +69,7 @@ def handler(root, model):
                 else:
                     self.send(404, {"error": "Unknown route"})
             except (demo.DemoError, ValueError, OSError) as error:
-                self.send(400, {"error": str(error), "setup": "docs/OFFLINE_SETUP.md"})
+                self.send(400, {"error": str(error), "setup": "docs/setup/OFFLINE_SETUP.md"})
 
         def do_POST(self):
             try:
@@ -93,7 +93,7 @@ def handler(root, model):
                         self.send(404, {"error": "Unknown image ID"})
                     elif predictor is None:
                         self.send(400, {"error": "Supply a local YOLO checkpoint with serve --model PATH. "
-                                                "See docs/DETECTOR.md."})
+                                                "See docs/reference/DETECTOR.md."})
                     else:
                         from researchlab.detector import predict_image
                         path, sample, _ = images[sample_id]
@@ -102,7 +102,7 @@ def handler(root, model):
                 else:
                     self.send(404, {"error": "Unknown route"})
             except (demo.DemoError, ValueError, KeyError, TypeError, OSError, RuntimeError) as error:
-                self.send(400, {"error": str(error), "setup": "docs/OFFLINE_SETUP.md"})
+                self.send(400, {"error": str(error), "setup": "docs/setup/OFFLINE_SETUP.md"})
 
     return Handler
 

@@ -2,6 +2,8 @@
 
 [Chapter index](index.md) · [Source coverage](sources.md)
 
+Companion lab: [Evaluation and ML](../../labs/research/03-evaluation-ml.md).
+
 A model is trained on one collection of examples and judged on another. Its score depends on what the collections contain and what they share. Imagine evaluating a motion classifier on videos from cameras it will encounter later. The validation setup needs to make that deployment question explicit before any model comparison can answer it.
 
 <details>
@@ -93,6 +95,8 @@ Imagine 12 clips from each of cameras A, B and C. A random clip split can put cl
 There is no guarantee that a grouped split will have the same label proportions as the original data. For instance, only one camera may record stationary objects at night. Record which groups contain those cases and interpret the held-out result accordingly. Randomly moving clips across the boundary to make the counts nicer could recreate the leakage. More independent sources are a better basis for a confident claim when a behaviour appears in very few groups.
 
 Preprocessing follows the same boundary. If you standardize features, calculate training means and standard deviations from the training groups. Apply those values to validation groups as they would be applied to a future camera. The same principle applies to feature selection, threshold tuning and calibration.
+
+<a name="start-with-a-case"></a>
 
 ## When the test set contains a familiar background
 

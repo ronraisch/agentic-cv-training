@@ -1,6 +1,7 @@
 # Cloud segmentation as an operational decision
 
-Full theory and original course links: [Deep syllabus](../syllabi/deep.md).
+[Deep Learning syllabus](../syllabi/deep.md) · [Cloud segmentation proposal](../../labs/research/04-clouds.md)
+
 This short lesson supplements that route; reading completion is optional when understanding is demonstrated.
 
 The consumer wants to avoid object-detector work where imagery is unusable. A cloud mask does not

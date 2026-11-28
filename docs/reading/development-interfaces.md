@@ -2,6 +2,8 @@
 
 [Chapter index](index.md) · [Source coverage](sources.md)
 
+Companion lab: [Labeling and persistence](../../labs/research/01-polygons.md) · [First SAM2 service](../../labs/research/01b-sam2-service.md) · [RabbitMQ recovery](../../labs/research/05b-rabbitmq-sam3-detector.md).
+
 A labeling request crosses several boundaries. A client sends an image reference, a worker runs the model and a store saves the result. The user needs to retrieve the correct annotation even if a worker restarts partway through. Each boundary has its own success condition, which becomes easier to understand if we follow one job all the way through.
 
 <details>
@@ -71,6 +73,8 @@ Keep status and result separate when inspecting failures. An HTTP response accep
 ## Services, queues and state
 
 A service boundary should expose a meaningful operation with versioned inputs/outputs. Separate pure model prediction from transport and persistence so the same computation can be checked locally and through the actual consumer. A queue buffers jobs; a worker converts jobs into durable outputs. Define retryable errors, terminal errors and how partial results are recognized. A completed job is supported by a saved/reloaded artifact and a consumer check, not simply an in-memory flag.
+
+<a name="start-with-a-case"></a>
 
 ## Handling a job that arrives a second time
 

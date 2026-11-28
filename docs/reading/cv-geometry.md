@@ -2,6 +2,8 @@
 
 [Chapter index](index.md) · [Source coverage](sources.md)
 
+Companion lab: [Plate rectification](../../labs/research/02-classical-cv.md#task-1-rectify-a-plate-before-recognition).
+
 Two photographs of the same street do not put every landmark at the same pixel. Before aligning them, we need a way to describe where a point moves and when a single mapping is plausible. Line fitting gives one simple geometric model. Camera projection then explains why some image pairs require more than a planar warp.
 
 <details>
@@ -73,6 +75,8 @@ Four corresponding points in general position provide independent constraints. C
 ## Camera projection
 
 A pinhole camera maps a 3D homogeneous point through `p ~ K [R | t] X`. K describes intrinsics such as focal length in pixels and principal point; R and t describe the world-to-camera pose under a declared convention. Perspective division converts homogeneous coordinates to image coordinates. Lens distortion is a separate model and can break a simple projective fit at wide fields of view. A planar scene or pure camera rotation supports a global inter-image homography. A scene with depth variation and camera translation usually produces parallax that one homography cannot remove.
+
+<a name="start-with-a-case"></a>
 
 ## When one warp aligns the road but misses the roof
 

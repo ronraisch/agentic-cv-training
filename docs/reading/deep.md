@@ -42,13 +42,7 @@ Recommended first-pass study: 16–26 active hours; viewing/reflection: 18–28 
 
 ## Practical work
 
-- [Cloud segmentation proposal](../../labs/research/04-clouds.md)
-
-- [Ordinary-camera video](../../labs/research/05-video.md)
-
-- [RabbitMQ/SAM3 and detector training](../../labs/research/05b-rabbitmq-sam3-detector.md)
-
-- [Operational handover](../../labs/research/06-handover.md)
+Follow the [current syllabus assignment sequence](../syllabi/deep.md#practical-work).
 
 Read selectively before and during implementation; discuss hypotheses with your agent, verify one counterexample and explain the evidence yourself. The manual Python capstone and first SAM2 service retain their existing manual rules.
 

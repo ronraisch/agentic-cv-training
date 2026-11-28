@@ -19,6 +19,8 @@ class Page(HTMLParser):
         attrs = dict(attrs)
         if "id" in attrs:
             self.ids.add(attrs["id"])
+        if tag == "a" and "name" in attrs:
+            self.ids.add(attrs["name"])
         if tag in {"a", "link", "img", "script"}:
             target = attrs.get("href") or attrs.get("src")
             if target:

@@ -25,6 +25,8 @@ A collection of images can be useful even if nobody has labelled which objects a
 
 Self-supervision creates a learning target from the observations. Two transformed views of one image may be a positive pair, a masked patch may be a reconstruction target, or one model's output may supervise another view. The chosen transformations define what the representation should ignore. Cropping can remove the object of interest, and color invariance can be harmful if color is the operational attribute. Pretraining is not automatically neutral with respect to the downstream task.
 
+<a name="start-with-a-case"></a>
+
 ## What two augmented views have in common
 
 A wide image contains a tiny truck. One augmented crop includes it; another contains only the surrounding background. The training process still treats these as related views of the same source image.
@@ -77,6 +79,8 @@ Take a crop of a red truck and two altered versions of it. One is brighter, whil
 Now take a second truck from a different image. In instance-level contrastive training it may be treated as a negative even though it shares the class you care about. The objective defines its own notion of similarity through view construction and sampling. To evaluate the result for vehicle retrieval, inspect actual returned crops and use independently defined relevance labels.
 
 A representation that maps everything to one vector would make positive pairs close, with no discrimination. This is the collapse problem. Contrastive negatives provide one way to oppose it. Teacher–student approaches use other design choices to shape and stabilize the target representations.
+
+<a name="collapse-and-teacher-student-learning"></a>
 
 ## Collapse and teacher/student learning
 

@@ -1,8 +1,10 @@
 # Propose a cloud-segmentation approach
 
+[Deep Learning syllabus](../../docs/syllabi/deep.md) · [Companion lesson](../../docs/lessons/05-clouds.md) · Previous: [Oriented detection](04-oriented-detection.md) · Next: [Ordinary-camera video](05-video.md)
+
 ## Start here
 
-Use approved sensor examples and public sources in your research workspace. Ask the mentor which bands are available and for one representative image with a cloud boundary. Inspect the bands, then agree on the two downstream error costs and the runtime measurement. If you get stuck, use the [worked example](../../docs/WORKED_EXAMPLES.md#deep-learning-and-video).
+Use approved sensor examples and public sources in your research workspace. Ask the mentor which bands are available and for one representative image with a cloud boundary. Inspect the bands, then agree on the two downstream error costs and the runtime measurement. If you get stuck, use the [worked example](../../docs/reference/WORKED_EXAMPLES.md#deep-learning-and-video).
 
 ## Goal
 
@@ -28,5 +30,5 @@ requires mentor approval; it is not part of the default deliverable.
 
 [Cloud concepts](../../docs/lessons/05-clouds.md) ·
 [Training concepts](../../docs/lessons/04-torch.md) ·
-[Cloud data](../../docs/DATASETS.md#cloud-segmentation) ·
-[Acquisition steps](../../docs/DATASETS.md#acquire-a-working-subset)
+[Cloud data](../../docs/reference/DATASETS.md#cloud-segmentation) ·
+[Acquisition steps](../../docs/reference/DATASETS.md#acquire-a-working-subset)

@@ -16,7 +16,7 @@ def from_sqlite(path: Path, split: str) -> pd.DataFrame:
     path = Path(path).resolve()
     if not path.is_file():
         raise ValueError(f"Missing catalog database {path}. Expected SQLite with a samples table "
-                         "including a split column. See docs/DATA_FORMATS.md#retrieval-catalog.")
+                         "including a split column. See docs/reference/DATA_FORMATS.md#retrieval-catalog.")
     with sqlite3.connect(f"{path.as_uri()}?mode=ro", uri=True) as conn:
         return pd.read_sql_query("SELECT * FROM samples WHERE split = ?", conn, params=(split,))
 

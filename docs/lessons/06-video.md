@@ -1,6 +1,7 @@
 # Video representations and consumer questions
 
-Full theory and original course links: [Deep syllabus](../syllabi/deep.md).
+[Deep Learning syllabus](../syllabi/deep.md) · [Ordinary-camera video](../../labs/research/05-video.md) · [Operational handover](../../labs/research/06-handover.md)
+
 This short lesson supplements that route; reading completion is optional when understanding is demonstrated.
 
 This task uses ordinary-camera video, not satellite video. Indoor/outdoor, road and sky-only

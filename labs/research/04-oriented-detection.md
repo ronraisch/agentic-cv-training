@@ -1,9 +1,11 @@
 # Upgrade the detector to oriented boxes
 
+[Deep Learning syllabus](../../docs/syllabi/deep.md) · [Companion lesson](../../docs/lessons/04-torch.md) · Previous: [Evaluation and ML](03-evaluation-ml.md) · Next: [Cloud segmentation](04-clouds.md)
+
 ## Start here
 
-Run [the YOLO11 baseline](../../docs/DETECTOR.md) on the labeled satellite collection in the
-[local data mount](../../docs/DATA_FORMATS.md#labeling-collections). Bring a plot, an image
+Run [the YOLO11 baseline](../../docs/reference/DETECTOR.md) on the labeled satellite collection in the
+[local data mount](../../docs/reference/DATA_FORMATS.md#labeling-collections). Bring a plot, an image
 containing close or diagonal objects, and a trace from the model output to the stage 1 annotation UI.
 
 ## Make the upgrade

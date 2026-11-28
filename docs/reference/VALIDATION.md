@@ -8,6 +8,7 @@ uv run --no-sync pytest
 uv run --no-sync ruff check .
 uv run --no-sync researchlab-demo smoke --root artifacts/baseline-check
 uv run --no-sync python tools/preflight.py --scope starter
+uv run --no-sync python tools/check_course_links.py
 ```
 
 The CPU fixture is procedural, not evidence of research accuracy on real camera data or internal

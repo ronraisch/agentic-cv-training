@@ -16,7 +16,7 @@ def load_collection(root, domain):
     root = Path(root) / domain
     if not (root / "manifest.json").is_file():
         raise demo.missing("labeling dataset manifest", root / "manifest.json",
-                           "Mount the prepared dataset. See docs/DATA_FORMATS.md#labeling-collections.")
+                           "Mount the prepared dataset. See docs/reference/DATA_FORMATS.md#labeling-collections.")
     manifest = demo.load_manifest(root)
     source = manifest.get("source")
     if (not isinstance(source, str) or not source.strip()
@@ -48,7 +48,7 @@ def load_collection(root, domain):
             validate({"schema_version": 1, "annotations": sample["annotations"]}, width, height)
             samples[sample["id"]] = sample
         except (KeyError, ValueError, OSError, TypeError) as error:
-            raise demo.DemoError(f"{path}: {error}. See docs/DATA_FORMATS.md#labeling-collections") from error
+            raise demo.DemoError(f"{path}: {error}. See docs/reference/DATA_FORMATS.md#labeling-collections") from error
     if not any(sample["annotations"] for sample in samples.values()):
         raise demo.DemoError(f"{root}/manifest.json: expected at least one annotated object")
     return root, manifest, samples
@@ -74,7 +74,7 @@ def load_labeling(root):
                 height, width = demo.pixels(path, sample).shape[:2]
                 demo.validate_annotations(record, width, height, manifest["classes"])
         except (sqlite3.Error, KeyError, ValueError, TypeError, OSError) as error:
-            raise demo.DemoError(f"{path}/labels.sqlite: {error}. See docs/DATA_FORMATS.md") from error
+            raise demo.DemoError(f"{path}/labels.sqlite: {error}. See docs/reference/DATA_FORMATS.md") from error
     return collections
 
 

@@ -25,9 +25,13 @@
 
 **Historical handout, preserved in full.** This records the older learner text; historical schedules and instructions to complete every reading or old assignment are superseded by the stage syllabus above. Reading links now point to local explanations. Video links retain their source destinations. The current required exercises are linked from the stage syllabus.
 
+<a name="reading-amp-viewing-materials"></a>
+
 ## Reading & Viewing Materials
 
 For each topic, one or two short resources — enough to follow a researcher's explanation, not to become an expert. Total watch/read time is roughly 5-6 hours if done end to end.
+
+<a name="a-learning-paradigms-amp-task-types"></a>
 
 ## A. Learning Paradigms & Task Types
 
@@ -63,6 +67,8 @@ Video: StatQuest — [Regularization Part 1: Ridge (L2) Regression](https://www.
 
 Video: 3Blue1Brown — [But what is a convolution? (CNN chapter)](https://www.youtube.com/watch?v=KuXjwB4LzSA) — 23 min. Visual build-up of what a convolution does to an image, the operation CNNs are built on.
 
+<a name="c-evaluation-amp-metrics"></a>
+
 ## C. Evaluation & Metrics
 
 8. Evaluation & basic metrics: accuracy, precision, recall — why isn't accuracy enough?
@@ -93,6 +99,8 @@ Article: Jay Alammar — [The Illustrated Transformer](dl-attention.md) — the 
 
 Video: 3Blue1Brown — [But what is a GPT? Visual intro to Transformers (Ch. 5)](https://www.youtube.com/watch?v=wjZofJX0v4M) — 27 min. Ties tokens, embeddings, attention, and decoders together into "how GPT actually works."
 
+<a name="e-retrieval-amp-applied-llm-systems"></a>
+
 ## E. Retrieval & Applied LLM Systems
 
 15. Vector quantization
@@ -106,6 +114,8 @@ Article: Pinecone — [Introduction to Faiss](dl-retrieval.md) and [Nearest Neig
 17. Retrieval-Augmented Generation (RAG)
 
 Article: Pinecone — [Retrieval-Augmented Generation](dl-retrieval.md) — connects retrieval + embeddings + an LLM into the RAG pattern that ties sections D and E together.
+
+<a name="f-training-deployment-amp-optimization"></a>
 
 ## F. Training, Deployment & Optimization
 

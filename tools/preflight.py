@@ -74,7 +74,7 @@ def starter_checks():
             checks.append(check(
                 name, "BLOCKED", "Missing packages: " + ", ".join(missing)
                 + "; install the approved locked dev/MCP environment. "
-                "See docs/OFFLINE_SETUP.md#python-runtime; no runtime download was attempted.", command=args,
+                "See docs/setup/OFFLINE_SETUP.md#python-runtime; no runtime download was attempted.", command=args,
             ))
         else:
             checks.append(run_smoke(name, args, **options))

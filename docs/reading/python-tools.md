@@ -76,6 +76,8 @@ Concurrency means tasks can make progress over overlapping time; parallelism mea
 
 Compare a loop, map, a process pool and a thread pool on three workloads: squaring many numbers, a substantial numerical approximation, and reading/writing independent temporary files. Map alone is an iteration interface, not a promise of parallel execution. Make the jobs large enough to amortize scheduling costs; very small squares often run faster serially. Warm up where needed, repeat runs, check identical outputs and report workload size and worker count. Do not credit a faster function that did less work.
 
+<a name="start-with-a-case"></a>
+
 ## Choosing workers for the work you actually have
 
 Suppose a batch has four images to fetch and four CPU-heavy Python calculations to perform. Both contain four independent tasks, but they spend their time differently. The downloads wait for I/O; the calculations keep the interpreter busy.

@@ -20,7 +20,7 @@ def list_samples(limit: int = 3, split: str = "train") -> dict:
         raise ValueError("unsupported split")
     if not CATALOG.is_file():
         raise ValueError(f"Missing catalog CSV: {CATALOG}. Supply --catalog PATH with "
-                         "sample_id,scene_id,split columns. See docs/DATA_FORMATS.md#retrieval-catalog.")
+                         "sample_id,scene_id,split columns. See docs/reference/DATA_FORMATS.md#retrieval-catalog.")
     data = pd.read_csv(CATALOG)
     if not REQUIRED_COLUMNS <= set(data.columns):
         raise ValueError(f"{CATALOG} must contain sample_id,scene_id,split columns")

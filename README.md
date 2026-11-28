@@ -2,8 +2,8 @@
 
 Onboarding for research engineers working with satellite and airborne imagery and with ordinary-camera video.
 
-- [Start here](docs/START_HERE.md) for setup and your first assignment.
-- [Training index](docs/TRAINING_INDEX.md) for Development, CV, ML and Deep Learning.
-- [Trainee guide](docs/TRAINEE_GUIDE.md) for assignments, time estimates and mentor sessions.
+- [Start here](docs/training/START_HERE.md) to set up your workspace and begin your first assignment.
+- [Training index](docs/TRAINING_INDEX.md) for the Development and CV, ML & Deep Learning routes.
+- [Trainee guide](docs/training/TRAINEE_GUIDE.md) for working rules, deliverables and time estimates.
 
-[Dataset catalog](docs/DATASETS.md) · [Internal environment](docs/RESEARCH_ENVIRONMENT.md) · [Local ResearchLab demo](docs/BASELINE.md)
+[Planning for mentors](docs/mentor/CURRICULUM.md) · [Environment and setup](docs/setup/README.md) · [Technical reference](docs/reference/README.md)

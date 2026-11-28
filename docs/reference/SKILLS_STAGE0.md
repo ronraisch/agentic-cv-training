@@ -4,7 +4,7 @@ The required collection is **Matt Pocock's engineering/productivity skills**.
 A skill supplies instructions, not tools, permissions, dependencies or proof that code works.
 
 Before installing/activating skills, complete [VS Code, personal OpenShift pod and OMP/local-LLM
-setup](GETTING_STARTED_INTERNAL.md#required-setup-order). Run the activation experiment in that
+setup](../setup/GETTING_STARTED_INTERNAL.md#required-setup-order). Run the activation experiment in that
 OMP environment against the approved local model (currently QWEN 3.8); unsupported skill discovery
 or tool calling must be recorded as blocked rather than assumed from file presence.
 
