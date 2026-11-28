@@ -1,6 +1,6 @@
 # 4 · Deep learning, open models and video
 
-[CV, ML & Deep Learning](../training/RESEARCH.md) · Previous: [Machine learning](ml.md)
+[Training index](../TRAINING_INDEX.md)
 
 ## Topics and local reading
 

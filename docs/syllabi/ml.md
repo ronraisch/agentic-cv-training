@@ -1,6 +1,6 @@
 # 3 · Machine learning and evaluation
 
-[CV, ML & Deep Learning](../training/RESEARCH.md) · Previous: [Computer vision](cv.md) · Next: [Deep learning](deep.md)
+[Training index](../TRAINING_INDEX.md)
 
 ## Topics and local reading
 

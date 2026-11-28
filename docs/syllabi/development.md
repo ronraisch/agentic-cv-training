@@ -1,6 +1,6 @@
 # 1 · Development
 
-[Training index](../TRAINING_INDEX.md) · Next route: [CV, ML & Deep Learning](../training/RESEARCH.md)
+[Training index](../TRAINING_INDEX.md)
 
 ## Topics and local reading
 

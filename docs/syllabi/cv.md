@@ -1,6 +1,6 @@
 # 2 · Classical computer vision
 
-[CV, ML & Deep Learning](../training/RESEARCH.md) · Previous: [Development](development.md) · Next: [Machine learning](ml.md)
+[Training index](../TRAINING_INDEX.md)
 
 ## Topics and local reading
 
